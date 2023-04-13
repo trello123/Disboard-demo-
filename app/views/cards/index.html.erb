@@ -1,0 +1,18 @@
+<div class="flex-col">
+  
+    <div>
+      <th>Todo List</th>
+    </div>
+  
+  
+      <% @cards.each do |card| %>
+        <div>
+          <%= link_to card.title, card_path(card.id) %>
+          <%= link_to '更新', edit_card_path(card.id) %>
+          <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' } %>
+        </div>
+      <% end%>
+  
+
+    <%= link_to '新增項目', new_card_path %>
+</div>
