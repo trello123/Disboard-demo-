@@ -1,18 +1,20 @@
 <%=  form_for(card) do |f| %>
-    
-      <div>
-        <%= f.label :title, '標題'  %>
-        <%= f.text_field :title, class: 'input' %>
-        <%= f.label :title, '(必填)'  %>
-      </div>
-      <div>
-        <%= f.label :intro, '簡介' %>
-        <%= f.text_area :intro, class: 'input' %>
-        <%= f.label :intro, '(必填)'  %>
-      </div>
-      <div>
-        <%= f.label :level, '難易度' %>
-        <%= f.select :level, Card.level_list %>
-      </div>
-      <%= f.submit '建立項目', class: 'btn-primary' %>
-     <% end %>
+  <div>
+    <%= f.label :title, '標題'  %>
+    <%= f.text_field :title, class: 'input' %>
+    <%= f.label :title, '(必填)'  %>
+  </div>
+  
+  <div>
+    <%= f.label :intro, '簡介' %>
+    <%= f.text_area :intro, class: 'input' %>
+    <%= f.label :intro, '(必填)'  %>
+  </div>
+
+  <div>
+    <%= f.label :level, '難易度' %>
+    <%= f.select :level, Card.level_list %>
+  </div>
+
+  <%= f.submit '建立項目', class: 'btn-primary' %>
+<% end %>
