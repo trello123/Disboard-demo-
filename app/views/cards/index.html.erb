@@ -10,13 +10,13 @@
           <div class="my-2 bg-gray-300 border-2 border-gray-300">
             <%= link_to card.title, card_path(card.id) %>
           </div>
-          <div>
-            <%= link_to '更新', edit_card_path(card.id) %>
-            <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' } %>
+          <div >
+            <%= link_to '更新', edit_card_path(card.id), class: 'btn-primary' %>
+            <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger' %>
           </div>
         </div>
       <% end%>
   
 
-    <%= link_to '新增項目', new_card_path %>
+    <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
 </div>

@@ -6,7 +6,10 @@
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-blue-200;
+    @apply p-1 bg-green-600 rounded text-green-50 hover:bg-green-700;
+  }
+  .btn-danger {
+    @apply p-1 rounded bg-rose-600 text-rose-50 hover:bg-rose-700;
   }
   .input {
     @apply w-48;
