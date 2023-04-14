@@ -1,0 +1,7 @@
+<% if card.errors.any? %>
+  <% card.errors.full_messages.each do |msg| %>
+    <ul class="flex-col">
+      <li><%= msg %></li>
+    </ul>
+  <% end %>
+<% end %>

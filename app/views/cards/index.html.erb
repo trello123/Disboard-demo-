@@ -1,4 +1,4 @@
-<div class="flex-col">
+<div class="flex-col p-2 border-2 border-red-500 w-96">
   
     <div>
       <th>Todo List</th>
@@ -6,10 +6,14 @@
   
   
       <% @cards.each do |card| %>
-        <div>
-          <%= link_to card.title, card_path(card.id) %>
-          <%= link_to '更新', edit_card_path(card.id) %>
-          <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' } %>
+        <div class="my-6">
+          <div class="my-2 bg-gray-300 border-2 border-gray-300">
+            <%= link_to card.title, card_path(card.id) %>
+          </div>
+          <div>
+            <%= link_to '更新', edit_card_path(card.id) %>
+            <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' } %>
+          </div>
         </div>
       <% end%>
   
