@@ -1,7 +1,10 @@
-<div class="flex-col p-2 border-2 border-red-500 w-96">
+<div class="flex-col p-2 border-2 border-red-500 w-96" data-controller="sortable">
   <div>
     <h2>Todo List</h2>
   </div>
-  <%= render partial: "card", collection: @cards %>
+  <div data-controller="sortable">
+    <%= render partial: "card", collection: @cards %>
+  </div>
+
   <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
 </div>
