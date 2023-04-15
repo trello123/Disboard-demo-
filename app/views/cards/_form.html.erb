@@ -1,10 +1,17 @@
 <%=  form_for(card) do |f| %>
+  <% if card.errors.any? %>
+    <% card.errors.full_messages.each do |msg| %>
+      <ul class="flex-col">
+        <li><%= msg %></li>
+      </ul>
+    <% end %>
+  <% end %>
   <div>
     <%= f.label :title, '標題'  %>
     <%= f.text_field :title, class: 'input' %>
     <%= f.label :title, '(必填)'  %>
   </div>
-  
+
   <div>
     <%= f.label :intro, '簡介' %>
     <%= f.text_area :intro, class: 'input' %>

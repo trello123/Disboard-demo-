@@ -1,17 +1,7 @@
 <div class="flex-col p-2 border-2 border-red-500 w-96">
   <div>
-    <th>Todo List</th>
+    <h2>Todo List</h2>
   </div>
-  <% @cards.each do |card| %>
-    <div class="my-6">
-      <div class="my-2 bg-gray-300 border-2 border-gray-300">
-        <%= link_to card.title, card_path(card.id) %>
-      </div>
-      <div >
-        <%= link_to '更新', edit_card_path(card.id), class: 'btn-primary' %>
-        <%= link_to '刪除', card_path(card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger' %>
-      </div>
-    </div>
-  <% end%>
+  <%= render partial: "card", collection: @cards %>
   <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
 </div>
