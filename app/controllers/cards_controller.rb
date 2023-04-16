@@ -2,7 +2,8 @@ class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
 
   def index
-    @cards = Card.order(created_at: :desc)
+    # 改變排序以position為排序
+    @cards = Card.order(:position)
   end
 
   def new

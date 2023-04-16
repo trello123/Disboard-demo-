@@ -13,6 +13,9 @@ class Card < ApplicationRecord
   validates :title, presence: true
   validates :intro, presence: true
 
+  #套件給的
+  acts_as_list
+
   enum level: { '待確認': 0, '簡單': 1, '普通': 2, '困難': 3 }
 
   def self.level_list
