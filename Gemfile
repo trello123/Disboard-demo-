@@ -64,3 +64,5 @@ gem 'hotwire-rails', '~> 0.1.0'
 gem "foreman", "~> 0.87.2"
 
 gem "requestjs-rails", "~> 0.0.10"
+
+gem "acts_as_list", "~> 1.1"
