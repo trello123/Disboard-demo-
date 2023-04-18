@@ -11,6 +11,7 @@
     "@rails/webpacker": "5.4.4",
     "daisyui": "^2.51.5",
     "sortablejs": "^1.15.0",
+    "tailwind-clip-path": "^1.0.0",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
