@@ -4,6 +4,8 @@
 
 import { application } from "./application"
 
+import AosController from "./aos_controller"
+application.register("aos", AosController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
