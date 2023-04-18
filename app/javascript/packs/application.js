@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "controllers"
 import "aos/dist/aos.css"
-
+import "@fortawesome/fontawesome-free/css/all.css"
 
 Rails.start()
 Turbolinks.start()
