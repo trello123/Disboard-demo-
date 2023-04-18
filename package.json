@@ -9,6 +9,7 @@
     "@rails/request.js": "^0.0.8",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.4",
+    "daisyui": "^2.51.5",
     "sortablejs": "^1.15.0",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
