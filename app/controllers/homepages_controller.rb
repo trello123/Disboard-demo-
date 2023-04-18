@@ -1,5 +1,5 @@
 class HomepagesController < ApplicationController
-  layout '../views/layouts/homepage.html.erb'
+  layout 'homepage'
   def index
   end
   
