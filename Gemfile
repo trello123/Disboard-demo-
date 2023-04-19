@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "tailwindcss-rails", "~> 2.0"
 gem "pg", "~> 1.4"
 gem "annotate", "~> 3.2"
+gem 'devise', '~> 4.9', '>= 4.9.2'
 
 
 group :development, :test do
