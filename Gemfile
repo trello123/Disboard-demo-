@@ -29,6 +29,7 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "pg", "~> 1.4"
 gem "annotate", "~> 3.2"
 gem 'devise', '~> 4.9', '>= 4.9.2'
+gem 'rails-i18n', '~> 7.0', '>= 7.0.6'
 
 
 group :development, :test do
