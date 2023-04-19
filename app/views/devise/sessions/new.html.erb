@@ -1,4 +1,4 @@
-<h2>登入</h2>
+<h2><%= I18n.t("devise.shared.sign_in") %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -19,7 +19,7 @@
   <% end %>
 
   <div class="btn-primary">
-    <%= f.submit "登入" %>
+    <%= f.submit I18n.t("devise.shared.sign_in") %>
   </div>
 <% end %>
 
