@@ -7,5 +7,8 @@ import { application } from "./application"
 import AosController from "./aos_controller"
 application.register("aos", AosController)
 
+import CardFormController from "./card_form_controller"
+application.register("card-form", CardFormController)
+
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)

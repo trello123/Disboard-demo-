@@ -4,8 +4,8 @@
     <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
   </div>
   <div data-controller="sortable" >
-    <%= render partial: "card", collection: @cards %>
+    <section id="card-list">
+      <%= render partial: "card", collection: @cards %>
+    </section>
   </div>
-  
-
 </div>
