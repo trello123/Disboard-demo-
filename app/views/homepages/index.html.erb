@@ -1,6 +1,6 @@
-<section class="container py-56 ">
+<section class="container w-screen py-56">
   <section class="shadow-2xl rotate-6 bg-slate-200 logo-bg">
-    <h1 class="pt-20 text-center text-9xl logo -rotate-6">Disboard</h1>
+    <h1 class="pt-20 text-6xl text-center lg:text-9xl logo -rotate-6">Disboard</h1>
     <section class="py-20 text-center -rotate-6">
       <% if user_signed_in? %>
         <%= link_to "登出", destroy_user_session_path, method:"delete" , class:" btn-logn mx-4" %>
@@ -12,7 +12,7 @@
   </section>
   <section class="container pt-40 ">
     <h2 class="py-5 text-3xl text-black">功能介紹</h2>
-    <div class="grid grid-cols-2 p-10 mt-10 bg-white rounded-lg shadow-2xl" data-controller="aos" data-aos="fade-left" data-aos-duration="1000">
+    <div class="grid grid-cols-1 p-10 mt-10 bg-white rounded-lg shadow-2xl lg:grid-cols-2" data-controller="aos" data-aos="fade-left" data-aos-duration="1000">
       <div class="w-1/2 mx-auto">
         <img src="https://picsum.photos/500/400?random=1" alt="功能介紹" class="w-full rounded-full">
       </div>
@@ -21,7 +21,7 @@
         <p>專案管理系統是一個有效的工具，能夠幫助項目團隊協調和管理各項工作。它可以提供項目日程表、任務分配、時間追蹤、進度報告、資源分配等功能，讓團隊成員可以更好地了解項目進展情況，便於協調工作，提高效率。</p>
       </div>
     </div>
-    <div class="grid grid-cols-2 mt-10">
+    <div class="flex flex-col-reverse grid-cols-2 mt-10 lg:grid">
       <div class="flex flex-col justify-center text-gray-600">
         <h3 class="py-5 ml-auto text-3xl text-black">即時聊天</h3>
         <p>專案管理系統是一個有效的工具，能夠幫助項目團隊協調和管理各項工作。它可以提供項目日程表、任務分配、時間追蹤、進度報告、資源分配等功能，讓團隊成員可以更好地了解項目進展情況，便於協調工作，提高效率。</p>
@@ -30,11 +30,11 @@
         <img src="https://picsum.photos/500/400?random=2" alt="功能介紹" class="w-full rounded-full">
       </div>
     </div>
-    <div class="grid grid-cols-2 p-10 mt-10 bg-white rounded-lg shadow-2xl" data-controller="aos" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150">
+    <div class="grid grid-cols-1 p-10 mt-10 bg-white rounded-lg shadow-2xl lg:grid-cols-2" data-controller="aos" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150">
       <div class="w-1/2 mx-auto">
         <img src="https://picsum.photos/500/400?random=3" alt="功能介紹" class="w-full rounded-full">
       </div>
-      <div class="flex flex-col justify-center text-gray-600">
+      <div class="flex flex-col justify-center text-gray-600 ">
         <h3 class="py-5 text-3xl text-black">付費功能</h3>
         <p>專案管理系統是一個有效的工具，能夠幫助項目團隊協調和管理各項工作。它可以提供項目日程表、任務分配、時間追蹤、進度報告、資源分配等功能，讓團隊成員可以更好地了解項目進展情況，便於協調工作，提高效率。</p>
       </div>
