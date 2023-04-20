@@ -303,6 +303,7 @@ DEPENDENCIES
   tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data
+  warden (~> 1.2)
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

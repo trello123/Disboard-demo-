@@ -70,3 +70,5 @@ gem "requestjs-rails", "~> 0.0.10"
 gem "acts_as_list", "~> 1.1"
 
 gem "rspec-rails", "~> 6.0"
+
+gem "warden", "~> 1.2"
