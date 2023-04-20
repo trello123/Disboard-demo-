@@ -13,6 +13,9 @@ class Card < ApplicationRecord
   validates :title, presence: true
   validates :intro, presence: true
 
+  # relationships
+  belongs_to :container
+
   #套件給的
   acts_as_list
 
