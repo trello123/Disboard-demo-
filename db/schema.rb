@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_19_023936) do
+ActiveRecord::Schema.define(version: 2023_04_20_100520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "board_users", force: :cascade do |t|
+    t.bigint "board_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_board_users_on_board_id"
+    t.index ["user_id"], name: "index_board_users_on_user_id"
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "title"
@@ -22,6 +37,16 @@ ActiveRecord::Schema.define(version: 2023_04_19_023936) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "position"
+    t.bigint "container_id"
+    t.index ["container_id"], name: "index_cards_on_container_id"
+  end
+
+  create_table "containers", force: :cascade do |t|
+    t.string "title"
+    t.bigint "board_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_containers_on_board_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,4 +61,7 @@ ActiveRecord::Schema.define(version: 2023_04_19_023936) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "board_users", "boards"
+  add_foreign_key "board_users", "users"
+  add_foreign_key "containers", "boards"
 end
