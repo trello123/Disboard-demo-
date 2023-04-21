@@ -13,7 +13,7 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-          'homepage-bg': '#414E92'
+          'Azure-blue': '#414E92'
       },
     },
   },

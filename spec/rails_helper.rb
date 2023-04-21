@@ -20,4 +20,4 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers, type: :feature
 end
 
-Capybara.default_driver = :selenium_chrome_headless
+Capybara.default_driver = :selenium_chrome
