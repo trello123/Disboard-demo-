@@ -100,6 +100,8 @@ zh-TW:
         unhappy: 不喜歡
         update: 更新
         we_need_your_current_password_to_confirm_your_changes: 我們需要您的目前的密碼以確認您的更改
+      user:
+        signed_up: 註冊成功，歡迎！
       new:
         sign_up: 註冊
         signed_up: 註冊成功，歡迎！
@@ -111,7 +113,7 @@ zh-TW:
         updated_but_not_signed_in: 您已經成功的更新帳號資訊。但因為您變更了密碼，請重新登入。
     sessions:
       already_signed_out: 成功登出了。
-      new:
+      user:
         sign_in: 登入
         signed_in: 成功登入了。
         signed_out: 成功登出了。
@@ -133,6 +135,7 @@ zh-TW:
       unlocked: 您的帳號已被解鎖，現在已經登入。
   errors:
     messages:
+      signed_out: 成功登出了。
       already_confirmed: 已經驗證，請直接登入。
       confirmation_period_expired: 必須在 %{period} 內驗證，請重新申請。
       expired: 已經過期，請重新申請。

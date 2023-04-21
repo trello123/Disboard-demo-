@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   resources :cards
   resources :boards
   resources :containers
+  
+  #註冊及忘記密碼頁面重新整理會出錯 修正路徑
+  devise_scope :user do
+    get '/users', to: 'devise/registrations#new'
+    get '/users/password', to: 'devise/passwords#new'
+  end
 
   #homepage
   root 'homepages#index'
