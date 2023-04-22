@@ -1,5 +1,6 @@
-
-  <%= form_with(model: @board) do |f| %>
+<%= turbo_frame_tag(@board) do %>
+  <%= form_with(model: @board, data: {turbo: false}) do |f| %>
     <%= f.text_field :name %>
     <%= f.submit '更新' , class: 'btn-primary mx-2'%>
   <% end %>
+<% end %>
