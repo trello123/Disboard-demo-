@@ -10,7 +10,7 @@
             </div>
             <div class="field">
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"rounded-xl text-black"%>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"input"%>
             </div>
 
             <div class="field">
@@ -18,12 +18,12 @@
               <% if @minimum_password_length %>
                 <em>(最少 <%= @minimum_password_length %> 字數)</em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password",class:"rounded-xl bg-white text-black" %>
+              <%= f.password_field :password, autocomplete: "new-password",class:"input" %>
             </div>
 
             <div class="field">
               <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"rounded-xl bg-white text-black"%>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"input"%>
             </div>
 
             <div class="btn-primary">

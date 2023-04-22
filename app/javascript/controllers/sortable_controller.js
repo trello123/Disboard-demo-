@@ -17,11 +17,10 @@ export default class extends Controller {
         const {cardId} = e.item.dataset
         //因為排序方式不一樣，newindex是從0開始所以要加一
         const newIndex = e.newIndex + 1
-        console.log(newIndex);
         //取得api
         const url = `/api/v1/cards/${cardId}/sort`
         //用patch方法更新位置x
-        patch(url, {body: JSON.stringify({ newIndex})}).then((a)=>{console.log(a);})
+        patch(url, {body: JSON.stringify({ newIndex})}).then()
       }
     })
   }
