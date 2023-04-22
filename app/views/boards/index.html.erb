@@ -1,0 +1,23 @@
+<div class="flex flex-col">
+  <div>專案列表</div>
+
+  <div>
+    <% @boards.each do |board| %>
+      <div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200">
+        <div class="mx-5 my-2">
+          <%= link_to board.name, board_path(board.id) %>
+        </div>
+        <div >
+          <%= link_to '編輯', edit_board_path(board.id), class: 'btn-primary mx-2' %>
+          <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form_with(model: @board, url: boards_path) do |f| %>
+      <%= f.submit '新增'%>
+    <% end %>
+  </div>
+</div>
