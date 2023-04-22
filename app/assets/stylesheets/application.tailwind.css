@@ -32,6 +32,9 @@
   .logn-modal{
     @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-Azure-blue top-60 rounded-md shadow-2xl
   }
+  .input{
+    @apply rounded-xl  text-black
+  }
 }
 
 
