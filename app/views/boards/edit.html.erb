@@ -1,0 +1,5 @@
+
+  <%= form_with(model: @board) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit '更新' , class: 'btn-primary mx-2'%>
+  <% end %>

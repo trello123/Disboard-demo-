@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
 
   def index
     # 改變排序以position為排序
-    @boards = Board.all
+    @boards = Board.order(created_at: :desc)
   end
 
   def new
@@ -23,16 +23,18 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @boards = Board.all
+    @boards = Board.order(created_at: :desc)
     @containers = Board.find_by!(id: params[:id]).containers
   end
 
   def edit
+    @boards = Board.order(created_at: :desc)
+    @containers = Board.find_by!(id: params[:id]).containers
   end 
 
   def update
     if @board.update(board_params)
-      redirect_to boards_path 
+      redirect_to boards_path
     else
       render :edit
     end
