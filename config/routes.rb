@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :cards
   resources :boards
-  resources :container
+  resources :containers
 
   #homepage
   root 'homepages#index'
