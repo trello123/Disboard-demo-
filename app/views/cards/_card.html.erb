@@ -1,5 +1,5 @@
-<%= turbo_frame_tag(card) do %>
-  <div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200"  data-card-id="<%= card.id %>">
+<%= turbo_frame_tag card , data: { card_id: card.id }  do %>
+  <div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200" >
     <div class="mx-5 my-2">
       <%= link_to card.title, card_path(card.id) %>
     </div>

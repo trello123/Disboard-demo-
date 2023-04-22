@@ -14,7 +14,7 @@ class Card < ApplicationRecord
   validates :intro, presence: true
 
   # relationships
-  belongs_to :container
+  belongs_to :container , optional: true
 
   #套件給的
   acts_as_list

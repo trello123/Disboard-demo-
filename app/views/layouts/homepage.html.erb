@@ -6,12 +6,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="w-full homepage-bg">
+  <body class="relative w-full" data-controller="modal">
+    <div>
+      <%= turbo_frame_tag :sigin %>
+      <%= turbo_frame_tag :sigup %>
+    </div>
+    <%= turbo_frame_tag :sigin %>
     <%= render 'shared/navbar'%>
     <main class="container flex px-5 mx-auto">
       <%= yield %>

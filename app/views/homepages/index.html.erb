@@ -1,12 +1,12 @@
 <section class="container w-screen py-56">
-  <section class="shadow-2xl rotate-6 bg-slate-200 logo-bg">
-    <h1 class="pt-20 text-6xl text-center lg:text-9xl logo -rotate-6">Disboard</h1>
-    <section class="py-20 text-center -rotate-6">
+  <section class="">
+    <h1 class="pt-20 text-6xl text-center lg:text-9xl ">Disboard</h1>
+    <section class="py-20 text-center">
       <% if user_signed_in? %>
         <%= link_to "登出", destroy_user_session_path, method:"delete" , class:" btn-logn mx-4" %>
       <% else %>
-        <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4"%>
-        <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4"%>
+        <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
+        <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
       <% end %>
     </section>
   </section>

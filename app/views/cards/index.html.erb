@@ -3,9 +3,9 @@
     <h2 class="mb-3 text-2xl bg-MyColor-blue">Todo List</h2>
     <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
   </div>
-  <div data-controller="sortable" >
-    <section id="card-list">
-      <%= render partial: "card", collection: @cards %>
+  <div >
+    <section id="card-list" data-controller="sortable" >
+      <%= render partial: "card", collection: @cards  %>
     </section>
   </div>
 </div>
