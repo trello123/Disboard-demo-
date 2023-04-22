@@ -32,8 +32,11 @@ class BoardsController < ApplicationController
   end 
 
   def update
-    @board.update(board_params)
-    redirect_to @board
+    if @board.update(board_params)
+      redirect_to @board
+    else
+      render :record_not_found
+    end
   end
 
   def destroy
