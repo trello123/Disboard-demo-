@@ -22,8 +22,10 @@
 
   <div class="flex flex-col justify-center">
     <div>
-      <%= @board.name %>
-      <%= link_to '更改名稱', edit_board_path(@board.id), class: 'btn-primary mx-2' %>
+      <%= turbo_frame_tag(@board) do %>
+        <%= @board.name %>
+        <%= link_to '更改名稱', edit_board_path(@board.id), class: 'btn-primary mx-2' %>
+      <% end %>
     </div>
     <div class="flex">
       <% @containers.each do |c| %>
