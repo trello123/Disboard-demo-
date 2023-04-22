@@ -1,9 +1,10 @@
 class BoardsController < ApplicationController
-  before_action :find_board, except: [:index, :new, :create]
   before_action :authenticate_user!
+  before_action :find_board, except: [:index, :new, :create]
+  before_action :load_boards_and_containers, only: [:show, :edit]
+  
 
   def index
-    # 改變排序以position為排序
     @boards = Board.order(created_at: :desc)
   end
 
@@ -19,25 +20,20 @@ class BoardsController < ApplicationController
       @board.containers.create(title: 'doing')
       @board.containers.create(title: 'done')
       redirect_to boards_path 
+    else
+      render :record_not_found
     end
   end
 
   def show
-    @boards = Board.order(created_at: :desc)
-    @containers = Board.find_by!(id: params[:id]).containers
   end
 
   def edit
-    @boards = Board.order(created_at: :desc)
-    @containers = Board.find_by!(id: params[:id]).containers
   end 
 
   def update
-    if @board.update(board_params)
-      redirect_to @board
-    else
-      render :edit
-    end
+    @board.update(board_params)
+    redirect_to @board
   end
 
   def destroy
@@ -46,7 +42,6 @@ class BoardsController < ApplicationController
   end
 
 
-  
   private
   def board_params
     params.require(:board).permit(:name)
@@ -54,5 +49,10 @@ class BoardsController < ApplicationController
 
   def find_board
     @board = Board.find_by!(id: params[:id])
+  end
+
+  def load_boards_and_containers
+    @boards = Board.order(created_at: :desc)
+    @containers = Board.find_by!(id: params[:id]).containers
   end
 end
