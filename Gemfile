@@ -17,10 +17,13 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.6'
 gem "requestjs-rails", "~> 0.0.10"
 gem "acts_as_list", "~> 1.1"
+gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 end
 
 group :development do
