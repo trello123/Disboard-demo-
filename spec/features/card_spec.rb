@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :feature do
   before(:each) do
+    visit '/'
     user = User.create(email: 'aa@aa.aa', encrypted_password: '123456')
-    login_as user
-    visit cards_path
+    click_on '登入'
+    visit boards_path
   end
 
   context 'create new card' do 
