@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :cards
+  resources :boards
+  resources :container
 
   #homepage
   root 'homepages#index'
