@@ -21,7 +21,14 @@ class Card < ApplicationRecord
 
   enum level: { '待確認': 0, '簡單': 1, '普通': 2, '困難': 3 }
 
-  def self.level_list
-    levels.map { |k, _v| [k, k] }
+
+  class << self
+    def level_list
+      levels.map { |k, _v| [k, k] }
+    end
+
+    def calendar
+      where.not(daybegin: nil)
+    end
   end
 end
