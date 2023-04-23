@@ -1,14 +1,13 @@
 <div class="flex w-16">
   <div class="flex flex-col">
-    <div>專案列表</div>
   
-    <div>
+    <%# <div>
       <%= render partial: "board", collection: @boards %>
-    </div>
+    <%# </div> %> 
+
+    <%= link_to '刪除', board_path(@board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %>
   
-    <div>
-      <%= link_to '專案總表', boards_path %>
-    </div>
+    
   </div>
 
   <div class="flex flex-col justify-center">
