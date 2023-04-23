@@ -11,11 +11,7 @@ Rails.application.routes.draw do
     get '/users/password', to: 'devise/passwords#new'
   end
 
-  #註冊及忘記密碼頁面重新整理會出錯 修正路徑
-  devise_scope :user do
-    get '/users', to: 'devise/registrations#new'
-    get '/users/password', to: 'devise/passwords#new'
-  end
+
 
 
 
