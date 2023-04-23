@@ -23,9 +23,6 @@
   .input {
     @apply w-48;
   }
-  div {
-    @apply my-2;
-  }
   .sidebar-icon{
     @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 focus:bg-cyan-500  rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
   }
