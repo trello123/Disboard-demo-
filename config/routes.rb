@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :cards
   resources :boards
   resources :containers
+  resources :calendars, only: [:index]
 
   #homepage
   root 'homepages#index'
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
           patch :sort
         end
       end
+      # 目前不需要id 所以單數
+      resource :calendars
     end
   end
 end
