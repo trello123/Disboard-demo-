@@ -39,9 +39,7 @@ export default class extends Controller {
         patch(url, { query: { cardId: info.event.extendedProps.publicId, start: info.event.start, end: info.event.end } })
           .then((resp)=> {
             if (resp.ok) {
-              if (resp.ok) {
-                alert("成功更新時間")
-              }
+              alert("成功更新時間")
             }
           })
       },
