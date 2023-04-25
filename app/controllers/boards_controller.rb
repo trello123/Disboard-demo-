@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :find_board, except: [:index, :new, :create]
   before_action :load_boards_and_containers, only: [:show, :edit]
   
