@@ -1,38 +1,43 @@
 <%= turbo_frame_tag :sigup do%>
   <section class="absolute left-0 z-10 w-full" class="logn-modal">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),data:{turbo: false}) do |f| %>
-      <section class="flex items-center justify-center w-full">
-        <%= render "devise/shared/error_messages", resource: resource %>
-          <section class="text-white logn-modal">
-            <button class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"></i></button>
-            <div class="text-3xl text-center ">
-              <h3>歡迎加入Disboard!</h3>
-            </div>
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"input"%>
-            </div>
+    <section class="flex items-center justify-center w-full">
+      <section class="text-white logn-modal">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),data:{turbo: false}) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <button class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"></i></button>
+          <div class="text-3xl text-center ">
+            <h3>歡迎加入Disboard!</h3>
+          </div>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"input"%>
+          </div>
 
-            <div class="field">
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-                <em>(最少 <%= @minimum_password_length %> 字數)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password",class:"input" %>
-            </div>
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+              <em>(最少 <%= @minimum_password_length %> 字數)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password",class:"input" %>
+          </div>
 
-            <div class="field">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"input"%>
-            </div>
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"input"%>
+          </div>
+          <%= f.submit I18n.t("devise.shared.sign_up"),class: "btn-primary" %>
+        <% end %>
 
-            <div class="btn-primary">
-              <%= f.submit I18n.t("devise.shared.sign_up") %>
-            </div>
-            <%= render "devise/shared/links" %>
-          </section>
-      </section>  
-    <% end %>
+        <!-- <%= link_to '登入' ,new_user_session_path ,data: {turbo_frame: "sigin" , action: "click->modal#open"} %> -->
+
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to t("devise.shared.sign_in_with_provider", provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), data: { turbo: false } %>
+          <% end %>
+        <% end %>
+
+      </section>
+    </section>
   </section>
 <% end %>
 

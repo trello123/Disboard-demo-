@@ -1,8 +1,8 @@
 <%= turbo_frame_tag :sigin do%>
   <section class="absolute left-0 z-10 w-full " class="logn-modal">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name),data:{turbo: false}) do |f| %>
-      <section class="flex items-center justify-center w-full">
-        <section class="text-white logn-modal">
+    <section class="flex items-center justify-center w-full">
+      <section class="text-white logn-modal">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name),data:{turbo: false}) do |f| %>
           <button class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"></i></button>
           <div class="text-3xl text-center ">
             <h3>歡迎回來!</h3>
@@ -23,14 +23,18 @@
               <%= f.label :remember_me %>
             </div>
           <% end %>
-
-          <div class="btn-primary">
-            <%= f.submit I18n.t("devise.shared.sign_in") %>
-          </div>
-          <%= render "devise/shared/links" %>
-        </section>
+          
+          <%= f.submit I18n.t("devise.shared.sign_in"),class: "btn-primary" %>
+          
+        <% end %>
+        <!-- <%= link_to '註冊' ,  new_user_registration_path ,data: {turbo_frame: "sigup" , action: "click->modal#open"}%> -->
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to t("devise.shared.sign_in_with_provider", provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), data: { turbo: false } %>
+          <% end %>
+        <% end %>
       </section>
-    <% end %>
+    </section>
   </section>
 <% end %>
 
