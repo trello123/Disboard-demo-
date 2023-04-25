@@ -1,18 +1,8 @@
 <div class="fixed top-0 left-0 flex flex-col w-20 h-screen m-0 text-white bg-gray-600 shadow-lg">
-<button class="mt-10 mb-5 sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '專案總表', boards_path, class: 'focus:bg-cyan-500' %></i></button>
-<% @boards.each do |board| %>
-  <button class="sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to board.name, board_path(board.id) %></i></button>
-  <%# <button class="sidebar-icon"><i class="fa-solid fa-user-tie"></i></button> %>
-  <%# <button class="sidebar-icon"><i class="fa-solid fa-user-tie"></i></button> %>
-  <%# <button class="sidebar-icon"><i class="fa-solid fa-user-tie"></i></button> %>
-  <%# <button class="sidebar-icon"><i class="fa-solid fa-user-tie"></i></button> %>
-<% end %>
-
-<% if @containers.present? %>
-  <button class="sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '專案總表', boards_path, class: 'sidebar-icon' %></i></button>
-<% else %>
-  <%= form_with(model: @board, url: boards_path) do |f| %>
-    <button class="sidebar-icon"><i class="fa-solid fa-plus"><%= f.submit '', class: 'focus:bg-cyan-500'%></i></button>
+  <button class="mt-10 mb-5 sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '專案總表', boards_path, class: 'focus:bg-cyan-500' %></i></button>
+  <% @boards.each do |board| %>
+    <%= link_to board.name, board_path(board.id), class: "sidebar-icon"%>
   <% end %>
-<% end %>
+
+  <button class="mt-10 mb-5 sidebar-icon"><%= link_to '+', new_board_path %></button>
 </div>
