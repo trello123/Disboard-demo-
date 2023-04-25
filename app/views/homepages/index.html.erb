@@ -7,7 +7,6 @@
       <% else %>
         <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
         <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
-        <%= notice %>
       <% end %>
     </section>
   </section>
