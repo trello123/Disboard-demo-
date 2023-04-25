@@ -2,14 +2,8 @@ class ContainersController < ApplicationController
   # before_action :authenticate_user!
   before_action :find_container, except: [:index, :new, :create]
   # before_action :find_board, only: [:create]
-  before_action :load_containers_and_containers, only: [:show, :edit]
+  before_action :load_boards, only: [:show, :edit]
   
-
-  def index
-    @containers = Container.order(created_at: :desc)
-    @boards = Board.order(created_at: :desc)
-    # @board = Board.find_by!(id: params[:board_id])
-  end
 
   def new
     @boards = Board.order(created_at: :desc)
@@ -18,16 +12,13 @@ class ContainersController < ApplicationController
 
   def create
     @boards = Board.order(created_at: :desc)
-    # @board = Board.find_by!(id: params[:container][:board_id])
-    # @container = Container.new(container_params)
-    # @container.board_id = params[:board_id]
     @board = Board.find_by!(id: params[:board_id])
     @container = @board.containers.new(container_params)
 
     if @container.save
       redirect_to  @board
     else
-      render :new
+      render :record_not_found
     end
   end
 
@@ -39,7 +30,7 @@ class ContainersController < ApplicationController
 
   def update  
     if @container.update(container_params)
-      redirect_to board_path(board.id)
+      redirect_to @container.board
     else
       render :record_not_found
     end
@@ -47,7 +38,7 @@ class ContainersController < ApplicationController
 
   def destroy
     @container.destroy
-    redirect_to 'board/:id'
+    redirect_to @container.board
   end
 
 
@@ -60,12 +51,8 @@ class ContainersController < ApplicationController
     @container = Container.find_by!(id: params[:id])
   end
 
-  # def find_board
-  #   @container = Container.find_by!(id: params[:id])
-  #   @board = @container.board_id
-  # end
 
-  def load_containers_and_containers
+  def load_boards
     @boards = Board.order(created_at: :desc)
   end
 end
