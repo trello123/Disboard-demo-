@@ -1,15 +1,14 @@
 <%= turbo_frame_tag :sigup do%>
   <section class="absolute left-0 z-10 w-full" 
-           class="logn-modal"
-           class="logn-modal" 
+           data-modal-target="modal"
            data-aos="fade-up"
            data-aos-anchor-placement="top-bottom"
            data-aos-easing="ease-out-cubic"
            data-aos-duration="350">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name),data:{turbo: false}) do |f| %>
-      <section class="flex items-center justify-center w-full">
+      <section class="flex items-center justify-center w-full" data-controller="modal">
         <%= render "devise/shared/error_messages", resource: resource %>
-          <section class="text-white logn-modal">
+          <section class="text-white logn-modal" data-modal-target="modal">
             <a href="#" class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"></i></a>
             <div class="text-3xl text-center ">
               <h3>歡迎加入Disboard!</h3>
