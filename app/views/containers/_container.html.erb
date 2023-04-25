@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(container) do %>
-  <div class="flex px-2 py-2 mx-2 rounded-md bg-slate-200">
+  <div class="flex px-2 py-2 mx-4 my-4 rounded-md bg-slate-200">
     <div><%= container.title %></div>
     <div class="flex">
       <%= link_to '更改', edit_container_path(container.id), class: 'btn-primary mx-2' %>
