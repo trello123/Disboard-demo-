@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :cards
   resources :boards do
-    resources :containers, shallow: true
+    resources :containers, shallow: true, except: [:index]
   end
   
   resources :calendars, only: [:index]
