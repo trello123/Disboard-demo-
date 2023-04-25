@@ -27,7 +27,6 @@ class BoardsController < ApplicationController
   end
 
   def show
-    # @container = @containers.find_by!(id: params[:id])
   end
 
   def edit
@@ -58,6 +57,6 @@ class BoardsController < ApplicationController
 
   def load_boards_and_containers
     @boards = Board.order(created_at: :desc)
-    @containers = Board.find_by!(id: params[:id]).containers
+    @containers = Board.find_by!(id: params[:id]).containers.order(created_at: :desc)
   end
 end

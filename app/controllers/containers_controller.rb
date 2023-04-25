@@ -1,17 +1,14 @@
 class ContainersController < ApplicationController
   # before_action :authenticate_user!
   before_action :find_container, except: [:index, :new, :create]
-  # before_action :find_board, only: [:create]
-  before_action :load_boards, only: [:show, :edit]
+  before_action :load_boards, only: [:new, :create, :show, :edit]
   
 
   def new
-    @boards = Board.order(created_at: :desc)
     @container = Container.new
   end
 
   def create
-    @boards = Board.order(created_at: :desc)
     @board = Board.find_by!(id: params[:board_id])
     @container = @board.containers.new(container_params)
 
@@ -20,9 +17,6 @@ class ContainersController < ApplicationController
     else
       render :record_not_found
     end
-  end
-
-  def show
   end
 
   def edit
@@ -50,7 +44,6 @@ class ContainersController < ApplicationController
   def find_container
     @container = Container.find_by!(id: params[:id])
   end
-
 
   def load_boards
     @boards = Board.order(created_at: :desc)
