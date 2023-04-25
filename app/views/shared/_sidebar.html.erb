@@ -5,8 +5,8 @@
       <%= link_to board.name, board_path(board.id), class: "sidebar-icon"%>
     <% end %>
 
-    <button class="mt-10 mb-5 sidebar-icon"><%= link_to '+', new_board_path %></button>
+    <button class="mt-10 mb-5 sidebar-icon"><%= link_to '+', new_board_path, class: 'w-full h-full pt-2' %></button>
   </div>
 <% else %>
-  <%= turbo_frame_tag :sigin %>
+  <%= turbo_frame_tag :sigin %> 
 <% end %>
