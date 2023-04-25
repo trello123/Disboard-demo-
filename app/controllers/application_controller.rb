@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   def after_sign_in_path_for(resource)
     boards_path
   end
