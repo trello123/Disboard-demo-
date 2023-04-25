@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
-
+import AOS from "aos"
 // Connects to data-controller="modal"
 export default class extends Controller {
   open(){
-    this.element.setAttribute("class", "overflow-hidden")
+    AOS.init();
+    this.element.setAttribute("class", "overflow-hidden homepage-bg")
   }
   close(e){
     e.preventDefault()

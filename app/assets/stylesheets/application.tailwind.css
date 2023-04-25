@@ -32,6 +32,9 @@
   .input{
     @apply rounded-xl  text-black
   }
+  .insidebar{
+    @apply border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-500 hover:shadow-xl  mx-1.5 sm:mx-6 px-5
+  }
 }
 
 
