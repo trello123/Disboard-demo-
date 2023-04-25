@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :find_board, except: [:index, :new, :create]
   before_action :load_boards_and_containers, only: [:show, :edit]
   
@@ -9,23 +9,25 @@ class BoardsController < ApplicationController
   end
 
   def new
+    @boards = Board.order(created_at: :desc)  
     @board = Board.new
   end
 
   def create
-    @board = Board.new(name: '新專案')
+    @board = Board.new(board_params)
 
     if @board.save
       @board.containers.create(title: 'todo')
       @board.containers.create(title: 'doing')
       @board.containers.create(title: 'done')
-      redirect_to boards_path 
+      redirect_to board_path(@board.id) 
     else
       render :record_not_found
     end
   end
 
   def show
+    # @container = @containers.find_by!(id: params[:id])
   end
 
   def edit

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   resources :cards
-  resources :boards
-  resources :containers
+  resources :boards do
+    resources :containers, shallow: true
+  end
+  
   resources :calendars, only: [:index]
 
   #註冊及忘記密碼頁面重新整理會出錯 修正路徑

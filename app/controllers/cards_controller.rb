@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     # 改變排序以position為排序

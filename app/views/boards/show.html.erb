@@ -19,8 +19,13 @@
     </div>
     <div class="flex">
       <% @containers.each do |c| %>
-        <div class="h-10 m-2 border rounded-md bg-slate-200"><div class="px-2 py-2"><%= c.title %></div></div>
+        <%= turbo_frame_tag(c) do %>
+          <div class="h-10 m-2 border rounded-md bg-slate-200"><div class="px-2 py-2"><%= link_to c.title, container_path(c.id) %></div></div>
+          <%= link_to '更改', edit_container_path(c.id), class: 'btn-primary mx-2' %>
+          <%= link_to 'X', container_path(c.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2'  %>
+        <% end %>
       <% end %>
+      <%= link_to '新增', new_board_container_path(@board.id)  %>
     </div>
   </div>
 </div>
