@@ -1,0 +1,9 @@
+<div class="absolute p-2 bg-blue-400 left-48 top-48">
+  <%= form_for(@container, data: {turbo: false}, url: board_containers_path ) do |f| %>
+    <div>
+      <%= f.label :title, '標題'  %>
+      <%= f.text_field :title, class: 'input' %>
+    </div>
+    <%= f.submit '新增'%>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="absolute p-2 bg-red-400 left-48 top-48">
+  <%= form_with(model: @board) do |f| %>
+    <div>
+      <%= f.label :name, '標題'  %>
+      <%= f.text_field :name, class: 'input' %>
+    </div>
+    <%= f.submit '新增'%>
+  <% end %>
+</div>
