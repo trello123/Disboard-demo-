@@ -46,3 +46,5 @@ end
 
 
 
+
+gem "paranoia", "~> 2.6"
