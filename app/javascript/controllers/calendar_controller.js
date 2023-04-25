@@ -3,6 +3,7 @@ import { Calendar } from '@fullcalendar/core'
 import interactionPlugin from '@fullcalendar/interaction'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import { get, patch } from '@rails/request.js'
+import { successNotify } from "utils/notify"
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
@@ -39,7 +40,7 @@ export default class extends Controller {
         patch(url, { query: { cardId: info.event.extendedProps.publicId, start: info.event.start, end: info.event.end } })
           .then((resp)=> {
             if (resp.ok) {
-              alert("成功更新時間")
+              successNotify("成功更新時間")
             }
           })
       },
