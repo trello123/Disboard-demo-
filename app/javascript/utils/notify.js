@@ -7,6 +7,7 @@ function successNotify(message, position = "top", timer = 2000) {
     showConfirmButton: false,
     timer,
     timerProgressBar: true,
+    showCloseButton: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer)
       toast.addEventListener("mouseleave", Swal.resumeTimer)
