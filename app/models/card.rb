@@ -18,6 +18,7 @@ class Card < ApplicationRecord
 
   #套件給的
   acts_as_list
+  acts_as_paranoid
 
   enum level: { '待確認': 0, '簡單': 1, '普通': 2, '困難': 3 }
 
