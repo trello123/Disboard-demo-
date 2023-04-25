@@ -14,9 +14,11 @@
   <body>
 
     <%= render 'shared/sidebar'%>
-    <main class="container flex px-5 mx-auto">
+    <main class="container flex px-5 mx-auto">  
       <%= yield %>
-      <%= alert %>
+      <div>
+        <%= render 'shared/insidebar'%>
+      </div>
     </main>
 
   </body>
