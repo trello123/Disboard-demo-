@@ -9,7 +9,7 @@ class ContainersController < ApplicationController
   end
 
   def create
-    @board = Board.find_by!(id: params[:board_id])
+    @board = @boards.find_by!(id: params[:board_id])
     @container = @board.containers.new(container_params)
 
     if @container.save
