@@ -1,23 +1,9 @@
 <div id="room-id" data-room-id="<%= @room.try(:id)%>"></div>
 <div id="user-id" data-user-id="<%= current_user.id%>"></div>
-  <div class="grid grid-cols-12">
-    <div class="col-3">
-        <p>Hello ,<%= current_user.id %></p>
-        <%= render 'form' , room: Room.new %>
-        <hr>
-      <% @rooms.each do |room| %>
-        <%= link_to room do%>
-          <div class="mb-2 card">
-            <div class="card-body">
-              <%= room.name%>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+  <div class="container h-screen overflow-y-scroll">
     <div class="">
       <% if @room.present? %>
-        <div class="chat-room">
+        <div class="pb-28 ">
           <p><%= @room.name %></p>
           <div id="messages">
             <% @room.messages.each do |message| %>
@@ -25,7 +11,7 @@
             <% end %>
           </div>
             
-          <div class="fixed bottom-0 right-0">
+          <div class="chat-box">
             <%= render 'messages/form' ,message: Message.new , room: @room %>
           </div>
         </div>

@@ -14,6 +14,9 @@
   .btn-logn{
     @apply px-10 py-3 bg-Azure-blue  text-white rounded-lg border-b-4 border-b-gray-900 hover:border-b-0 transition-all ease-in-out duration-100
   }
+  .btn-chat{
+    @apply px-10 py-5  bg-Azure-blue  text-white rounded-r-lg border-b-gray-900
+  }
   .logo{
     @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-Azure-blue
   }
@@ -35,7 +38,18 @@
   .insidebar{
     @apply border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-500 hover:shadow-xl  mx-1.5 sm:mx-6 px-5
   }
+  .author{
+    @apply  inline-block px-5 py-2 text-white rounded-full bg-Azure-blue
+  }
+  .me{
+    @apply text-right
+  }
+  .chat-box{
+    @apply absolute bottom-0 p-5  bg-white container
+  }
 }
+
+
 
 
 

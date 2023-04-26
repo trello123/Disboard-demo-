@@ -32,7 +32,7 @@ document.addEventListener('turbolinks:load', ()=> {
       let html
       
       if(user_id === data.message.user_id){
-        html = data.mine
+        html = data.mine 
       }else{
         html = data.theirs
       }
