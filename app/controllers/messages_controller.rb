@@ -1,35 +1,26 @@
 class MessagesController < ApplicationController
-  before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :set_message, only: %i[ show edit update destroy ]
 
   def index
-    @rooms = Room.all
-  end
-  def show
-    @rooms = Room.all
-    render 'index'
+    @messages = Message.all
   end
   def new
-    @room = Room.new
+    @message = Message.new
   end
   def create
-    @room = Room.new(room_params)
+    @message = Message.new(message_params)
+    @message.user = current_user
+    @message.save
 
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
-        format.json { render :show, status: :created, location: @room }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
-    end
+
+    SendMessageJob.perform_later(@message)
   end
 
   private
-    def set_room
-      @room = Room.find(params[:id])
+    def set_message
+      @message = Message.find(params[:id])
     end
-    def room_params
-      params.require(:room).permit(:name)
+    def message_params
+      params.require(:message).permit(:content, :user_id, :room_id)
     end
 end

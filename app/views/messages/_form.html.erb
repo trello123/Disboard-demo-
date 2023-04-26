@@ -1,22 +1,11 @@
-<%= form_for(message , class:'form-inline' , remote: true) do |form| %>
-  <% if message.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+<%= form_for(message, class:'form-inline' , remote: true) do |form| %>
 
-      <ul>
-        <% message.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form.text_field :content , class:'w-full' %>
+  <div class="">
+    <%= form.hidden_field :room_id, value: room.id%>
+    <div class="input-groud-append">  
+      <%= form.submit '傳送' ,class:'btn btn-primary' , id: 'chat-btn'%>
     </div>
-  <% end %>
-
-  <%= form.text_field :content ,placeholder: "Type your message here ...", class: 'form-control mr-2' %>
-<div class="input-group">
-  <%= form.hidden_field :room_id, value: room.id%>
-  <div class="input-groud-append">  
-    <%= form.submit '傳送' ,class:'btn btn-primary' , id: 'chat-btn'%>
-  </div>
-</div>  
+  </div>  
 
 <% end %>
