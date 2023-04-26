@@ -1,11 +1,12 @@
 <%= form_for(message, class:'form-inline' , remote: true) do |form| %>
-
-<%= form.text_field :content , class:'w-full' %>
-  <div class="">
-    <%= form.hidden_field :room_id, value: room.id%>
-    <div class="input-groud-append">  
-      <%= form.submit '傳送' ,class:'btn btn-primary' , id: 'chat-btn'%>
-    </div>
-  </div>  
+  <div class="container flex w-full bottom-5">
+    <%= form.text_field :content , class:'container rounded-l-lg' %>
+    <div class="">
+      <%= form.hidden_field :room_id, value: room.id%>
+      <div class="input-groud-append">  
+        <%= form.submit '傳送' ,class:'btn-chat' , id: 'chat-btn'%>
+      </div>
+    </div>  
+  </div>
 
 <% end %>
