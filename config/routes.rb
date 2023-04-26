@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
   
   resources :calendars, only: [:index]
+  resources :rooms
+  resources :messages
 
   #註冊及忘記密碼頁面重新整理會出錯 修正路徑
   devise_scope :user do
