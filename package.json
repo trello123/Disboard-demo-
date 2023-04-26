@@ -15,6 +15,7 @@
     "@rails/webpacker": "5.4.4",
     "aos": "^2.3.4",
     "daisyui": "^2.51.5",
+    "moment": "^2.29.4",
     "sortablejs": "^1.15.0",
     "sweetalert2": "^11.7.3",
     "tailwind-clip-path": "^1.0.0",

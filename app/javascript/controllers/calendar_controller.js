@@ -3,12 +3,11 @@ import { Calendar } from '@fullcalendar/core'
 import interactionPlugin from '@fullcalendar/interaction'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import { get, patch } from '@rails/request.js'
-import { successNotify } from "utils/notify"
+import { successNotify, calendarModal } from "utils/notify"
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
   initialize() {
-    this.level = { '待確認': 'bg-blue-500 border-blue-500', '簡單': 'bg-green-500 border-green-500', '普通': 'bg-yellow-500 border-yellow-500', '困難': 'bg-red-500 border-red-500'}
     this.calendar = new Calendar(this.element, {
       initialView: 'dayGridMonth',
       contentHeight: 900,
@@ -45,7 +44,14 @@ export default class extends Controller {
           })
       },
       // 已有排程時 點擊就會有(更改, 刪除)
-      eventClick: (date, event, view) => {}
+      eventClick: (info) => {
+        const id = info.event.extendedProps.publicId
+        const title = info.event.title
+        calendarModal(id, info.event, (daybegin, deadline) => {
+          this.updateEvent(id, title, daybegin, deadline)
+          successNotify("成功更新")
+        })
+      }
     })
   }
 
@@ -67,27 +73,32 @@ export default class extends Controller {
     this.calendar.render()
   }
 
-  addEvent({ id, title, level, daybegin, deadline }) {
-    deadline = deadline || daybegin
-    let newEvent = {
-      title,
-      publicId: id,
-      start: this.fixedTime(daybegin, "start"),
-      end: this.fixedTime(deadline, "end"),
-      // 自定義顏色
-      // className: this.level[level]
-    }
+  addEvent({ id, title, daybegin, deadline }) {
+    if (daybegin) {
+      deadline = deadline || daybegin
+      let newEvent = {
+        title,
+        publicId: id,
+        start: this.fixedTime(daybegin, "start"),
+        end: this.fixedTime(deadline, "end"),
+      }
 
-    this.calendar.addEvent(newEvent)
+      this.calendar.addEvent(newEvent)
+    }
   }
 
-  // removeEvent() {
-  //   const events = this.calendar.getEvents()
-  //   const eventToRemove = events.find(event => event.extendedProps.publicId === 101)
-  //   if (eventToRemove) {
-  //     eventToRemove.remove()
-  //   }
-  // }
+  removeEvent(id) {
+    const events = this.calendar.getEvents()
+    const eventToRemove = events.find(event => event.extendedProps.publicId === id)
+    if (eventToRemove) {
+      eventToRemove.remove()
+    }
+  }
+
+  updateEvent(id, title, daybegin, deadline) {
+    this.removeEvent(id)
+    this.addEvent({ id, title, daybegin, deadline })
+  }
 
   // 修正同一時間可能顯示錯誤問題
   fixedTime(time, type) {
