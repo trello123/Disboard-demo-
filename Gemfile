@@ -22,6 +22,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem "paranoia", "~> 2.6"
 gem "carrierwave", "~> 2.2"
 gem "rmagick", "~> 5.2"
+gem 'redis', '~> 3.3', '>= 3.3.1'
 
 
 group :development, :test do

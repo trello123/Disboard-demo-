@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2023_04_27_032457) do
-=======
-ActiveRecord::Schema.define(version: 2023_04_25_084349) do
->>>>>>> 05a7546 (新增username)
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +47,8 @@ ActiveRecord::Schema.define(version: 2023_04_25_084349) do
     t.index ["container_id"], name: "index_cards_on_container_id"
     t.index ["deleted_at"], name: "index_cards_on_deleted_at"
     t.index ["slug"], name: "index_cards_on_slug", unique: true
+    t.index ["container_id"], name: "index_cards_on_container_id"
+    t.index ["deleted_at"], name: "index_cards_on_deleted_at"
   end
 
   create_table "containers", force: :cascade do |t|
@@ -75,6 +72,22 @@ ActiveRecord::Schema.define(version: 2023_04_25_084349) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -94,4 +107,6 @@ ActiveRecord::Schema.define(version: 2023_04_25_084349) do
   add_foreign_key "board_users", "boards"
   add_foreign_key "board_users", "users"
   add_foreign_key "containers", "boards"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
 end
