@@ -1,4 +1,6 @@
 import Swal from "sweetalert2"
+import moment from "moment"
+import { patch } from '@rails/request.js'
 
 function successNotify(message, position = "top", timer = 2000) {
   const Toast = Swal.mixin({
@@ -20,4 +22,36 @@ function successNotify(message, position = "top", timer = 2000) {
   })
 }
 
-export { successNotify }
+function calendarModal(id, {title, start, end}, cb) {
+  Swal.fire({
+    title,
+    html: inputDatetimeHTML(start, end),
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCloseButton: true,
+    showCancelButton: true,
+    confirmButtonText: '更新',
+    cancelButtonText: '取消',
+    showLoaderOnConfirm: true,
+    preConfirm: () => {
+      const daybegin = moment(document.getElementById('swal-input1').value).format()
+      const deadline = moment(document.getElementById('swal-input2').value).format()
+      const url = '/api/v1/calendars/'
+      patch(url, { query: { cardId: id, start: daybegin, end: deadline } })
+        .then((resp)=> {
+          if (resp.ok) {
+            cb(daybegin, deadline)
+          }
+        })
+    },
+    allowOutsideClick: () => !Swal.isLoading()
+  })
+}
+
+function inputDatetimeHTML(start, end){
+  return `<input id="swal-input1" type="datetime-local" class="swal2-input" value=${moment(start).format("YYYY-MM-DDTHH:mm")}>` +
+  `<input id="swal-input2" type="datetime-local" class="swal2-input" input" value=${moment(end).format("YYYY-MM-DDTHH:mm")}>`
+}
+
+export { successNotify, calendarModal }
