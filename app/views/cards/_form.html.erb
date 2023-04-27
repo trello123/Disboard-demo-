@@ -23,5 +23,11 @@
     <%= f.select :level, Card.level_list %>
   </div>
 
+  <div>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+    <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
+  </div>
+
   <%= f.submit '建立項目', class: 'btn-primary' %>
 <% end %>

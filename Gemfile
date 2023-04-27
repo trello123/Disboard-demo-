@@ -21,6 +21,7 @@ gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem "paranoia", "~> 2.6"
 gem "carrierwave", "~> 2.2"
+gem "rmagick", "~> 5.2"
 
 
 group :development, :test do
@@ -44,6 +45,7 @@ group :test do
   gem "rspec-rails", "~> 6.0"
   gem "warden", "~> 1.2"
 end
+
 
 
 
