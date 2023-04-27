@@ -8,5 +8,7 @@
       <%= render partial: "cards/card", collection: @cards  %>
     </section>
   </div>
+  <button class="p-2 btn-primary"><%= link_to '回到上一頁', @container.board %></button>
+</div>
 </div>
 <%= notice %>

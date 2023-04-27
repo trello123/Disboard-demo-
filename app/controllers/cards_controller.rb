@@ -1,12 +1,11 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
   before_action :load_boards
-  # before_action :authenticate_user!
+
 
   def index
-    # 改變排序以position為排序
     @cards = Card.order(:position)
-    @container = Container.find_by!(id: params[:container_id])
+    @container = Container.find(params[:container_id])
     
   end
 
@@ -15,8 +14,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    # @card = Card.new(card_params)
-    @container = Container.find_by!(id: params[:container_id])
+    @container = Container.find(params[:container_id])
     @card = @container.cards.new(card_params)
   
 
@@ -54,7 +52,7 @@ class CardsController < ApplicationController
   end
 
   def find_card
-    @card = Card.find_by!(id: params[:id])
+    @card = Card.find(params[:id])
   end
 
   def load_boards
