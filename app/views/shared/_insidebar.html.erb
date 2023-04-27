@@ -1,16 +1,12 @@
-<section class="fixed z-10 w-full bg-white bg-gray-300 border-b shadow-lg left-20">
-  <div class="flex items-center w-2/3 py-2 mx-auto">
-    <div>
-      <img src="https://picsum.photos/200" alt="" class="rounded-full ">
+<section class="fixed z-10 w-full bg-white border-b shadow-lg left-20">
+  <div class="flex items-center w-full gap-2 py-2 ml-8">
+    <div class="w-8">
+      <img src="https://picsum.photos/200" alt="" class="w-8 rounded-full">
     </div>
-    <div class="ml-20 text-center">
-      <h2 class="mb-3 text-xl">board name</h2>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, voluptatem.</p>
+    <div class="text-center">
+      <h2 class="text-lg">board name</h2>
     </div>
-  </div>
-
-
-  <ul class="flex justify-center w-full space-x-16 text-mb">
+      <ul class="flex justify-end w-full text-sm">
     <% if board %>
       <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
       <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
@@ -25,4 +21,8 @@
       <li class="insidebar"><%= link_to '設定', '#' %></li>
     <% end %>
   </ul>
+  </div>
+
+
+
 </section>
