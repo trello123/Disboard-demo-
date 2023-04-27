@@ -1,6 +1,6 @@
 <%= turbo_frame_tag(container) do %>
   <div class="relative flex items-center justify-between px-5 py-3 m-5 rounded-md w-60 bg-slate-200">
-    <div><%= container.title %></div>
+    <div><%= link_to container.title, container_path(container.id), data: { turbo: false } %></div>
     <div>
       <%= link_to '更改', edit_container_path(container.id), class: 'btn-primary p-2' %>
       <div>

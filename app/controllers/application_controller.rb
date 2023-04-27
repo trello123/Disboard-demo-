@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def current_user
     current_user ||= super
   end
+
   def after_sign_in_path_for(resource)
     boards_path
   end
