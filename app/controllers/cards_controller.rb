@@ -5,6 +5,7 @@ class CardsController < ApplicationController
   def index
     # 改變排序以position為排序
     @cards = Card.order(:position)
+    
   end
 
   def new
@@ -12,10 +13,13 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(card_params)
+    # @card = Card.new(card_params)
+    @container = Container.find_by!(id: params[:container_id])
+    @card = @container.cards.new(card_params)
+  
 
     if @card.save
-      redirect_to cards_path 
+      redirect_to container_cards_path 
     else
       render :new
     end

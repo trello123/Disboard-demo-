@@ -1,7 +1,7 @@
 <div class="flex-col p-2 text-center border-2 border-red-500 w-96" >
   <div>
     <h2 class="mb-3 text-2xl bg-MyColor-blue">Todo List</h2>
-    <%= link_to '新增項目', new_card_path, class: 'btn-primary' %>
+    <%= link_to '新增項目', new_container_card_path(@container.id), class: 'btn-primary' %>
   </div>
   <div >
     <section id="card-list" data-controller="sortable" >

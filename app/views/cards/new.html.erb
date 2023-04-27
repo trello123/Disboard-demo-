@@ -1,6 +1,6 @@
 <div class="absolute flex p-3 m-2 bg-blue-500 border-2 border-blue-500 w-max">
   <div class="flex-col w-10/12">
-    <%= render 'form', card: @card %>
+    <%= render 'form', { card: @card, container: @container } %>
     <div class="mt-4">
       評論區
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
@@ -8,7 +8,7 @@
   </div>
 
   <div class="w-2/12">
-    <div><%= link_to 'X', cards_path, class: 'btn-danger' %></div>
+    <div><%= link_to 'X', container_cards_path, class: 'btn-danger' %></div>
     <div>成員</div>
     <div>標籤</div>
     <div>日期</div>
