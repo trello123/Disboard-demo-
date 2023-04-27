@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
-  <div class="fixed top-0 left-0 flex flex-col w-20 h-screen m-0 text-white bg-gray-600 shadow-lg">
+  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 text-white bg-gray-600 shadow-lg" >
     <button class="mt-10 mb-5 sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '專案總表', boards_path, class: 'focus:bg-cyan-500' %></i></button>
     <% @boards.each do |board| %>
-      <%= link_to board.name, board_path(board.id), class: "sidebar-icon"%>
+      <%= link_to board.id, board_path(board.id), class: "sidebar-icon"%>
     <% end %>
 
     <button class="mt-10 mb-5 sidebar-icon"><%= link_to '+', new_board_path, class: 'w-full h-full pt-2' %></button>
