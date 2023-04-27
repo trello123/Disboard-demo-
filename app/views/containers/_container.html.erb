@@ -1,7 +1,7 @@
 <%= turbo_frame_tag(container) do %>
   <div class="relative flex items-center justify-between px-5 py-3 m-5 rounded-md w-60 bg-slate-200">
-    <div class=""><%= container.title %></div>
-    <div class="">
+    <div><%= container.title %></div>
+    <div>
       <%= link_to '更改', edit_container_path(container.id), class: 'btn-primary p-2' %>
       <div>
         <%= link_to 'x', container_path(container.id), method: 'delete', data: {confirm: 'sure?' }, class: 'absolute -top-3 -right-3 bg-red-500  px-2 rounded-full' %>
