@@ -8,5 +8,5 @@ class Board < ApplicationRecord
 
   #套件給的
   acts_as_paranoid
-
+  mount_uploader :avatar, AvatarUploader
 end

@@ -1,6 +1,18 @@
-<%= turbo_frame_tag(@board) do %>
-  <%= form_with(model: @board, data: {turbo: false}) do |f| %>
+<%= turbo_frame_tag(@board) do  %>
+  <%= form_with(model: @board, data: {turbo: false}, html: { multipart: true }) do |f| %>
     <%= f.text_field :name %>
-    <%= f.submit '更新' , class: 'btn-primary mx-2'%>
+    <%= f.submit '更新' , class: 'btn-primary mx-2' %>
+      <div class= "flex justify-between" >
+        <%= f.label :avatar, "專題照片", class:'text-4xl' %>
+        <div class= "relative">
+          <%= image_tag(@board.avatar_url) if not @board.avatar.file.nil? %>
+          <button class="absolute -top-3 -right-3 bg-red-500 px-2 rounded-full">x</button>
+        </div>
+        <div class= "text-left">
+          <%= f.label :avatar, "上傳圖片", class:'text-xl' %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+      </div>
   <% end %>
 <% end %>
