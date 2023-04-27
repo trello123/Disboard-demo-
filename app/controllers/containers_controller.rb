@@ -13,10 +13,15 @@ class ContainersController < ApplicationController
     @container = @board.containers.new(container_params)
 
     if @container.save
+      @container.cards.create
       redirect_to  @board
     else
       render :record_not_found
     end
+  end
+
+  def show
+    @cards = Card.order(:position)
   end
 
   def edit
