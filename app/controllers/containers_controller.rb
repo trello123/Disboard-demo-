@@ -9,11 +9,10 @@ class ContainersController < ApplicationController
   end
 
   def create
-    @board = @boards.find_by!(id: params[:board_id])
+    @board = @boards.find(params[:board_id])
     @container = @board.containers.new(container_params)
 
     if @container.save
-      @container.cards.create
       redirect_to  @board
     else
       render :record_not_found
@@ -21,7 +20,7 @@ class ContainersController < ApplicationController
   end
 
   def show
-    @cards = Container.find_by!(id: params[:id]).cards.order(:position)
+    @cards = Container.find(params[:id]).cards.order(:position)
   end
 
   def edit
@@ -47,7 +46,7 @@ class ContainersController < ApplicationController
   end
 
   def find_container
-    @container = Container.find_by!(id: params[:id])
+    @container = Container.find(params[:id])
   end
 
   def load_boards
