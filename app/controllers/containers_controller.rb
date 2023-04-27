@@ -2,6 +2,12 @@ class ContainersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_container, except: [:index, :new, :create]
 
+  def index
+    @board = Board.find(params[:board_id])
+    @containers = @board.containers
+    @cards = @container.cards.order(:position)
+  end
+
   def new
     @container = Container.new
   end
