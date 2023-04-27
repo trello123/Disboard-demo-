@@ -6,6 +6,10 @@
       <div>
         <%= link_to 'x', container_path(container.id), method: 'delete', data: {confirm: 'sure?' }, class: 'absolute -top-3 -right-3 bg-red-500  px-2 rounded-full' %>
       </div>
+      <div>
+        <%= render partial: "cards/card", collection: @cards  %>
+        <%= link_to '新增項目', new_container_card_path(container.id), data: { turbo: false }, class: 'btn-primary' %>
+      </div>
     </div>
   </div>
 <% end %>

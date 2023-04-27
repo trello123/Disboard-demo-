@@ -2,8 +2,10 @@ class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
 
   def index
-    @cards = Card.order(:position)
+    
     @container = Container.find(params[:container_id])
+    @cards = @container.cards.order(:position)
+    
   end
 
   def new
@@ -13,8 +15,9 @@ class CardsController < ApplicationController
   def create
     @container = Container.find(params[:container_id])
     @card = @container.cards.new(card_params)
+    @board = @container.board
     if @card.save
-      redirect_to @container
+      redirect_to board_containers_path(@board.id)
     else
       render :new
     end

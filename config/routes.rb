@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :cards
   
   resources :boards do
-    resources :containers, shallow: true, except: [:index]
+    resources :containers, shallow: true
     resources :calendars, only: [:index]
     resources :members
   end
