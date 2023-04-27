@@ -15,9 +15,11 @@
 
     <%= render 'shared/sidebar'%>
     <main class="container flex px-5 mx-auto">  
-      <%= yield %>
-      <div>
+      <div class="relative ">
         <%= render 'shared/insidebar'%>
+      </div>
+      <div class="py-60">
+        <%= yield %>
       </div>
     </main>
 
