@@ -1,4 +1,4 @@
-<%=  form_for(card, url: container_cards_path ) do |f| %>
+<%=  form_for(card, url: container_card_path ) do |f| %>
   <% if card.errors.any? %>
     <% card.errors.full_messages.each do |msg| %>
       <ul class="flex-col">

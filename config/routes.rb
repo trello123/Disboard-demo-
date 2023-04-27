@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :cards
   
   resources :boards do
-    resources :containers, shallow: true, except: [:index, :show]
+    resources :containers, shallow: true, except: [:index]
   end
 
   resources :containers do

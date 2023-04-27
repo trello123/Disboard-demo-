@@ -1,6 +1,32 @@
 <div class="absolute flex p-3 m-2 bg-blue-500 border-2 border-blue-500 w-max">
   <div class="flex-col w-10/12">
-    <%= render 'form', { card: @card, container: @container } %>
+    <%=  form_for(@card, url: container_cards_path ) do |f| %>
+      <% if @card.errors.any? %>
+        <% @card.errors.full_messages.each do |msg| %>
+          <ul class="flex-col">
+            <li><%= msg %></li>
+          </ul>
+        <% end %>
+      <% end %>
+      <div>
+        <%= f.label :title, '標題'  %>
+        <%= f.text_field :title, class: 'input' %>
+        <%= f.label :title, '(必填)'  %>
+      </div>
+
+      <div>
+        <%= f.label :intro, '簡介' %>
+        <%= f.text_area :intro, class: 'input' %>
+        <%= f.label :intro, '(必填)'  %>
+      </div>
+
+      <div>
+        <%= f.label :level, '難易度' %>
+        <%= f.select :level, Card.level_list %>
+      </div>
+
+      <%= f.submit '建立項目', class: 'btn-primary' %>
+    <% end %>
     <div class="mt-4">
       評論區
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
@@ -8,10 +34,11 @@
   </div>
 
   <div class="w-2/12">
-    <div><%= link_to 'X', container_cards_path, class: 'btn-danger' %></div>
+  <div><%= link_to 'X',:back ,class: 'btn-danger' %></div>
     <div>成員</div>
     <div>標籤</div>
     <div>日期</div>
     <div>附件</div>
   </div>
 </div>
+
