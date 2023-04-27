@@ -5,6 +5,6 @@
     </div>
     <div >
       <%= link_to '更新', edit_container_card_path(@container,card.id), class: 'btn-primary mx-2' %>
-      <%= link_to '刪除', container_card_path(@container,card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %>
+      <%= link_to '刪除', container_card_path(@container,card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'btn-danger mx-2' %>
     </div>
   </div>

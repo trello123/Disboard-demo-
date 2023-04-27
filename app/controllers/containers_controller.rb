@@ -21,7 +21,7 @@ class ContainersController < ApplicationController
   end
 
   def show
-    @cards = Card.order(:position)
+    @cards = Container.find_by!(id: params[:id]).cards.order(:position)
   end
 
   def edit
