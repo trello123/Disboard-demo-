@@ -1,0 +1,21 @@
+<div id="room-id" data-room-id="<%= @room.try(:id)%>"></div>
+<div id="user-id" data-user-id="<%= current_user.id%>"></div>
+  <div class="container h-screen overflow-y-scroll">
+    <div class="">
+      <% if @room.present? %>
+        <div class="pb-28 ">
+          <p><%= @room.name %></p>
+          <div id="messages">
+            <% @room.messages.each do |message| %>
+                <%= render 'messages/message' , message: message%>  
+            <% end %>
+          </div>
+            
+          <div class="chat-box">
+            <%= render 'messages/form' ,message: Message.new , room: @room %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
