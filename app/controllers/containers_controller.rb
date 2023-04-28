@@ -1,8 +1,6 @@
 class ContainersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_container, except: [:index, :new, :create]
-  before_action :load_boards, only: [:new, :create, :show, :edit]
-  
 
   def new
     @container = Container.new
@@ -47,9 +45,5 @@ class ContainersController < ApplicationController
 
   def find_container
     @container = Container.find(params[:id])
-  end
-
-  def load_boards
-    @boards = Board.order(created_at: :desc)
   end
 end
