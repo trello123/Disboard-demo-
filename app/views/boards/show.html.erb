@@ -1,18 +1,8 @@
 <div class="flex w-16">
-  <div class="flex flex-col pt-4 pl-4">
-    <%= link_to '刪除', board_path(@board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %>
-  </div>
-
   <div class="flex flex-col justify-center pt-8 ">
-    <div>
-      <%= turbo_frame_tag(@board) do %>
-        <%= @board.name %>
-        <%= link_to '更改名稱', edit_board_path(@board.id), class: 'btn-primary mx-2' %>
-      <% end %>
-    </div>
-    <div class="container flex">
+    <div class="container flex w-full">
       <%= render partial: "containers/container", collection: @containers %>
-      <button class="mt-5 mb-5 sidebar-icon"><%= link_to '+', new_board_container_path(@board.id), class: 'w-full h-full pt-2' %></button>
+      <button class="mt-5 mb-5 sidebar-icon"><%= link_to '+', new_board_container_path(@board.id), class: 'w-full h-full pt-2 bg-slate-200 rounded-full hover:bg-gray-400' %></button>
     </div>
   </div>
 </div>

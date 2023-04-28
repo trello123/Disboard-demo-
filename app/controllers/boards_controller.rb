@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
       @board.containers.create(title: 'todo')
       @board.containers.create(title: 'doing')
       @board.containers.create(title: 'done')
-      redirect_to board_path(@board.id) 
+      redirect_to board_containers_path(@board.id) 
     else
       render :record_not_found
     end

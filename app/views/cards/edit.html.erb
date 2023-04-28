@@ -2,7 +2,7 @@
   <div class="absolute flex p-3 m-2 bg-blue-500 border-2 border-blue-500 w-max">
     <div class="flex-col w-10/12">
 
-      <%=  form_for(@card, url: container_card_path ) do |f| %>
+      <%=  form_for(@card, url: container_card_path, data: { turbo: false } ) do |f| %>
         <% if @card.errors.any? %>
           <% @card.errors.full_messages.each do |msg| %>
             <ul class="flex-col">
