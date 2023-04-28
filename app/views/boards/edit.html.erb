@@ -5,7 +5,7 @@
       <div class= "flex justify-between" >
         <%= f.label :avatar, "專題照片", class:'text-4xl' %>
         <div class= "relative">
-          <%= image_tag(@board.avatar_url) if not @board.avatar.file.nil? %>
+          <%= image_tag(@board.avatar_url) if @board.avatar.file.present? %>
           <button class="absolute -top-3 -right-3 bg-red-500 px-2 rounded-full">x</button>
         </div>
         <div class= "text-left">
