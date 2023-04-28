@@ -3,8 +3,22 @@
     <div class="w-8">
       <img src="https://picsum.photos/200" alt="" class="w-8 rounded-full">
     </div>
-    <div class="text-center">
-      <h2 class="text-lg">board name</h2>
+    <div class="flex justify-start w-full text-center">
+      
+        <% if @containers.present? %>
+          <%= turbo_frame_tag(@board) do %>
+          <div class="flex items-center justify-start">
+            <h2 class="text-2xl"><%= @board.name %> </h2>
+            <div>
+              <%= link_to '更改名稱', edit_board_path(@board.id), class: 'btn-primary mx-2 text-md' %>
+              <%= link_to 'X', board_path(@board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2 text-md' %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+          <%= current_user.id %>
+        <% end %>
+     
     </div>
       <ul class="flex justify-end w-full text-sm">
     <% if board %>

@@ -31,7 +31,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card.container
+      redirect_to @card.container.board
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to @card.container
+    redirect_to @card.container.board
   end
 
 
