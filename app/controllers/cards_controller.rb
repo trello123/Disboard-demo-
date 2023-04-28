@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
+  before_action :load_container, only: [:index, :create]
 
 
   def index
@@ -48,5 +49,9 @@ class CardsController < ApplicationController
 
   def find_card
     @card = Card.find(params[:id])
+  end
+
+  def load_container
+    @container = Container.find(params[:container_id])
   end
 end
