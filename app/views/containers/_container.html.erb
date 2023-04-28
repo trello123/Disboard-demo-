@@ -12,10 +12,10 @@
             <div class="mx-5 hover:text-white">
               <%= link_to card.title, container_card_path(@board,card.id) %>
             </div>
-              <div>
-                <%= link_to '更新', edit_container_card_path(@board,card.id), class: 'btn-primary mx-1 text-sm bg-slate-200 text-black hover:text-white hover:bg-gray-500' %>
-                <%= link_to 'X', container_card_path(@board,card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'bg-slate-200  px-2 rounded-full hover:bg-rose-700' %>
-              </div>
+            <div>
+              <%= link_to '更新', edit_container_card_path(@board,card.id), class: 'btn-primary mx-1 text-sm bg-slate-200 text-black hover:text-white hover:bg-gray-500' %>
+              <%= link_to 'X', container_card_path(@board,card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'bg-slate-200  px-2 rounded-full hover:bg-rose-700' %>
+            </div>
           </div>
         <% end %>
         </section>

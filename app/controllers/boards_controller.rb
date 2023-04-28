@@ -1,14 +1,11 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_board, except: [:index, :new, :create]
-  before_action :load_containers, only: [:show, :edit]
-
+  before_action :load_boards_and_containers, only: [:show, :edit]
   def index
-    @boards = Board.order(created_at: :desc)
   end
 
   def new
-    @boards = Board.order(created_at: :desc)  
     @board = Board.new
   end
 
@@ -53,8 +50,7 @@ class BoardsController < ApplicationController
   def find_board
     @board = Board.find_by!(id: params[:id])
   end
-
-  def load_containers
+  def load_boards_and_containers
     @containers = Board.find_by!(id: params[:id]).containers.order(created_at: :desc)
   end
 end
