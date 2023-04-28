@@ -1,21 +1,21 @@
-<div id="room-id" data-room-id="<%= @room.try(:id)%>"></div>
+<div id="room-id" data-room-id="<%= @room.id%>"></div>
 <div id="user-id" data-user-id="<%= current_user.id%>"></div>
-  <div class="container h-screen overflow-y-scroll">
-    <div class="">
+  <div class="container h-screen overflow-y-scroll pt-52">
+    <div>
       <% if @room.present? %>
-        <div class="pb-28 ">
+        <div class="">
           <p><%= @room.name %></p>
-          <div id="messages">
+          <div id="messages" class=" pb-52">
             <% @room.messages.each do |message| %>
                 <%= render 'messages/message' , message: message%>  
             <% end %>
           </div>
-            
-          <div class="chat-box">
-            <%= render 'messages/form' ,message: Message.new , room: @room %>
-          </div>
         </div>
-        
+                  
+        <div class="chat-box">
+          <%= render 'messages/form' ,message: Message.new , room: @room %>
+        </div>
+      
       <% end %>
     </div>
   </div>

@@ -5,8 +5,6 @@ document.addEventListener('turbolinks:load', ()=> {
   const room_element = document.getElementById('room-id')
   const room_id = room_element.getAttribute('data-room-id')
 
-  // window.subscriptions = consumer.subscriptions
-  // console.log(JSON.parse(subscriptions.subscriptions[0].identifier).channel);
 
   consumer.subscriptions.subscriptions.forEach((subscription) => {
     // if(JSON.parse(subscription.identifier).channel == 'RoomChannel')
