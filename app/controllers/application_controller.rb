@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   helper_method :current_user
+  before_action :load_boards
 
   def current_user
     current_user ||= super
@@ -20,5 +21,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+  end
+  def load_boards
+    @boards = Board.order(created_at: :desc)
   end
 end
