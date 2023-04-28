@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_message, only: %i[ show edit update destroy ]
-  before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :load_boards
+  before_action :set_message, only: %i[ show ]
+  before_action :set_room, only: %i[ show ]
 
   def index
     @rooms = Room.all
@@ -27,5 +28,8 @@ class RoomsController < ApplicationController
     end
     def room_params
       params.require(:room).permit(:name)
+    end
+    def load_boards
+      @boards = Board.order(created_at: :desc)
     end
 end

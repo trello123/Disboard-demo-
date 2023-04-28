@@ -45,7 +45,7 @@
     @apply text-right
   }
   .chat-box{
-    @apply absolute bottom-0 p-5  bg-white container
+    @apply absolute bottom-0 py-2 px-4 bg-white container
   }
 }
 
