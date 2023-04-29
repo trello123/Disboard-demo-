@@ -37,6 +37,9 @@ document.addEventListener('turbolinks:load', ()=> {
       
       const messageContainer = document.getElementById('messages')
       messageContainer.innerHTML = messageContainer.innerHTML + html
+
+      const chatWindow = document.getElementById('chat-window')
+      chatWindow.scrollTop = chatWindow.scrollHeight
     }
   });
 })
