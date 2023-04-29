@@ -1,13 +1,8 @@
 <div class="message mb-2 <%= 'me' if message.user == current_user %>">
-  <div class="content-container ">
     <div class="content">
-      <%= message.user.id %>
-      <span class='activity-status user-<%= message.user.id %>-status'>
-        •
-      </span>
+      <%= message.user.username %>
     </div>
     <div class="author">
       <%= message.content %>
     </div>
-  </div>
 </div>
