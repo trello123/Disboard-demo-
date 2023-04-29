@@ -54,4 +54,5 @@ class BoardsController < ApplicationController
   def load_containers
     @containers = Board.find(params[:id]).containers.order(created_at: :asc)
   end
+
 end

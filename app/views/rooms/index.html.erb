@@ -1,10 +1,10 @@
 <div id="room-id" data-room-id="<%= @room.id%>"></div>
 <div id="user-id" data-user-id="<%= current_user.id%>"></div>
-  <div class="container h-screen overflow-y-scroll pt-52">
+  <div class="container h-screen overflow-y-scroll">
     <div>
       <% if @room.present? %>
-        <div class="">
-          <p><%= @room.name %></p>
+        <div>
+          <p><%= @room.id %></p>
           <div id="messages" class=" pb-52">
             <% @room.messages.each do |message| %>
                 <%= render 'messages/message' , message: message%>  
