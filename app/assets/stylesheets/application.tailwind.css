@@ -39,13 +39,13 @@
     @apply border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-500 hover:shadow-xl  mx-1.5 sm:mx-6 px-5
   }
   .author{
-    @apply  inline-block px-5 py-2 text-white rounded-full bg-Azure-blue
+    @apply  inline-block px-5 py-2 text-white rounded-lg bg-Azure-blue shadow-xl
   }
   .me{
     @apply text-right
   }
   .chat-box{
-    @apply absolute bottom-0 py-2 px-4 bg-white container
+    @apply absolute bottom-0 py-2 px-5 bg-white w-full left-0 shadow-2xl
   }
 }
 
