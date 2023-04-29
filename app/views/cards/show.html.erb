@@ -1,23 +1,20 @@
- 
-  <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200">
-    <div class="flex-col w-10/12">
-      <div class="m-2">標題：<%= @card.title %></div>
-      <div class="m-2">簡介：<%= @card.intro %></div>
-      <div class="m-2">難易度：<%= @card.level %></div>
-      <div class="mt-4">
-        評論區
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
-      </div>
-    </div>
-
-    <div class="w-2/12 -mr-4">
-      <div class="text-right"><%= link_to 'X', :back, class: 'btn-danger' %></div>
-      <div class="text-center">
-        <div>成員</div>
-        <div>標籤</div>
-        <div>日期</div>
-        <div>附件</div>
-      </div>
+<div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+  <div class="flex-col w-10/12">
+    <div class="mt-4">標題：<%= @card.title %></div>
+    <div class="mt-4">簡介：<%= @card.intro %></div>
+    <div class="mt-4">難易度：<%= @card.level %></div>
+    <div class="mt-4">
+      評論區
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
     </div>
   </div>
-
+  <div class="w-2/12 -mr-4">
+    <div class="text-right"><%= link_to 'x', :back, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %></div>
+    <div class="text-center">
+      <div class="my-2">成員</div>
+      <div class="my-2">標籤</div>
+      <div class="my-2">日期</div>
+      <div class="my-2">附件</div>
+    </div>
+  </div>
+</div>
