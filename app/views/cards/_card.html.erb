@@ -1,10 +1,9 @@
-
-  <div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200" >
-    <div class="mx-5 my-2">
-      <%= link_to card.title, container_card_path(@board,card.id) %>
-    </div>
-    <div >
-      <%= link_to '更新', edit_container_card_path(@board,card.id), class: 'btn-primary mx-2' %>
-      <%= link_to '刪除', container_card_path(@board,card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'btn-danger mx-2' %>
-    </div>
+<div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200" >
+  <div class="mx-5 my-2">
+    <%= link_to card.title, container_card_path(@container,card.id) %>
   </div>
+  <div>
+    <%= link_to '更新', edit_container_card_path(@container,card.id), class: 'btn-primary mx-2' %>
+    <%= link_to '刪除', container_card_path(@container,card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'btn-danger mx-2' %>
+  </div>
+</div>

@@ -1,46 +1,39 @@
-
-  <div class="absolute flex p-3 m-2 bg-blue-500 border-2 border-blue-500 w-max">
-    <div class="flex-col w-10/12">
-
-      <%=  form_for(@card, url: container_card_path, data: { turbo: false } ) do |f| %>
-        <% if @card.errors.any? %>
-          <% @card.errors.full_messages.each do |msg| %>
-            <ul class="flex-col">
-              <li><%= msg %></li>
-            </ul>
-          <% end %>
+<div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+  <div class="flex-col w-10/12">
+    <%=  form_for(@card, url: container_card_path, data: { turbo: false } ) do |f| %>
+      <% if @card.errors.any? %>
+        <% @card.errors.full_messages.each do |msg| %>
+          <ul class="flex-col">
+            <li><%= msg %></li>
+          </ul>
         <% end %>
-        <div>
-          <%= f.label :title, '標題'  %>
-          <%= f.text_field :title, class: 'input' %>
-          <span>(必填)</span> 
-        </div>
-
-        <div>
-          <%= f.label :intro, '簡介' %>
-          <%= f.text_area :intro, class: 'input' %>
-          <span>(必填)</span> 
-        </div>
-
-        <div>
-          <%= f.label :level, '難易度' %>
-          <%= f.select :level, Card.level_list %>
-        </div>
-
-        <%= f.submit '建立項目', class: 'btn-primary' %>
       <% end %>
-      <div class="mt-4">
-        評論區
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
+      <div class="flex items-center my-3">
+        <%= f.label :title, '標題', class: "text-lg mr-4"  %>
+        <%= f.text_field :title, class: 'input' %>
+        <span>(必填)</span> 
       </div>
-    </div>
-
-    <div class="w-2/12">
-      <div><%= link_to 'X' ,:back ,class: 'btn-danger' %></div>
-      <div>成員</div>
-      <div>標籤</div>
-      <div>日期</div>
-      <div>附件</div>
+      <div class="flex items-center my-3">
+        <%= f.label :intro, '簡介', class: "text-lg mr-4" %>
+        <%= f.text_area :intro, class: 'input' %>
+        <span>(必填)</span> 
+      </div>
+      <div class="flex items-center my-3">
+        <%= f.label :level, '難易度', class: "text-lg mr-4" %>
+        <%= f.select :level, Card.level_list %>
+      </div>
+      <%= f.submit '更新', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
+    <% end %>
+    <div class="mt-4">
+      評論區
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
     </div>
   </div>
-
+  <div class="w-2/12">
+    <div><%= link_to 'x' ,:back ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %></div>
+    <div class="my-2">成員</div>
+    <div class="my-2">標籤</div>
+    <div class="my-2">日期</div>
+    <div class="my-2">附件</div>
+  </div>
+</div>

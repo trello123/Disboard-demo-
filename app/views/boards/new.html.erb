@@ -1,9 +1,9 @@
-<div class="absolute p-2 bg-red-400 left-48 top-48">
+<div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
   <%= form_with(model: @board) do |f| %>
-    <div>
-      <%= f.label :name, '標題'  %>
+    <div class="flex items-center my-2">
+      <%= f.label :name, '標題', class: "text-lg mr-4"  %>
       <%= f.text_field :name, class: 'input' %>
     </div>
-    <%= f.submit '新增'%>
+    <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1" %>
   <% end %>
 </div>
