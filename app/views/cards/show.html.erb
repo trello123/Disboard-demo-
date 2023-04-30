@@ -3,6 +3,7 @@
     <div class="mt-4">標題：<%= @card.title %></div>
     <div class="mt-4">簡介：<%= @card.intro %></div>
     <div class="mt-4">難易度：<%= @card.level %></div>
+    <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
     <div class="mt-4">
       評論區
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
@@ -13,7 +14,20 @@
     <div class="text-center">
       <div class="my-2">成員</div>
       <div class="my-2">標籤</div>
-      <div class="my-2">日期</div>
+      <div class="my-2 mb-3">
+        開始時間
+        <% if @card.daybegin.present? %>
+          <div><%= format_date(@card.daybegin).split('#').first %></div>
+          <div><%= format_date(@card.daybegin).split('#').last %></div>
+        <% end %>
+      </div>
+      <div class="my-2 mb-3">
+        截止時間
+        <% if @card.deadline.present? %>
+          <div><%= format_date(@card.deadline).split('#').first %></div>
+          <div><%= format_date(@card.deadline).split('#').last %></div>
+        <% end %>
+      </div>
       <div class="my-2">附件</div>
     </div>
   </div>
