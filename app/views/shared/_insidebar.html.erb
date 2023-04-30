@@ -21,20 +21,20 @@
      
     </div>
       <ul class="flex justify-end w-full text-sm">
-    <% if board %>
-      <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
-      <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
-      <li class="insidebar"><%= link_to '聊天室', '#' %></li>
-      <li class="insidebar"><%= link_to '成員', board_members_path(board.id) %></li>
-      <li class="insidebar"><%= link_to '設定', '#' %></li>
-    <% else %>
-      <li class="insidebar"><%= link_to '任務', '#' %></li>
-      <li class="insidebar"><%= link_to '日曆', '#' %></li>
-      <li class="insidebar"><%= link_to '聊天室', '#' %></li>
-      <li class="insidebar"><%= link_to '成員', '#' %></li>
-      <li class="insidebar"><%= link_to '設定', '#' %></li>
-    <% end %>
-  </ul>
+        <% if container.present? %>
+          <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
+          <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
+          <li class="insidebar"><%= link_to '聊天室', '#' %></li>
+          <li class="insidebar"><%= link_to '成員', board_members_path(board.id) %></li>
+          <li class="insidebar"><%= link_to '設定', '#' %></li> 
+        <% else %>
+          <li class="insidebar"><%= link_to '任務', '#' %></li>
+          <li class="insidebar"><%= link_to '日曆', '#' %></li>
+          <li class="insidebar"><%= link_to '聊天室', '#' %></li>
+          <li class="insidebar"><%= link_to '成員', '#' %></li>
+          <li class="insidebar"><%= link_to '設定', '#' %></li>
+        <% end %>
+      </ul>
   </div>
 
 
