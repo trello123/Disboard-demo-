@@ -20,11 +20,11 @@ class ApplicationController < ActionController::Base
                   status: 404 and return
   end
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :board])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :board])
   end
   def load_boards
-    @boards = Board.order(created_at: :desc)
+    @boards = current_user.boards.order(created_at: :desc)
   end
   def load_board
     if params[:board_id].present?

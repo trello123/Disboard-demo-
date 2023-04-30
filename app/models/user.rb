@@ -4,8 +4,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   # relationships
-  has_many :board_users
-  has_many :boards, through: :board_users
+  has_many :board_users, dependent: :destroy
+  has_many :boards, through: :board_users, dependent: :destroy
 
   class << self
     def from_omniauth(auth)
