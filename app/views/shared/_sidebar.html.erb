@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 text-white shadow-lg bg-Azure-blue" >
     <button class="mt-10 mb-5 overflow-hidden sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '使用者', boards_path, class: 'focus:bg-cyan-500 text-md' %></i></button>
-      <% @boards.each do |board| %>
+      <% boards.each do |board| %>
         <%= link_to board.name, board_containers_path(board.id), class: "sidebar-icon overflow-hidden"%>
       <% end %>
 

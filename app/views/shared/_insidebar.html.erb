@@ -5,13 +5,13 @@
     </div>
     <div class="flex justify-start w-full text-center">
       
-        <% if @containers.present? %>
-          <%= turbo_frame_tag(@board) do %>
+        <% if container.present? %>
+          <%= turbo_frame_tag(board) do %>
           <div class="flex items-center justify-start">
-            <h2 class="text-2xl"><%= @board.name %> </h2>
+            <h2 class="text-2xl"><%= board.name %> </h2>
             <div>
-              <%= link_to '修改', edit_board_path(@board.id), class: 'inline-block relative btn-primary mx-1 text-sm bg-gray-200 text-black active:-bottom-[2px] hover:bottom-[1px] hover:bg-gray-200' %>
-              <%= link_to 'x', board_path(@board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'inline-block relative bg-slate-200 w-6  px-2 rounded-full active:-bottom-[2px] hover:bottom-[1px] hover:bg-rose-500' %>
+              <%= link_to '修改', edit_board_path(board.id), class: 'inline-block relative btn-primary mx-1 text-sm bg-gray-200 text-black active:-bottom-[2px] hover:bottom-[1px] hover:bg-gray-200' %>
+              <%= link_to 'x', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'inline-block relative bg-slate-200 w-6  px-2 rounded-full active:-bottom-[2px] hover:bottom-[1px] hover:bg-rose-500' %>
             </div>
           </div>
           <% end %>
