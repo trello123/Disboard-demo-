@@ -1,6 +1,6 @@
-<div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
-  <div class="flex-col w-10/12">
-    <%=  form_for(@card, url: container_cards_path ) do |f| %>
+<%=  form_with(model: @card, url: container_cards_path, data: { turbo: false } ) do |f| %>
+  <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+    <div class="flex-col w-9/12">
       <% if @card.errors.any? %>
         <% @card.errors.full_messages.each do |msg| %>
           <ul class="flex-col">
@@ -8,37 +8,48 @@
           </ul>
         <% end %>
       <% end %>
-      <div class="flex items-center my-2">
-        <%= f.label :title, '標題'  %>
+      <div class="flex items-center my-3">
+        <%= f.label :title, '標題', class: "text-lg mr-4"  %>
         <%= f.text_field :title, class: 'input' %>
         <span>(必填)</span> 
       </div>
-
-      <div class="flex items-center my-2">
-        <%= f.label :intro, '簡介' %>
+      <div class="flex items-center my-3">
+        <%= f.label :intro, '簡介', class: "text-lg mr-4" %>
         <%= f.text_area :intro, class: 'input' %>
         <span>(必填)</span> 
       </div>
-
-      <div class="flex items-center my-2">
-        <%= f.label :level, '難易度' %>
+      <div class="flex items-center my-3">
+        <%= f.label :level, '難易度', class: "text-lg mr-4" %>
         <%= f.select :level, Card.level_list %>
       </div>
+      
+      <%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
 
-      <%= f.submit '建立', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
-    <% end %>
-    <div class="mt-4">
-      評論區
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
+      <div class="mt-4">
+        評論區
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
+      </div>
+    </div>
+    <div class="w-3/12">
+      <div><%= link_to 'x' ,:back ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %></div>
+      <div class="my-2">成員</div>
+      <div class="my-2">標籤</div>
+      <div class="my-2">
+        <%= f.label :daybegin, '開始日期', class: "mr-4" %>
+        <%= f.datetime_field :daybegin, class: 'input w-32 text-md px-1' %>
+      </div>
+      <div class="my-2">
+        <%= f.label :deadline, '結束日期', class: "mr-4" %>
+        <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
+      </div>
+      <div class="my-2 -pr-5">
+        附件
+        <div class="overflow-hidden">
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="w-2/12">
-  <div><%= link_to 'x',:back ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %></div>
-    <div class="my-2">成員</div>
-    <div class="my-2">標籤</div>
-    <div class="my-2">日期</div>
-    <div class="my-2">附件</div>
-  </div>
-</div>
-
+<% end %>
