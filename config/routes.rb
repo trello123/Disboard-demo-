@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   
   resources :boards do
     resources :containers, shallow: true, except: [:index]
+    resources :calendars, only: [:index]
+    resources :members
   end
 
   resources :containers do
     resources :cards
   end
   
-  resources :calendars, only: [:index]
   resources :rooms
   resources :messages
 

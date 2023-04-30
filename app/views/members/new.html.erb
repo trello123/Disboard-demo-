@@ -1,0 +1,23 @@
+<%= turbo_frame_tag :member_search do %>
+  <%= render "search", q: @q %>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th>email</th>
+          <th>新增</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @users %>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= button_to "+", board_members_path(@board.id, {member_id: user.id}), data: { turbo: false } %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

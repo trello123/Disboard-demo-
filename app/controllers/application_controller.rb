@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   helper_method :current_user
   before_action :load_boards
+  before_action :load_board
 
   def current_user
     current_user ||= super
@@ -24,5 +25,10 @@ class ApplicationController < ActionController::Base
   end
   def load_boards
     @boards = Board.order(created_at: :desc)
+  end
+  def load_board
+    if params[:board_id].present?
+      @board = Board.find(params[:board_id])
+    end
   end
 end
