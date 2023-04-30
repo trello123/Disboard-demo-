@@ -1,5 +1,5 @@
 <div class="flex flex-col">
   <div>專案列表</div>
   <%# #這邊再看要塞什麼資訊 %>
-  <%= @user.email.split("@").first %>
+  <%= current_user.email.split("@").first %>
 </div>
