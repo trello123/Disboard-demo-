@@ -24,6 +24,8 @@ gem "carrierwave", "~> 2.2"
 gem "rmagick", "~> 5.2"
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem "ransack", "~> 4.0"
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

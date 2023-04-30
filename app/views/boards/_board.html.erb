@@ -1,9 +1,25 @@
-<div class="flex justify-between py-2 m-6 border rounded-md bg-slate-200">
-  <div class="mx-5 my-2">
-    <%= link_to board.name, board_path(board.id) %>
-  </div>
-  <div >
-    <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %>
-  </div>
+<div class="m-3 border shadow-md ">
+  <section class="">
+    <header>
+      <div class="">
+        <!-- 放檔案照片 -->
+        <%= link_to board_path(board.id) do %>
+        <img src="https://fakeimg.pl/350x200/414e92,128/000,255" class="">
+      <% end %>
+      </div>
+    </header>
+
+    <div class="flex flex-col mx-3 my-3 ;">
+    <h2 class="">專案名稱：<%= link_to board.name, board_path(board.id) %></h2>
+    <p class="">創建人：<%=  %></p>
+    <time class="">建立時間：<%= board.created_at %></time> 
+    <time class="">截止時間：</time>
+    </div>
+
+    <footer>
+      <div class="pb-3"><%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %></div>
+    </footer>
+  </section>
 </div>
+
     
