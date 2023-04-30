@@ -7,14 +7,14 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board = Board.new
+    @board =  Board.new
   end
 
   def create
-    @board = current_user.boards.new(board_params)
+    @board = current_user.boards.create(board_params)
 
     if @board.save
-      @board.containers.create(title: '尚未開始')
+      @board.containers.create(title: '待處理')
       @board.containers.create(title: '進行中')
       @board.containers.create(title: '已完成')
       redirect_to board_containers_path(@board.id) 
