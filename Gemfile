@@ -23,7 +23,7 @@ gem "paranoia", "~> 2.6"
 gem "carrierwave", "~> 2.2"
 gem "rmagick", "~> 5.2"
 gem 'redis', '~> 3.3', '>= 3.3.1'
-
+gem "ransack", "~> 4.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -46,10 +46,4 @@ group :test do
   gem "rspec-rails", "~> 6.0"
   gem "warden", "~> 1.2"
 end
-
-
-
-
-
-
 
