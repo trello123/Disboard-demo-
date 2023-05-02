@@ -43,14 +43,6 @@
         <%= f.label :deadline, '結束日期', class: "mr-4" %>
         <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
       </div>
-      <div class="my-2 -pr-5">
-        附件
-        <div class="overflow-hidden">
-          <%= f.file_field :avatar %>
-          <%= f.hidden_field :avatar_cache %>
-          <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
-        </div>
-      </div>
     </div>
   </div>
 <% end %>
