@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :load_boards
-  before_action :set_message, only: %i[ show ]
-  before_action :set_room, only: %i[ show ]
+  before_action :set_message, only: [ :show ]
+  before_action :set_room, only: [ :index, :show ]
 
   def index
     @rooms = Room.all
@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
 
   private
     def set_room
-      @room = Room.find(params[:id])
+      @room = Board.find(params[:board_id]).room
     end
     def room_params
       params.require(:room).permit(:name)

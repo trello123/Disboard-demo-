@@ -17,6 +17,8 @@ class BoardsController < ApplicationController
       @board.containers.create(title: '待處理')
       @board.containers.create(title: '進行中')
       @board.containers.create(title: '已完成')
+      @board.create_room(name: 'room')
+
       redirect_to board_containers_path(@board.id) 
     else
       render :record_not_found
