@@ -1,5 +1,7 @@
 import { Application } from "@hotwired/stimulus"
 import "@hotwired/turbo-rails"
+import "trix"
+import "@rails/actiontext"
 
 const application = Application.start()
 
