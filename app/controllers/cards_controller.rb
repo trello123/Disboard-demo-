@@ -12,8 +12,8 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = @container.cards.new(card_params)
     @board = @container.board
+    @card = @container.cards.new(card_params.merge(board: @board))
     if @card.save
       redirect_to board_containers_path(@board.id)
     else
@@ -40,8 +40,6 @@ class CardsController < ApplicationController
     redirect_to @card.container.board
   end
 
-
-  
   private
   def card_params
     params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline)

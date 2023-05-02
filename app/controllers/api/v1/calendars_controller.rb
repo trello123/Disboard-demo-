@@ -1,13 +1,20 @@
 class Api::V1::CalendarsController < ApplicationController
   def show
-    @cards = Card.calendar
-    render json: { cards: @cards }
+    if current_user.present?
+      cards = current_user.boards.find(params[:boardId]).cards.calendar
+      p cards
+      render json: { cards: }
+    else
+      render json: {}
+    end
   end
 
   def update
-    @card = Card.find_by(id: params[:cardId])
-    if @card.update(daybegin: params[:start], deadline: params[:end])
-    else
+    if current_user.present?
+      card = current_user.boards.find(params[:boardId]).cards.find(params[:cardId])
+      if card.update(daybegin: params[:start], deadline: params[:end])
+      else
+      end
     end
   end
 end

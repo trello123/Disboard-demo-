@@ -22,7 +22,7 @@ function successNotify(message, position = "top", timer = 2000) {
   })
 }
 
-function calendarModal(id, {title, start, end}, cb) {
+function calendarModal(boardId, cardId, {title, start, end}, cb) {
   Swal.fire({
     title,
     html: inputDatetimeHTML(start, end),
@@ -38,7 +38,7 @@ function calendarModal(id, {title, start, end}, cb) {
       const daybegin = moment(document.getElementById('swal-input1').value).format()
       const deadline = moment(document.getElementById('swal-input2').value).format()
       const url = '/api/v1/calendars/'
-      patch(url, { query: { cardId: id, start: daybegin, end: deadline } })
+      patch(url, { query: { boardId, cardId, start: daybegin, end: deadline } })
         .then((resp)=> {
           if (resp.ok) {
             cb(daybegin, deadline)
