@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
   def load_boards
-    @boards = current_user.boards.order(created_at: :desc)
+    @boards = current_user.boards.order(created_at: :desc) if current_user
   end
   def load_board
     if params[:board_id].present?

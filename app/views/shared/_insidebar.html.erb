@@ -21,7 +21,7 @@
      
     </div>
       <ul class="flex justify-end w-full text-sm">
-        <% if container.present? %>
+        <% if board.present? and board.id.present? %>
           <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
           <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
           <li class="insidebar"><%= link_to '聊天室', '#' %></li>
