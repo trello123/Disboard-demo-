@@ -22,11 +22,6 @@
         <%= f.label :level, '難易度', class: "text-lg mr-4" %>
         <%= f.select :level, Card.level_list %>
       </div>
-      <div class="flex flex-col items-center my-3">
-        <%= f.label :content %>
-        <%= f.rich_text_area :content , class: 'w-full bg-white'%>
-      </div>
-
       
       <%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
 

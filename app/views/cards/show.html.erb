@@ -10,7 +10,9 @@
     </div>
   </div>
   <div class="w-2/12 -mr-4">
-    <div class="text-right"><%= link_to 'x', :back, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %></div>
+    <div>
+      <%= link_to 'x' , board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
+    </div>
     <div class="text-center">
       <div class="my-2">成員</div>
       <div class="my-2">標籤</div>
