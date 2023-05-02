@@ -3,7 +3,6 @@
     <div class="mt-4">標題：<%= @card.title %></div>
     <div class="mt-4">簡介：<%= @card.intro %></div>
     <div class="mt-4">難易度：<%= @card.level %></div>
-    <div class="mt-4">難易度：<%= @card.content %></div>
     <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
     <div class="mt-4">
       評論區
