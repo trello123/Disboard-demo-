@@ -1,11 +1,12 @@
-<%= form_for(message, class:'form-inline' , remote: true) do |form| %>
+<%= form_for(message, class:'form-inline' , remote: true , data:{action:"submit->chatsubmit#submit"}) do |form| %>
   <div class="relative flex items-center w-full">
-    <%= form.text_field :content , class:'w-8/12 rounded-md shadow-2xl mx-auto mx-auto' %>
+    <%= form.text_field :content , class:'w-8/12 rounded-md shadow-2xl mx-auto mx-auto',data:{action:"input->chatsubmit#input" ,chatsubmit_target: 'input'}%>
     <div>
       <%= form.hidden_field :room_id, value: room.id%>
       <div class=" input-groud-append">  
-        <%= form.submit '傳送' ,class:'btn-chat hidden' , id: 'chat-btn'%>
-        <button class="absolute text-Azure-blue right-64 bottom-2"><i class="fa-solid fa-paper-plane"></i></button>
+        <%= button_tag '', type: 'submit', disabled: true ,class:"absolute text-Azure-blue right-64 bottom-2", id: 'send', data:{chatsubmit_target: 'submit' } do%>
+          <i class="fa-solid fa-paper-plane"></i>
+        <% end %>
       </div>
     </div>  
   </div>

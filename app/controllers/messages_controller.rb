@@ -16,9 +16,6 @@ class MessagesController < ApplicationController
   end
 
   private
-    def set_message
-      @message = Message.find(params[:id])
-    end
     def message_params
       params.require(:message).permit(:content, :user_id, :room_id)
     end

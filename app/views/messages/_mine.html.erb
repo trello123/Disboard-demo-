@@ -1,8 +1,12 @@
 <div class="mb-3 message me">
-    <div>
+  <div>
+    <% if message.user.username.present? %>
       <%= message.user.username %>
-    </div>
-    <div class="author">
-      <%= message.content %>
-    </div>
+    <% else %>
+      <%= message.user.email %>
+    <% end %>   
+  </div>
+  <div class="author">
+    <%= message.content %>
+  </div>
 </div>

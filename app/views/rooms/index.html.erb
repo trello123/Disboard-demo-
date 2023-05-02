@@ -10,7 +10,7 @@
             <% end %>
           </div>
         </div>
-        <div class="mx-auto chat-box">
+        <div class="mx-auto chat-box" data-controller="chatsubmit">
           <%= render 'messages/form' ,message: Message.new , room: @room %>
         </div>
       <% end %>

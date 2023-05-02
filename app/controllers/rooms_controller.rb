@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-  before_action :load_boards
   before_action :set_message, only: [ :show ]
   before_action :set_room, only: [ :index, :show ]
 
@@ -28,8 +27,5 @@ class RoomsController < ApplicationController
     end
     def room_params
       params.require(:room).permit(:name)
-    end
-    def load_boards
-      @boards = Board.order(created_at: :desc)
     end
 end
