@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
-  before_action :load_container, only: [:index, :create]
+  before_action :load_container, only: [:index, :create, :update]
 
 
   def index
@@ -13,7 +13,7 @@ class CardsController < ApplicationController
 
   def create
     @board = @container.board
-    @card = @container.cards.new(card_params.merge(board: @board))
+    @card = @container.cards.new(card_params)
     if @card.save
       redirect_to board_containers_path(@board.id)
     else
@@ -42,7 +42,7 @@ class CardsController < ApplicationController
 
   private
   def card_params
-    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline)
+    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline).merge(board: @container.board)
   end
 
   def find_card
