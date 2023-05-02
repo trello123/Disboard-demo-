@@ -44,7 +44,7 @@ class CardsController < ApplicationController
   
   private
   def card_params
-    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline, :content)
+    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline)
   end
 
   def find_card

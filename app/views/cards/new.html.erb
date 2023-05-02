@@ -13,9 +13,9 @@
         <%= f.text_field :title, class: 'input' %>
         <span>(必填)</span> 
       </div>
-      <div class="flex items-center my-3">
-        <%= f.label :intro, '簡介', class: "text-lg mr-4" %>
-        <%= f.text_area :intro, class: 'input' %>
+      <div class="flex flex-col items-start pr-4 my-3">
+        <%= f.label :intro, '描述', class: "text-lg mr-4" %>
+        <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
         <span>(必填)</span> 
       </div>
       <div class="flex items-center my-3">
