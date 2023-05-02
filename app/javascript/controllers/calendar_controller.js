@@ -34,9 +34,10 @@ export default class extends Controller {
       // 點擊非排程(新增)
       dateClick: function(info) {},
       // 移動event更新
-      eventDrop: function(info) {
+      eventDrop: (info) => {
+        const { boardId } = this.element.dataset
         const url = '/api/v1/calendars/'
-        patch(url, { query: { cardId: info.event.extendedProps.publicId, start: info.event.start, end: info.event.end } })
+        patch(url, { query: { boardId, cardId: info.event.extendedProps.publicId, start: info.event.start, end: info.event.end } })
           .then((resp)=> {
             if (resp.ok) {
               successNotify("成功更新時間")
@@ -45,10 +46,11 @@ export default class extends Controller {
       },
       // 已有排程時 點擊就會有(更改, 刪除)
       eventClick: (info) => {
-        const id = info.event.extendedProps.publicId
+        const { boardId } = this.element.dataset
+        const cardId = info.event.extendedProps.publicId
         const title = info.event.title
-        calendarModal(id, info.event, (daybegin, deadline) => {
-          this.updateEvent(id, title, daybegin, deadline)
+        calendarModal(boardId, cardId, info.event, (daybegin, deadline) => {
+          this.updateEvent(cardId, title, daybegin, deadline)
           successNotify("成功更新")
         })
       }
@@ -56,16 +58,17 @@ export default class extends Controller {
   }
 
   connect() {
+    const { boardId } = this.element.dataset
     //取得api
     const url = '/api/v1/calendars'
-    get(url, {})
+    get(url, { query: { boardId } })
       .then((resp)=> {
         if (resp.ok) {
           return resp.json
         }
       })
       .then(({ cards }) => {
-        cards.forEach((card) => {
+        cards?.forEach((card) => {
           this.addEvent(card)
         })
       })
