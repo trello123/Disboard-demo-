@@ -1,8 +1,12 @@
 <h1>專案列表</h1>
 
-<%= paginate @boards %>
+
 <section class="grid grid-cols-3 gap-3 ">
   <%= render @boards %>
 </section>
+
+<div class="flex justify-center text-xl ">
+  <%= paginate @boards %>
+</div>
 
 
