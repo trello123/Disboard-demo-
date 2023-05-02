@@ -1,7 +1,7 @@
 <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
   <div class="flex-col w-10/12">
     <div class="mt-4">標題：<%= @card.title %></div>
-    <div class="mt-4">簡介：<%= @card.intro %></div>
+    <div class="mt-4">描述：<%= @card.intro %></div>
     <div class="mt-4">難易度：<%= @card.level %></div>
     <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
     <div class="mt-4">
