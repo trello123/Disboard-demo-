@@ -16,7 +16,7 @@
           </div>
           <% end %>
         <% else %>
-          <%= current_user.email.split("@").first %>
+          <%= format_email(current_user.email) %>
         <% end %>
      
     </div>
