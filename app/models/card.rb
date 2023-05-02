@@ -13,6 +13,9 @@ class Card < ApplicationRecord
   validates :title, presence: true
   validates :intro, presence: true
 
+  # 文字編輯器
+  has_rich_text :content
+
   # relationships
   belongs_to :container , optional: true
 
