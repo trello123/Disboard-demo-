@@ -11,7 +11,7 @@
 
     <div class="flex flex-col mx-3 my-3 ;">
     <h2 class="">專案名稱：<%= link_to board.name, board_path(board.id) %></h2>
-    <p class="">創建人：<%=  %></p>
+    <p class="">創建人：<%= current_user.id %></p>
     <time class="">建立時間：<%= board.created_at %></time> 
     <time class="">截止時間：</time>
     </div>
