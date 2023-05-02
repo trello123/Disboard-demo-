@@ -4,7 +4,6 @@ class BoardsController < ApplicationController
   before_action :load_containers, only: [:show, :edit]
 
   def index
-    @boards = Board.order(created_at: :desc)
     @boards = @boards.page(params[:page]).per(3)
   end
 

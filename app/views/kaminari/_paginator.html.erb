@@ -1,16 +1,16 @@
-<%= paginator.render do -%>
+<%= paginator.render do %>
   <nav class="items-center justify-between m-10 lex " role="navigation" aria-label="pager">
-    <%= prev_page_tag unless current_page.first? %>
-    <% each_page do |page| -%>
-      <% if page.display_tag? -%>
+    <%= prev_page_tag if current_page.first? == false %>
+    <% each_page do |page| %>
+      <% if page.display_tag? %>
         <%= page_tag page %>
-      <% elsif !page.was_truncated? -%>
+      <% elsif !page.was_truncated? %>
         <%= gap_tag %>
-      <% end -%>
-    <% end -%>
-    <% unless current_page.out_of_range? %>
-      <%= next_page_tag unless current_page.last? %>
+      <% end %>
+    <% end %>
+    <% if current_page.out_of_range? == false %>
+      <%= next_page_tag if current_page.last? == false %>
     <% end %>
   </nav>
-<% end -%>
+<% end %>
 
