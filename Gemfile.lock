@@ -110,6 +110,8 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -363,6 +365,7 @@ DEPENDENCIES
   carrierwave (~> 2.2)
   devise (~> 4.9, >= 4.9.2)
   dotenv-rails (~> 2.1, >= 2.1.1)
+  font-awesome-rails
   foreman (~> 0.87.2)
   hotwire-rails (~> 0.1.0)
   jbuilder (~> 2.7)
