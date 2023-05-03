@@ -13,9 +13,6 @@ application.register("calendar", CalendarController)
 import CardFormController from "./card_form_controller"
 application.register("card-form", CardFormController)
 
-import ChatroomController from "./chatroom_controller"
-application.register("chatroom", ChatroomController)
-
 import ChatsubmitController from "./chatsubmit_controller"
 application.register("chatsubmit", ChatsubmitController)
 
