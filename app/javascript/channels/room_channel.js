@@ -20,6 +20,8 @@ document.addEventListener('turbo:load', ()=> {
     connected() {
       // Called when the subscription is ready for use on the server
       // console.log(`Connected to RoomChannel ${room_id}`)
+      const chatWindow = document.getElementById('chat-window')
+      chatWindow.scrollTop = chatWindow.scrollHeight
     },
   
     disconnected() {
