@@ -43,6 +43,10 @@
         <%= f.label :deadline, '結束日期', class: "mr-4" %>
         <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
       </div>
+      <div class="my-2">
+        <%= f.label :container_id, '狀態', class: "mr-4" %>
+        <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
+      </div>
     </div>
   </div>
 <% end %>
