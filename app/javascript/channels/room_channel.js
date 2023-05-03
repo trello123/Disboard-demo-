@@ -4,7 +4,11 @@ import Swal from "sweetalert2"
 
 document.addEventListener('turbolinks:load', ()=> {
   const room_element = document.getElementById('room-id')
+  if (!room_element) {
+    return
+  }
   const room_id = room_element.getAttribute('data-room-id')
+
   window.subscriptions = consumer.subscriptions
   consumer.subscriptions.subscriptions.forEach((subscription) => {
     if (JSON.parse(subscription.identifier).channel == 'RoomChannel')
