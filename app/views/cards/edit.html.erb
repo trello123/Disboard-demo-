@@ -47,6 +47,7 @@
         <%= f.label :container_id, '狀態', class: "mr-4" %>
         <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
       </div>
+      <div class="mt-32 ml-32"><%= link_to '刪除',container_card_path(:container_id, @card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %></div>
     </div>
   </div>
 <% end %>

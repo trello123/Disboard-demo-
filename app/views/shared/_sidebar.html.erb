@@ -1,11 +1,27 @@
 <% if user_signed_in? %>
   <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 text-white shadow-lg bg-Azure-blue" >
-    <button class="mt-10 mb-5 overflow-hidden sidebar-icon"><i class="fa-solid fa-user-tie"><%= link_to '使用者', boards_path, class: 'focus:bg-cyan-500 text-md' %></i></button>
-      <% boards.each do |board| %>
-        <%= link_to board.name, board_containers_path(board.id), class: "sidebar-icon overflow-hidden"%>
+    
+    <%= link_to boards_path, class: 'ml-4 mb-10 mt-10' do %>
+      <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:bg-cyan-500 hover:rounded-xl"></i>
+    <% end %>
+    
+      <% boards.each do |b| %>
+        <%= link_to board_containers_path(b.id) do %>
+          <div class="flex items-center my-2">
+            <% if board == b %>
+              <div class="w-1 h-16 bg-white rounded"></div>
+              <i class="flex items-center justify-center pt-3 pl-3 mb-5 overflow-hidden fa-solid fa-user-tie sidebar-icon bg-cyan-500 rounded-xl"></i>
+            <% else %>
+              <div class="hover:w-1 hover:h-12 hover:bg-white hover:rounded"></div>
+              <i class="flex items-center justify-center pt-3 pl-3 mb-5 ml-4 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:rounded-xl hover:bg-cyan-500"></i>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
 
-    <button class="mt-10 mb-5 sidebar-icon"><%= link_to '+', new_board_path, class: 'w-full h-full pt-2' %></button>
+    <%= link_to new_board_path, class: 'w-full h-full pt-2' do %>
+      <i class="flex items-center justify-center mb-5 ml-4 overflow-hidden sidebar-icon hover:rounded-xl hover:bg-cyan-500">+</i>
+    <% end %>
   </div>
 <% else %>
   <%= turbo_frame_tag :sigin %> 
