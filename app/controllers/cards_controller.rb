@@ -40,8 +40,6 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card.destroy
-    redirect_to @card.container.board
   end
 
   private

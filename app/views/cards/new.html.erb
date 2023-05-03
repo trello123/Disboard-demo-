@@ -13,21 +13,15 @@
         <%= f.text_field :title, class: 'input' %>
         <span>(必填)</span> 
       </div>
-      <div class="flex items-center my-3">
-        <%= f.label :intro, '簡介', class: "text-lg mr-4" %>
-        <%= f.text_area :intro, class: 'input' %>
-        <span>(必填)</span> 
+      <div class="flex flex-col items-start pr-20 my-3">
+        <%= f.label :intro, '描述', class: "text-lg mr-4" %>
+        <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
       </div>
       <div class="flex items-center my-3">
         <%= f.label :level, '難易度', class: "text-lg mr-4" %>
         <%= f.select :level, Card.level_list %>
       </div>
-      <div class="flex flex-col items-center my-3">
-        <%= f.label :content %>
-        <%= f.rich_text_area :content , class: 'w-full bg-white'%>
-      </div>
-
-      
+     
       <%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
 
       <div class="mt-4">
@@ -50,14 +44,6 @@
       <div class="my-2">
         <%= f.label :deadline, '結束日期', class: "mr-4" %>
         <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
-      </div>
-      <div class="my-2 -pr-5">
-        附件
-        <div class="overflow-hidden">
-          <%= f.file_field :avatar %>
-          <%= f.hidden_field :avatar_cache %>
-          <%= image_tag(@card.avatar_url) if @card.avatar.present? %>
-        </div>
       </div>
     </div>
   </div>
