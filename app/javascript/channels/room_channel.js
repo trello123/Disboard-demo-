@@ -11,25 +11,20 @@ document.addEventListener('turbo:load', ()=> {
 
   // window.subscriptions = consumer.subscriptions
   consumer.subscriptions.subscriptions.forEach((subscription) => {
-    console.log(JSON.parse(subscription.identifier).room_id);
     if (JSON.parse(subscription.identifier).channel == 'RoomChannel')
       consumer.subscriptions.remove(subscription)
   })
 
-  consumer.subscriptions.create({channel:"RoomChannel", room_id: room_id},{
+  consumer.subscriptions.create({channel:"RoomChannel", room_id},{
     connected() {
-      // Called when the subscription is ready for use on the server
-      // console.log(`Connected to RoomChannel ${room_id}`)
       const chatWindow = document.getElementById('chat-window')
       chatWindow.scrollTop = chatWindow.scrollHeight
     },
   
     disconnected() {
-      // Called when the subscription has been terminated by the server
     },
   
     received(data) {
-      // Called when there's incoming data on the websocket for this channel
       const user_element = document.getElementById('user-id')
       const user_id = Number(user_element.getAttribute('data-user-id'))
       
