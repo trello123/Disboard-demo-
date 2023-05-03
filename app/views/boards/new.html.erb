@@ -7,6 +7,8 @@
     <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1" %>
   <% end %>
   <div>
-    <%= link_to 'x' , :back, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
+    <%= link_to :back,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 border-none' do %>
+      <i class="fa-solid fa-xmark"></i>
+    <% end %>
   </div>
 </div>

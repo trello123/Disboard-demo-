@@ -9,9 +9,12 @@
           <%= turbo_frame_tag(board) do %>
           <div class="flex items-center justify-start">
             <h2 class="text-2xl"><%= board.name %> </h2>
-            <div class="ml-5">
+            <div class="flex items-center ml-5">
               <%= link_to edit_board_path(board.id), class: 'hover:bg-slate-200 hover:rounded' do %>
                 <i class="p-2 py-2 m-1 fa-solid fa-pencil"></i>
+              <% end %>
+              <%= link_to board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'inline-block relative bg-slate-200 w-6 h-6 rounded-full active:-bottom-[2px] hover:bottom-[1px] hover:bg-rose-500 flex justify-center items-center drop-shadow-2xl border-none ' do %>
+                <i class="fa-solid fa-xmark"></i>
               <% end %>
             </div>
           </div>

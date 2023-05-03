@@ -10,18 +10,22 @@
     </div>
     <div>
       <div>
-        <%= link_to 'x', container_path(container.id), method: 'delete', data: {confirm: 'sure?' }, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
+        <%= link_to container_path(container.id), method: 'delete', data: {confirm: 'sure?' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] opacity-0 hover:opacity-100 border-none' do %>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %>
       </div>
       <div>
       <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>">
         <% container.cards.each do |card| %>
           <div class="relative flex justify-between w-full px-4 py-3 my-3 bg-gray-300 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl" data-card-id="<%= card.id %>">
-            <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-20' %>
+            <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
             <div class="flex items-center justify-center gap-1">
               <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
                 <i class="m-1 fa-solid fa-pencil"></i>
               <% end %>
-              <%= link_to 'x', container_card_path(container, card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' }, class: 'inline-block relative bg-slate-200 w-6  px-2 rounded-full active:-bottom-[2px] hover:bottom-[1px] hover:bg-rose-500' %>
+              <%= link_to container_card_path(container, card.id), method: 'delete', data: { turbo: false, confirm: 'sure?' },class: 'bg-gray-200 drop-shadow-2xl border border-gray-200  w-5 h-5 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+                <i class="fa-solid fa-xmark fa-sm"></i>
+              <% end %>
             </div>
           </div>
         <% end%>  

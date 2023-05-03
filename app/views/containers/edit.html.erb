@@ -1,11 +1,16 @@
 <%= turbo_frame_tag(@container) do %>
-  <div class="p-2  bg-slate-200">
+  <div class="p-2 bg-slate-200">
     <%= form_for(@container, data: {turbo: false}) do |f| %>
-      <div class="flex">
+      <div class="relative flex">
+        <div>
+          <%= link_to :back, class: 'absolute -top-3 -left-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-5 h-5 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+            <i class="fa-solid fa-xmark"></i>
+          <% end %>
+        </div>
         <div>
           <%= f.text_field :title, class: 'input' %>
         </div>
-        <%= f.submit '更新', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-2 py-1 text-sm" %>
+        <%= f.submit '更新', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] ml-2 py-1 text-sm" %>
       </div>
     <% end %>
   </div>

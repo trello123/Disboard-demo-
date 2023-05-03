@@ -28,6 +28,7 @@ class CardsController < ApplicationController
 
   def edit
     @select_container = @card.container.board.containers.map { |c| [c.title, c.id] }
+    @assign_user = @card.container.board.users.map { |u| [u.email, u.email] }.unshift(["尚未指派","尚未指派"])
   end 
 
   def update
@@ -45,7 +46,7 @@ class CardsController < ApplicationController
 
   private
   def card_params
-    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline, :container_id).merge(board: @container.board)
+    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline, :container_id, :assigned_to).merge(board: @container.board)
   end
 
   def find_card
