@@ -5,9 +5,7 @@
         <div class="pb-24">
           <p><%= @room.id %></p>
           <div id="messages" class=" pb-52">
-            <% @room.messages.each do |message| %>
-                <%= render 'messages/message' , message: message%>  
-            <% end %>
+            <%= render partial: 'messages/message', collection: @messages %>
           </div>
         </div>
         <div class="mx-auto chat-box" data-controller="chatsubmit">
