@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :cards, only: [] do
         member do
           patch :sort
+          delete :remove 
         end
       end
       # 目前不需要id 所以單數

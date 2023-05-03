@@ -19,5 +19,8 @@ application.register("chatsubmit", ChatsubmitController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import RemoveController from "./remove_controller"
+application.register("remove", RemoveController)
+
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
