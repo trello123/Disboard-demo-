@@ -31,9 +31,14 @@
     </div>
     <div class="w-3/12">
       <div>
-        <%= link_to 'x' , board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
+        <%= link_to  board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %>
       </div>
-      <div class="my-2">成員</div>
+      <div class="my-2">
+        <%= f.label :assigned_to, '成員', class: "mr-4" %>
+        <%= f.select :assigned_to, options_for_select(@assign_user, @card.container_id), class: 'input w-32 text-md px-1' %>
+      </div>
       <div class="my-2">標籤</div>
       <div class="my-2">
         <%= f.label :daybegin, '開始日期', class: "mr-4" %>
@@ -47,6 +52,7 @@
         <%= f.label :container_id, '狀態', class: "mr-4" %>
         <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
       </div>
+    
       <div class="mt-32 ml-32"><%= link_to '刪除',container_card_path(:container_id, @card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %></div>
     </div>
   </div>

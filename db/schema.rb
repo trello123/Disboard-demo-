@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2023_05_04_104024) do
     t.datetime "deleted_at"
     t.string "avatar"
     t.bigint "board_id"
+    t.string "assigned_to", default: "尚未指派"
     t.index ["board_id"], name: "index_cards_on_board_id"
     t.index ["container_id"], name: "index_cards_on_container_id"
     t.index ["deleted_at"], name: "index_cards_on_deleted_at"
