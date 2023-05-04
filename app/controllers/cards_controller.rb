@@ -36,7 +36,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to @card.container.board
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

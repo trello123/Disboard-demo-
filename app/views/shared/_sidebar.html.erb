@@ -1,24 +1,28 @@
 <% if user_signed_in? %>
-  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 text-white shadow-lg bg-Azure-blue" >
+  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen gap-8 m-0 text-white shadow-lg bg-Azure-blue" >
     
-    <%= link_to boards_path, class: 'ml-4 mb-10 mt-10' do %>
-      <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:bg-cyan-500 hover:rounded-xl"></i>
+    <%= link_to boards_path, class: 'mx-4 mb-10 mt-9 w-12 h-[48px] rounded-full' do %>
+      <i class="flex items-center justify-center pt-3 pl-3 my-0 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:bg-cyan-500 hover:rounded-xl"></i>
     <% end %>
     
       <% boards.each do |b| %>
-        <%= link_to board_containers_path(b.id) do %>
-          <div class="flex items-center my-2">
-            <% if board == b %>
-              <i class="flex items-center justify-center pt-3 pl-3 mb-5 overflow-hidden fa-solid fa-user-tie sidebar-icon bg-cyan-500 rounded-xl"></i>
-            <% else %>
-              <i class="flex items-center justify-center pt-3 pl-3 mb-5 ml-4 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:rounded-xl hover:bg-cyan-500"></i>
-            <% end %>
-          </div>
-        <% end %>
+        <div class='mx-4 mb-3 w-[48px] h-[48px] rounded-full'>
+          <%= link_to board_containers_path(b.id) do %>
+            <div class="flex items-center my-0 rounded-full w-[48px] h-[48px]">
+              <% if board == b %>
+                <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon bg-cyan-500 rounded-xl"></i>
+              <% else %>
+                <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:rounded-xl hover:bg-cyan-500"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
 
-    <%= link_to new_board_path, class: 'w-full h-full pt-2' do %>
-      <i class="flex items-center justify-center mb-5 ml-4 overflow-hidden sidebar-icon hover:rounded-xl hover:bg-cyan-500">+</i>
+    <%= link_to new_board_path, class: 'mt-5 mx-4 mb-3 w-[48px] h-[48px] rounded-full' do %>
+      <div class='w-[48px] h-[48px] rounded-full my-0'>
+        <i class="flex items-center justify-center my-0 overflow-hidden sidebar-icon hover:rounded-xl hover:bg-cyan-500">+</i>
+      </div>
     <% end %>
   </div>
 <% else %>
