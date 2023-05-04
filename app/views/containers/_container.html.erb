@@ -1,11 +1,10 @@
 
   <div class="w-64 mx-5 ">
-    <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>" data-remove-target="container">
+    <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
       <div class="flex items-center justify-between w-full gap-3 mb-1">
         <div>
           <%= turbo_frame_tag(container) do %>
-            <span class="pr-1 font-bold">|</span>
-            <%= link_to container.title, edit_container_path(container.id), class: " font-bold" %>
+            <%= link_to container.title, edit_container_path(container.id), class: " font-bold before:content-['|'] before:mr-2 before:font-medium" %>
           <% end %>
         </div>
       </div>

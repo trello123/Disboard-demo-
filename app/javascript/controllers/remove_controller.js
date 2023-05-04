@@ -5,12 +5,7 @@ import Swal from "sweetalert2"
 
 // Connects to data-controller="remove"
 export default class extends Controller {
-  static targets = [ "card", "container" ]
-
-  connect() {
-    
-  }
-
+  
   wipeOut(e) {
     e.preventDefault()
     Swal.fire({
@@ -31,10 +26,10 @@ export default class extends Controller {
           if (resp.ok) {
             Swal.fire(
               '已刪除!',
-              '您的檔案已刪除完成',
+              '您的列表已刪除完成',
               'success'
             )
-            this.containerTarget.remove()
+            this.element.remove()
           }
         })
       }
