@@ -13,7 +13,8 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-          'Azure-blue': '#414E92'
+          'Azure-blue': '#414E92',
+          'my-blue': '#2196f3'
       },
       boxShadow: {
         '3xl': '30px 0x 0px 0px rgba(0, 0, 0, 0.3)',
@@ -27,5 +28,16 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
     require("daisyui"),
-  ]
+    
+  ],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "light",
+  },  
 }

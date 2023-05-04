@@ -1,3 +1,4 @@
+<% if message.card_id != nil %>
 <div class="message mb-2 <%= 'me' if message.user == current_user %>">
   <div class="content">
     <% if message.user.username.present? %>
@@ -6,7 +7,23 @@
       <%= message.user.email %>
     <% end %>    
   </div>
-  <div class="author">
-    <%= message.content %>
-  </div>
+    <div class="border border-l-4 shadow-xl border-my-blue author">
+      <%= message.user.email %>
+      <p class="py-3 ">新增了一個新的任務</p>
+      <p>任務: <%= message.content %></p>
+    </div>
 </div>
+<% else %>
+  <div class="message mb-2 <%= 'me' if message.user == current_user %>">
+    <div class="content">
+      <% if message.user.username.present? %>
+        <%= message.user.username %>
+      <% else %>
+        <%= message.user.email %>
+      <% end %>    
+    </div>
+    <div class="author">
+      <%= message.content %>
+    </div>
+  </div>
+<% end %>
