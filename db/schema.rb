@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_022737) do
+ActiveRecord::Schema.define(version: 2023_05_04_104024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2023_05_04_022737) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
+    t.integer "position"
     t.index ["board_id"], name: "index_containers_on_board_id"
     t.index ["deleted_at"], name: "index_containers_on_deleted_at"
   end
