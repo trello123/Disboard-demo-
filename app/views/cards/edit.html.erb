@@ -1,59 +1,58 @@
-<%=  form_with(model: @card, url: container_card_path, data: { turbo: false } ) do |f| %>
-  <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
-    <div class="flex-col w-9/12">
-      <% if @card.errors.any? %>
-        <% @card.errors.full_messages.each do |msg| %>
-          <ul class="flex-col">
-            <li><%= msg %></li>
-          </ul>
-        <% end %>
-      <% end %>
-      <div class="flex items-center my-3">
-        <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-        <%= f.text_field :title, class: 'input' %>
-        <span>(必填)</span> 
+<div class="mt-16 ml-40">
+  <%=  form_with(model: @card, url: container_card_path) do |f| %>
+    <div class="flex flex-col p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+      <div class="flex flex-row">
+        <div class="flex-col w-9/12">
+          <% if @card.errors.any? %>
+            <% @card.errors.full_messages.each do |msg| %>
+              <ul class="flex-col">
+                <li><%= msg %></li>
+              </ul>
+            <% end %>
+          <% end %>
+          <div class="flex items-center my-3">
+            <%= f.label :title, '標題', class: "text-lg mr-4"  %>
+            <%= f.text_field :title, class: 'input' %>
+            <span>(必填)</span>
+          </div>
+          <div class="flex flex-col items-start pr-20 my-3">
+            <%= f.label :intro, '描述', class: "text-lg mr-4" %>
+            <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
+          </div>
+          <div class="flex items-center my-3">
+            <%= f.label :level, '難易度', class: "text-lg mr-4" %>
+            <%= f.select :level, Card.level_list %>
+          </div>
+        </div>
+        <div class="w-3/12">
+          <div>
+            <%= link_to  board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+          </div>
+          <div class="my-2">
+            <%= f.label :assigned_to, '成員', class: "mr-4" %>
+            <%= f.select :assigned_to, options_for_select(@assign_user, @card.container_id), class: 'input w-32 text-md px-1' %>
+          </div>
+          <div class="my-2">標籤</div>
+          <div class="my-2">
+            <%= f.label :daybegin, '開始日期', class: "mr-4" %>
+            <%= f.datetime_field :daybegin, class: 'input w-32 text-md px-1' %>
+          </div>
+          <div class="my-2">
+            <%= f.label :deadline, '結束日期', class: "mr-4" %>
+            <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
+          </div>
+          <div class="my-2">
+            <%= f.label :container_id, '狀態', class: "mr-4" %>
+            <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col items-start pr-20 my-3">
-        <%= f.label :intro, '描述', class: "text-lg mr-4" %>
-        <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
-      </div>
-      <div class="flex items-center my-3">
-        <%= f.label :level, '難易度', class: "text-lg mr-4" %>
-        <%= f.select :level, Card.level_list %>
-      </div>
-      
-      <%= f.submit '更新', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
-
-      <div class="mt-4">
-        評論區
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
+      <div class="relative flex items-center justify-center gap-10 pb-3">
+        <div><%= f.submit '更新', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
+        <div><%= link_to '刪除',container_card_path(:container_id, @card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1 rounded-lg' %></div>
       </div>
     </div>
-    <div class="w-3/12">
-      <div>
-        <%= link_to  board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
-          <i class="fa-solid fa-xmark"></i>
-        <% end %>
-      </div>
-      <div class="my-2">
-        <%= f.label :assigned_to, '成員', class: "mr-4" %>
-        <%= f.select :assigned_to, options_for_select(@assign_user, @card.container_id), class: 'input w-32 text-md px-1' %>
-      </div>
-      <div class="my-2">標籤</div>
-      <div class="my-2">
-        <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-        <%= f.datetime_field :daybegin, class: 'input w-32 text-md px-1' %>
-      </div>
-      <div class="my-2">
-        <%= f.label :deadline, '結束日期', class: "mr-4" %>
-        <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
-      </div>
-      <div class="my-2">
-        <%= f.label :container_id, '狀態', class: "mr-4" %>
-        <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
-      </div>
-    
-      <div class="mt-32 ml-32"><%= link_to '刪除',container_card_path(:container_id, @card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %></div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

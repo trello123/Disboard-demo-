@@ -14,12 +14,13 @@ class CardsController < ApplicationController
   def create
     @board = @container.board
     @card = @container.cards.new(card_params)
+
     if @card.save
       @card.create_message(content: @card.title, room_id: @board.room.id , user_id: current_user.id)
       SendMessageJob.perform_later(@card.message)
       redirect_to board_containers_path(@board.id)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

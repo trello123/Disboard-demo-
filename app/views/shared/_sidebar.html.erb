@@ -9,10 +9,8 @@
         <%= link_to board_containers_path(b.id) do %>
           <div class="flex items-center my-2">
             <% if board == b %>
-              <div class="w-1 h-16 bg-white rounded"></div>
               <i class="flex items-center justify-center pt-3 pl-3 mb-5 overflow-hidden fa-solid fa-user-tie sidebar-icon bg-cyan-500 rounded-xl"></i>
             <% else %>
-              <div class="hover:w-1 hover:h-12 hover:bg-white hover:rounded"></div>
               <i class="flex items-center justify-center pt-3 pl-3 mb-5 ml-4 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:rounded-xl hover:bg-cyan-500"></i>
             <% end %>
           </div>
