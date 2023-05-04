@@ -4,7 +4,10 @@
     <%# <img src="#" alt="logo"> %>
     <h1 class="text-l lg:text-xl">LOGO</h1>
   </div>
-  <ul class="px-16 py-2 lg:px-32 lg:py-4">
-    <li><%= link_to '付費升級' , '#' ,class:"text-gray-600 text-l lg:text-xl"%></li>
+  <ul class="flex px-16 py-2 lg:px-32 lg:py-4">
+    <li><%= link_to '付費升級' , '#' ,class:"mx-5 text-gray-600 text-l lg:text-xl"%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-gray-600 text-l lg:text-xl" %></li>
+    <% end %>
   </ul>
 </nav>
