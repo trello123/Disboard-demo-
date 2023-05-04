@@ -14,6 +14,6 @@ class SendMessageJob < ApplicationJob
     )
     # redirect_to request.referrer
     ActionCable.server.broadcast(
-    "room_channel_#{ message.room_id }", { mine: mine , theirs: theirs , message: message })
+    "room_channel_#{ message.room_id }",  { mine: mine, theirs: theirs, message: message })
   end
 end
