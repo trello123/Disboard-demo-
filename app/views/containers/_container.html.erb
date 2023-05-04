@@ -13,9 +13,9 @@
         <%= link_to 'x', container_path(container.id), method: 'delete', data: {confirm: 'sure?' }, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
       </div>
       <div>
-      <section id="card-list" data-controller="sortable">
+      <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>">
         <% container.cards.each do |card| %>
-          <div class="relative flex justify-between w-full px-4 py-3 my-3 bg-gray-400 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl" >
+          <div class="relative flex justify-between w-full px-4 py-3 my-3 bg-gray-400 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl" data-card-id="<%= card.id %>">
             <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-20' %>
             <div class="flex items-center justify-center gap-1">
               <%= link_to '修改', edit_container_card_path(container, card.id), class: 'inline-block relative btn-primary mx-1 text-sm bg-slate-200 text-black active:-bottom-[2px] hover:bottom-[1px] hover:bg-slate-200' %>

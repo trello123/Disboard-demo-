@@ -20,9 +20,9 @@ class Card < ApplicationRecord
   belongs_to :container , optional: true
   belongs_to :board
   has_one :message
-
+  
   #套件給的
-  acts_as_list
+  acts_as_list scope: :container
   acts_as_paranoid
   mount_uploader :avatar, AvatarUploader
 
