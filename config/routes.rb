@@ -32,6 +32,11 @@ Rails.application.routes.draw do
           delete :remove 
         end
       end
+      resources :containers, only: [] do
+        member do
+          delete :remove 
+        end
+      end
       # 目前不需要id 所以單數
       resource :calendars
     end

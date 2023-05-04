@@ -14,11 +14,6 @@ class Api::V1::CardsController < ApplicationController
     end
   end
 
-  def remove
-    @card.destroy
-    render json: {id: params[:id],result: 'ok'}
-  end
-
   private
   def card_permission?(board_id, container_id, card_id)
     if current_user.present?

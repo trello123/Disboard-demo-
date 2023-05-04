@@ -39,8 +39,6 @@ class ContainersController < ApplicationController
   end
 
   def destroy
-    @container.destroy
-    redirect_to @container.board
   end
 
 
