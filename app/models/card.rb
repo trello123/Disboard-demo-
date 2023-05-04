@@ -19,6 +19,7 @@ class Card < ApplicationRecord
   # relationships
   belongs_to :container , optional: true
   belongs_to :board
+  has_one :message
 
   #套件給的
   acts_as_list
