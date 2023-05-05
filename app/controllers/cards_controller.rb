@@ -28,8 +28,6 @@ class CardsController < ApplicationController
   end
 
   def edit
-    @select_container = @card.container.board.containers.map { |c| [c.title, c.id] }
-    @assign_user = @card.container.board.users.map { |u| [u.email, u.email] }.unshift(["尚未指派","尚未指派"])
   end 
 
   def update

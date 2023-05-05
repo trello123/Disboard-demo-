@@ -5,12 +5,12 @@ import Swal from "sweetalert2"
 
 // Connects to data-controller="remove"
 export default class extends Controller {
-  
+
   wipeOut(e) {
     e.preventDefault()
     Swal.fire({
       title: '確定嗎?',
-      text: "檔案刪除後將無法復原!",
+      text: "列表刪除後將無法復原!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

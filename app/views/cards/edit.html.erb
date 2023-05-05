@@ -26,14 +26,14 @@
         </div>
         <div class="w-3/12">
           <div>
-            <%= link_to  board_containers_path(@card.container.board.id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+            <%= link_to  board_containers_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
           <div class="my-2">
             <%= f.label :assigned_to, '成員', class: "mr-4" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :assigned_to, options_for_select(@assign_user, :container_id), class: 'input w-32 text-md px-1' %>
+              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'input w-32 text-md px-1' %>
             <% end %>
           </div>
           <div class="my-2">
@@ -47,7 +47,7 @@
           <div class="my-2">
             <%= f.label :container_id, '狀態', class: "mr-4" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :container_id, options_for_select(@select_container, @card.container_id), class: 'input w-32 text-md px-1' %>
+              <%= f.select :container_id, options_for_select(select_container(@card.board), @card.container_id), class: 'input w-32 text-md px-1' %>
             <% end %>
           </div>
         </div>
