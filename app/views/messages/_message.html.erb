@@ -7,11 +7,14 @@
       <%= message.user.email %>
     <% end %>    
   </div>
-    <div class="border border-l-4 shadow-xl border-my-blue author">
-      <%= message.user.email %>
-      <p class="py-3 ">新增了一個新的任務</p>
-      <p>任務: <%= message.content %></p>
-    </div>
+  <div class="border border-l-4 shadow-xl border-my-blue author">
+    <%= message.user.email %>
+    <p class="py-3 ">新增了一個新的任務</p>
+    <p>任務: <%= message.content %></p>
+  </div>
+  <div class="block text-sm text-gray-400">
+    <%= format_datetime(message.created_at).split('#').last%>
+  </div>
 </div>
 <% else %>
   <div class="message mb-2 <%= 'me' if message.user == current_user %>">
@@ -24,6 +27,9 @@
     </div>
     <div class="author">
       <%= message.content %>
+    </div>
+    <div class="block text-sm text-gray-400">
+      <%= format_datetime(message.created_at).split('#').last%>
     </div>
   </div>
 <% end %>

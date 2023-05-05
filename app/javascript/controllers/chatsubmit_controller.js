@@ -4,6 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "submit" , "input" ]
 
+  connect() {
+    this.inputTarget.focus()
+  }
   input(e) {
     const content = e.target.value.trim()
     if (content != "") {
