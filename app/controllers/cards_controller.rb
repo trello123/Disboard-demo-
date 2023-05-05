@@ -32,7 +32,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card.container.board
+      redirect_to @card.board
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class CardsController < ApplicationController
 
   def destroy
     @card.destroy
-    redirect_to @card.container.board
+    redirect_to @card.board
   end
 
   private
