@@ -22,7 +22,7 @@ class User < ApplicationRecord
   # relationships
   has_many :board_users, dependent: :destroy
   has_many :boards, through: :board_users, dependent: :destroy
-
+  has_many :comments
   class << self
     def from_omniauth(auth)
       find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
