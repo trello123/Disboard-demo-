@@ -12,6 +12,9 @@
       <p class="py-3 ">新增了一個新的任務</p>
       <p>任務: <%= message.content %></p>
     </div>
+    <div class="block text-sm text-gray-400">
+      <%= format_datetime(message.created_at).split('#').last%>
+    </div>
   </div>
 <% else %>
     <div class="mb-3 message me">
@@ -24,6 +27,9 @@
     </div>
     <div class="author">
       <%= message.content %>
+    </div>
+    <div class="block text-sm text-gray-400">
+      <%= format_datetime(message.created_at).split('#').last%>
     </div>
   </div>
 <% end %>
