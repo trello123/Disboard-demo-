@@ -34,7 +34,9 @@
         <!-- <%= link_to '註冊' ,  new_user_registration_path ,data: {turbo_frame: "sigup" , action: "click->modal#open"}%> -->
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= button_to t("devise.shared.sign_in_with_provider", provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), data: { turbo: false } %>
+            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post do %>
+              <img src="/assets/7123025_logo_google_g_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
+            <% end %>
           <% end %>
         <% end %>
       </section>
