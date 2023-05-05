@@ -1,36 +1,31 @@
-
-  <div class="w-64 mx-5 ">
-    <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
-      <div class="flex items-center justify-between w-full gap-3 mb-1">
-        <div>
-          <%= turbo_frame_tag(container) do %>
-            <%= link_to container.title, edit_container_path(container.id), class: " font-bold before:content-['|'] before:mr-2 before:font-medium" %>
-          <% end %>
-        </div>
-      </div>
+<div class="w-64 mx-5">
+  <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+    <div class="flex items-center justify-between w-full gap-3 mb-1">
       <div>
-      <div>
-          <%= link_to "#", data: { action: 'click->remove#wipeOut' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
-            <i class="fa-solid fa-xmark"></i>
-          <% end %>
-        </div>
-        <div>
-      <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
-       <% container.cards.each do |card| %>
-            <div class="w-64 pr-10">
-              <div class="relative flex justify-between w-full px-3 py-3 my-3 bg-gray-300 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl">
-                <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
-                <div class="flex items-center justify-center gap-1">
-                  <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
-                    <i class="m-1 fa-solid fa-pencil"></i>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end%>
-        </section>
-          <div class="flex justify-start active:-bottom-[2px] hover:bottom-[1px]"><%= link_to '新增', new_container_card_path(container.id), data: { turbo: false }, class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
-        </div>
+        <%= turbo_frame_tag(container) do %>
+          <%= link_to container.title, edit_container_path(container.id), class: " font-bold before:content-['|'] before:mr-2 before:font-medium" %>
+        <% end %>
       </div>
     </div>
+    <div>
+      <%= link_to "#", data: { action: 'click->remove#wipeOut' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+    </div>
+    <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
+      <% container.cards.each do |card| %>
+        <div class="w-64 pr-10" data-card-id="<%= card.id %>">
+          <div class="relative flex justify-between w-full px-3 py-3 my-3 bg-gray-300 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl">
+            <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
+            <div class="flex items-center justify-center gap-1">
+              <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
+                <i class="m-1 fa-solid fa-pencil"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </section>
+    <div class="flex justify-start active:-bottom-[2px] hover:bottom-[1px]"><%= link_to '新增', new_container_card_path(container.id), data: { turbo: false }, class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
   </div>
+</div>
