@@ -1,17 +1,22 @@
 Chartkick.options = {
-  width: "500px",
+  width: "544px",
   height: "300px",
   empty: "No data",
   adapter: "highcharts",
-  legend: false,
   library: {
     chart: {
       borderColor: '#fff',
       borderWidth: 3,
       borderRadius: '5',
       spacing: [20, 30, 20, 30],
+      title: {
+        style: {
+          spacingRight: 30
+        }
+      },
       style: {
-        fontSize: '24px'
+        fontSize: '20px',
+        fontWeight: 'normal'
       },
       shadow: {
           color: '#ddd',

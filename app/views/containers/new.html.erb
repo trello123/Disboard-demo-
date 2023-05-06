@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(@board.id) do %>
-  <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+  <div class="absolute flex p-3 m-2 rounded-md w-max bg-slate-200 drop-shadow-2xl inset-x-3/4 inset-y-3/4">
     <%= form_with(model: @container, data: {turbo: false}, url: board_containers_path ) do |f| %>
       <div class="flex items-center my-2">
         <%= f.label :title, '標題', class: "text-lg mr-4"  %>
