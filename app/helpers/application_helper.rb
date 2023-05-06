@@ -2,7 +2,10 @@ module ApplicationHelper
   def format_datetime(date)
     date.strftime("%Y/%-m/%-d # %I:%M %p")
   end
-  
+
+  def format_date_to_month_and_day(date)
+    date.strftime("%Y/%-m/%-d").split("/")[1..-1].join("月") + "日"
+  end
 
   def format_email(email)
     email.split("@").first
