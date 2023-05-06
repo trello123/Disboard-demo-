@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 
-
 @layer components {
   .btn-primary {
-    @apply px-5  bg-Azure-blue  text-white rounded-lg 
+    @apply px-5  bg-Azure-blue-2  text-white rounded-lg 
   }
   .btn-danger {
     @apply px-3 py-1 rounded bg-rose-600 text-rose-50 hover:bg-rose-700;
   }
   .btn-logn{
-    @apply px-10 py-3 bg-Azure-blue  text-white rounded-lg border-b-4 border-b-gray-900 hover:border-b-0 transition-all ease-in-out duration-100
+    @apply px-10 py-3 bg-Azure-blue-2  text-white rounded-lg border-b-4 border-b-gray-900 hover:border-b-0 transition-all ease-in-out duration-100
   }
   .btn-chat{
     @apply px-10 py-5  bg-Azure-blue  text-white rounded-r-lg border-b-gray-900
@@ -27,10 +26,10 @@
     @apply w-48;
   }
   .sidebar-icon{
-    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 focus:bg-cyan-500  rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
+    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
   }
   .logn-modal{
-    @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-Azure-blue-3 top-60 rounded-md shadow-2xl
+    @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-white-1  top-60 rounded-md shadow-2xl
   }
   .input{
     @apply rounded-xl  text-black
@@ -39,7 +38,7 @@
     @apply px-5 text-white hover:text-gray-400 items-center
   }
   .author{
-    @apply  inline-block px-5 py-2 text-white rounded-lg bg-Azure-blue shadow-xl
+    @apply  inline-block px-5 py-2 text-white rounded-lg bg-Azure-blue-2 shadow-xl
   }
   .me{
     @apply text-right
@@ -52,7 +51,7 @@
     border-bottom: 2px solid #414E92;
     width: 50%;
     position: absolute;
-    top:10%;
+    top:8%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -63,7 +62,7 @@
     @apply bg-Azure-blue-3 rounded-xl
   } 
   .newcontainer{
-    @apply flex items-center justify-center shadow-xl w-10 h-10 bg-white fixed right-10 bottom-10 p-5 rounded-2xl transition-all duration-1000 transform hover:w-44
+    @apply flex items-center justify-center shadow-3xl w-10 h-10 bg-white fixed right-10 bottom-10 p-5 rounded-2xl transition-all duration-1000 transform hover:w-44
   }
   .newcontainer:hover::after {
     content: "新增狀態";

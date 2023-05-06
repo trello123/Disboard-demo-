@@ -1,13 +1,13 @@
 <section class="w-full">
-  <section class="flex flex-col items-center">
+  <section class="flex flex-col items-center -ml-20 ">
     <div>
       <%= turbo_frame_tag :member_search do %>
         <%= render "search", q: @q %>
       <% end %>
     </div>
-    <div class="w-full mt-4 ml-20">
-      <h2>成員列表</h2>
-      <table class="table w-full">
+    <div class="w-full mt-4 ">
+      <h2 class="text-center">成員列表</h2>
+      <table class="table w-1/2 mx-auto shadow-3xl">
         <!-- head -->
         <thead>
           <tr>

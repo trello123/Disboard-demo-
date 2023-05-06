@@ -1,6 +1,6 @@
 <div class="mt-16 ml-40">
   <%=  form_with(model: @card, url: container_cards_path ) do |f| %>
-    <div class="flex p-3 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+    <div class="flex p-3 m-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
       <div class="flex-col w-9/12">
         <% if @card.errors.any? %>
           <% @card.errors.full_messages.each do |msg| %>

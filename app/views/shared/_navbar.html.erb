@@ -1,12 +1,12 @@
-<nav class="fixed top-0 z-10 flex items-center justify-between w-full bg-white rounded-b-lg shadow-xl opacity-90 ">
+<nav class="fixed top-0 z-10 flex items-center justify-between w-full shadow-xl bg-Azure-blue-2 opacity-90 ">
   <div class="px-16 py-2 lg:px-32 lg:py-4">
   <%# logo未定 %>
     <%# <img src="#" alt="logo"> %>
-    <h1 class="text-l lg:text-xl">LOGO</h1>
+    <h1 class="text-white text-l lg:text-xl">LOGO</h1>
   </div>
   <ul class="flex px-16 py-2 lg:px-32 lg:py-4">
     <% if user_signed_in? %>
-    <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-gray-600 text-l lg:text-xl" %></li>
+    <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-white text-l lg:text-xl" %></li>
     <% end %>
   </ul>
 </nav>

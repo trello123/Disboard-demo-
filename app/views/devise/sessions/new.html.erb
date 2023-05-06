@@ -6,7 +6,7 @@
            data-aos-duration="350">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name),data:{turbo: false}) do |f| %>
       <section class="flex items-center justify-center w-full" data-controller="modal">
-        <section class="text-white logn-modal" data-modal-target="modal">
+        <section class="logn-modal" data-modal-target="modal">
           <a href="#" class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"  ></i></a>
           <div class="text-3xl text-center ">
             <h3>歡迎回來!</h3>
