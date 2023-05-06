@@ -13,11 +13,11 @@
 
   <body class="overflow-hidden">
     <%= render 'shared/sidebar', boards: @boards, board: @board %>
-    <main class="flex w-full h-screen pl-20 mx-auto bg-gradient-to-t from-[#a7c6ed] to-[#599af4]">  
+    <main class="flex w-full h-screen px-20 mx-auto bg-Azure-blue-3 ">  
       <div class="relative ">
         <%= render 'shared/insidebar', container: @containers, board: @board %>
       </div>
-      <div class="relative w-full pt-[110px]">
+      <div class="w-full pt-[70px]">
         <%= yield %>
       </div>
     </main>

@@ -30,13 +30,13 @@
     @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 focus:bg-cyan-500  rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
   }
   .logn-modal{
-    @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-Azure-blue top-60 rounded-md shadow-2xl
+    @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-Azure-blue-3 top-60 rounded-md shadow-2xl
   }
   .input{
     @apply rounded-xl  text-black
   }
   .insidebar{
-    @apply border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-gray-500 hover:shadow-xl  mx-1.5 sm:mx-6 px-5
+    @apply px-5 text-white hover:text-gray-400 items-center
   }
   .author{
     @apply  inline-block px-5 py-2 text-white rounded-lg bg-Azure-blue shadow-xl
@@ -45,9 +45,36 @@
     @apply text-right
   }
   .chat-box{
-    @apply absolute bottom-0 py-2 px-5 bg-white w-full left-0 shadow-4xl
+    @apply absolute bottom-0 left-0 w-full px-5 py-2 bg-white shadow-4xl ;
+  }
+  .underscore::before{
+    content:"";
+    border-bottom: 2px solid #414E92;
+    width: 50%;
+    position: absolute;
+    top:10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .touch-icon{
+    @apply hover:bg-Azure-blue-3 hover:rounded-xl
+  }
+  .linkto-icon{
+    @apply bg-Azure-blue-3 rounded-xl
+  } 
+  .newcontainer{
+    @apply flex items-center justify-center shadow-xl w-10 h-10 bg-white fixed right-10 bottom-10 p-5 rounded-2xl transition-all duration-1000 transform hover:w-44
+  }
+  .newcontainer:hover::after {
+    content: "新增狀態";
+    font-size: 15px;
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
+
 
 
 

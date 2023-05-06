@@ -10,7 +10,7 @@ export default class extends Controller {
   initialize() {
     this.calendar = new Calendar(this.element, {
       initialView: 'dayGridMonth',
-      contentHeight: 900,
+      contentHeight: 570,
       dayMaxEvents: true,
       locale: 'zh-tw',
       headerToolbar: {

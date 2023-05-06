@@ -4,7 +4,7 @@
       <% if @room.present? %>
         <div class="pb-24">
           <p><%= @room.id %></p>
-          <div id="messages" class=" pb-52">
+          <div id="messages" class="pb-32 ">
             <%= render partial: 'messages/message', collection: @messages %>
           </div>
         </div>

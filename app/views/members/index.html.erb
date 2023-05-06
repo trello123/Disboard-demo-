@@ -1,6 +1,11 @@
 <section class="w-full">
-  <section class="flex justify-between gap-2">
-    <div class="w-full mt-4 overflow-x-auto">
+  <section class="flex flex-col items-center">
+    <div>
+      <%= turbo_frame_tag :member_search do %>
+        <%= render "search", q: @q %>
+      <% end %>
+    </div>
+    <div class="w-full mt-4 ml-20">
       <h2>成員列表</h2>
       <table class="table w-full">
         <!-- head -->
@@ -31,12 +36,6 @@
           <% end %>
         </tbody>
       </table>
-    </div>
-
-    <div>
-      <%= turbo_frame_tag :member_search do %>
-        <%= render "search", q: @q %>
-      <% end %>
     </div>
   </section>
 </section>

@@ -1,5 +1,7 @@
 <div class="container flex w-full">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
-  <button class="mt-5 mb-5 sidebar-icon"><%= link_to '+', new_board_container_path(@board.id), class: 'w-full h-full pt-2 bg-slate-200 rounded-full hover:bg-gray-400' %></button>
+  <%= link_to new_board_container_path(@board.id), class: 'newcontainer' do %>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
 </div>
 

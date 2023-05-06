@@ -1,10 +1,13 @@
-<span class="ml-5 text-xl font-bold">專案列表</span>
-<section class="grid grid-cols-3 gap-3 ">
-  <%= render @boards %>
+<section class="relative flex flex-col items-center w-full h-screen">
+  <span class="ml-5 text-2xl font-bold text-white">專案列表</span>
+  <div class="grid grid-cols-3 gap-3">
+    <%= render @boards %>
+  </div>
+
+  <div class="fixed text-xl text-white bottom-5">
+    <%= paginate @boards %>
+  </div>
 </section>
 
-<div class="flex justify-center text-xl ">
-  <%= paginate @boards %>
-</div>
 
 

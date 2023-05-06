@@ -1,46 +1,38 @@
-<section class="fixed z-10 w-full bg-white border-b shadow-lg left-20">
-  <div class="flex items-center w-full gap-2 py-2 ml-8">
-    <div class="w-8">
-      <img src="https://picsum.photos/200" alt="" class="w-8 rounded-full">
-    </div>
-    <div class="flex justify-start w-full text-center">
-      
-        <% if container.present? %>
-          <%= turbo_frame_tag(board) do %>
-          <div class="flex items-center justify-start">
-            <h2 class="text-2xl"><%= board.name %> </h2>
-            <div class="flex items-center ml-5">
-              <%= link_to edit_board_path(board.id), class: 'hover:bg-slate-200 hover:rounded' do %>
-                <i class="p-2 py-2 m-1 fa-solid fa-pencil"></i>
-              <% end %>
-              <%= link_to board_path(board.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'inline-block relative bg-slate-200 w-6 h-6 rounded-full active:-bottom-[2px] hover:bottom-[1px] hover:bg-rose-500 flex justify-center items-center drop-shadow-2xl border-none ' do %>
-                <i class="fa-solid fa-xmark"></i>
-              <% end %>
-            </div>
+<section class="fixed z-10 w-full shadow-lg bg-Azure-blue-6 h-[60px]">
+  <div class="flex items-center justify-between py-3 ml-8 group">
+      <% if container.present? %>
+        <%= turbo_frame_tag(board) do %>
+        <div class="flex items-center justify-start">
+          <h2 class="text-2xl font-bold text-white"><%= board.name %> </h2>
+          <div class="flex items-center ml-5">
+            <%= link_to edit_board_path(board.id), class: 'invisible group-hover:flex group-hover:visible' do %>
+              <i class="fa-solid fa-pencil invert"></i>
+            <% end %>
           </div>
-          <% end %>
-        <% else %>
-          <%= format_email(current_user.email) %>
+        </div>
         <% end %>
-     
-    </div>
-      <ul class="flex justify-end w-full text-sm">
-        <% if board.present? and board.id.present? %>
-          <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
-          <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
-          <li class="insidebar"><%= link_to '聊天室', board_rooms_path(board.id) %></li>
-          <li class="insidebar"><%= link_to '成員', board_members_path(board.id) %></li>
-          <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li> 
-          <li class="insidebar"><%= link_to '設定', '#' %></li> 
-        <% else %>
-          <li class="insidebar"><%= link_to '任務', '#' %></li>
-          <li class="insidebar"><%= link_to '日曆', '#' %></li>
-          <li class="insidebar"><%= link_to '聊天室', '#' %></li>
-          <li class="insidebar"><%= link_to '成員', '#' %></li>
-          <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>  
-          <li class="insidebar"><%= link_to '設定', '#' %></li>
-        <% end %>
-      </ul>
+      <% else %>
+      <div class="text-2xl font-bold text-white">
+        <%= format_email(current_user.email) %>
+      </div>
+      <% end %>
+    <ul class="flex items-center mx-5">
+      <% if board.present? and board.id.present? %>
+        <li class="insidebar"><%= link_to '任務', board_path(board.id) %></li>
+        <li class="insidebar"><%= link_to '日曆', board_calendars_path(board.id) %></li>
+        <li class="insidebar"><%= link_to '聊天室', board_rooms_path(board.id) %></li>
+        <li class="insidebar"><%= link_to '成員', board_members_path(board.id) %></li>
+        <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li> 
+        <li class="insidebar"><%= link_to '設定', '#' %></li> 
+      <% else %>
+        <li class="insidebar"><%= link_to '任務', '#' %></li>
+        <li class="insidebar"><%= link_to '日曆', '#' %></li>
+        <li class="insidebar"><%= link_to '聊天室', '#' %></li>
+        <li class="insidebar"><%= link_to '成員', '#' %></li>
+        <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>  
+        <li class="insidebar"><%= link_to '設定', '#' %></li>
+      <% end %>
+    </ul>
   </div>
 
 

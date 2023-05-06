@@ -1,4 +1,6 @@
 <%= search_form_for q, url: new_board_member_path, class: "flex gap-2" do |f| %>
   <%= f.search_field :email_or_username_cont, class: "rounded-md", placeholder: "請輸入email或名稱" %>
-  <%= f.submit '搜尋', class: "btn" %>
+  <%= button_tag '', type: 'submit'  do%>
+    <i class="text-white fa-solid fa-magnifying-glass"></i>
+  <% end %>
 <% end %>

@@ -1,29 +1,32 @@
 <% if user_signed_in? %>
-  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen gap-8 m-0 text-white shadow-lg bg-Azure-blue" >
-    
-    <%= link_to boards_path, class: 'mx-4 mb-10 mt-9 w-12 h-[48px] rounded-full' do %>
-      <i class="flex items-center justify-center pt-3 pl-3 my-0 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:bg-cyan-500 hover:rounded-xl"></i>
+  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 overflow-x-scroll text-white shadow-lg bg-Azure-blue-6" >
+  <div class="py-3 underscore">
+    <%if board == nil %>
+      <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
+        <i class="fa-solid fa-user-tie"></i>
+      <% end %>
+    <% else %>
+      <%= link_to boards_path, class:"sidebar-icon touch-icon" do %>
+        <i class="fa-solid fa-user-tie"></i>
+      <% end %>
     <% end %>
-    
-      <% boards.each do |b| %>
-        <div class='mx-4 mb-3 w-[48px] h-[48px] rounded-full'>
-          <%= link_to board_containers_path(b.id) do %>
-            <div class="flex items-center my-0 rounded-full w-[48px] h-[48px]">
-              <% if board == b %>
-                <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon bg-cyan-500 rounded-xl"></i>
-              <% else %>
-                <i class="flex items-center justify-center pt-3 pl-3 overflow-hidden fa-solid fa-user-tie sidebar-icon hover:rounded-xl hover:bg-cyan-500"></i>
-              <% end %>
-            </div>
+  </div>
+  <% boards.each do |b| %>
+      <%= link_to board_containers_path(b.id) do %>
+        <div class="sidebar-icon touch-icon">
+          <% if board == b %>
+          <div class="sidebar-icon linkto-icon">
+            <i class="fa-solid fa-user-group"></i>
+          </div>
+          <% else %>
+            <i class="fa-solid fa-user-group"></i>
           <% end %>
         </div>
       <% end %>
-
-    <%= link_to new_board_path, class: 'mt-5 mx-4 mb-3 w-[48px] h-[48px] rounded-full' do %>
-      <div class='w-[48px] h-[48px] rounded-full my-0'>
-        <i class="flex items-center justify-center my-0 overflow-hidden sidebar-icon hover:rounded-xl hover:bg-cyan-500">+</i>
-      </div>
-    <% end %>
+  <% end %>
+  <%= link_to new_board_path, class: 'sidebar-icon py-5' do %>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
   </div>
 <% else %>
   <%= turbo_frame_tag :sigin %> 

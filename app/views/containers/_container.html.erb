@@ -1,5 +1,5 @@
 <div class="w-64 mx-5">
-  <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+  <div class="relative min-w-full p-5 m-5 rounded-md f bg-white-1 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
     <div class="flex items-center justify-between w-full gap-3 mb-1">
       <div>
         <%= turbo_frame_tag(container) do %>
@@ -15,7 +15,7 @@
     <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
       <% container.cards.each do |card| %>
         <div class="w-64 pr-10" data-card-id="<%= card.id %>">
-          <div class="relative flex justify-between w-full px-3 py-3 my-3 bg-gray-300 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl">
+          <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[2px] hover:bottom-[1px] shadow-5xl ">
             <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
             <div class="flex items-center justify-center gap-1">
               <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
@@ -26,6 +26,9 @@
         </div>
       <% end %>
     </section>
-    <div class="flex justify-start active:-bottom-[2px] hover:bottom-[1px]"><%= link_to '新增', new_container_card_path(container.id), data: { turbo: false }, class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
+    <%= link_to new_container_card_path(container.id), data: { turbo: false }, class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200' do %>
+      <i class="p-2 fa-solid fa-plus"></i>
+      <span>新增卡片</span>
+    <% end %>
   </div>
 </div>
