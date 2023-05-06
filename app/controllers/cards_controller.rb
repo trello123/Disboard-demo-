@@ -45,7 +45,7 @@ class CardsController < ApplicationController
 
   private
   def card_params
-    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline, :container_id, :assigned_to).merge(board: @container.board)
+    params.require(:card).permit(:title, :intro, :level, :avatar, :daybegin, :deadline, :container_id, :assigned_to).merge(board: @container.board)
   end
 
   def find_card

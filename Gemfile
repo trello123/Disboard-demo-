@@ -49,3 +49,5 @@ group :test do
   gem "warden", "~> 1.2"
 end
 
+
+gem "aws-sdk-s3", "~> 1.122"
