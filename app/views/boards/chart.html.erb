@@ -1,0 +1,7 @@
+<div class="flex flex-wrap justify-center gap-5">
+  <%= pie_chart group_cards(@board.cards, :level), title: "難易度" %>
+  
+  <%= bar_chart group_cards_status(@board.containers, :title), title: "任務狀態",  ytitle: "總數", stacked: true %>
+
+  <%= column_chart card_assigned_status(@board.users, :email), title: "分配情形",  ytitle: "總數", stacked: true %>
+</div>

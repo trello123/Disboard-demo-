@@ -45,6 +45,8 @@ class BoardsController < ApplicationController
     redirect_to boards_path 
   end
 
+  def chart
+  end
 
   private
   def board_params
