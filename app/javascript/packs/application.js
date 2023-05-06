@@ -10,6 +10,9 @@ import "channels"
 import "controllers"
 import "aos/dist/aos.css"
 import "@fortawesome/fontawesome-free/css/all.css"
+import "chartkick/chart.js"
+import "chartkick"
+import "chartkick/highcharts"
 
 Rails.start()
 Turbolinks.start()

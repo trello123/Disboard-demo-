@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # resources :cards
   
   resources :boards do
+    member do
+      get :chart
+    end
     resources :containers, shallow: true
     resources :calendars, only: [:index]
     resources :members
