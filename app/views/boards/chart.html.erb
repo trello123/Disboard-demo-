@@ -1,7 +1,67 @@
-<div class="flex flex-wrap justify-center gap-5">
-  <%= pie_chart group_cards(@board.cards, :level), title: "難易度" %>
+<div class="flex flex-col flex-wrap items-center gap-7 w-[1200px] mx-auto">
+  <div class="flex justify-between w-full mt-20 gap-7">
+    <div class="flex flex-col items-center border border-gray-400 rounded gap-7 p-7 w-[244px]">
+      <span class="text-2xl font-medium">
+      <% if group_cards_status(@board.containers, :title).keys[0].present? %>
+        <%= group_cards_status(@board.containers, :title).keys[0] %>的任務
+      <% else %>
+        請新增狀態任務
+      <% end %>
+      </span>
+      <span class="text-6xl font-semibold">
+      <% if group_cards_status(@board.containers, :title).values[0].present? %>
+        <%= group_cards_status(@board.containers, :title).values[0] %>
+      <% else %>
+        -
+      <% end %>
+      </span>
+    </div>
+    <div class="flex flex-col items-center border border-gray-400 rounded gap-7 p-7 w-[244px]">
+      <span class="text-2xl font-medium">
+      <% if group_cards_status(@board.containers, :title).keys[1].present? %>
+        <%= group_cards_status(@board.containers, :title).keys[1] %>的任務
+      <% else %>
+        請新增狀態任務
+      <% end %>
+      </span>
+      <span class="text-6xl font-semibold">
+      <% if group_cards_status(@board.containers, :title).values[1].present? %>
+        <%= group_cards_status(@board.containers, :title).values[1] %>
+      <% else %>
+        -
+      <% end %>
+      </span>
+    </div>
+    <div class="flex flex-col items-center border border-gray-400 rounded gap-7 p-7 w-[244px]">
+      <span class="text-2xl font-medium">
+      <% if group_cards_status(@board.containers, :title).keys[2].present? %>
+        <%= group_cards_status(@board.containers, :title).keys[2] %>的任務
+      <% else %>
+        請新增狀態任務
+      <% end %>
+      </span>
+      <span class="text-6xl font-semibold">
+      <% if group_cards_status(@board.containers, :title).values[2].present? %>
+        <%= group_cards_status(@board.containers, :title).values[2] %>
+      <% else %>
+        -
+      <% end %>
+      </span>
+    </div>
+    
+    <div class="flex flex-col items-center border border-gray-400 rounded gap-7 p-7 w-[244px]">
+      <span class="text-2xl font-medium">任務總計</span>
+      <span class="text-6xl font-semibold"><%= @board.cards.count %></span>
+    </div>
+  </div>
   
-  <%= bar_chart group_cards_status(@board.containers, :title), title: "任務狀態",  ytitle: "總數", stacked: true %>
+  <div class="relative flex flex-row justify-between w-full gap-7">
+    <span class="absolute z-10 flex flex-col top-[5%] items-center left-5 gap-3">
+      <p class="text-xl font-medium">完成比率</p>
+      <p class="text-2xl font-bold"><%= calculate_done_cards(@board.cards, @board.containers, :title) %></p>
+    </span>
+    <%= pie_chart group_cards_status(@board.containers, :title), donut: true, title: "任務狀態",  stacked: true, colors: ["#dddddd", "#cccccc", "#66f"] %>
 
-  <%= column_chart card_assigned_status(@board.users, :email), title: "分配情形",  ytitle: "總數", stacked: true %>
+    <%= column_chart group_cards(@board.cards, :assigned_to), title: "分配情形",  ytitle: "總數", stacked: true, legend: false, colors: ["#f60"] %>
+  </div>
 </div>

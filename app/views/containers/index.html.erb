@@ -1,10 +1,12 @@
 <div class="flex w-screen pt-5 overflow-x-scroll">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
-  <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer group' do %>
-    <i class="fa-solid fa-plus"></i>
-    <span class="absolute bottom-[-70%] right-[25%] py-1 px-2 bg-gray-700 text-white text-xs rounded opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100 text-ellipsis overflow-hidden hover:opacity-100">
-      alt + s
-    </span>
+  <%= turbo_frame_tag(@board.id) do %>
+    <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer group' do %>
+      <i class="fa-solid fa-plus"></i>
+      <span class="absolute bottom-[-70%] right-[25%] py-1 px-2 bg-gray-700 text-white text-xs rounded opacity-0 transition-opacity duration-1000 ease-in-out group-hover:opacity-100 text-ellipsis overflow-hidden hover:opacity-100">
+        alt + s
+      </span>
+    <% end %>
   <% end %>
 </div>
 
