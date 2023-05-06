@@ -13,7 +13,9 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.email %></td>
-              <td><%= button_to "+", board_members_path(@board.id, {member_id: user.id}), data: { turbo: false } %></td>
+              <td>
+                <%= button_to "+", board_members_path(@board.id, {member_id: user.id}), data: { turbo: false }, class:"cursor-pointer text-lg" %>
+              </td>
             </tr>
           <% end %>
         <% end %>
