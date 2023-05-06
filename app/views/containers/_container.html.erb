@@ -22,6 +22,26 @@
                 <i class="m-1 fa-solid fa-pencil"></i>
               <% end %>
             </div>
+                
+            <div class="flex items-end justify-between">
+              <% if card.assigned_to != "尚未指派" and current_user.id == card.assigned_to.to_i %>
+                <i class="fa-solid fa-user-tag"></i>
+              <% elsif card.assigned_to != "尚未指派"%>
+                <i class="mt-1 fa-solid fa-user"></i>
+              <% end %>
+              <% if card.deadline.present? && card.daybegin.present?%>                
+                <span class="flex items-center gap-2 pr-3">
+                  <i class="fa-regular fa-clock fa-xs"></i>
+                  <p class="text-xs"><%= format_date_to_month_and_day(card.daybegin) %> -</p>
+                  <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                </span>                
+              <% elsif card.deadline.present? %>
+                <span class="flex items-center gap-2 pr-3">
+                  <i class="fa-regular fa-clock fa-xs"></i>
+                  <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                </span>                
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
