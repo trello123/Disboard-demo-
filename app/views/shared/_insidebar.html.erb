@@ -1,21 +1,21 @@
 <section class="fixed z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]">
   <div class="flex items-center justify-between py-3 ml-8 group">
-      <% if container.present? %>
-        <%= turbo_frame_tag(board) do %>
-        <div class="flex items-center justify-start">
-          <h2 class="text-2xl font-bold text-white"><%= board.name %> </h2>
-          <div class="flex items-center ml-5">
-            <%= link_to edit_board_path(board.id), class: 'invisible group-hover:flex group-hover:visible' do %>
-              <i class="fa-solid fa-pencil invert"></i>
-            <% end %>
-          </div>
+    <% if container.present? %>
+      <%= turbo_frame_tag(board) do %>
+      <div class="flex items-center justify-start">
+        <h2 class="text-2xl font-bold text-white"><%= board.name %> </h2>
+        <div class="flex items-center ml-5">
+          <%= link_to edit_board_path(board.id), class: 'invisible group-hover:flex group-hover:visible' do %>
+            <i class="fa-solid fa-pencil invert"></i>
+          <% end %>
         </div>
-        <% end %>
-      <% else %>
-      <div class="text-2xl font-bold text-white">
-        <%= format_email(current_user.email) %>
       </div>
       <% end %>
+    <% else %>
+    <div class="text-2xl font-bold text-white">
+      <%= format_email(current_user.email) %>
+    </div>
+    <% end %>
     <ul class="flex items-center mx-5">
       <% if board.present? and board.id.present? %>
         <li class="insidebar"><%= link_to '任務', board_path(board.id),id:'keysix' %></li>
@@ -34,7 +34,4 @@
       <% end %>
     </ul>
   </div>
-
-
-
 </section>

@@ -12,7 +12,7 @@
           <% end %>
           <div class="flex items-center my-3">
             <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-            <%= f.text_field :title, class: 'input' %>
+            <%= f.text_field :title, class: 'box-input' %>
             <span>(必填)</span>
           </div>
           <div class="flex flex-col items-start pr-20 my-3">
@@ -33,21 +33,21 @@
           <div class="my-2">
             <%= f.label :assigned_to, '成員', class: "mr-4" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'input w-32 text-md px-1' %>
+              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'box-input w-32 text-md px-1' %>
             <% end %>
           </div>
           <div class="my-2">
             <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-            <%= f.datetime_field :daybegin, class: 'input w-32 text-md px-1' %>
+            <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
           </div>
           <div class="my-2">
             <%= f.label :deadline, '結束日期', class: "mr-4" %>
-            <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
+            <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
           </div>
           <div class="my-2">
             <%= f.label :container_id, '狀態', class: "mr-4" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :container_id, options_for_select(select_container(@card.board), @card.container_id), class: 'input w-32 text-md px-1' %>
+              <%= f.select :container_id, options_for_select(select_container(@card.board), @card.container_id), class: 'box-input w-32 text-md px-1' %>
             <% end %>
           </div>
         </div>

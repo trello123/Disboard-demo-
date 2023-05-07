@@ -1,6 +1,6 @@
 <div class="container flex w-full">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
-  <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer relative' do %>
+  <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer' do %>
     <i class="fa-solid fa-plus"></i>
     <span class="absolute bottom-[-110%] right-[25%] py-1 px-2 bg-gray-200 text-black text-xs rounded opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100 text-ellipsis overflow-hidden">
       alt + s

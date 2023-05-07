@@ -14,7 +14,7 @@
             </div>
             <div class="field">
               <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"input"%>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"box-input"%>
             </div>
 
           <div class="field">
@@ -22,12 +22,12 @@
             <% if @minimum_password_length %>
               <em>(最少 <%= @minimum_password_length %> 字數)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password",class:"input" %>
+            <%= f.password_field :password, autocomplete: "new-password",class:"box-input" %>
           </div>
 
           <div class="field">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"input"%>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"box-input"%>
           </div>
           <%= f.submit I18n.t("devise.shared.sign_up"),class: "btn-primary" %>
         <% end %>

@@ -22,17 +22,14 @@
   .homepage-bg{
     @apply bg-gradient-to-t from-white to-Azure-blue
   }
-  .input {
-    @apply w-48;
-  }
   .sidebar-icon{
     @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
   }
   .logn-modal{
     @apply w-1/2 absolute flex flex-col items-center justify-center py-10 bg-white-1  top-60 rounded-md shadow-2xl
   }
-  .input{
-    @apply rounded-xl  text-black
+  .box-input{
+    @apply rounded-xl  text-black w-48
   }
   .insidebar{
     @apply px-5 text-white hover:text-gray-400 items-center

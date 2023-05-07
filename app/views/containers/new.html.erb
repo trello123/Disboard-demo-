@@ -2,7 +2,7 @@
   <%= form_with(model: @container, data: {turbo: false}, url: board_containers_path ) do |f| %>
     <div class="flex items-center my-2">
       <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-      <%= f.text_field :title, class: 'input' %>
+      <%= f.text_field :title, class: 'box-input' %>
     </div>
     <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1" %>
   <% end %>

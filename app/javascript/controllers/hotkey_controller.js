@@ -30,7 +30,6 @@ export default class extends Controller {
           case "KeyW":
             handleShortcut("keysix");
             break;
-          // 可以添加其他快捷键的处理逻辑
         }
       }
     });
