@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :messages
 
-  resources :comments
+  resources :cards, only: [] do
+    resources :comments
+  end
 
   #註冊及忘記密碼頁面重新整理會出錯 修正路徑
   devise_scope :user do
