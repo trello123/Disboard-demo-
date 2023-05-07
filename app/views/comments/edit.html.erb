@@ -1,0 +1,10 @@
+<h2>修改評論</h2>
+<%= form_for(@comment, data:{turbo:false}, url:card_comment_path ) do|f| %>
+  <%= f.label :intro, "評論" %>
+  <%= f.text_area :intro %> <br />
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "回到上一頁", :back %>
+
