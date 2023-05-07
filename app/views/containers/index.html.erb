@@ -1,4 +1,4 @@
-<div class="container flex w-full">
+<div class="container flex w-screen">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
   <%= link_to new_board_container_path(@board.id), class: 'newcontainer',data: { action: "shortcut#execute", key: "h", modifier: "alt-shift" } do %>
     <i class="fa-solid fa-plus"></i>
