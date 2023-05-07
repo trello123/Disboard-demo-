@@ -1,5 +1,5 @@
-<div class="w-64 mx-5">
-  <div class="relative min-w-full p-5 m-5 rounded-md shadow-3xl f bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+<div class=" min-w-[272px] m-3 px-3">
+  <div class="relative w-full p-5 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
     <div class="flex items-center justify-between w-full gap-3 mb-1">
       <div>
         <%= turbo_frame_tag(container) do %>
@@ -14,7 +14,7 @@
     </div>
     <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
       <% container.cards.each do |card| %>
-        <div class="w-64 pr-10" data-card-id="<%= card.id %>">
+        <div class="w-full" data-card-id="<%= card.id %>">
           <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[2px] hover:bottom-[1px] shadow-5xl ">
             <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
             <div class="flex items-center justify-center gap-1">
