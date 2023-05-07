@@ -3,7 +3,7 @@
   <div class="w-full h-screen px-20 overflow-y-scroll" id="chat-window">
       <% if @room.present? %>
         <div class="pb-36 ">
-          <div id="messages" class="">
+          <div id="messages">
             <%= render partial: 'messages/message', collection: @messages %>
           </div>
         </div>
