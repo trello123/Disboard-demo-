@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="overflow-hidden">
+  <body class="overflow-hidden" data-controller='hotkey'>
     <%= render 'shared/sidebar', boards: @boards, board: @board %>
     <main class="flex w-full h-screen pl-20 mx-auto bg-white-1">  
       <div class="relative ">
