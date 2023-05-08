@@ -41,7 +41,8 @@
         <% @comments.each do |comment| %>
           <tr>
             <td><%= comment.intro %></td>
-            <td >建立時間：<%= format_datetime(comment.created_at).split("#").join %></td> 
+            <td>創建人：<%= format_email(comment.user.email) %></td>
+            <td >修改時間：<%= format_datetime(comment.updated_at).split("#").join %></td> 
             <td><%=link_to '修改', edit_card_comment_path(comment.card, comment.id)%></td>
             <td><%=link_to '刪除', card_comment_path(comment.card, comment.id) , method: "delete", data: {confirm: 'sure?' }%></td>
           </tr>
