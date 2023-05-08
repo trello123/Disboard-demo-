@@ -6,7 +6,7 @@
       <% end %>
     </div>
     <div class="w-full mt-4 ">
-      <h2 class="text-center">成員列表</h2>
+      <h2 class="font-bold text-center">成員列表</h2>
       <table class="table w-1/2 mx-auto shadow-3xl">
         <!-- head -->
         <thead>
@@ -23,7 +23,7 @@
                   <div class="flex items-center space-x-3">
                     <div class="avatar">
                       <div class="w-12 h-12 mask mask-squircle">
-                        <img src="https://picsum.photos/300/200/?random=10">
+                        <div class="flex items-center justify-center w-full h-full text-center text-white rounded-md bg-Azure-blue-3"><%= user.username&.first || user.email.first %></div>
                       </div>
                     </div>
                     <div>

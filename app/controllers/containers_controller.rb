@@ -5,7 +5,7 @@ class ContainersController < ApplicationController
   
   def index
     @board = Board.find(params[:board_id])
-    @containers = @board.containers.order(created_at: :asc)
+    @containers = @board.containers.order(created_at: :asc).includes(:cards)
   end
 
   def new

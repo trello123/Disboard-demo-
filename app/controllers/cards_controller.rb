@@ -8,6 +8,7 @@ class CardsController < ApplicationController
   end
 
   def new
+    @board = Container.find(params[:container_id]).board
     @card = Card.new
   end
 

@@ -14,7 +14,7 @@
       </div>
       <div class="text-start">
         <% if @card.assigned_to != "尚未指派" %>
-          <div class="my-2">成員：<%= format_email(find_user_email(@card.assigned_to)) %></div>
+          <div class="my-2">成員：<%= format_email(@card.assigned_to) %></div>
         <% end %>
         <div class="my-2 mb-3">
           開始時間

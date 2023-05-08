@@ -12,9 +12,22 @@
         <% if @users %>
           <% @users.each do |user| %>
             <tr>
-              <td><%= user.email %></td>
               <td>
-                <%= button_to "+", board_members_path(@board.id, {member_id: user.id}), data: { turbo: false }, class:"cursor-pointer text-lg" %>
+                <div class="flex items-center space-x-3">
+                  <div class="avatar">
+                    <div class="w-12 h-12 mask mask-squircle">
+                      <div class="flex items-center justify-center w-full h-full text-center text-white rounded-md bg-Azure-blue-3"><%= user.username&.first || user.email.first %></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold"><%= user.email %></div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <%= button_to board_members_path(@board.id, { member_id: user.id }), data: { turbo: false } do %>
+                  <i class="p-2 rounded-full fa-solid fa-plus hover:bg-gray-200"></i>
+                <% end %>
               </td>
             </tr>
           <% end %>
