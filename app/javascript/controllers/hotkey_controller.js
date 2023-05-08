@@ -30,6 +30,9 @@ export default class extends Controller {
           case "KeyW":
             handleShortcut("keysix");
             break;
+          case "KeyQ":
+            handleShortcut("keyseven");
+            break;
         }
       }
     });

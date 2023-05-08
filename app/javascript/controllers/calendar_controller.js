@@ -50,8 +50,12 @@ export default class extends Controller {
         const cardId = info.event.extendedProps.publicId
         const title = info.event.title
         calendarModal(boardId, cardId, info.event, (daybegin, deadline) => {
-          this.updateEvent(cardId, title, daybegin, deadline)
-          successNotify("成功更新")
+          if( deadline >= daybegin ){
+            this.updateEvent(cardId, title, daybegin, deadline)
+            successNotify("成功更新")
+          }else {
+            successNotify("結束時間不得小於開始時間", "error")
+          }
         })
       }
     })

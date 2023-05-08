@@ -2,15 +2,30 @@
 #
 # Table name: cards
 #
-#  id         :bigint           not null, primary key
-#  title      :string
-#  intro      :text
-#  level      :integer          default(0)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :bigint           not null, primary key
+#  title        :string
+#  intro        :text
+#  level        :integer          default("待確認")
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  position     :integer
+#  container_id :bigint
+#  daybegin     :datetime
+#  deadline     :datetime
+#  deleted_at   :datetime
+#  avatar       :string
+#  board_id     :bigint
+#  assigned_to  :string           default("尚未指派")
 #
 class Card < ApplicationRecord
   validates :title, presence: true
+  validate :daybegin_cannot_greater_than_deadline
+
+  def daybegin_cannot_greater_than_deadline
+    if daybegin.present? && deadline.present? && deadline < daybegin
+      errors.add(:daybegin, "開始日期不得小於結束日期")
+    end
+  end
 
   # 文字編輯器
   has_rich_text :intro

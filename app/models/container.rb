@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: containers
+#
+#  id         :bigint           not null, primary key
+#  title      :string
+#  board_id   :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  deleted_at :datetime
+#  position   :integer
+#
 class Container < ApplicationRecord
   # relationships
   belongs_to :board
