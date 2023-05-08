@@ -26,6 +26,7 @@ gem 'redis', '~> 3.3', '>= 3.3.1'
 gem "ransack", "~> 4.0"
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem "font-awesome-rails"
+gem "aws-sdk-s3", "~> 1.122"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -50,4 +51,3 @@ group :test do
 end
 
 
-gem "aws-sdk-s3", "~> 1.122"

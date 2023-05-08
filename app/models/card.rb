@@ -14,8 +14,7 @@ class Card < ApplicationRecord
 
   # 文字編輯器
   has_rich_text :intro
-  has_one_attached :avatar do |attachable|
-    attachable.variant :thumb, resize_to_limit: [100, 100]
+  has_one_attached :avatar
   end
 
   # relationships
