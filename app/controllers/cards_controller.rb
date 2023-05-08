@@ -26,9 +26,11 @@ class CardsController < ApplicationController
   end
 
   def show
+    @board = Container.find(params[:container_id]).board
   end
 
   def edit
+    @board = Container.find(params[:container_id]).board
   end 
 
   def update
