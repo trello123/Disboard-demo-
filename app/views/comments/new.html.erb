@@ -1,9 +1,9 @@
-<h2>新增評論</h2>
-<%= form_for(@comment, data:{turbo:false}, url:card_comments_path ) do|f| %>
-  <%= f.label :intro, "評論" %>
-  <%= f.text_area :intro %> <br />
+<%= turbo_frame_tag "comment" do %>
+  <%= form_for(@comment, data:{turbo:false}, url:card_comments_path ) do|f| %>
+    <%= f.label :intro, "評論" %>
+    <%= f.text_area :intro %> <br />
+    <%= f.submit %>
+  <% end %>
 
-  <%= f.submit %>
+  <%= link_to "取消評論", :back %>
 <% end %>
-
-<%= link_to "回到上一頁", :back %>

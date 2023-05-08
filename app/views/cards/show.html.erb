@@ -32,25 +32,24 @@
     </div>
   </div>
   
-  <div class="p-3 m-2 w-max ">
-    <%= link_to '新增評論' ,  new_card_comment_path(@card) ,class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5  py-1' %>
+  <%= turbo_frame_tag "comment" do %>
+    <div class="p-3 m-2 w-max " >
+      <%= link_to '新增評論' ,  new_card_comment_path(@card) ,class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5  py-1' %>
+    </div>
+    <table>
+      <tbody >
+        <% @comments.each do |comment| %>
+          <tr>
+            <td><%= comment.intro %></td>
+            <td >建立時間：<%= format_datetime(comment.created_at).split("#").join %></td> 
+            <td><%=link_to '修改', edit_card_comment_path(comment.card, comment.id)%></td>
+            <td><%=link_to '刪除', card_comment_path(comment.card, comment.id) , method: "delete", data: {confirm: 'sure?' }%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <table>
-    <tbody >
-      <% @comments.each do |comment| %>
-        <tr>
-          <td><%= comment.intro %></td>
-          <td >建立時間：<%= format_datetime(comment.created_at).split("#").join %></td> 
-          <td><%=link_to '修改', edit_card_comment_path(comment.card, comment.id)%></td>
-          <td><%=link_to '刪除', card_comment_path(comment.card, comment.id) , method: "delete", data: {confirm: 'sure?' }%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-  
-
-</div>
+<% end %>
 
 
 
