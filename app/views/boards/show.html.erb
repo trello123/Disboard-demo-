@@ -1,8 +1,8 @@
-<div class="container flex w-full">
+<div class="flex w-screen pt-5 overflow-x-scroll">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
-  <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer' do %>
+  <%= link_to new_board_container_path(@board.id), id:'keytwo', class: 'newcontainer group' do %>
     <i class="fa-solid fa-plus"></i>
-    <span class="absolute bottom-[-110%] right-[25%] py-1 px-2 bg-gray-200 text-black text-xs rounded opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100 text-ellipsis overflow-hidden">
+    <span class="absolute top-[-70%] right-[5%] py-1 px-2 bg-gray-700 text-white text-xs rounded opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100 text-ellipsis overflow-hidden hover:opacity-100">
       alt + s
     </span>
   <% end %>

@@ -1,7 +1,7 @@
-<section class="container w-screen py-56">
+<section class="container w-screen py-36 ">
   <section>
-    <h1 class="pt-20 text-6xl text-center lg:text-9xl ">Disboard</h1>
-    <section class="py-20 text-center">
+    <%= image_tag image_url("disboardlogo"), class:"mx-auto w-[800px] h-[400px]" %>
+    <section class="text-center py-14">
       <% if user_signed_in? %>
       <%= link_to "前往看板", boards_path, class:" btn-logn mx-4" %>
       
