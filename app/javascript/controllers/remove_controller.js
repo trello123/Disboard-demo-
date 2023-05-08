@@ -29,7 +29,7 @@ export default class extends Controller {
               '您的列表已刪除完成',
               'success'
             )
-            this.element.remove()
+            this.element.parentElement.remove()
           }
         })
       }
