@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :messages
 
-  resources :cards, only: [] do
+  resources :cards do
     resources :comments
   end
 
