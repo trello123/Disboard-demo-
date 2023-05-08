@@ -21,16 +21,11 @@
         <li><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
         <li><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>
         <li><%= link_to '聊天室', board_rooms_path(board.id), id:'keyfour', class:'insidebar' %></li>
-        <li><%= link_to '儀表板', chart_board_path(board.id), class: 'insidebar' %></li>
+        <li><%= link_to '儀表板', chart_board_path(board.id), id:'keyseven', class: 'insidebar' %></li>
         <li><%= link_to '成員', board_members_path(board.id), id:'keyfive', class:'insidebar' %></li>
         <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
       <% else %>
-        <li class="insidebar"><%= link_to '任務', '#' %></li>
-        <li class="insidebar"><%= link_to '日曆', '#' %></li>
-        <li class="insidebar"><%= link_to '聊天室', '#' %></li>
-        <li class="insidebar"><%= link_to '成員', '#' %></li>
-        <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>  
-        <li class="insidebar"><%= link_to '設定', '#' %></li>
+        <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>
       <% end %>
     </ul>
   </div>

@@ -2,7 +2,7 @@ import Swal from "sweetalert2"
 import moment from "moment"
 import { patch } from '@rails/request.js'
 
-function successNotify(message, position = "top", timer = 2000) {
+function successNotify(message, icon = "success", position = "top", timer = 2000) {
   const Toast = Swal.mixin({
     toast: true,
     position,
@@ -17,7 +17,7 @@ function successNotify(message, position = "top", timer = 2000) {
   })
 
   Toast.fire({
-    icon: "success",
+    icon,
     title: message,
   })
 }

@@ -5,7 +5,7 @@
         <% if @card.errors.any? %>
           <% @card.errors.full_messages.each do |msg| %>
             <ul class="flex-col">
-              <li class="text-red-500"><%= msg = "必填欄位不可為空白" %></li>
+              <li class="text-red-500"><%= msg %></li>
             </ul>
           <% end %>
         <% end %>
