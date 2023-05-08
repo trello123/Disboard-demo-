@@ -12,17 +12,17 @@
     <% end %>
   </div>
   <% boards.each do |b| %>
-      <%= link_to board_containers_path(b.id) do %>
-        <div class="sidebar-icon touch-icon">
-          <% if board == b %>
-          <div class="sidebar-icon linkto-icon">
-            <i class="fa-solid fa-user-group"></i>
-          </div>
-          <% else %>
-            <i class="fa-solid fa-user-group"></i>
-          <% end %>
+    <%= link_to board_containers_path(b.id) do %>
+      <div class="sidebar-icon touch-icon">
+        <% if board == b %>
+        <div class="sidebar-icon linkto-icon">
+          <i class="fa-solid fa-user-group"></i>
         </div>
-      <% end %>
+        <% else %>
+          <i class="fa-solid fa-user-group"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
   <%= link_to new_board_path, class: 'sidebar-icon py-5' do %>
     <i class="fa-solid fa-plus"></i>
