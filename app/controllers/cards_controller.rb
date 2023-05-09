@@ -1,21 +1,19 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
-  before_action :load_container, only: [:index, :create, :update]
-
+  before_action :load_container
 
   def index
     @cards = @container.cards.order(:position)
   end
 
   def new
-    @board = Container.find(params[:container_id]).board
+    @board = @container.board
     @card = Card.new
   end
 
   def create
     @board = @container.board
     @card = @container.cards.new(card_params)
-
     if @card.save
       @card.create_message(content: @card.title, room_id: @board.room.id , user_id: current_user.id)
       SendMessageJob.perform_later(@card.message)
@@ -26,11 +24,11 @@ class CardsController < ApplicationController
   end
 
   def show
-    @board = Container.find(params[:container_id]).board
+    @board = @container.board
   end
 
   def edit
-    @board = Container.find(params[:container_id]).board
+    @board = @container.board
   end 
 
   def update
@@ -57,5 +55,6 @@ class CardsController < ApplicationController
 
   def load_container
     @container = Container.find(params[:container_id])
+    authorize @container.board
   end
 end

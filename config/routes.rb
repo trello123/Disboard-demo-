@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :rooms
   end
   
-  resources :containers do
+  resources :containers, only: [] do
     resources :cards
   end
 
