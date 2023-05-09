@@ -1,7 +1,7 @@
 Chartkick.options = {
   width: "544px",
   height: "300px",
-  empty: "No data",
+  empty: "沒有資料",
   adapter: "highcharts",
   library: {
     chart: {

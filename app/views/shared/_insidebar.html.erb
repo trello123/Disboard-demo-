@@ -12,9 +12,9 @@
       </div>
       <% end %>
     <% else %>
-    <div class="text-2xl font-bold text-white">
-      <%= format_email(current_user.email) %>
-    </div>
+      <div class="text-2xl font-bold text-white">
+        <%= format_email(current_user.email) %>
+      </div>
     <% end %>
     <ul class="flex items-center pr-20 mx-5">
       <% if board.present? and board.id.present? %>
