@@ -8,21 +8,21 @@
       <section class="flex items-center justify-center w-full" data-controller="modal">
         <section class="logn-modal" data-modal-target="modal">
           <a href="#" class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"  ></i></a>
-          <div class="text-3xl text-center ">
+          <div class="mb-3 text-3xl text-center">
             <h3>歡迎回來!</h3>
           </div>
-          <div>
+          <div class="mb-3">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"box-input" %>
           </div>
 
-          <div>
+          <div class="mb-3">
             <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password" ,class:"box-input"%>
           </div>
 
           <% if devise_mapping.rememberable? %>
-            <div>
+            <div class="mb-3">
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me %>
             </div>
@@ -32,13 +32,15 @@
           
         <% end %>
         <!-- <%= link_to '註冊' ,  new_user_registration_path ,data: {turbo_frame: "sigup" , action: "click->modal#open"}%> -->
-        <%- if devise_mapping.omniauthable? %>
-          <%- resource_class.omniauth_providers.each do |provider| %>
-            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post do %>
-              <%= image_tag "google_icon.png", alt: "Google", class: "w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]" %>
+        <div class="flex justify-center w-48 mt-5 border-t-2 border-gray-300">
+          <%- if devise_mapping.omniauthable? %>
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
+                <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
       </section>
     </section>
   </section>

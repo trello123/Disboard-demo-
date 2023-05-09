@@ -2,14 +2,14 @@
   <div class="flex items-center justify-between py-3 ml-8 group">
     <% if container.present? %>
       <%= turbo_frame_tag(board) do %>
-      <div class="flex items-center justify-start">
-        <h2 class="text-2xl font-bold text-white"><%= board.name %> </h2>
-        <div class="flex items-center ml-5">
-          <%= link_to edit_board_path(board.id), class: 'invisible group-hover:flex group-hover:visible' do %>
-            <i class="fa-solid fa-pencil invert"></i>
-          <% end %>
-        </div>
-      </div>
+        <%= link_to edit_board_path(board.id) do %>
+          <div class="flex items-center justify-start">
+            <h2 class="text-2xl font-bold text-white"><%= board.name %></h2>
+            <div class="flex items-center invisible ml-5 group-hover:flex group-hover:visible">
+              <i class="fa-solid fa-pencil invert"></i>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     <% else %>
       <div class="text-2xl font-bold text-white">

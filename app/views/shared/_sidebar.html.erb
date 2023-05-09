@@ -13,14 +13,17 @@
   </div>
   <% boards.each do |b| %>
     <%= link_to board_containers_path(b.id) do %>
-      <div class="sidebar-icon touch-icon">
+      <div class="relative sidebar-icon touch-icon group">
         <% if board == b %>
-          <div class="sidebar-icon linkto-icon">
+          <div class="relative sidebar-icon linkto-icon">
             <i class="fa-solid fa-user-group"></i>
           </div>
         <% else %>
           <i class="fa-solid fa-user-group"></i>
         <% end %>
+        <div class="absolute z-10 flex invisible group-hover:visible left-[0%] top-[65%] w-12 overflow-hidden p-5">
+          <p class="text-xl bg-gray-400"><%= b.name %></p>
+        </div>
       </div>
     <% end %>
   <% end %>
