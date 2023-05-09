@@ -27,8 +27,8 @@
         <%= message.user.email %>
       <% end %>    
     </div>
-    <div class="author">
-      <%= message.content %>
+    <div class="author markdown-content">
+      <%= markdown(message.content) %>
     </div>
     <div class="block text-sm text-gray-400">
       <%= format_timestamps(message.created_at, :time) %>
