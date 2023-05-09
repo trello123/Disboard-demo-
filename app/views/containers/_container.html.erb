@@ -15,7 +15,7 @@
     <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
       <% container.cards.each do |card| %>
         <div class="w-full" data-card-id="<%= card.id %>">
-          <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[2px] hover:bottom-[1px] shadow-5xl ">
+          <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[2px] hover:bottom-[1px] shadow-5xl cursor-grabbing">
             <div class="flex flex-col">
               <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
               <div class="flex items-end justify-between gap-1.5">
