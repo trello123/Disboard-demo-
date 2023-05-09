@@ -1,10 +1,8 @@
 class ContainersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_container, except: [:index, :new, :create]
-  
-  
+
   def index
-    @board = Board.find(params[:board_id])
     @containers = @board.containers.order(created_at: :asc).includes(:cards)
   end
 
@@ -13,24 +11,25 @@ class ContainersController < ApplicationController
   end
 
   def create
-    @board = @boards.find(params[:board_id])
     @container = @board.containers.new(container_params)
-
     if @container.save
-      redirect_to  @board
+      redirect_to @board
     else
       render :record_not_found
     end
   end
 
   def show
-    @cards = Container.find(params[:id]).cards.order(:position)
+    authorize @container.board
+    @cards = @container.cards.order(:position)
   end
 
   def edit
+    authorize @container.board
   end 
 
-  def update  
+  def update
+    authorize @container.board
     if @container.update(container_params)
       redirect_to @container.board
     else
@@ -39,8 +38,8 @@ class ContainersController < ApplicationController
   end
 
   def destroy
+    authorize @container.board
   end
-
 
   private
   def container_params
