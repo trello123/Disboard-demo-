@@ -23,7 +23,7 @@
           <%= f.select :level, Card.level_list %>
         </div>
   
-        <%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
+        <div class="flex justify-center gap-12 ml-64"><%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %><%= link_to '上一頁', :back ,class: 'btn-danger inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1 rounded-lg bg-gray-400 hover:bg-gray-500' %></div>
   
         <div class="mt-4">
           評論區
