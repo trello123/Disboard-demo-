@@ -1,11 +1,16 @@
-<%= turbo_frame_tag "comment" do %>
-  <%= form_for(@comment, data:{turbo:false}, url:card_comment_path ) do|f| %>
-    <%= f.label :intro, "評論" %>
-    <%= f.text_area :intro %> <br />
-
-    <%= f.submit %>
-  <% end %>
-
-  <%= link_to "取消修改", :back %>
-<% end %>  
+<div class="w-full py-5 mt-16 ml-40">
+  <%= turbo_frame_tag @comment.id do %>
+    <div class="w-full m-auto mt-4 ">
+      <%= form_for(@comment, url:card_comment_path ) do|f| %>
+        <%= f.text_area :intro, class: 'w-full ' %> <br />
+        <div>
+          <%= f.submit class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 group do"%>
+          <%= link_to "取消修改", :back, class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 group do" %>
+        </div>
+       
+      <% end %>
+      
+    </div>
+  <% end %> 
+</div>
 
