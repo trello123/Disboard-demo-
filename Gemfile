@@ -28,6 +28,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem "font-awesome-rails"
 gem "chartkick"
 gem "pundit", "~> 2.3"
+gem 'hotwire-rails', '~> 0.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -37,9 +38,7 @@ end
 group :development do
   gem 'web-console', '>= 4.1.0'
   gem 'listen', '~> 3.3'
-  gem 'spring'
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-  gem 'hotwire-rails', '~> 0.1.0'
   gem "foreman", "~> 0.87.2"
 end
 
