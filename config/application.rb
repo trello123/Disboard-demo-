@@ -11,5 +11,6 @@ module Disboard
     config.load_defaults 6.1
     config.i18n.default_locale = "zh-TW"
     config.time_zone = 'Taipei'
+    config.assets.css_compressor = nil
   end
 end
