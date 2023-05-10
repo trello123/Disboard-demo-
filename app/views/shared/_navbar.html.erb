@@ -6,7 +6,10 @@
   </div>
   <ul class="flex px-16 py-2 lg:px-32 lg:py-4">
     <% if user_signed_in? %>
-    <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-white text-l lg:text-xl" %></li>
+      <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-white text-l lg:text-xl" %></li>
+    <% else %>
+      <li><%= link_to '登入' , new_user_session_path  , class:"mx-5 text-white text-l lg:text-xl", data: {turbo_frame: "sigin" , action: "click->modal#open"} %></li>
+      <li><%= link_to '註冊' , new_user_registration_path , class:"mx-5 text-white text-l lg:text-xl", data: {turbo_frame: "sigup" , action: "click->modal#open"}%></li>
     <% end %>
   </ul>
 </nav>

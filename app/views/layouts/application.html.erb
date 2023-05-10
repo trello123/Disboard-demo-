@@ -12,13 +12,15 @@
   </head>
 
   <body class="overflow-hidden" data-controller='hotkey'>
-    <%= render 'shared/sidebar', boards: @boards, board: @board %>
-    <div class="relative pl-20">
-      <%= render 'shared/insidebar', container: @containers, board: @board %>
+    
+    <div class="relative flex">
+      <%= render 'shared/sidebar', boards: @boards, board: @board %>
+      <main class="flex flex-col w-full h-screen mx-auto bg-white-1">  
+        <%= render 'shared/insidebar', container: @containers, board: @board %>
+        <%= yield %>
+      </main>
     </div>
-    <main class="flex w-full h-screen pl-20 mx-auto bg-white-1 pt-[60px]">  
-      <%= yield %>
-    </main>
+    
 
   </body>
 </html>

@@ -32,6 +32,7 @@ gem 'hotwire-rails', '~> 0.1.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+  gem "factory_bot_rails", "~> 6.2"
 end
 
 group :development do
@@ -48,4 +49,6 @@ group :test do
   gem "rspec-rails", "~> 6.0"
   gem "warden", "~> 1.2"
 end
+
+
 

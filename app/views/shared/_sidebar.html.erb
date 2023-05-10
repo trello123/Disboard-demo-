@@ -1,35 +1,48 @@
 <% if user_signed_in? %>
-  <div class="fixed top-0 left-0 z-50 flex flex-col w-20 h-screen m-0 overflow-x-scroll text-white shadow-lg bg-Azure-blue-2 " >
-  <div class="py-3 underscore">
-    <%if board == nil %>
-      <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
-        <i class="fa-solid fa-user-tie"></i>
-      <% end %>
-    <% else %>
-      <%= link_to boards_path, class:"sidebar-icon touch-icon" do %>
-        <i class="fa-solid fa-user-tie"></i>
-      <% end %>
-    <% end %>
-  </div>
-  <% boards.each do |b| %>
-    <%= link_to board_containers_path(b.id) do %>
-      <div class="relative sidebar-icon touch-icon group">
-        <% if board == b %>
-          <div class="relative sidebar-icon linkto-icon">
-            <i class="fa-solid fa-user-group"></i>
-          </div>
+  <div class="relative">
+    <div class="z-50 flex flex-col w-20 h-screen m-0 overflow-x-hidden overflow-y-auto text-white shadow-lg bg-Azure-blue-2 " >
+      <div class="relative py-3 underscore">
+        <%if board == nil %>
+          <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
+            <i class="fa-solid fa-user-tie"></i>
+          <% end %>
         <% else %>
-          <i class="fa-solid fa-user-group"></i>
+          <%= link_to boards_path, class:"sidebar-icon touch-icon" do %>
+            <i class="fa-solid fa-user-tie"></i>
+          <% end %>
         <% end %>
-        <div class="absolute z-10 flex invisible group-hover:visible left-[0%] top-[65%] w-12 overflow-hidden p-5">
-          <p class="text-xl bg-gray-400"><%= b.name %></p>
-        </div>
       </div>
-    <% end %>
-  <% end %>
-  <%= link_to new_board_path, class: 'sidebar-icon py-5' do %>
-    <i class="fa-solid fa-plus"></i>
-  <% end %>
+      <% boards.each do |b| %>
+        <%= link_to board_containers_path(b.id) do %>
+          <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showBoard">
+            <% if board == b %>
+              <div class=" sidebar-icon linkto-icon">
+                <i class="fa-solid fa-user-group"></i>
+              </div>
+            <% else %>
+              <i class="fa-solid fa-user-group"></i>
+            <% end %>
+            <div class="absolute z-50 flex invisible group-hover:visible left-[82%] w-64 p-5" >
+              <p class="relative p-3 text-xl bg-black rounded">
+                <%= b.name %>
+                <div class="absolute w-0 h-0 top-8 left-2 border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent"></div>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <%= link_to new_board_path, class: 'sidebar-icon py-5 static' do %>
+        <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showTip">
+            <i class="fa-solid fa-plus"></i>
+            <div class="absolute z-50 flex invisible group-hover:visible left-[82%] w-64 p-5" >
+              <p class="p-3 text-xl bg-black rounded">
+                新增專案
+                <div class="absolute w-0 h-0 top-8 left-2 border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent"></div>
+              </p>
+            </div>
+          </div>
+      <% end %>
+    </div>
   </div>
 <% else %>
   <%= turbo_frame_tag :sigin %> 
