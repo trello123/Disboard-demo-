@@ -1,4 +1,7 @@
 module ApplicationHelper
+  include Turbo::StreamsHelper
+  include Turbo::FramesHelper
+
   def format_datetime(date)
     date.strftime("%Y/%-m/%-d # %I:%M %p")
   end
