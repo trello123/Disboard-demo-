@@ -44,7 +44,7 @@
     <div class="w-full m-auto ">
       <% @comments.each do |comment| %>
       <%= turbo_frame_tag comment.id do %>
-        <div class="p-3 mt-4 break-words border rounded-md ">
+        <div class="p-3 mt-4 break-words bg-white rounded-md">
           <div class="mt-4 ">留言者：<%= format_email(comment.user.email) %></div>
           <div class="mt-4 "><%= comment.intro %></div>
           <div class="flex gap-3 ">
