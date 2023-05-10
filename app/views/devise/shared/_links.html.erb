@@ -21,7 +21,7 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post do %>
-      <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
+      <%= image_tag "google_icon.png", alt: "Google", class: "w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]" %>
     <% end %>
   <% end %>
 <% end %>
