@@ -45,7 +45,7 @@
   }
   .underscore::before{
     content:"";
-    border-bottom: 2px solid #414E92;
+    /* border-bottom: 2px solid #414E92; */
     width: 50%;
     position: absolute;
     top:8%;

@@ -1,21 +1,28 @@
-<section class="fixed z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]">
+<section class=" z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]">
   <div class="flex items-center justify-between py-3 ml-8 group">
-    <% if container.present? %>
-      <%= turbo_frame_tag(board) do %>
-        <%= link_to edit_board_path(board.id) do %>
-          <div class="flex items-center justify-start">
-            <h2 class="text-2xl font-bold text-white"><%= board.name %></h2>
-            <div class="flex items-center invisible ml-5 group-hover:flex group-hover:visible">
-              <i class="fa-solid fa-pencil invert"></i>
-            </div>
-          </div>
+    <div class="flex items-center gap-12">
+      <h1>
+        <%= link_to root_path do %>
+          <%= image_tag image_url("logo"), class:" w-[170px] invert" %>
         <% end %>
+      </h1>
+      <% if container.present? %>
+        <%= turbo_frame_tag(board) do %>
+          <%= link_to edit_board_path(board.id) do %>
+            <div class="flex items-center justify-start">
+              <h2 class="text-2xl font-bold text-white"><%= board.name %></h2>
+              <div class="flex items-center invisible ml-5 group-hover:flex group-hover:visible">
+                <i class="fa-solid fa-pencil invert"></i>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="text-2xl font-bold text-white">
+          <%= format_email(current_user.email) %>
+        </div>
       <% end %>
-    <% else %>
-      <div class="text-2xl font-bold text-white">
-        <%= format_email(current_user.email) %>
-      </div>
-    <% end %>
+    </div>
     <ul class="flex items-center pr-20 mx-5">
       <% if board.present? and board.id.present? %>
         <li><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>

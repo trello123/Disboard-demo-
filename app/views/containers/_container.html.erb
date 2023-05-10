@@ -14,8 +14,8 @@
     </div>
     <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
       <% container.cards.each do |card| %>
-        <div class="w-full" data-card-id="<%= card.id %>">
-          <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[2px] hover:bottom-[1px] shadow-5xl cursor-grabbing">
+        <div class="w-full group/edit" data-card-id="<%= card.id %>">
+          <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
             <div class="flex flex-col">
               <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
               <div class="flex items-end justify-between gap-1.5">
@@ -36,8 +36,8 @@
                 </span>          
               </div>
             </div>
-            <div class="flex items-center justify-center gap-1">
-              <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
+            <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
+              <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded" do %>
                 <i class="m-1 fa-solid fa-pencil"></i>
               <% end %>
             </div>
@@ -45,8 +45,8 @@
         </div>
       <% end %>
     </section>
-    <div>
-      <%= link_to new_container_card_path(container.id), data: { turbo: false },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group' do %>
+    <div class="flex items-center justify-end">
+      <%= link_to new_container_card_path(container.id), data: { turbo: false },id:"keyone", class: 'pr-5 py-1 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group  w-fit' do %>
         <i class="p-2 fa-solid fa-plus"></i>
         <span>新增卡片</span>
         <span class="absolute bottom-[-80%] right-[25%] py-1 px-2 bg-gray-700 text-white text-xs rounded opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100">
