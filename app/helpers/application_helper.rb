@@ -1,18 +1,15 @@
 module ApplicationHelper
-  def format_datetime(datetime)
-    datetime.strftime("%Y/%-m/%-d %H:%M")
-  end
-
-  def format_date(date)
-    date.strftime("%Y/%-m/%-d")
-  end
-
-  def format_time(time)
-    time.strftime("%H:%M")
-  end
-
-  def format_date_to_month_and_day(date)
-    date.strftime("%-m月%-d日")
+  def format_timestamps(timestamps, format = nil)
+    case format
+    when :date
+      timestamps.strftime("%Y/%-m/%-d")
+    when :time
+      timestamps.strftime("%H:%M")
+    when :month_and_day
+      timestamps.strftime("%-m月%-d日")
+    else
+      timestamps.strftime("%Y/%-m/%-d %H:%M")
+    end
   end
 
   def format_email(email)
