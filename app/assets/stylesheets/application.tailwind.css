@@ -35,7 +35,8 @@
     @apply px-5 py-2 text-white items-center hover:bg-Azure-blue-3 rounded-xl inline-block
   }
   .author{
-    @apply  inline-block px-5 py-2 text-white rounded-lg bg-Azure-blue-2 shadow-xl
+    @apply  inline-block px-5 py-2 text-white rounded-lg shadow-xl bg-Azure-blue-2;
+    /* border-style: inset */
   }
   .me{
     @apply text-right

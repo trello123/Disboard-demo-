@@ -11,7 +11,7 @@
 
     <div class="flex flex-col gap-3 mx-3 my-3">
       <h2 class="text-2xl font-bold"><%= link_to board.name, board_path(board.id) %></h2>
-      <time >建立時間：<%= format_datetime(board.created_at).split("#").first  %></time> 
+      <time >建立時間：<%= format_date(board.created_at) %></time> 
       <time >截止時間：</time>
     </div>
   </section>
