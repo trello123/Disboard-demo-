@@ -25,7 +25,6 @@ gem "rmagick", "~> 5.2"
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem "ransack", "~> 4.0"
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
-gem "font-awesome-rails"
 gem "chartkick"
 gem "pundit", "~> 2.3"
 gem 'hotwire-rails', '~> 0.1.0'
