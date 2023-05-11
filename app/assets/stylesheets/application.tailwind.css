@@ -216,6 +216,13 @@
     top: -80%;
     right: 0;
   }
+  .custom-highlight {
+    animation: none !important; /* 取消动画效果 */
+    transition: none !important; /* 取消过渡效果 */
+  } 
+  .usertheach{
+    width: 700px;
+  }
 }
 
 
