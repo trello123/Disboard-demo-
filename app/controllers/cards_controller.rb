@@ -25,7 +25,6 @@ class CardsController < ApplicationController
 
   def show
     @board = @container.board
-    @board = Container.find(params[:container_id]).board
     @comments = @card.comments.order(created_at: :desc)
   end
 
