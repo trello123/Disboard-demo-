@@ -29,9 +29,9 @@ module.exports = {
           'orange-1':'#FFA500',
       },
       boxShadow: {
-        '3xl': 'rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;',
-        '4xl': 'rgb(38, 57, 77) -20px 20px 30px 0px;',
-        '5xl': 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;'
+        '3xl': 'rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em',
+        '4xl': 'rgb(38, 57, 77) -20px 20px 30px 0px',
+        '5xl': 'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'
       }
     },
   },
