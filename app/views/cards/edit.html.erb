@@ -54,7 +54,7 @@
       </div>
       <div class="relative flex items-center justify-center gap-12 pb-3">
         <div><%= f.submit '更新', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
-         <div class="absolute right-12"><%= link_to '刪除',container_card_path(:container_id, @card.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1 rounded-lg' %></div>
+         <div class="absolute right-12"><%= link_to '刪除',container_card_path(@container.id, @card.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'btn-danger inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1 rounded-lg' %></div>
       </div>
     </div>
   <% end %>

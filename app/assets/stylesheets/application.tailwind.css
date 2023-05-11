@@ -8,7 +8,7 @@
     @apply px-5  bg-Azure-blue-2  text-white rounded-lg 
   }
   .btn-danger {
-    @apply px-3 py-1 rounded bg-rose-600 text-rose-50 hover:bg-rose-700;
+    @apply px-3 py-1 rounded bg-rose-600 text-rose-50 hover:bg-rose-700
   }
   .btn-logn{
     @apply px-10 py-3 bg-Azure-blue-2  text-white rounded-lg border-b-4 border-b-gray-900 hover:border-b-0 transition-all ease-in-out duration-100
@@ -35,13 +35,13 @@
     @apply px-5 py-2 text-white items-center hover:bg-Azure-blue-3 rounded-xl inline-block
   }
   .author{
-    @apply  inline-block px-5 py-2 text-white rounded-lg shadow-xl bg-Azure-blue-2;
+    @apply  inline-block px-5 py-2 text-white rounded-lg shadow-xl bg-Azure-blue-2
   }
   .me{
     @apply text-right
   }
   .chat-box{
-    @apply absolute bottom-0 left-0 w-full px-5 py-2 bg-white shadow-4xl ;
+    @apply absolute bottom-0 left-0 w-full px-5 py-2 bg-white shadow-4xl
   }
   .underscore::before{
     content:"";
