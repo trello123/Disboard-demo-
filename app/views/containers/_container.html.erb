@@ -28,11 +28,11 @@
                   <span class="flex items-center gap-1 pr-3">
                   <% if card.deadline.present? && card.daybegin.present?%>
                     <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.daybegin) %> -</p>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                    <p class="text-xs"><%= format_timestamps(card.daybegin, :month_and_day) %> -</p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
                   <% elsif card.deadline.present? %>
                     <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
                   <% end %>
                   </span>          
                 </div>
@@ -56,11 +56,11 @@
                   <span class="flex items-center gap-1 pr-3">
                   <% if card.deadline.present? && card.daybegin.present?%>
                     <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.daybegin) %> -</p>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                    <p class="text-xs"><%= format_timestamps(card.daybegin, :month_and_day) %> -</p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
                   <% elsif card.deadline.present? %>
                     <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_date_to_month_and_day(card.deadline) %></p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
                   <% end %>
                   </span>          
                 </div>

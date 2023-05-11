@@ -36,7 +36,6 @@
   }
   .author{
     @apply  inline-block px-5 py-2 text-white rounded-lg shadow-xl bg-Azure-blue-2;
-    /* border-style: inset */
   }
   .me{
     @apply text-right
@@ -46,7 +45,6 @@
   }
   .underscore::before{
     content:"";
-    /* border-bottom: 2px solid #414E92; */
     width: 50%;
     position: absolute;
     top:8%;
