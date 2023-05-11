@@ -26,7 +26,7 @@ module.exports = {
           'my-blue': '#2196f3',
           'white-1':'#f5f5f5',
           'white-2':'#CCCCCC',
-          'white-3':'#FFA500',
+          'orange-1':'#FFA500',
       },
       boxShadow: {
         '3xl': 'rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;',

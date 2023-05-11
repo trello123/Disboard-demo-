@@ -4,9 +4,6 @@ import { Tooltip } from "chart.js";
 // Connects to data-controller="menu"
 export default class extends Controller {
 
-  connect() {
-  }
-
   showBoard() {
     const subMenuItem = this.element
     const tooltip = subMenuItem.querySelector("div")
@@ -36,7 +33,6 @@ export default class extends Controller {
     // append 50% left and 50% top to the current tooltip position
     // using element.getBoundingClientRect()
     const newNamePos = addBoard.getBoundingClientRect();
-    console.log(newNamePos);
     // and element.style.top
     tooltipTwo.style.top = `${ newNamePos.top -  Math.round(hoverHeight * 0.5)  }px`
     // element.style.left

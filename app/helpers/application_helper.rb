@@ -1,6 +1,14 @@
 module ApplicationHelper
-  def format_datetime(date)
-    date.strftime("%Y/%-m/%-d # %I:%M %p")
+  def format_datetime(datetime)
+    datetime.strftime("%Y/%-m/%-d %H:%M")
+  end
+
+  def format_date(date)
+    date.strftime("%Y/%-m/%-d")
+  end
+
+  def format_time(time)
+    time.strftime("%H:%M")
   end
 
   def format_date_to_month_and_day(date)

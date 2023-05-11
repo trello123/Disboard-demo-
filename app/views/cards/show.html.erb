@@ -19,15 +19,13 @@
         <div class="my-2 mb-3">
           開始時間
           <% if @card.daybegin.present? %>
-            <div><%= format_datetime(@card.daybegin).split('#').first %></div>
-            <div><%= format_datetime(@card.daybegin).split('#').last %></div>
+            <div><%= format_datetime(@card.daybegin) %></div>
           <% end %>
         </div>
         <div class="my-2 mb-3">
           截止時間
           <% if @card.deadline.present? %>
-            <div><%= format_datetime(@card.deadline).split('#').first %></div>
-            <div><%= format_datetime(@card.deadline).split('#').last %></div>
+            <div><%= format_datetime(@card.deadline) %></div>
           <% end %>
         </div>
       </div>
