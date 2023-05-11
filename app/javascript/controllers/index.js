@@ -30,3 +30,6 @@ application.register("remove", RemoveController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import IntroController from "./intro_controller"
+application.register("intro", IntroController)

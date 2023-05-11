@@ -22,7 +22,13 @@
           <%= format_email(current_user.email) %>
         </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="text-2xl font-bold text-white">
+        <% if current_user.present? %>
+          <%= format_email(current_user.email) %>
+        <% end %>
+      </div>
+    <% end %>
     <ul class="flex items-center pr-20 mx-5">
       <% if board.present? and board.id.present? %>
         <li><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>

@@ -7,20 +7,18 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/intro.js@7.0.1/minified/introjs.min.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="overflow-hidden" data-controller='hotkey'>
-    
-    <div class="relative flex">
+    <div class="relative flex" data-controller="intro">
       <%= render 'shared/sidebar', boards: @boards, board: @board %>
       <main class="flex flex-col w-full h-screen mx-auto bg-white-1">  
         <%= render 'shared/insidebar', container: @containers, board: @board %>
         <%= yield %>
       </main>
     </div>
-    
-
   </body>
 </html>

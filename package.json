@@ -21,6 +21,7 @@
     "chartkick": "^5.0.1",
     "daisyui": "^2.51.5",
     "highcharts": "^11.0.0",
+    "intro.js": "^7.0.1",
     "moment": "^2.29.4",
     "sortablejs": "^1.15.0",
     "sweetalert2": "^11.7.3",
