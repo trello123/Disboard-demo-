@@ -8,29 +8,23 @@
         <div class="mt-4"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
       </div>
       <div class="flex flex-col items-start w-3/12 -mr-4">
-        <div>
-          <%= link_to  board_containers_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
-            <i class="fa-solid fa-xmark"></i>
+        <%= link_to  board_containers_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %>
+        <% if @card.assigned_to != "尚未指派" %>
+          <div class="my-2">成員：<%= format_email(@card.assigned_to) %></div>
+        <% end %>
+        <div class="my-2 mb-3">
+          開始時間
+          <% if @card.daybegin.present? %>
+            <div><%= format_datetime(@card.daybegin) %></div>
           <% end %>
         </div>
-        <div class="text-start">
-          <% if @card.assigned_to != "尚未指派" %>
-            <div class="my-2">成員：<%= format_email(@card.assigned_to) %></div>
+        <div class="my-2 mb-3">
+          截止時間
+          <% if @card.deadline.present? %>
+            <div><%= format_datetime(@card.deadline) %></div>
           <% end %>
-          <div class="my-2 mb-3">
-            開始時間
-            <% if @card.daybegin.present? %>
-              <div><%= format_datetime(@card.daybegin).split('#').first %></div>
-              <div><%= format_datetime(@card.daybegin).split('#').last %></div>
-            <% end %>
-          </div>
-          <div class="my-2 mb-3">
-            截止時間
-            <% if @card.deadline.present? %>
-              <div><%= format_datetime(@card.deadline).split('#').first %></div>
-              <div><%= format_datetime(@card.deadline).split('#').last %></div>
-            <% end %>
-          </div>
         </div>
       </div>
     </div>
@@ -47,21 +41,13 @@
         <div class="p-3 mt-4 break-words bg-white rounded-md">
           <div class="mt-4 ">留言者：<%= format_email(comment.user.email) %></div>
           <div class="mt-4 "><%= comment.intro %></div>
-          <div class="flex gap-3 ">
-            <div class="relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 group do">
-              <% if current_user != comment.user %>
-              <%=link_to '修改', container_card_path(comment.card.container, comment.card), data: {confirm: '非當事人不能修改' }%>
-              <% else %>
-              <%=link_to '修改', edit_card_comment_path(comment.card, comment.id)%>
-              <% end %>
-            </div>
-            <div class="relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 group do">
-              <% if current_user != comment.user %>
-                <%=link_to '刪除', container_card_path(comment.card.container, comment.card), data: {confirm: '非當事人不能刪除' }%>
-              <% else %>
-                <%=link_to '刪除', card_comment_path(comment.card, comment.id) , method: "delete", data: {confirm: '確定刪除?' }%>
-              <% end %>  
-            </div>
+          <div class="flex gap-3 mt-4 ">
+            <% if current_user == comment.user %>
+              <%=link_to '修改', edit_card_comment_path(comment.card, comment.id), class:"relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 " %>
+              <%= link_to '刪除', card_comment_path(comment.card, comment.id), method: :delete, data: {confirm: '確定刪除?'}, class: "relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 " %>
+            <% else %>
+            <i class="m-1 fa-regular fa-eye">僅供檢視</i>
+            <% end %>
           </div>
         </div>
         <% end %>  

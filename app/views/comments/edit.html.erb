@@ -2,10 +2,10 @@
   <%= turbo_frame_tag @comment.id do %>
     <div class="w-full m-auto mt-4 ">
       <%= form_for(@comment, url:card_comment_path ) do|f| %>
-        <%= f.rich_text_area :intro, class: 'w-full bg-white' %> <br />
+        <%= f.text_area :intro, class: 'w-full bg-white'%> <br>
         <div>
-          <%= f.submit class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 group do"%>
-          <%= link_to "取消修改", :back, class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 group do" %>
+          <%= f.submit class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 "%>
+          <%= link_to "取消修改", :back, class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 " %>
         </div>
        
       <% end %>

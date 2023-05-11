@@ -35,7 +35,7 @@ class Card < ApplicationRecord
   belongs_to :container , optional: true
   belongs_to :board
   has_one :message
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   #套件給的
   acts_as_list scope: :container
