@@ -18,6 +18,7 @@ gem 'rails-i18n', '~> 7.0', '>= 7.0.6'
 gem "requestjs-rails", "~> 0.0.10"
 gem "acts_as_list", "~> 1.1"
 gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
+gem 'omniauth-github', '~> 2.0', '>= 2.0.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.1'
 gem "paranoia", "~> 2.6"
 gem "carrierwave", "~> 2.2"
