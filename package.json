@@ -20,6 +20,7 @@
     "chart.js": "^4.3.0",
     "chartkick": "^5.0.1",
     "daisyui": "^2.51.5",
+    "flatpickr": "^4.6.13",
     "highcharts": "^11.0.0",
     "intro.js": "^7.0.1",
     "moment": "^2.29.4",

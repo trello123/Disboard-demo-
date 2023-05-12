@@ -50,8 +50,8 @@ function calendarModal(boardId, cardId, {title, start, end}, cb) {
 }
 
 function inputDatetimeHTML(start, end){
-  return `<input id="swal-input1" type="datetime-local" class="swal2-input" value=${moment(start).format("YYYY-MM-DDTHH:mm")}>` +
-  `<input id="swal-input2" type="datetime-local" class="swal2-input" input" value=${moment(end).format("YYYY-MM-DDTHH:mm")}>`
+  return `<div data-controller="flatpickr"><input id="swal-input1" type="datetime-local" class="daybegin swal2-input" value=${moment(start).format("YYYY-MM-DDTHH:mm")}>` +
+  `<input id="swal-input2" type="datetime-local" class="deadline swal2-input" input" value=${moment(end).format("YYYY-MM-DDTHH:mm")}></div>`
 }
 
 export { successNotify, calendarModal }
