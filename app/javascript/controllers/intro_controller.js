@@ -24,29 +24,29 @@ export default class extends Controller {
           intro: '使用教學'
         },
         {
-          title: '步驟一:新增專案群組',
+          title: '步驟一: 新增專案群組',
           intro: '點擊這裡可以新增專案群組',
           element: '.addboard',
         },
         {
-          title: '步驟二:群組功能總覽',
+          title: '步驟二: 群組功能總覽',
           intro: '點擊這裡可以看到群組裡面的功能總覽',
           element: '.boardlist'
         },
         {
-          title: '步驟三:新增專案任務',
+          title: '步驟三: 新增專案任務',
           intro: '點擊這裡可以新增任務',
           element: '.addcard',
         },
         {
-          title: '步驟四:個人所有專案群組',
+          title: '步驟四: 個人所有專案群組',
           intro: '點擊這裡可以看到你的所有專案群組',
           element: '.user',
         },
         {
-          title: '步驟五:快捷鍵教學',
+          title: '步驟五: 快捷鍵教學',
           intro: 
-          '最後還有網站的快捷鍵：</br>alt/option+s可以新增狀態</br>alt/option+c可以新增卡片</br>alt/option+d可以切換到日曆頁面</br>alt/option+m可以切換到聊天室</br>alt/option+w可以切換到任務列表</br>alt/option+f可以切換到成員</br>alt/option+q可以切換到儀表',
+          '最後還有網站的快捷鍵：<p>Option(或 Alt鍵)<code>⌥ + s</code></br>-> 新增狀態</p><p>Option(或 Alt鍵) <code>⌥ + c </code></br>-> 新增卡片</p><p>Option(或 Alt鍵)<code> ⌥ + d </code></br>-> 切換到日曆頁面</p><p>Option(或 Alt鍵)<code> ⌥ + m </code></br>-> 切換到聊天室</p><p>Option(或 Alt鍵) <code>⌥ + w </code></br>-> 切換到任務列表</p><p>Option(或 Alt鍵)<code> ⌥ + f</code></br>-> 切換到成員</p><p>Option(或 Alt鍵)<code>⌥ + q</code></br>-> 切換到儀表</p>',
         },
       ],
     });

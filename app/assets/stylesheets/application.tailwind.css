@@ -219,9 +219,19 @@
   .custom-highlight {
     animation: none !important; /* 取消动画效果 */
     transition: none !important; /* 取消过渡效果 */
+    border: 1px solid #fff
   } 
   .usertheach{
     width: 700px;
+  }
+  .usertheach p{
+    line-height: 30px;
+  }
+  .usertheach code{
+    border: 1px solid #eee;
+    padding: 5px 5px;
+    border-radius: 10px;
+    background-color: #CCCCCC;
   }
 }
 
