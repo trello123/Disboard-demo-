@@ -17,7 +17,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
   # relationships
   has_many :board_users, dependent: :destroy
@@ -35,6 +35,7 @@ class User < ApplicationRecord
         # user.skip_confirmation!
       end
     end
+
 
     def ransackable_attributes(auth_object = nil)
       ["email", "username"]
