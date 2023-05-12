@@ -31,7 +31,8 @@
           <li><%= link_to '成員', board_members_path(board.id), id:'keyfive', class:'insidebar' %></li>
           <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
         <% else %>
-          <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>
+          <li><%= link_to '前往升級', payments_path, class:'insidebar' %></li>
+          <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
         <% end %>
       </ul>
     </div>

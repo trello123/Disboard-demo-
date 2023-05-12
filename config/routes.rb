@@ -28,6 +28,12 @@ Rails.application.routes.draw do
     get '/users/password', to: 'devise/passwords#new'
   end
 
+  resources :payments do 
+    collection do
+      post :notify_response
+    end
+  end
+
   #homepage
   root 'homepages#index'
   # api(url) = /api/v1/cards/:id/sort
