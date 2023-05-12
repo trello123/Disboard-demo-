@@ -41,7 +41,7 @@
     @apply text-right
   }
   .chat-box{
-    @apply absolute bottom-0 left-0 w-full px-5 py-2 bg-white shadow-4xl
+    @apply  bottom-0 right-0 w-full px-5 py-2 bg-white shadow-4xl
   }
   .underscore::before{
     content:"";

@@ -1,14 +1,23 @@
 <div id="room-id" data-room-id="<%= @room.id%>"></div>
 <div id="user-id" data-user-id="<%= current_user.id%>"></div>
-  <div class="w-full h-screen px-20 overflow-y-scroll" id="chat-window">
-      <% if @room.present? %>
-        <div class="pb-36 ">
-          <div id="messages">
-            <%= render partial: 'messages/message', collection: @messages %>
-          </div>
-        </div>
-        <div class="mx-auto chat-box" data-controller="chatsubmit">
-          <%= render 'messages/form' ,message: Message.new , room: @room %>
-        </div>
-      <% end %>
+<section class="">
+  <div class="absolute h-screen p-5 bg-Azure-blue-2 ">
+    <% @board.users.each do |user| %>
+      <div class="py-5 font-bold text-white">
+        <%= user.email %>
+      </div>
+    <% end %>
   </div>
+  <div class="w-full h-screen px-20 overflow-y-scroll" id="chat-window">
+    <% if @room.present? %>
+      <div class="pb-36 ">
+        <div id="messages">
+          <%= render partial: 'messages/message', collection: @messages %>
+        </div>
+      </div>
+      <div class="mx-auto chat-box" data-controller="chatsubmit">
+        <%= render 'messages/form' ,message: Message.new , room: @room %>
+      </div>
+    <% end %>
+  </div>
+</section>
