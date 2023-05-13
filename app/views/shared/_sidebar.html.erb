@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="z-50 flex flex-col w-20 h-screen m-0 overflow-x-hidden overflow-y-auto text-white shadow-lg bg-Azure-blue-2 " >
       <div class="relative py-3 underscore user">
-        <%if board == nil %>
+        <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
             <i class="fa-solid fa-user-tie"></i>
           <% end %>

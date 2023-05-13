@@ -19,13 +19,11 @@
         <% end %>
       <% else %>
         <div class="text-2xl font-bold text-white">
-          <% if current_user.present? %>
-            <%= format_email(current_user.email) %>
-          <% end %>
+          <%= format_email(current_user.email) if current_user.present? %>
         </div>
       <% end %>
       <ul class="flex items-center pr-20 mx-5">
-        <% if board.present? and board.id.present? %>
+        <% if board&.id.present? %>
           <li><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
           <li><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>
           <li><%= link_to '聊天室', board_rooms_path(board.id), id:'keyfour', class:'insidebar' %></li>
@@ -36,5 +34,6 @@
           <li class="insidebar"><%= link_to '登出', destroy_user_session_path, method:"delete" %></li>
         <% end %>
       </ul>
+    </div>
   </div>
 </section>
