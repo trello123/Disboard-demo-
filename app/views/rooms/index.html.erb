@@ -1,10 +1,13 @@
 <div id="room-id" data-room-id="<%= @room.id%>"></div>
 <div id="user-id" data-user-id="<%= current_user.id%>"></div>
-<section class="">
-  <div class="absolute h-screen p-5 bg-Azure-blue-2 ">
+<section class="flex">
+  <div class="h-screen p-5 bg-Azure-blue-2">
     <% @board.users.each do |user| %>
       <div class="py-5 font-bold text-white">
         <%= user.email %>
+        <span class='activity-status user-<% user.id %>-status' >
+          •
+        </span>
       </div>
     <% end %>
   </div>
@@ -15,7 +18,7 @@
           <%= render partial: 'messages/message', collection: @messages %>
         </div>
       </div>
-      <div class="mx-auto chat-box" data-controller="chatsubmit">
+      <div class="chat-box" data-controller="chatsubmit">
         <%= render 'messages/form' ,message: Message.new , room: @room %>
       </div>
     <% end %>

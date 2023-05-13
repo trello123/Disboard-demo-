@@ -6,10 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :load_boards
   before_action :load_board
+  
 
   def current_user
     current_user ||= super
   end
+
 
   def after_sign_in_path_for(resource)
     if ( current_user.boards.empty? )
@@ -24,6 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+
   def record_not_found
     render file: Rails.root.join('public', '404.html'),
     layout: false,
