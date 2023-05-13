@@ -14,7 +14,6 @@
       <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo] %>
       <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha] %>
       <%= form.hidden_field :TimeStamp, value: @form_info[:TimeStamp] %>
-      <%= form.hidden_field :Amt, value: Newebpay::Mpg.new(30).form_info %>
       <%= form.hidden_field :Version, value: "2.0" %>
       <%= form.submit "Buy Now", class: "w-full py-2 text-indigo-100 duration-75 bg-indigo-600 rounded-md hover:bg-indigo-500 hover:shadow-md" %>
     <% end %>
@@ -23,7 +22,6 @@
       <%= form.hidden_field :TradeInfo, value: @form_info2[:TradeInfo] %>
       <%= form.hidden_field :TradeSha, value: @form_info2[:TradeSha] %>
       <%= form.hidden_field :TimeStamp, value: @form_info2[:TimeStamp] %>
-      <%= form.hidden_field :Amt, value: Newebpay::Mpg.new(60).form_info %>
       <%= form.hidden_field :Version, value: "2.0" %>
       <%= form.submit "Buy Now", class: "w-full py-2 text-indigo-100 duration-75 bg-indigo-600 rounded-md hover:bg-indigo-500 hover:shadow-md" %>
     <% end %>
