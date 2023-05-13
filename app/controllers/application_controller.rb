@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if ( current_user.boards == [] )
+    if ( current_user.boards.empty? )
       @sample_board = current_user.boards.create(name: '專案範例')
       3.times do
         @sample_board.containers.create(title: "狀態範例")
