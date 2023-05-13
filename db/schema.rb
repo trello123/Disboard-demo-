@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 2023_05_07_124134) do
     t.string "provider"
     t.string "uid"
     t.string "username"
+    t.string "status", default: "normal"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
