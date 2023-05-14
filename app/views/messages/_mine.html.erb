@@ -5,7 +5,10 @@
         <%= message.user.username %>
       <% else %>
         <%= message.user.email %>
-      <% end %>   
+      <% end %>
+      <span class='activity-status user-<%= message.user.id  %>-status'>
+        •
+      </span>   
     </div>
     <div class="border border-l-4 shadow-xl border-orange-1 author">
       <%= message.user.email %>
@@ -25,13 +28,16 @@
         <%= message.user.username %>
       <% else %>
         <%= message.user.email %>
-      <% end %>   
     </div>
+      <span class='activity-status user-<%= message.user.id %>-status '>
+        •
+      </span>  
     <div class="author">
       <%= message.content %>
     </div>
     <div class="block text-sm text-gray-400">
       <%= format_timestamps(message.created_at, :time) %>
+      <% end %> 
     </div>
   </div>
 <% end %>

@@ -6,6 +6,9 @@
       <% else %>
         <%= message.user.email %>
       <% end %>   
+      <span class='activity-status user-<%= message.user.id %>-status'>
+        •
+      </span>
     </div>
     <div class="border border-l-4 shadow-xl border-orange-1 author">
       <%= message.user.email %>
@@ -25,7 +28,10 @@
         <%= message.user.username %>
       <% else %>
         <%= message.user.email %>
-      <% end %>   
+      <% end %>
+      <span class='activity-status user-<%= message.user.id %>-status'>
+        •
+      </span>   
     </div>
     <div class="author">
       <%= message.content %>

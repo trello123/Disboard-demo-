@@ -5,9 +5,9 @@
     <% @board.users.each do |user| %>
       <div class="py-5 font-bold text-white">
         <%= user.email %>
-        <span class='activity-status user-<% user.id %>-status' >
-          •
-        </span>
+      <span class='activity-status user-<% user.id %>-status'>
+        •
+      </span>
       </div>
     <% end %>
   </div>
