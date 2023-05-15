@@ -5,8 +5,24 @@
     <p>/ 每月</p>
     <ul class="flex flex-col items-start gap-8">
       <p class="-mb-2 -ml-16 mt-14">免費會員可使用功能</p>
-      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
-      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        看板管理
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[300px]">
+            任務列表功能，能讓您輕鬆組織和追蹤您的工作
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        即時聊天
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            即時交流與討論，方便團隊共享資源，提升專案溝通效率
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
       <li class="tick before:-left-[25%] before:-top-[15%]">僅可使用預設主題</li>
     </ul>
   </div>
@@ -16,10 +32,42 @@
     <p>/ 每月</p>
     <ul class="flex flex-col items-start gap-8">
       <p class="mt-5 -mb-2 -ml-16">標準會員可使用功能</p>
-      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
-      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
-      <li class="tick before:-left-[50%] before:-top-[15%]">日曆功能</li>
-      <li class="tick before:border-black before:border-t-0 before:border-l-0 before:rotate-45 before:-left-[30%] before:-top-[15%]">可選擇部分主題</li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        看板管理
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[300px]">
+            任務列表功能，能讓您輕鬆組織和追蹤您的工作
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        即時聊天
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            即時交流與討論，方便團隊共享資源，提升專案溝通效率
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        日曆功能
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            輕鬆統整專案時間表，實現順利的專案執行與時程掌控
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:border-black before:border-t-0 before:border-l-0 before:rotate-45 before:-left-[30%] before:-top-[15%] relative group">
+        可選擇部分主題
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[30%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            選擇您鍾愛的三個背景主题，爲您的空間營造愉悅的氛圍
+            <div class="absolute w-0 h-0 top-1.5 left-[20%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
     </ul>
     <% if current_user.status == "normal" %>
       <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
@@ -45,11 +93,51 @@
     <p>/ 每月</p>
     <ul class="flex flex-col items-start gap-8">
       <p class="mt-4 -mb-2 -ml-12">尊榮會員可使用功能</p>
-      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
-      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
-      <li class="tick before:-left-[50%] before:-top-[15%]">日曆功能</li>
-      <li class="tick before:-left-[65%] before:-top-[15%]">儀表板</li>
-      <li class="tick before:-left-[15%] before:-top-[15%]">全網站主題解鎖，隨您挑選</li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        看板管理
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[300px]">
+            任務列表功能，能讓您輕鬆組織和追蹤您的工作
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        即時聊天
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            即時交流與討論，方便團隊共享資源，提升專案溝通效率
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
+        日曆功能
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            輕鬆統整專案時間表，實現順利的專案執行與時程掌控
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[65%] before:-top-[15%] relative group">
+        儀表板
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            一目了然，掌握進展，專案儀表板助您輕鬆監控項目進度
+            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
+      <li class="tick before:-left-[15%] before:-top-[15%] relative group">
+        全網站主題解鎖，隨您挑選
+        <div class="absolute z-10 flex invisible group-hover:visible -left-[10%] w-64 p-5 top-0" >
+          <p class="relative p-3 text-sm text-white bg-black rounded w-[ˇㄢ0px]">
+            爲您的世界带来多樣選擇，創造獨一無二的氛圍，充分展現個人風格
+            <div class="absolute w-0 h-0 top-1.5 left-[20%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
+          </p>
+        </div>
+      </li>
     </ul>
     <% if current_user.status != "Vip" %>
       <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
