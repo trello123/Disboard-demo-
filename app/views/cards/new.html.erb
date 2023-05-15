@@ -1,5 +1,5 @@
 <div class="mt-16 ml-40">
-  <%=  form_with(model: @card, url: container_cards_path ) do |f| %>
+  <%=  form_with(model: @card, url: container_cards_path, data: { controller: "flatpickr" } ) do |f| %>
     <div class="flex p-3 m-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
       <div class="flex-col w-9/12">
         <%= render 'shared/error', params: @card %>
