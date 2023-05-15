@@ -12,6 +12,7 @@ import "aos/dist/aos.css"
 import "chartkick/chart.js"
 import "chartkick"
 import "chartkick/highcharts"
+import 'flatpickr/dist/flatpickr.css'
 
 Rails.start()
 Turbolinks.start()
