@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
       3.times do
         @sample_board.containers.create(title: "狀態範例")
       end
+      @sample_board.create_room
       board_path(@sample_board.id)  
     else
       boards_path
