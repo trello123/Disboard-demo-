@@ -19,6 +19,13 @@
         <% end %>
       <% else %>
         <div class="text-2xl font-bold text-white">
+          <% if current_user.status == "normal" %>
+            <i class="text-2xl fa-solid fa-award" style="color: #b8e9ea;">免費會員</i>
+          <% elsif current_user.status == "Standard" %>
+            <i class="fa-solid fa-award" style="color: #e797f7;">標準會員</i>
+          <% else %>
+            <i class="fa-solid fa-award" style="color: #faf200;">尊榮會員</i>
+          <% end %>
           <%= format_email(current_user.email) if current_user.present? %>
         </div>
       <% end %>

@@ -16,9 +16,20 @@
       <% container.cards.each do |card| %>
         <div class="w-full group/edit" data-card-id="<%= card.id %>">
           <% if @light.present? && @locate_card == card.id %>
-            <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-8 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
+            <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
               <div class="flex flex-col">
-                <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
+                <div class="flex flex-row justify-start gap-3 mb-0.5">
+                  <div><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %></div>
+                  <div>
+                    <% if card.level == "一般" %>
+                      <p class='bg-green-100'><%= card.level %></p>
+                    <% elsif card.level == "重要" %>  
+                      <i class="fa-solid fa-flag" style="color: #e6df19;"></i>
+                    <% elsif card.level == "緊急" %>  
+                      <i class="fa-solid fa-flag" style="color: #f50a0a;"></i>
+                    <% end %>
+                  </div>
+                </div>
                 <div class="flex items-end justify-between gap-1.5">
                   <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
                     <i class="fa-solid fa-user-tag"></i>
@@ -46,7 +57,18 @@
           <% else %>
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
               <div class="flex flex-col">
-                <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
+                <div class="flex flex-row justify-start gap-3 mb-0.5">
+                  <div><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %></div>
+                  <div>
+                    <% if card.level == "一般" %>
+                      <p class='p-1 text-xs text-white bg-green-500 rounded'><%= card.level %></p>
+                    <% elsif card.level == "重要" %>  
+                      <p class='p-1 text-xs text-white bg-yellow-600 rounded'><%= card.level %></p>
+                    <% elsif card.level == "緊急" %>  
+                      <p class='p-1 text-xs text-white bg-red-500 rounded'><%= card.level %></p>
+                    <% end %>
+                  </div>
+                </div>
                 <div class="flex items-end justify-between gap-1.5">
                   <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
                     <i class="fa-solid fa-user-tag"></i>

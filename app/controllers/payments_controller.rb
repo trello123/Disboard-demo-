@@ -24,9 +24,9 @@ class PaymentsController < ApplicationController
       elsif @amt == 49
         User.find(@vip_id).update(status: "Vip")
       end
-      redirect_to payments_path
-    else
       redirect_to boards_path
+    else
+      redirect_to payments_path
     end
   end
 end
