@@ -1,24 +1,17 @@
 class ActivityChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "activity_channel"
-    appear # 在訂閱後立即觸發 appear 方法，更新其他客戶端的使用者狀態
+    ActionCable.server.pubsub.redis_connection_for_subscriptions.sadd "online", current_user.id
+
+    stream_from "online:rooms"
+
+    html = ApplicationController.render(partial: "rooms/online", locals: { user: current_user })
+    broadcast_to "users", { id: current_user.id, status: "online", html: html }
   end
 
   def unsubscribed
-    broadcast_offline
-  end
+    ActionCable.server.pubsub.redis_connection_for_subscriptions.srem "online", current_user.id
 
-  def appear
-    broadcast_online
-  end
-
-  private
-
-  def broadcast_online
-    ActionCable.server.broadcast("activity_channel", { user_id: current_user.id, status: 'online' })
-  end
-
-  def broadcast_offline
-    ActionCable.server.broadcast("activity_channel", { user_id: current_user.id, status: 'offline' })
+    broadcast_to "users", { id: current_user.id, status: "offline" }
+    stop_all_streams
   end
 end

@@ -29,6 +29,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem "chartkick"
 gem "pundit", "~> 2.3"
 gem 'hotwire-rails', '~> 0.1.0'
+gem "noticed", "~> 1.6"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :load_boards
   before_action :load_board
+  before_action :set_last_seen_at, if: :user_signed_in?
   
 
   def current_user
@@ -23,6 +24,10 @@ class ApplicationController < ActionController::Base
     else
       boards_path
     end
+  end
+
+  def set_last_seen_at
+    current_user.touch(:last_seen_at)
   end
 
   private

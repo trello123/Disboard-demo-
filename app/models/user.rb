@@ -23,6 +23,14 @@ class User < ApplicationRecord
   has_many :board_users, dependent: :destroy
   has_many :boards, through: :board_users, dependent: :destroy
   has_many :comments
+
+  has_many :notifications, as: :recipient, dependent: :destroy
+
+  def self.online
+    ids = ActionCable.server.pubsub.redis_connection_for_subscriptions.smembers "online"
+    where(id: ids)
+  end
+
   class << self
     def from_omniauth(auth)
       find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|

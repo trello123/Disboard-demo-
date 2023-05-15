@@ -1,33 +1,32 @@
 // app/javascript/channels/online_users.js
 import consumer from "./consumer"
+
+
 document.addEventListener('turbo:load', ()=> {
+  window.subscriptions = consumer.subscriptions
+  
+  consumer.subscriptions.subscriptions.forEach((subscription) => {
+    if (JSON.parse(subscription.identifier).channel == 'ActivityChannel')
+      consumer.subscriptions.remove(subscription)
+  })
   consumer.subscriptions.create("ActivityChannel", {
     connected() {
-      this.appear();
+
     },
     
     disconnected() {
-      let elements = document.getElementsByClassName("user-status");
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].classList.remove('online');
-      }
-     },
+      this.unsubscribe()
+    },
     received(data) {
-      console.log(data);
       // Called when there's incoming data on the websocket for this channel
-      let elements = document.getElementsByClassName(`user-${data.user_id}-status`);
-      window.elements = elements
-      for (var i = 0; i < elements.length; i++) {
-        if (data.status == 'online') {
-          elements[i].classList.add('online')
-        } else {
-          elements[i].classList.remove('online')
-        }
+      let online = document.querySelector("#online-users")
+      let el = online.querySelector(`[data-id='${data.id}']`)
+      if (data.status == "online" && el == null) {
+        online.insertAdjacentHTML('beforeend', data.html)
+
+      } else if (data.status == "offline" && el != null) {
+        el.remove()
       }
     },
-    
-    appear() {
-      this.perform("appear")
-    }
   })
-})  
+})
