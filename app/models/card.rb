@@ -23,7 +23,7 @@ class Card < ApplicationRecord
 
   def daybegin_cannot_greater_than_deadline
     if daybegin.present? && deadline.present? && deadline < daybegin
-      errors.add(:daybegin, "開始日期不得小於結束日期")
+      errors.add(:daybegin, "開始日期不得大於結束日期")
     end
   end
 
@@ -42,7 +42,7 @@ class Card < ApplicationRecord
   acts_as_paranoid
   mount_uploader :avatar, AvatarUploader
 
-  enum level: { '待確認': 0, '簡單': 1, '普通': 2, '困難': 3 }
+  enum level: { '待確認': 0, '緊急': 1, '重要': 2, '一般': 3 }
 
 
   class << self
