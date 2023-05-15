@@ -2,10 +2,10 @@ module Newebpay
   class MpgResponse
     # 使用 attr_reader 可以更方便取用這些資訊
     attr_reader :status, :message, :result, :order_no, :trans_no, :amt
-
+    
     def initialize(params)
-      @key = ENV["hash_key"]
-      @iv = ENV["hash_iv"]
+      @key = ENV["HASH_KEY"]
+      @iv =  ENV["HASH_IV"]
 
       response = decrypy(params)
       @status = response['Status']

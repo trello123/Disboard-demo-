@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     get '/users/password', to: 'devise/passwords#new'
   end
 
-  resources :payments do 
+  resources :payments, only: [:index, :create] do 
     collection do
       post :notify_response
     end
