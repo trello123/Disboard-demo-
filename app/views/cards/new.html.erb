@@ -29,11 +29,11 @@
         <div class="my-2">成員： <%= @card.assigned_to %></div>
         <div class="my-2">
           <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-          <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
+          <%= f.datetime_field :daybegin, class: 'daybegin' %>
         </div>
         <div class="my-2">
           <%= f.label :deadline, '結束日期', class: "mr-4" %>
-          <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
+          <%= f.datetime_field :deadline, class: 'deadline' %>
         </div>
       </div>
     </div>

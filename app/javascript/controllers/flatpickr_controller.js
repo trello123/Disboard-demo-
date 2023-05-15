@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"
-import 'flatpickr/dist/flatpickr.min.css';
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
