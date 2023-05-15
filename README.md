@@ -24,4 +24,4 @@
 ## .env_sample
 
 - 複製一份改成.env 檔
-- key 再請跟怡如拿
+- 跟開發人員索取 value
