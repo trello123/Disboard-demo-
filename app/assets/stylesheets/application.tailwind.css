@@ -231,6 +231,8 @@
     padding: 5px 5px;
     border-radius: 10px;
     background-color: #CCCCCC;
+  .tick {
+    @apply relative before:content-[''] before:w-3 before:h-[22px] before:border-2 before:absolute before:border-black before:border-t-0 before:border-l-0 before:rotate-45
   }
 }
 
