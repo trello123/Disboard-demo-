@@ -48,7 +48,7 @@
               <div class="flex flex-col">
                 <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
                 <div class="flex items-end justify-between gap-1.5">
-                  <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
+                  <% if card.assigned_to != "尚未指派" && current_user.username == card.assigned_to %>
                     <i class="fa-solid fa-user-tag"></i>
                   <% elsif card.assigned_to != "尚未指派"%>
                     <i class="mt-1 fa-solid fa-user"></i>
