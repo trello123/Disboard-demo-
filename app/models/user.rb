@@ -19,6 +19,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :github]
 
+  validates :username, presence: true, uniqueness: true 
+  
+  
+
   # relationships
   has_many :board_users, dependent: :destroy
   has_many :boards, through: :board_users, dependent: :destroy

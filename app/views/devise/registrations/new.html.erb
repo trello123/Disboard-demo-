@@ -13,6 +13,10 @@
               <h3>歡迎加入Disboard!</h3>
             </div>
             <div class="mb-3 field">
+              <%= f.label :username, '暱稱' %><br />
+              <%= f.email_field :username, autofocus: true,class:"box-input"%>
+            </div>
+            <div class="mb-3 field">
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"box-input"%>
             </div>

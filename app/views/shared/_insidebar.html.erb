@@ -19,7 +19,7 @@
         <% end %>
       <% else %>
         <div class="text-2xl font-bold text-white">
-          <%= format_email(current_user.email) if current_user.present? %>
+          <%= format_email(current_user.username) if current_user.present? %>
         </div>
       <% end %>
       <ul class="flex items-center pr-20 mx-5">

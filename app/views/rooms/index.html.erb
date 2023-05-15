@@ -12,7 +12,7 @@
       <h1 class="font-bold text-white">所有成員</h1> 
       <ul>
         <% @board.users.each do |user|%>
-          <li class="py-5 text-white text-mb "><%= user.email %></li>
+          <li class="py-5 text-white text-mb "><%= user.username %></li>
         <% end %>
       </ul>
     </div>
