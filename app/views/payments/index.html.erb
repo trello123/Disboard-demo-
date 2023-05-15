@@ -1,29 +1,67 @@
-<section class="flex justify-center gap-20">
-  <div class="flex flex-col gap-10">
-    <h3>免費方案</h3>
+<section class="flex justify-center gap-20 mt-3">
+  <div class="flex flex-col gap-5  w-[330px] items-center rounded-md shadow-3xl bg-white py-10">
+    <h3 class="text-xl">免費會員</h3>
     <p>$ 0 NTD</p>
-    <p>僅可使用一般功能</p>
-    <a href="#">開始使用</a>
+    <p>/ 每月</p>
+    <ul class="flex flex-col items-start gap-8">
+      <p class="-mb-2 -ml-16 mt-14">免費會員可使用功能</p>
+      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
+      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
+      <li class="tick before:-left-[25%] before:-top-[15%]">僅可使用預設主題</li>
+    </ul>
   </div>
-  <div class="flex flex-col gap-10">
-    <h3>Vip方案</h3>
-    <p>每月$ 30 NTD</p>
-    <p>可自由選擇主題</p>
-    <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
-      <%= form.hidden_field :MerchantID, value: "MS148911941" %>
-      <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo] %>
-      <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha] %>
-      <%= form.hidden_field :TimeStamp, value: @form_info[:TimeStamp] %>
-      <%= form.hidden_field :Version, value: "2.0" %>
-      <%= form.submit "Buy Now", class: "w-full py-2 text-indigo-100 duration-75 bg-indigo-600 rounded-md hover:bg-indigo-500 hover:shadow-md" %>
+  <div class="flex flex-col gap-5  w-[330px] items-center rounded-md shadow-3xl bg-white py-10">
+    <h3 class="text-xl">標準會員</h3>
+    <p>$ <span class="px-3 text-6xl">30</span> NTD</p>
+    <p>/ 每月</p>
+    <ul class="flex flex-col items-start gap-8">
+      <p class="mt-5 -mb-2 -ml-16">標準會員可使用功能</p>
+      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
+      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
+      <li class="tick before:-left-[50%] before:-top-[15%]">日曆功能</li>
+      <li class="tick before:border-black before:border-t-0 before:border-l-0 before:rotate-45 before:-left-[30%] before:-top-[15%]">可選擇部分主題</li>
+    </ul>
+    <% if current_user.status == "normal" %>
+      <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
+        <%= form.hidden_field :MerchantID, value: "MS148911941" %>
+        <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo] %>
+        <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha] %>
+        <%= form.hidden_field :TimeStamp, value: @form_info[:TimeStamp] %>
+        <%= form.hidden_field :Version, value: "2.0" %>
+        <%= form.submit "立刻升級", class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-32 py-3 hover:cursor-pointer" %>
+      <% end %>
+    <% elsif current_user.status == "Standard" %>
+      <span class="relative inline-block w-48 py-3 mt-5 text-center text-black bg-transparent border-2 btn-primary hover:bg-transparent border-Azure-blue-4 hover:border-Azure-blue-4">您已是標準會員</span>
+    <% elsif current_user.status == "Vip" %>
+      <span class="relative inline-block w-48 py-3 mt-5 text-center text-black bg-transparent border-2 btn-primary hover:bg-transparent border-Azure-blue-4 hover:border-Azure-blue-4">您已是尊榮會員</span>
     <% end %>
-    <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
-      <%= form.hidden_field :MerchantID, value: "MS148911941" %>
-      <%= form.hidden_field :TradeInfo, value: @form_info2[:TradeInfo] %>
-      <%= form.hidden_field :TradeSha, value: @form_info2[:TradeSha] %>
-      <%= form.hidden_field :TimeStamp, value: @form_info2[:TimeStamp] %>
-      <%= form.hidden_field :Version, value: "2.0" %>
-      <%= form.submit "Buy Now", class: "w-full py-2 text-indigo-100 duration-75 bg-indigo-600 rounded-md hover:bg-indigo-500 hover:shadow-md" %>
+  </div>
+  <div class="flex flex-col gap-5  w-[330px] items-center rounded-md shadow-3xl bg-blue-100 py-10  border-4 border-Azure-blue-4 relative">
+    <div class="absolute w-0 h-0 -top-[50px] left-[80.5%] border-t-[75px] border-t-transparent border-r-[75px] border-r-green-500 border-b-[75px] border-b-transparent rotate-[135deg]">
+      <p class="absolute -rotate-[135deg] -top-8 left-8 text-white">推薦</p>
+    </div>
+    <h3 class="text-xl">尊榮會員</h3>
+    <p>$ <span class="px-3 text-6xl text-red-500">49</span><span class="relative  text-2xl mr-2 after:content-[''] after:absolute after:w-8 after:h-0.5 after:bg-red-500 after:top-[40%] after:left-0 after:rotate-[30deg]">60</span> NTD</p>
+    <p>/ 每月</p>
+    <ul class="flex flex-col items-start gap-8">
+      <p class="mt-4 -mb-2 -ml-12">尊榮會員可使用功能</p>
+      <li class="tick before:-left-[50%] before:-top-[15%]">看板管理</li>
+      <li class="tick before:-left-[50%] before:-top-[15%]">即時聊天</li>
+      <li class="tick before:-left-[50%] before:-top-[15%]">日曆功能</li>
+      <li class="tick before:-left-[65%] before:-top-[15%]">儀表板</li>
+      <li class="tick before:-left-[15%] before:-top-[15%]">全網站主題解鎖，隨您挑選</li>
+    </ul>
+    <% if current_user.status != "Vip" %>
+      <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
+        <%= form.hidden_field :MerchantID, value: "MS148911941" %>
+        <%= form.hidden_field :TradeInfo, value: @form_info2[:TradeInfo] %>
+        <%= form.hidden_field :TradeSha, value: @form_info2[:TradeSha] %>
+        <%= form.hidden_field :TimeStamp, value: @form_info2[:TimeStamp] %>
+        <%= form.hidden_field :Version, value: "2.0" %>
+        <%= form.submit "立刻升級", class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-32 py-3 hover:cursor-pointer" %>
+      <% end %>
+    <% else %>
+      <span class="relative inline-block w-48 py-3 mt-5 text-center text-black bg-transparent border-2 btn-primary hover:bg-transparent border-Azure-blue-4 hover:border-Azure-blue-4">您已是尊榮會員</span>
     <% end %>
   </div>
 </section>
