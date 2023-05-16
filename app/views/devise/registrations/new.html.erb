@@ -1,53 +1,51 @@
-<%= turbo_frame_tag :sigup do%>
-  <section class="absolute left-0 z-10 w-full" 
-           data-aos="fade-up"
-           data-aos-anchor-placement="top-bottom"
-           data-aos-easing="ease-out-cubic"
-           data-aos-duration="350">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),data:{turbo: false}) do |f| %>
-      <section class="flex items-center justify-center w-full" data-controller="modal">
-        <%= render "devise/shared/error_messages", resource: resource %>
-          <section class="logn-modal" data-modal-target="modal">
-            <a href="#" class="absolute text-xl right-10 top-5" data-action="click->modal#close"><i class="fa-solid fa-xmark"></i></a>
-            <div class="mb-3 text-3xl text-center ">
-              <h3>歡迎加入Disboard!</h3>
-            </div>
-            <div class="mb-3 field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"box-input"%>
-            </div>
+<section class="w-2/5 p-5 m-auto rounded-lg shadow-2xl bg-white-2">
+  <h2 class="py-5 text-2xl text-center">歡迎加入!</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <section class="flex flex-col items-center">
+      <div class="py-3 form-control">
+        <label class="input-group">
+          <span><%= f.label :username ,'暱稱'%></span>
+            <%= f.email_field :username, autofocus: true, class:"input input-bordered" %>
+        </label>
+      </div>
+      <div class="py-3 form-control">
+        <label class="input-group">
+          <span><%= f.label :email ,'信箱'%></span>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input input-bordered" %>
+        </label>
+      </div>
+      <div class="pt-3 form-control ">
+        <label class="input-group">
+          <span><%= f.label :password ,'密碼'%></span>
+          <%= f.password_field :password, autocomplete: "current-password" , class:"input input-bordered"%>
+        </label>
+      </div>
+      <div class="pt-3 form-control ">
+        <label class="input-group">
+          <span><%= f.label :password_confirmation , '確認密碼' %></span>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input input-bordered" %>
+        </label>
+      </div>
 
-          <div class="mb-3 field">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-              <em>(最少 <%= @minimum_password_length %> 字數)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password",class:"box-input" %>
-          </div>
-
-          <div class="mb-3 field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"box-input"%>
-          </div>
-          <%= f.submit I18n.t("devise.shared.sign_up"),class: "btn-primary mt-2" %>
-        <% end %>
-
-        <div class="flex justify-center w-48 gap-2 mt-5 border-t-2 border-gray-300">
-          <% if devise_mapping.omniauthable? %>
-            <% resource_class.omniauth_providers.each do |provider| %>
-              <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
-                <% if provider == :google_oauth2 %>
-                  <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative  hover:top-[2px] active:top-[4px]">
-                <% elsif provider == :github %>
-                  <img src="/assets/github-mark.png" alt="Github" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
-                <% end %>
+      <div class="flex flex-col items-center p-3 ">
+        <%= f.submit "註冊" , class:"btn btn-wide"%>
+        <p class="text-sm"> 已經有帳號了嗎？ <%= link_to "登入", new_session_path(resource_name), class:"text-Azure-blue-3" %></p>
+      </div>
+    
+      <div class="flex justify-center w-48 gap-2 pt-3 border-t-2 border-black">
+        <% if devise_mapping.omniauthable? %>
+          <% resource_class.omniauth_providers.each do |provider| %>
+            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
+              <% if provider == :google_oauth2 %>
+                <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative  hover:top-[2px] active:top-[4px]">
+              <% elsif provider == :github %>
+                <img src="/assets/github-mark.png" alt="Github" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
               <% end %>
             <% end %>
           <% end %>
-        </div>
-
-      </section>
+        <% end %>
+      </div>
     </section>
-  </section>
-<% end %>
-
+  <% end %>
+</section>
