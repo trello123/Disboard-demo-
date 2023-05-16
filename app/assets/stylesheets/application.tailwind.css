@@ -71,7 +71,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .field_with_errors input {
+  .field_with_errors {
+    border: 2px red solid
+  }
+  .field_with_errors .box-input {
     border: 2px red solid
   }
 

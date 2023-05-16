@@ -1,0 +1,7 @@
+<% if params.errors.any? %>
+  <% params.errors.full_messages.each do |msg| %>
+    <ul class="flex-col">
+      <li class="text-red-500"><%= msg %></li>
+    </ul>
+  <% end %>
+<% end %>

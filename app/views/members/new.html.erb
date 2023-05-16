@@ -1,11 +1,11 @@
 <%= turbo_frame_tag :member_search do %>
   <%= render "search", q: @q %>
-  <div class="overflow-x-auto">
+  <div class="absolute overflow-x-auto overflow-y-scroll max-h-80 w-[400px]">
     <table class="table w-full">
       <thead>
         <tr>
-          <th>email</th>
-          <th>新增</th>
+          <th class="text-lg bg-gray-300 rounded-none">email</th>
+          <th class="text-lg bg-gray-300 rounded-none">新增成員</th>
         </tr>
       </thead>
       <tbody>

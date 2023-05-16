@@ -2,13 +2,7 @@
   <%=  form_with(model: @card, url: container_cards_path ) do |f| %>
     <div class="flex p-3 m-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
       <div class="flex-col w-9/12">
-        <% if @card.errors.any? %>
-          <% @card.errors.full_messages.each do |msg| %>
-            <ul class="flex-col">
-              <li class="text-red-500"><%= msg %></li>
-            </ul>
-          <% end %>
-        <% end %>
+        <%= render 'shared/error', params: @card %>
         <div class="flex items-center my-3">
           <%= f.label :title, '標題', class: "text-lg mr-4"  %>
           <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
