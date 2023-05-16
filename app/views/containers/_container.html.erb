@@ -1,11 +1,12 @@
 <div class=" min-w-[272px] m-3 px-3">
   <div class="relative w-full p-5 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
-    <div class="flex items-center justify-between w-full gap-3 mb-1">
-      <div>
-        <%= turbo_frame_tag(container) do %>
-          <%= link_to container.title, edit_container_path(container.id), class: " text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %>
+    <div class="flex items-center justify-between w-full gap-3 mb-1 group/container">
+      <%= turbo_frame_tag(container) do %>
+        <%= link_to container.title, edit_container_path(container.id), class: " text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %>
+        <%= link_to edit_container_path(container.id), class: "text-lg pl-5 hidden group-hover/container:inline-block" do %>
+          <i class="m-1 fa-solid fa-pencil"></i>
         <% end %>
-      </div>
+      <% end %>
     </div>
     <div>
       <%= link_to "#", data: { action: 'click->remove#wipeOut' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>

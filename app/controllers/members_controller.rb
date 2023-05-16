@@ -6,7 +6,6 @@ class MembersController < ApplicationController
   end
 
   def new
-    @q = User.ransack(params[:q])
     @users = @q.result.find_users_not_in_board(params[:board_id]).select(:id, :email, :username)
   end
 
