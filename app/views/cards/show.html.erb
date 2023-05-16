@@ -1,10 +1,13 @@
-<div class="w-full py-5 mx-auto mt-16 overflow-y-auto">
-  <div class=" p-3 m-auto rounded-md w-[480px] md:w-[700px] lg:w-[900px] bg-white-2 drop-shadow-md">
-    <div class="flex w-[480px] md:w-[700px] lg:w-[900px]">
+<div class="w-full m-auto overflow-y-auto">
+  <div class=" p-3 m-auto rounded-md w-[928px] bg-white-2 drop-shadow-md">
+    <div class="flex w-[928px]">
       <div class="flex-col w-9/12">
         <div class="mt-4">標題：<%= @card.title %></div>
-        <div class="mt-4">描述：<%= @card.intro %></div>
-        <div class="mt-4">優先順序：<%= @card.level %></div>
+        <div class="p-2 bg-white rounded-lg shadow-3xl">
+          描述：
+          <%= @card.intro %>
+        </div>
+        <div class="mt-4">難易度：<%= @card.level %></div>
         <div class="mt-4"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
       </div>
       <div class="flex flex-col items-start w-3/12 -mr-4">

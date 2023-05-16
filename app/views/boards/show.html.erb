@@ -1,6 +1,5 @@
 <div class="flex h-screen pt-5 overflow-x-scroll lg:pr-20">
   <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
-
     <div id="circularMenu" class="circular-menu">
       <a class="floating-btn boardlist" onclick="document.getElementById('circularMenu').classList.toggle('active');">
         <i class="fa fa-plus"></i>
@@ -11,6 +10,6 @@
         <%= link_to '', new_board_container_path(@board.id), id:'keytwo', class:'fa-solid fa-clipboard' %> 
         <% end %>
       </menu>
-    </div>
+    </div> 
 </div>
 

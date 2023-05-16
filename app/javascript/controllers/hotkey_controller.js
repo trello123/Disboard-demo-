@@ -15,22 +15,22 @@ export default class extends Controller {
             handleShortcut("keytwo");
             break;
           // 切換日曆
-          case "KeyD":
+          case "KeyW":
             handleShortcut("keythree");
             break;
           // 切換到聊天室
-          case "KeyM":
+          case "KeyE":
             handleShortcut("keyfour");
             break;
           // 切換到成員
-          case "KeyF":
+          case "KeyR":
             handleShortcut("keyfive");
             break;
           // 切換到任務
-          case "KeyW":
+          case "KeyQ":
             handleShortcut("keysix");
             break;
-          case "KeyQ":
+          case "KeyT":
             handleShortcut("keyseven");
             break;
         }
