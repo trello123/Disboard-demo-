@@ -1,10 +1,10 @@
 <% if message.card_id != nil %>
 <div class="message mb-2 <%= 'me' if message.user == current_user %>">
   <div class="content">
-    <%= message.user.username %>
+    <%= message.user.email %>
   </div>
   <div class="border-l-8 shadow-xl border-orange-1 author">
-    <%= message.user.username %>
+    <%= message.user.email %>
     <%= link_to board_path(message.room.board, light: "highlight", locate_card: message[:card_id]), class: "text-orange-1 hover:underline-offset-4 hover:underline decoration-orange-1" do %>
       <p class="py-3">新增了一個新的任務</p>
       <p>任務: <%= message.content %></p>
@@ -17,7 +17,7 @@
 <% else %>
   <div class="message mb-2 <%= 'me' if message.user == current_user %>">
     <div class="content">
-      <%= message.user.username %>
+      <%= message.user.email %>
     </div>
     <div class="author">
       <%= message.content %>

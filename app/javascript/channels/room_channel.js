@@ -25,19 +25,20 @@ document.addEventListener('turbo:load', ()=> {
     },
   
     received(data) {
+      console.log(data);
       const user_element = document.getElementById('user-id')
       const user_id = Number(user_element.getAttribute('data-user-id'))
-      let msg
+      let html
       
       if(user_id === data.message.user_id){
-        msg = data.mine 
+        html = data.mine 
       }else{
-        msg = data.theirs
+        html = data.theirs
         successNotify()
       }
       
       const messageContainer = document.getElementById('messages')
-      messageContainer.innerHTML = messageContainer.innerHTML + msg
+      messageContainer.innerHTML = messageContainer.innerHTML + html
 
       const chatWindow = document.getElementById('chat-window')
       chatWindow.scrollTop = chatWindow.scrollHeight

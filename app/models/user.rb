@@ -30,12 +30,12 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
 
-  def self.online
-    ids = ActionCable.server.pubsub.redis_connection_for_subscriptions.smembers "online"
-    where(id: ids)
-  end
-
+  
   class << self
+    def online
+      ids = ActionCable.server.pubsub.redis_connection_for_subscriptions.smembers "online"
+      where(id: ids)
+    end
     def from_omniauth(auth)
       find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
         user.email = auth.info.email
@@ -47,8 +47,8 @@ class User < ApplicationRecord
         # user.skip_confirmation!
       end
     end
-
-
+    
+    
     def ransackable_attributes(auth_object = nil)
       ["email", "username"]
     end

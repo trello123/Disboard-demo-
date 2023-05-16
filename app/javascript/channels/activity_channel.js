@@ -3,22 +3,11 @@ import consumer from "./consumer"
 
 
 document.addEventListener('turbo:load', ()=> {
-  window.subscriptions = consumer.subscriptions
-  
-  consumer.subscriptions.subscriptions.forEach((subscription) => {
-    if (JSON.parse(subscription.identifier).channel == 'ActivityChannel')
-      consumer.subscriptions.remove(subscription)
-  })
-  consumer.subscriptions.create("ActivityChannel", {
-    connected() {
-
-    },
-    
+  consumer.subscriptions.create("ActivityChannel", {  
     disconnected() {
       this.unsubscribe()
     },
     received(data) {
-      // Called when there's incoming data on the websocket for this channel
       let online = document.querySelector("#online-users")
       let el = online.querySelector(`[data-id='${data.id}']`)
       if (data.status == "online" && el == null) {

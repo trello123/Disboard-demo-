@@ -5,7 +5,7 @@ class ActivityChannel < ApplicationCable::Channel
     stream_from "online:rooms"
 
     html = ApplicationController.render(partial: "rooms/online", locals: { user: current_user })
-    broadcast_to "users", { id: current_user.id, status: "online", html: html }
+    broadcast_to "users", { id: current_user.id, status: "online", html: }
   end
 
   def unsubscribed
