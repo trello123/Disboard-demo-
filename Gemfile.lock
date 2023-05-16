@@ -106,6 +106,7 @@ GEM
       marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
+    chartkick (5.0.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -121,13 +122,16 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
     foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -191,6 +195,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.3-x86_64-linux)
+      racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -202,6 +208,9 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
+    omniauth-github (2.0.1)
+      omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.8)
     omniauth-google-oauth2 (1.1.1)
       jwt (>= 2.0)
       oauth2 (~> 2.0.6)
@@ -221,6 +230,8 @@ GEM
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.3.0)
+      activesupport (>= 3.0.0)
     racc (1.6.2)
     rack (2.2.6.4)
     rack-protection (3.0.6)
@@ -315,7 +326,6 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    spring (4.1.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -329,6 +339,8 @@ GEM
     tailwindcss-rails (2.0.27-arm64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.27-x86_64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.27-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.1.0)
@@ -372,6 +384,7 @@ PLATFORMS
   arm64-darwin-21
   arm64-darwin-22
   x86_64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   acts_as_list (~> 1.1)
@@ -381,19 +394,22 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   carrierwave (~> 2.2)
+  chartkick
   devise (~> 4.9, >= 4.9.2)
   dotenv-rails (~> 2.1, >= 2.1.1)
-  font-awesome-rails
+  factory_bot_rails (~> 6.2)
   foreman (~> 0.87.2)
   hotwire-rails (~> 0.1.0)
   jbuilder (~> 2.7)
   kaminari (~> 1.2, >= 1.2.2)
   listen (~> 3.3)
+  omniauth-github (~> 2.0, >= 2.0.1)
   omniauth-google-oauth2 (~> 1.1, >= 1.1.1)
   omniauth-rails_csrf_protection (~> 1.0, >= 1.0.1)
   paranoia (~> 2.6)
   pg (~> 1.4)
   puma (~> 5.0)
+  pundit (~> 2.3)
   rails (~> 6.1.7, >= 6.1.7.3)
   rails-i18n (~> 7.0, >= 7.0.6)
   ransack (~> 4.0)
@@ -403,7 +419,6 @@ DEPENDENCIES
   rspec-rails (~> 6.0)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
-  spring
   tailwindcss-rails (~> 2.0)
   turbolinks (~> 5)
   tzinfo-data

@@ -1,17 +1,17 @@
 <div class="mt-16 ml-40">
   <%=  form_with(model: @card, url: container_cards_path ) do |f| %>
-    <div class="flex p-3 rounded-md w-max bg-slate-200 drop-shadow-2xl">
+    <div class="flex p-3 m-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
       <div class="flex-col w-9/12">
         <% if @card.errors.any? %>
           <% @card.errors.full_messages.each do |msg| %>
             <ul class="flex-col">
-              <li class="text-red-500"><%= msg = "必填欄位不可為空白" %></li>
+              <li class="text-red-500"><%= msg %></li>
             </ul>
           <% end %>
         <% end %>
         <div class="flex items-center my-3">
           <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-          <%= f.text_field :title, class: 'input' %>
+          <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
           <span>(必填)</span>
         </div>
         <div class="flex flex-col items-start pr-20 my-3">
@@ -23,12 +23,8 @@
           <%= f.select :level, Card.level_list %>
         </div>
   
-        <%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %>
+        <div class="flex justify-center gap-12 ml-64"><%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
   
-        <div class="mt-4">
-          評論區
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, commodi.</p>
-        </div>
       </div>
       <div class="w-3/12">
         <div>
@@ -39,11 +35,11 @@
         <div class="my-2">成員： <%= @card.assigned_to %></div>
         <div class="my-2">
           <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-          <%= f.datetime_field :daybegin, class: 'input w-32 text-md px-1' %>
+          <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
         </div>
         <div class="my-2">
           <%= f.label :deadline, '結束日期', class: "mr-4" %>
-          <%= f.datetime_field :deadline, class: 'input w-32 text-md px-1' %>
+          <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
         </div>
         <%= f.file_field :avatar %>
       </div>

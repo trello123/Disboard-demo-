@@ -2,7 +2,6 @@ class Api::V1::CalendarsController < ApplicationController
   def show
     if current_user.present?
       cards = current_user.boards.find(params[:boardId]).cards.calendar
-      p cards
       render json: { cards: }
     else
       render json: {}

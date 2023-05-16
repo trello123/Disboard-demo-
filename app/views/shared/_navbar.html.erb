@@ -1,13 +1,15 @@
-<nav class="fixed top-0 z-10 flex items-center justify-between w-full bg-white rounded-b-lg shadow-xl opacity-90 ">
+<nav class="fixed top-0 z-10 flex items-center justify-between w-full shadow-xl bg-Azure-blue-2 opacity-90 h-[80px]">
   <div class="px-16 py-2 lg:px-32 lg:py-4">
   <%# logo未定 %>
     <%# <img src="#" alt="logo"> %>
-    <h1 class="text-l lg:text-xl">LOGO</h1>
+    <%= image_tag "logo.png", class:" w-[170px] invert" %>
   </div>
   <ul class="flex px-16 py-2 lg:px-32 lg:py-4">
-    <li><%= link_to '付費升級' , '#' ,class:"mx-5 text-gray-600 text-l lg:text-xl"%></li>
     <% if user_signed_in? %>
-    <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-gray-600 text-l lg:text-xl" %></li>
+      <li><%= link_to "登出", destroy_user_session_path, method:"delete" , class:"mx-5 text-white text-l lg:text-xl" %></li>
+    <% else %>
+      <li><%= link_to '登入' , new_user_session_path  , class:"mx-5 text-white text-l lg:text-xl", data: {turbo_frame: "sigin" , action: "click->modal#open"} %></li>
+      <li><%= link_to '註冊' , new_user_registration_path , class:"mx-5 text-white text-l lg:text-xl", data: {turbo_frame: "sigup" , action: "click->modal#open"}%></li>
     <% end %>
   </ul>
 </nav>

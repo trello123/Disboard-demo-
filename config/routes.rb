@@ -3,17 +3,24 @@ Rails.application.routes.draw do
   # resources :cards
   
   resources :boards do
+    member do
+      get :chart
+    end
     resources :containers, shallow: true
     resources :calendars, only: [:index]
     resources :members
     resources :rooms
   end
   
-  resources :containers do
+  resources :containers, only: [] do
     resources :cards
   end
 
   resources :messages
+
+  resources :cards do
+    resources :comments
+  end
 
   #註冊及忘記密碼頁面重新整理會出錯 修正路徑
   devise_scope :user do

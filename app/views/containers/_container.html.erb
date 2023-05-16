@@ -1,9 +1,9 @@
-<div class="w-64 mx-5">
-  <div class="relative flex flex-col items-start min-w-full p-5 m-5 bg-white rounded-md first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+<div class=" min-w-[272px] m-3 px-3">
+  <div class="relative w-full p-5 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
     <div class="flex items-center justify-between w-full gap-3 mb-1">
       <div>
         <%= turbo_frame_tag(container) do %>
-          <%= link_to container.title, edit_container_path(container.id), class: " font-bold before:content-['|'] before:mr-2 before:font-medium" %>
+          <%= link_to container.title, edit_container_path(container.id), class: " text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %>
         <% end %>
       </div>
     </div>
@@ -12,20 +12,77 @@
         <i class="fa-solid fa-xmark"></i>
       <% end %>
     </div>
-    <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full">
+    <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full" data-message-target="marking">
       <% container.cards.each do |card| %>
-        <div class="w-64 pr-10" data-card-id="<%= card.id %>">
-          <div class="relative flex justify-between w-full px-3 py-3 my-3 bg-gray-300 border rounded-md active:-bottom-[2px] hover:bottom-[1px] drop-shadow-xl">
-            <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
-            <div class="flex items-center justify-center gap-1">
-              <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-400 hover:rounded" do %>
-                <i class="m-1 fa-solid fa-pencil"></i>
-              <% end %>
+        <div class="w-full group/edit" data-card-id="<%= card.id %>">
+          <% if @light.present? && @locate_card == card.id %>
+            <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-8 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
+              <div class="flex flex-col">
+                <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
+                <div class="flex items-end justify-between gap-1.5">
+                  <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
+                    <i class="fa-solid fa-user-tag"></i>
+                  <% elsif card.assigned_to != "尚未指派"%>
+                    <i class="mt-1 fa-solid fa-user"></i>
+                  <% end %>
+                  <span class="flex items-center gap-1 pr-3">
+                  <% if card.deadline.present? && card.daybegin.present?%>
+                    <i class="fa-regular fa-clock fa-xs"></i>
+                    <p class="text-xs"><%= format_timestamps(card.daybegin, :month_and_day) %> -</p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
+                  <% elsif card.deadline.present? %>
+                    <i class="fa-regular fa-clock fa-xs"></i>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
+                  <% end %>
+                  </span>          
+                </div>
+              </div>
+              <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
+                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded" do %>
+                  <i class="m-1 fa-solid fa-pencil"></i>
+                <% end %>
+              </div>
             </div>
-          </div>
+          <% else %>
+            <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
+              <div class="flex flex-col">
+                <%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %>
+                <div class="flex items-end justify-between gap-1.5">
+                  <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
+                    <i class="fa-solid fa-user-tag"></i>
+                  <% elsif card.assigned_to != "尚未指派"%>
+                    <i class="mt-1 fa-solid fa-user"></i>
+                  <% end %>
+                  <span class="flex items-center gap-1 pr-3">
+                  <% if card.deadline.present? && card.daybegin.present?%>
+                    <i class="fa-regular fa-clock fa-xs"></i>
+                    <p class="text-xs"><%= format_timestamps(card.daybegin, :month_and_day) %> -</p>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
+                  <% elsif card.deadline.present? %>
+                    <i class="fa-regular fa-clock fa-xs"></i>
+                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
+                  <% end %>
+                  </span>          
+                </div>
+              </div>
+              <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
+                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded" do %>
+                  <i class="m-1 fa-solid fa-pencil"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </section>
-    <div class="flex justify-start active:-bottom-[2px] hover:bottom-[1px]"><%= link_to '新增', new_container_card_path(container.id), data: { turbo: false }, class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
+    <div class="flex items-center justify-end">
+      <%= link_to new_container_card_path(container.id), data: { turbo: false },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group addcard' do %>
+        <i class="p-2 fa-solid fa-plus"></i>
+        <span>新增卡片</span>
+        <span class="absolute bottom-[-80%] right-[25%] py-1 px-2 bg-gray-700 text-white text-xs rounded opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100">
+          alt + c
+        </span>
+      <% end %>
+    </div>
   </div>
 </div>

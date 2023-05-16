@@ -21,5 +21,6 @@ test:
   database: disboard
 
 production:
+  url: <%= ENV['DATABASE_URL'] %>
   <<: *default
   database: disboard

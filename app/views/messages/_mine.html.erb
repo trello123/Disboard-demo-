@@ -7,13 +7,15 @@
         <%= message.user.email %>
       <% end %>   
     </div>
-    <div class="border border-l-4 shadow-xl border-my-blue author">
+    <div class="border border-l-4 shadow-xl border-orange-1 author">
       <%= message.user.email %>
-      <p class="py-3 ">新增了一個新的任務</p>
-      <p>任務: <%= message.content %></p>
+      <%= link_to board_path(message.room.board, light: "highlight", locate_card: message[:card_id]), class: "text-orange-1 hover:underline-offset-4 hover:underline decoration-orange-1" do %>
+        <p class="py-3">新增了一個新的任務</p>
+        <p>任務: <%= message.content %></p>
+      <% end %>
     </div>
     <div class="block text-sm text-gray-400">
-      <%= format_datetime(message.created_at).split('#').last%>
+      <%= format_timestamps(message.created_at, :time) %>
     </div>
   </div>
 <% else %>
@@ -29,7 +31,7 @@
       <%= message.content %>
     </div>
     <div class="block text-sm text-gray-400">
-      <%= format_datetime(message.created_at).split('#').last%>
+      <%= format_timestamps(message.created_at, :time) %>
     </div>
   </div>
 <% end %>

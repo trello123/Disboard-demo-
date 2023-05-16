@@ -16,6 +16,15 @@ application.register("card-form", CardFormController)
 import ChatsubmitController from "./chatsubmit_controller"
 application.register("chatsubmit", ChatsubmitController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
+import HotkeyController from "./hotkey_controller"
+application.register("hotkey", HotkeyController)
+
+import MenuController from "./menu_controller"
+application.register("menu", MenuController)
+
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
@@ -24,3 +33,6 @@ application.register("remove", RemoveController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
+
+import IntroController from "./intro_controller"
+application.register("intro", IntroController)

@@ -1,36 +1,44 @@
-<div class="ml-40 mr-60">
-  <div class="flex w-full p-3 m-2 rounded-md bg-slate-200 drop-shadow-2xl">
-    <div class="flex-col w-9/12">
-      <div class="mt-4">標題：<%= @card.title %></div>
-      <div class="mt-4">描述：<%= @card.intro %></div>
-      <div class="mt-4">難易度：<%= @card.level %></div>
-      <div class="mt-4"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
-    </div>
-    <div class="flex flex-col items-start w-3/12 -mr-4">
-      <div>
+<div class="w-full py-5 mt-16 ml-40 overflow-y-auto">
+  <div class=" p-3 m-auto rounded-md w-[928px] bg-white-2 drop-shadow-md">
+    <div class="flex w-[928px]">
+      <div class="flex-col w-9/12">
+        <div class="mt-4">標題：<%= @card.title %></div>
+        <div class="mt-4">描述：<%= @card.intro %></div>
+        <div class="mt-4">難易度：<%= @card.level %></div>
+        <div class="mt-4"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
+      </div>
+      <div class="flex flex-col items-start w-3/12 -mr-4">
         <%= link_to  board_containers_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
           <i class="fa-solid fa-xmark"></i>
         <% end %>
-      </div>
-      <div class="text-start">
         <% if @card.assigned_to != "尚未指派" %>
-          <div class="my-2">成員：<%= format_email(find_user_email(@card.assigned_to)) %></div>
+          <div class="my-2">成員：<%= format_email(@card.assigned_to) %></div>
         <% end %>
         <div class="my-2 mb-3">
           開始時間
           <% if @card.daybegin.present? %>
-            <div><%= format_datetime(@card.daybegin).split('#').first %></div>
-            <div><%= format_datetime(@card.daybegin).split('#').last %></div>
+            <div><%= format_timestamps(@card.daybegin) %></div>
           <% end %>
         </div>
         <div class="my-2 mb-3">
           截止時間
           <% if @card.deadline.present? %>
-            <div><%= format_datetime(@card.deadline).split('#').first %></div>
-            <div><%= format_datetime(@card.deadline).split('#').last %></div>
+            <div><%= format_timestamps(@card.deadline) %></div>
           <% end %>
         </div>
       </div>
     </div>
+    
+    <%= turbo_frame_tag "comment" do %>
+    <div class="flex m-auto w-[928px]" >
+      <%= link_to '新增評論' ,  new_card_comment_path(@card) ,class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5  py-1' %>
+    </div>
+    <% end %>
+
+    <%= render @comments %>
+    
   </div>
+  
 </div>
+
+

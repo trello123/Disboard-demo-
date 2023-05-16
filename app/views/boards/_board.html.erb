@@ -1,25 +1,23 @@
-<div class="m-3 bg-white border shadow-md ">
-  <section >
+<div class="flex flex-col items-end m-3 mt-20 bg-white border shadow-md rounded-xl">
+  <section class="relative flex items-center px-3 mb-3 after:content-[''] after:w-80 after:h-0.5 after:bg-gray-300 after:absolute after:top-[100%] after:left-[10%]">
     <header>
-      <div >
+      <div>
         <!-- 放專案照片 -->
         <%= link_to board_path(board.id) do %>
-        <img src="https://fakeimg.pl/350x200/414e92,128/000,255" >
-      <% end %>
+          <img src="https://fakeimg.pl/150x150/414e92,128/000,255" class="p-3 rounded-full" >
+        <% end %>
       </div>
     </header>
 
-    <div class="flex flex-col mx-3 my-3 ">
-      <h2 >專案名稱：<%= link_to board.name, board_path(board.id) %></h2>
-      <p >創建人：<%= format_email(current_user.email) %></p>
-      <time >建立時間：<%= format_datetime(board.created_at).split("#").join %></time> 
+    <div class="flex flex-col gap-3 mx-3 my-3">
+      <h2 class="text-2xl font-bold"><%= link_to board.name, board_path(board.id) %></h2>
+      <time >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
       <time >截止時間：</time>
     </div>
-
-    <footer>
-      <div class="pb-3"><%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-2' %></div>
-    </footer>
   </section>
+  <footer>
+      <div class="pb-3 mt-3"><%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: 'sure?' }, class: 'btn-danger mx-5' %></div>
+    </footer>
 </div>
 
     

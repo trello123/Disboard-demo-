@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
   end
 
   def new
-    @board =  Board.new
+    @board = Board.new
   end
 
   def create
@@ -27,12 +27,17 @@ class BoardsController < ApplicationController
   end
 
   def show
+    authorize @board
+    @light = params[:light]
+    @locate_card = params[:locate_card].to_i
   end
 
   def edit
+    authorize @board
   end 
 
   def update
+    authorize @board
     if @board.update(board_params)
       redirect_to @board
     else
@@ -41,10 +46,14 @@ class BoardsController < ApplicationController
   end
 
   def destroy
+    authorize @board
     @board.destroy
     redirect_to boards_path 
   end
 
+  def chart
+    authorize @board
+  end
 
   private
   def board_params
@@ -57,5 +66,4 @@ class BoardsController < ApplicationController
   def load_containers
     @containers = Board.find(params[:id]).containers.order(created_at: :asc)
   end
-
 end
