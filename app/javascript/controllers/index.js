@@ -22,17 +22,20 @@ application.register("flatpickr", FlatpickrController)
 import HotkeyController from "./hotkey_controller"
 application.register("hotkey", HotkeyController)
 
+import IntroController from "./intro_controller"
+application.register("intro", IntroController)
+
 import MenuController from "./menu_controller"
 application.register("menu", MenuController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)
+
 import RemoveController from "./remove_controller"
 application.register("remove", RemoveController)
 
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
-
-import IntroController from "./intro_controller"
-application.register("intro", IntroController)

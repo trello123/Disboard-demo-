@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
-  <div class="relative">
-    <div class="z-50 flex flex-col w-20 h-screen m-0 overflow-x-hidden overflow-y-auto text-white shadow-lg bg-Azure-blue-2 " >
-      <div class="relative py-3 underscore user">
+  <div class="relative bg-Azure-blue-2" data-controller="navbar">  
+    <div class="z-10 hidden w-20 m-0 overflow-x-hidden overflow-y-auto text-white shadow-lg lg:flex lg:flex-col lg:h-screen bg-Azure-blue-2" data-navbar-target="menu">
+      <div class="relative pb-3 underscore user">
         <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
             <i class="fa-solid fa-user-tie"></i>
@@ -13,7 +13,7 @@
         <% end %>
       </div>
       <% boards.each do |b| %>
-        <%= link_to board_containers_path(b.id) do %>
+        <%= link_to board_path(b.id) do %>
           <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showBoard">
             <% if board == b %>
               <div class=" sidebar-icon linkto-icon">
@@ -42,6 +42,11 @@
             </div>
           </div>
       <% end %>
+    </div>
+    <div data-action="click->navbar#appear">
+      <div class="absolute w-0 h-0 top-[70px] left-[100%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-180" data-navbar-target="triangle">
+        <%# <div class="absolute -top-[15px] left-[5px] w-0 h-0 border-t-[15px] border-t-transparent border-r-[15px] border-r-Azure-blue-2 border-b-[15px] border-b-transparent"></div> %>
+      </div>
     </div>
   </div>
 <% else %>
