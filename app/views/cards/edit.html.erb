@@ -20,7 +20,7 @@
         </div>
         <div class="w-3/12">
           <div>
-            <%= link_to  board_containers_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+            <%= link_to  board_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>

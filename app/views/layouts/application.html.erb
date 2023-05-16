@@ -12,10 +12,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="overflow-hidden" data-controller='hotkey'>
-    <div class="relative flex" data-controller="intro">
+  <body class="overflow-y-scroll lg:overflow-hidden" data-controller='hotkey'>
+    <div class="relative flex h-100vh lg:h-screen" data-controller="intro">
       <%= render 'shared/sidebar', boards: @boards, board: @board %>
-      <main class="flex flex-col w-full h-screen mx-auto bg-white-1">  
+      <main class="flex flex-col w-full mx-auto h-100vh lg:h-screen bg-white-1">  
         <%= render 'shared/insidebar', container: @containers, board: @board %>
         <%= yield %>
       </main>

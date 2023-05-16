@@ -1,9 +1,9 @@
-<section class=" z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]">
-  <div class="flex items-center justify-between py-3 ml-8 group">
-    <div class="flex items-center gap-12">
+<section class="relative z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]" data-controller="navbar">
+  <div class="relative flex items-center justify-center py-3 ml-8 lg:justify-between group">
+    <div class="flex items-center gap-4 md:gap-10 lg:gap-16 xl:gap-32">
       <h1>
         <%= link_to root_path do %>
-          <%= image_tag image_url("logo"), class:" w-[170px] invert" %>
+          <%= image_tag image_url("logo"), class:"w-[120px] md:w-[140px] lg:w-[170px] invert" %>
         <% end %>
       </h1>
       <% if container.present? %>
@@ -18,9 +18,9 @@
           <% end %>
         <% end %>
       <% else %>
-        <div class="text-2xl font-bold text-white">
+        <div class="text-sm font-bold text-white md:text-xl lg:text-2xl">
           <% if current_user.status == "normal" %>
-            <i class="text-2xl fa-solid fa-award" style="color: #b8e9ea;">免費會員</i>
+            <i class="fa-solid fa-award" style="color: #b8e9ea;">免費會員</i>
           <% elsif current_user.status == "Standard" %>
             <i class="fa-solid fa-award" style="color: #e797f7;">標準會員</i>
           <% else %>
@@ -30,18 +30,22 @@
         </div>
       <% end %>
     </div>
-    <ul class="flex items-center pr-20 mx-5">
-        <% if board&.id.present? %>
-          <li><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
-          <li><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>
-          <li><%= link_to '聊天室', board_rooms_path(board.id), id:'keyfour', class:'insidebar' %></li>
-          <li><%= link_to '儀表板', chart_board_path(board.id), id:'keyseven', class: 'insidebar' %></li>
-          <li><%= link_to '成員', board_members_path(board.id), id:'keyfive', class:'insidebar' %></li>
-          <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
-        <% else %>
-          <li><%= link_to '前往升級', payments_path, class:'insidebar' %></li>
-          <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
-        <% end %>
-      </ul>
+    <div class="hover:cursor-pointer absolute left-[90%] space-y-2 lg:hidden"  data-action="click->navbar#show">
+      <span class="block w-8 h-0.5 bg-white"></span>
+      <span class="block w-5 h-0.5 bg-white"></span>
+    </div>
+    <ul class="absolute flex-col right-[0%] top-[100%] items-center hidden pr-0 bg-Azure-blue-2 lg:-ml-12 lg:pr-20 mx-5 lg:flex lg:flex-row lg:static" data-navbar-target="submenu">
+      <% if board&.id.present? %>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '聊天室', board_rooms_path(board.id), id:'keyfour', class:'insidebar' %></li>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '儀表板', chart_board_path(board.id), id:'keyseven', class: 'insidebar' %></li>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '成員', board_members_path(board.id), id:'keyfive', class:'insidebar' %></li>
+        <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
+      <% else %>
+        <li class="border-b-2 border-white lg:border-none"><%= link_to '前往升級', payments_path, class:'insidebar' %></li>
+        <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
+      <% end %>
+    </ul>
   </div>
 </section>
