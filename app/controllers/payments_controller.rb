@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:notify_response]
   before_action :authenticate_user!, except: [:notify_response]
 
   def index
