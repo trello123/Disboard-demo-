@@ -11,15 +11,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="relative w-full bg-white-2" >
-    <div >
+  <body class="relative bg-white-2">
+    <div>
       <%= turbo_frame_tag :sigin %>
       <%= turbo_frame_tag :sigup %>
     </div>
-    <%= render 'shared/navbar'%>
-    <main class="container flex px-5 mx-auto ">
+    <%= render 'shared/navbar' %>
+    <main class="container px-4 pt-20 pb-10 mx-auto">
       <%= yield %>
     </main>
-    <%= render 'shared/footer'%>
+    <%= render 'shared/footer' %>
   </body>
 </html>
