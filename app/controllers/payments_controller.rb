@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
       if @price == 30
         User.find(@member_id).update(status: "Standard")
       elsif @price == 49
-        User.find(@member_id).update(status: "Vip")
+        User.find(@member_id).update(status: "Premium")
       end
       redirect_to boards_path
     else
