@@ -30,6 +30,9 @@ class CardsController < ApplicationController
 
   def edit
     @board = @container.board
+    p '-' * 100
+    p @card
+    p '-' * 100
   end 
 
   def update
@@ -47,7 +50,7 @@ class CardsController < ApplicationController
 
   private
   def card_params
-    params.require(:card).permit(:title, :intro, :level, :avatars, :daybegin, :deadline, :container_id, :assigned_to).merge(board: @container.board)
+    params.require(:card).permit(:title, :intro, :level, :avatar, :daybegin, :deadline, :container_id, :assigned_to).merge(board: @container.board)
   end
 
   def find_card

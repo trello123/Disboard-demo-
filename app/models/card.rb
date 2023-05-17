@@ -29,7 +29,7 @@ class Card < ApplicationRecord
 
   # 文字編輯器
   has_rich_text :intro
-  has_one_attached :avatar
+  has_one_attached :avatar 
 
   # relationships
   belongs_to :container , optional: true
@@ -40,7 +40,7 @@ class Card < ApplicationRecord
   #套件給的
   acts_as_list scope: :container
   acts_as_paranoid
-  mount_uploader :avatar, AvatarUploader
+
 
   enum level: { '待確認': 0, '緊急': 1, '重要': 2, '一般': 3 }
 
