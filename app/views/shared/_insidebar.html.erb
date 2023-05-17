@@ -1,6 +1,6 @@
 <section class="relative z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]" data-controller="navbar">
   <div class="relative flex items-center justify-center py-3 ml-8 lg:justify-between group">
-    <div class="flex items-center gap-4 md:gap-10 lg:gap-16 xl:gap-32">
+    <div class="flex items-center gap-6 md:gap-10 lg:gap-12 xl:gap-32">
       <h1>
         <%= link_to root_path do %>
           <%= image_tag image_url("logo"), class:"w-[120px] md:w-[140px] lg:w-[170px] invert" %>
@@ -10,7 +10,7 @@
         <%= turbo_frame_tag(board) do %>
           <%= link_to edit_board_path(board.id) do %>
             <div class="flex items-center justify-start">
-              <h2 class="w-40 text-2xl font-bold text-white truncate ..."><%= board.name %></h2>
+              <h2 class="w-20 text-lg md:w-40 md:text-2xl font-bold text-white truncate ..."><%= board.name %></h2>
               <div class="flex items-center invisible group-hover:flex group-hover:visible">
                 <i class="fa-solid fa-pencil invert"></i>
               </div>
@@ -18,7 +18,7 @@
           <% end %>
         <% end %>
       <% else %>
-        <div class="text-sm font-bold text-white md:text-xl lg:text-2xl">
+        <div class="mr-12 text-lg font-bold text-white md:mr-0 md:text-xl xl:text-2xl">
           <% if current_user.status == "normal" %>
             <i class="fa-solid fa-award" style="color: #b8e9ea;">免費會員</i>
           <% elsif current_user.status == "Standard" %>
@@ -32,9 +32,10 @@
     </div>
     <div class="hover:cursor-pointer absolute left-[90%] space-y-2 lg:hidden"  data-action="click->navbar#show">
       <span class="block w-8 h-0.5 bg-white"></span>
-      <span class="block w-5 h-0.5 bg-white"></span>
+      <span class="block w-8 h-0.5 bg-white"></span>
+      <span class="block w-8 h-0.5 bg-white"></span>
     </div>
-    <ul class="absolute flex-col right-[0%] top-[100%] items-center hidden pr-0 bg-Azure-blue-2 lg:-ml-12 lg:pr-20 mx-5 lg:flex lg:flex-row lg:static" data-navbar-target="submenu">
+    <ul class="absolute flex-col right-[0%] top-[100%] items-center hidden pr-0 bg-Azure-blue-2 lg:-ml-12 lg:pr-[70px] mx-5 lg:flex lg:flex-row lg:static" data-navbar-target="submenu">
       <% if board&.id.present? %>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>

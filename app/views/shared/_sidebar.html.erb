@@ -43,10 +43,13 @@
           </div>
       <% end %>
     </div>
-    <div data-action="click->navbar#appear">
-      <div class="absolute w-0 h-0 top-[70px] left-[100%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-180" data-navbar-target="triangle">
-        <%# <div class="absolute -top-[15px] left-[5px] w-0 h-0 border-t-[15px] border-t-transparent border-r-[15px] border-r-Azure-blue-2 border-b-[15px] border-b-transparent"></div> %>
+    <div data-action="click->navbar#appear" class="lg:hidden">
+      <div class="absolute z-10 w-[25px] h-[52px] top-[60px] left-[100%] bg-Azure-blue rounded-r-xl" >
+        <div class="z-20 absolute top-[15px] left-[5px] border-t-[12px] border-t-transparent border-r-[15px] border-r-white border-b-[10px] border-b-transparent rotate-180" data-navbar-target="triangle">
+        <%# <div class="absolute -top-[12px] left-[5px] w-0 h-0 border-t-[12px] border-t-transparent border-r-[15px] border-Azure-blue border-b-[10px] border-b-transparent"></div> %>
       </div>
+      </div>
+      
     </div>
   </div>
 <% else %>
