@@ -32,7 +32,6 @@ module Newebpay
     def set_info(order, user_email, user_id)
       info[:MerchantID] = @merchant_id
       info[:MerchantOrderNo] = "#{DateTime.now.strftime("%Y%m%d%H%M%S%L")}#{SecureRandom.base36(4)}#{"_"}#{user_id}"
-      info[:Amt] = 30 if order == "standard_price"
       info[:Amt] = 49 if order == "premium_price"
       info[:ItemDesc] = "會員升級"
       info[:TimeStamp] = Time.now.to_i
