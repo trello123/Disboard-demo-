@@ -1,5 +1,5 @@
-<section class="w-[1200px]">
-  <section class="flex flex-row-reverse items-center justify-end mt-10">
+<section class="md:w-[700px] lg:w-[900px] xl:w-[1100px] h-screen mx-auto">
+  <section class="flex flex-col items-center justify-center gap-8 mt-10 md:flex-row-reverse lg:justify-end lg:gap-0">
     <div>
       <%= turbo_frame_tag :member_search do %>
         <%= render "search", q: @q %>
@@ -22,12 +22,12 @@
                 <td>
                   <div class="flex items-center space-x-3">
                     <div class="avatar">
-                      <div class="w-12 h-12 mask mask-squircle">
+                      <div class="w-12 mask mask-squircle">
                         <div class="flex items-center justify-center w-full h-full text-center text-white rounded-md bg-Azure-blue-3"><%= user.username&.first || user.email.first %></div>
                       </div>
                     </div>
-                    <div>
-                      <div class="font-bold"><%= user.email %></div>
+                    <div class="font-bold">
+                      <%= user.email %>
                     </div>
                   </div>
                 </td>

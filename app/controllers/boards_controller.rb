@@ -53,6 +53,9 @@ class BoardsController < ApplicationController
 
   def chart
     authorize @board
+    if current_user.status != "Premium"
+      redirect_to payments_path
+    end
   end
 
   private

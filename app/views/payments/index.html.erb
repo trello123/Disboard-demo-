@@ -2,7 +2,6 @@
   <div class="mb-5 lg:mb-0 w-[300px] flex flex-col gap-5  xl:w-[330px] items-center rounded-md shadow-3xl bg-white py-10">
     <h3 class="text-xl">免費會員</h3>
     <p>$ 0 NTD</p>
-    <p>/ 每月</p>
     <ul class="flex flex-col items-start gap-8">
       <p class="-mb-2 -ml-16 mt-14">免費會員可使用功能</p>
       <li class="tick before:-left-[50%] before:-top-[15%] relative group">
@@ -26,71 +25,14 @@
       <li class="tick before:-left-[25%] before:-top-[15%]">僅可使用預設主題</li>
     </ul>
   </div>
-  <div class="mb-5 lg:mb-0 w-[300px] flex flex-col gap-5  xl:w-[330px] items-center rounded-md shadow-3xl bg-white py-10">
-    <h3 class="text-xl">標準會員</h3>
-    <p>$ <span class="px-3 text-6xl">30</span> NTD</p>
-    <p>/ 每月</p>
-    <ul class="flex flex-col items-start gap-8">
-      <p class="mt-5 -mb-2 -ml-16">標準會員可使用功能</p>
-      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
-        看板管理
-        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
-          <p class="relative p-3 text-sm text-white bg-black rounded w-[300px]">
-            任務列表功能，能讓您輕鬆組織和追蹤您的工作
-            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
-          </p>
-        </div>
-      </li>
-      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
-        即時聊天
-        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
-          <p class="relative p-3 text-sm text-white bg-black rounded">
-            即時交流與討論，方便團隊共享資源，提升專案溝通效率
-            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
-          </p>
-        </div>
-      </li>
-      <li class="tick before:-left-[50%] before:-top-[15%] relative group">
-        日曆功能
-        <div class="absolute z-10 flex invisible group-hover:visible -left-[50%] w-64 p-5 top-0" >
-          <p class="relative p-3 text-sm text-white bg-black rounded">
-            輕鬆統整專案時間表，實現順利的專案執行與時程掌控
-            <div class="absolute w-0 h-0 top-1.5 left-[18%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
-          </p>
-        </div>
-      </li>
-      <li class="tick before:border-black before:border-t-0 before:border-l-0 before:rotate-45 before:-left-[30%] before:-top-[15%] relative group">
-        可選擇部分主題
-        <div class="absolute z-10 flex invisible group-hover:visible -left-[30%] w-64 p-5 top-0" >
-          <p class="relative p-3 text-sm text-white bg-black rounded">
-            選擇您鍾愛的三個背景主题，爲您的空間營造愉悅的氛圍
-            <div class="absolute w-0 h-0 top-1.5 left-[20%] border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent rotate-90"></div>
-          </p>
-        </div>
-      </li>
-    </ul>
-    <% if current_user.status == "normal" %>
-      <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
-        <%= form.hidden_field :MerchantID, value: ENV["MERCHANT_ID"] %>
-        <%= form.hidden_field :TradeInfo, value: @update_to_standard[:TradeInfo] %>
-        <%= form.hidden_field :TradeSha, value: @update_to_standard[:TradeSha] %>
-        <%= form.hidden_field :TimeStamp, value: @update_to_standard[:TimeStamp] %>
-        <%= form.hidden_field :Version, value: "2.0" %>
-        <%= form.submit "立刻升級", class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-32 py-3 hover:cursor-pointer" %>
-      <% end %>
-    <% elsif current_user.status == "Standard" %>
-      <span class="relative inline-block w-48 py-3 mt-5 text-center text-black bg-transparent border-2 btn-primary hover:bg-transparent border-Azure-blue-4 hover:border-Azure-blue-4">您已是標準會員</span>
-    <% elsif current_user.status == "Premium" %>
-      <span class="relative inline-block w-48 py-3 mt-5 text-center text-black bg-transparent border-2 btn-primary hover:bg-transparent border-Azure-blue-4 hover:border-Azure-blue-4">您已是尊榮會員</span>
-    <% end %>
-  </div>
+ 
   <div class="mb-5 lg:mb-0 w-[300px] flex flex-col gap-5  xl:w-[330px] items-center rounded-md shadow-3xl bg-blue-100 py-10  border-4 border-Azure-blue-4 relative">
     <div class="absolute w-0 h-0 -top-[50px] left-[79.5%] xl:left-[80.5%] border-t-[75px] border-t-transparent border-r-[75px] border-r-green-500 border-b-[75px] border-b-transparent rotate-[135deg]">
-      <p class="absolute -rotate-[135deg] -top-8 left-8 text-white">推薦</p>
+      <p class="absolute -rotate-[135deg] -top-8 left-8 text-white">限時</p>
     </div>
     <h3 class="text-xl">尊榮會員</h3>
     <p>$ <span class="px-3 text-6xl text-red-500">49</span><span class="relative  text-2xl mr-2 after:content-[''] after:absolute after:w-8 after:h-0.5 after:bg-red-500 after:top-[40%] after:left-0 after:rotate-[30deg]">60</span> NTD</p>
-    <p>/ 每月</p>
+    <p class="text-2xl text-red-500 text-bold">促銷期間升級，永久有效</p>
     <ul class="flex flex-col items-start gap-8">
       <p class="mt-4 -mb-2 -ml-12">尊榮會員可使用功能</p>
       <li class="tick before:-left-[50%] before:-top-[15%] relative group">
@@ -139,7 +81,7 @@
         </div>
       </li>
     </ul>
-    <% if current_user.status != "Vip" %>
+    <% if current_user.status != "Premium" %>
       <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", html: { method: :post } do |form| %>
         <%= form.hidden_field :MerchantID, value: ENV["MERCHANT_ID"] %>
         <%= form.hidden_field :TradeInfo, value: @update_to_premium[:TradeInfo] %>

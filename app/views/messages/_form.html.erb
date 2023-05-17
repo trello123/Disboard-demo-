@@ -4,7 +4,7 @@
     <div>
       <%= form.hidden_field :room_id, value: room.id%>
       <div class=" input-groud-append">  
-        <%= button_tag '', type: 'submit', disabled: true ,class:"absolute text-Azure-blue right-64 bottom-2", id: 'send', data:{chatsubmit_target: 'submit' } do%>
+        <%= button_tag '', type: 'submit', disabled: true ,class:"absolute text-Azure-blue     right-32 md:right-48 lg:right-56 xl:right-64 bottom-2", id: 'send', data:{ chatsubmit_target: 'submit' } do%>
           <i class="fa-solid fa-paper-plane"></i>
         <% end %>
       </div>
