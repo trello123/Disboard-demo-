@@ -6,6 +6,7 @@
 - Rails 6.1.7.3
 - node v16.19.0
 - PostgreSQL 15.2
+- ImageMagic 7.1.1-8
 
 ## install redis
 
@@ -25,3 +26,5 @@
 
 - 複製一份改成.env 檔
 - 跟開發人員索取 value
+
+

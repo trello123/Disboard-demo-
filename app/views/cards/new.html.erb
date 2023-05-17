@@ -38,6 +38,7 @@
             <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
           </div>
         </div>
+        <%= f.file_field :avatar %>
       </div>
       <div class="pt-10 text-center">
         <%= f.submit '新增', disabled: true, class: 'card-close', data: {newcard_target: 'button'} %>
