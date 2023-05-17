@@ -1,14 +1,16 @@
 <%= turbo_frame_tag(@board.id) do %>
-  <div class=" absolute -top-[650%] -left-[400%] bg-white-2 rounded-lg">
+  <div class=" absolute -top-[220%] -left-[500%] bg-white-2 rounded-lg">
     <%= form_with(model: @container, data: {turbo: false}, url: board_containers_path ) do |f| %>
       <div class="flex items-center my-2 mr-4 ">
         <%= f.label :title, '標題', class: "text-lg"  %>
-        <%= f.text_field :title, class: 'input', placeholder: '請輸入狀態名稱' %>
-        <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20" %>
+        <%= f.text_field :title, class: 'input mr-3 text-black', placeholder: '請輸入狀態名稱' %>
+        <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] w-20" %>
         <% end %>
       </div>
     <div>
-      <%= link_to 'x' , :back, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 rounded-full hover:bg-rose-500' %>
+      <%= link_to :back, class: 'absolute bg-gray-400 -top-3 -left-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-5 h-5 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
+        <i class="text-black fa-solid fa-xmark"></i>
+      <% end %>
     </div>
   </div>
 <% end %>

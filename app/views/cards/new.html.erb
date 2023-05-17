@@ -1,6 +1,6 @@
-<div class="mt-16 ml-40">
+<div class="mx-auto mt-16">
   <%=  form_with(model: @card, url: container_cards_path, data: { controller: "flatpickr" } ) do |f| %>
-    <div class="flex p-3 m-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
+    <div class="flex w-[480px] md:w-[700px] lg:w-[900px] p-3 m-auto rounded-md  bg-white-2 drop-shadow-2xl">
       <div class="flex-col w-9/12">
         <%= render 'shared/error', params: @card %>
         <div class="flex items-center my-3">
@@ -8,7 +8,7 @@
           <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
           <span>(必填)</span>
         </div>
-        <div class="flex flex-col items-start pr-20 my-3">
+        <div class="flex flex-col items-start pr-20 my-3 overflow-x-scroll">
           <%= f.label :intro, '描述', class: "text-lg mr-4" %>
           <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
         </div>
@@ -27,11 +27,11 @@
           <% end %>
         </div>
         <div class="my-2">成員： <%= @card.assigned_to %></div>
-        <div class="my-2">
+        <div class="my-2 overflow-hidden">
           <%= f.label :daybegin, '開始日期', class: "mr-4" %>
           <%= f.datetime_field :daybegin, class: 'daybegin' %>
         </div>
-        <div class="my-2">
+        <div class="my-2 overflow-hidden ">
           <%= f.label :deadline, '結束日期', class: "mr-4" %>
           <%= f.datetime_field :deadline, class: 'deadline' %>
         </div>

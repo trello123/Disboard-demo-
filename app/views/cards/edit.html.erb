@@ -1,6 +1,6 @@
-<div class="mt-16 ml-40">
+<div class="mx-auto mt-16">
   <%=  form_with(model: @card, url: container_card_path, data: { controller: "flatpickr" }) do |f| %>
-    <div class="flex flex-col p-3 mx-auto rounded-md w-max bg-white-2 drop-shadow-2xl">
+    <div class="flex  w-[480px] md:w-[700px] lg:w-[900px] flex-col p-3 mx-auto rounded-md  bg-white-2 drop-shadow-2xl">
       <div class="flex flex-row">
         <div class="flex-col w-9/12">
           <%= render 'shared/error', params: @card %>
@@ -9,7 +9,7 @@
             <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
             <span>(必填)</span>
           </div>
-          <div class="flex flex-col items-start pr-20 my-3">
+          <div class="flex flex-col items-start pr-20 my-3 overflow-x-scroll">
             <%= f.label :intro, '描述', class: "text-lg mr-4" %>
             <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
           </div>
@@ -24,21 +24,21 @@
               <i class="fa-solid fa-xmark"></i>
             <% end %>
           </div>
-          <div class="my-2">
+          <div class="my-2 overflow-hidden">
             <%= f.label :assigned_to, '成員', class: "mr-4" %>
             <% if @card.errors.any? == false %>
               <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'box-input w-32 text-md px-1' %>
             <% end %>
           </div>
-          <div class="my-2">
+          <div class="my-2 overflow-hidden">
             <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-            <%= f.datetime_field :daybegin, class: 'daybegin' %>
+            <%= f.datetime_field :daybegin, class: 'daybegin ' %>
           </div>
-          <div class="my-2">
+          <div class="my-2 overflow-hidden">
             <%= f.label :deadline, '結束日期', class: "mr-4" %>
             <%= f.datetime_field :deadline, class: 'deadline' %>
           </div>
-          <div class="my-2">
+          <div class="my-2 overflow-hidden">
             <%= f.label :container_id, '狀態', class: "mr-4" %>
             <% if @card.errors.any? == false %>
               <%= f.select :container_id, options_for_select(select_container(@card.board), @card.container_id), class: 'box-input w-32 text-md px-1' %>
