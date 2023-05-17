@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
   def notify_response
     response = Newebpay::MpgResponse.new(params[:TradeInfo])
     @member_id = response.order_no.split("_").last
-    @price = response.amt
+    @price = response.amount
 
     if response.success?
       if @price == 49

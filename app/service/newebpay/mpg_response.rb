@@ -1,8 +1,8 @@
 module Newebpay
   class MpgResponse
     # 使用 attr_reader 可以更方便取用這些資訊
-    attr_reader :status, :message, :result, :order_no, :trans_no, :amt
-    
+    attr_reader :status, :message, :result, :order_no, :trans_no, :amount
+
     def initialize(params)
       @key = ENV["HASH_KEY"]
       @iv =  ENV["HASH_IV"]
@@ -13,7 +13,7 @@ module Newebpay
       @result = response['Result']
       @order_no = @result["MerchantOrderNo"]
       @trans_no = @result["TradeNo"]
-      @amt = @result["Amt"]
+      @amount = @result["Amt"]
       # etc...
     end
 

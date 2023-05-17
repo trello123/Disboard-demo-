@@ -34,11 +34,11 @@ module Newebpay
       info[:MerchantOrderNo] = "#{DateTime.now.strftime("%Y%m%d%H%M%S%L")}#{SecureRandom.base36(4)}#{"_"}#{user_id}"
       info[:Amt] = 49 if order == "premium_price"
       info[:ItemDesc] = "會員升級"
-      info[:TimeStamp] = Time.now.to_i
+      info[:TimeStamp] = Time.current.to_i
       info[:Email] = user_email
       info[:RespondType] = "JSON"
       info[:Version] = "2.0"
-      info[:ReturnURL] = "https://fcd0-122-147-165-238.ngrok-free.app/payments/notify_response"
+      info[:ReturnURL] = ENV["DISBOARD"]
       info[:LoginType] = 0 
       info[:CREDIT] =  1
     end
