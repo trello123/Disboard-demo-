@@ -1,11 +1,13 @@
-<div class=" min-w-[272px] m-3 px-3">
-  <div class="relative w-full p-5 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
-    <div class="flex items-center justify-between w-full gap-3 mb-1 group/container">
+<div class="min-w-[300px] m-3 px-3 ">
+  <div class="relative w-full p-5 mt-8 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+    <div class="flex items-center justify-between max-w-[272px] gap-3 mb-1 group/container">
       <%= turbo_frame_tag(container) do %>
-        <%= link_to container.title, edit_container_path(container.id), class: " text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %>
-        <%= link_to edit_container_path(container.id), class: "text-lg pl-5 hidden group-hover/container:inline-block" do %>
-          <i class="m-1 fa-solid fa-pencil"></i>
-        <% end %>
+        <div class="flex">
+          <div class="max-w-[150px] truncate ... inline-block"><%= link_to container.title, edit_container_path(container.id), class: "text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %></div>
+          <%= link_to edit_container_path(container.id), class: "text-lg pl-5 hidden group-hover/container:inline-block" do %>
+            <i class="m-1 fa-solid fa-pencil"></i>
+          <% end %>
+        </div>
       <% end %>
     </div>
     <div>
@@ -17,10 +19,10 @@
       <% container.cards.each do |card| %>
         <div class="w-full group/edit" data-card-id="<%= card.id %>">
           <% if @light.present? && @locate_card == card.id %>
-            <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
-              <div class="flex flex-col">
-                <div class="flex flex-row justify-start gap-3 mb-0.5">
-                  <div><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %></div>
+            <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing overflow-hidden">
+              <div class="flex flex-col ">
+                <div class="flex flex-row justify-start gap-3 mb-0.5 ">
+                  <div class="min-w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'inline-block w-[100px] pr-2 ' %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>
@@ -53,7 +55,7 @@
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
               <div class="flex flex-col">
                 <div class="flex flex-row justify-start gap-3 mb-0.5">
-                  <div><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32' %></div>
+                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'inline-block w-[100px] pr-2' %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>

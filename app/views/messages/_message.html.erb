@@ -7,7 +7,7 @@
       <%= message.user.email %>
     <% end %>    
   </div>
-  <div class="border-l-8 shadow-xl border-orange-1 author">
+  <div class="w-[200px] border-l-8 shadow-xl border-orange-1 author truncate ...">
     <%= message.user.email %>
     <%= link_to board_path(message.room.board, light: "highlight", locate_card: message[:card_id]), class: "text-orange-1 hover:underline-offset-4 hover:underline decoration-orange-1" do %>
       <p class="py-3">新增了一個新的任務</p>
