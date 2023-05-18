@@ -30,9 +30,6 @@ class CardsController < ApplicationController
 
   def edit
     @board = @container.board
-    p '-' * 100
-    p @card
-    p '-' * 100
   end 
 
   def update
