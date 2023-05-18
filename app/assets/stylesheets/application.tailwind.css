@@ -23,7 +23,7 @@
     @apply bg-gradient-to-t from-white to-Azure-blue
   }
   .sidebar-icon{
-    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-gray-500 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear
+    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-orange-2 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear hover:text-orange-2
   }
   .logn-modal{
     @apply w-4/5 sm:w-1/2 absolute flex flex-col items-center justify-center py-10 bg-white-1 top-60 rounded-md shadow-2xl
@@ -32,7 +32,7 @@
     @apply rounded-xl  text-black w-48
   }
   .insidebar{
-    @apply px-5 py-2 text-white items-center hover:bg-Azure-blue-3 rounded-xl inline-block
+    @apply px-5 py-2 text-white font-bold items-center hover:text-text-1 rounded-xl inline-block
   }
   .author{
     @apply inline-block px-5 py-2 text-white rounded-lg shadow-xl bg-Azure-blue-2
@@ -89,9 +89,9 @@
     width: 3.5em;
     height: 3.5em;
     border-radius: 50%;
-    background-color:#2C3E50;
+    background-color:#F44E21;
     box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, .26);  
-    color: hsl(0, 0%, 100%);
+    color: #E3E9E9;
     text-align: center;
     line-height: 3.9;
     cursor: pointer;
@@ -145,14 +145,14 @@
     z-index: -1;
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: #E3E9E9;
     font-size: 1em;
     width: 3em;
     height: 3em;
     border-radius: 50%;
     text-align: center;
     line-height: 3;
-    background-color: #2C3E50;
+    background-color: #F44E21;
     transition: transform .3s ease, background .2s ease;
   }
   
@@ -225,6 +225,9 @@
 
   .signinpage{
     background-color: #2C3E50;
+  }
+  textarea{
+    @apply rounded-xl
   }
 }
 

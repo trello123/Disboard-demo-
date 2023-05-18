@@ -1,14 +1,12 @@
 <div class="w-full m-auto ">
   <%= turbo_frame_tag comment.id do %>
-    <div class="p-3 mt-4 break-words bg-white rounded-md">
+    <div class="p-3 mt-4 break-words bg-white rounded-md shadow-5xl">
       <div class="mt-4 ">留言者：<%= format_email(comment.user.email) %></div>
       <div class="mt-4 "><%= comment.intro %></div>
       <div class="flex gap-3 mt-4 ">
         <% if current_user == comment.user %>
           <%=link_to '修改', edit_card_comment_path(comment.card, comment.id), class:"relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 " %>
-          <%= link_to '刪除', card_comment_path(comment.card, comment.id), method: :delete, data: { confirm: '確定刪除嗎?'}, class: "relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 " %>
-        <% else %>
-          <i class="m-1 fa-regular fa-eye">僅供檢視</i>
+          <%= link_to '刪除', card_comment_path(comment.card, comment.id), method: :delete, data: {confirm: '確定刪除嗎?'}, class: "relative p-2 mt-4 text-gray-800 border rounded-xl hover:bg-gray-200 " %>
         <% end %>
       </div>
     </div>

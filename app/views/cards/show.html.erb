@@ -1,47 +1,51 @@
-<div class="w-full m-auto overflow-y-auto">
-  <div class=" p-3 m-auto rounded-md w-[928px] bg-white-2 drop-shadow-md">
-    <div class="flex w-[928px]">
-      <div class="flex-col w-9/12">
-        <div class="mt-4">標題：<%= @card.title %></div>
-        <div class="p-2 bg-white rounded-lg shadow-3xl">
-          描述：
-          <%= @card.intro %>
+<%= turbo_frame_tag :card_show do%>
+  <div class="absolute top-0 w-[90%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll" data-controller="modal" data-modal-target="cardEdit">
+    <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
+    <span class="pl-3 text-2xl font-bold">任務</span>
+      <div class="p-5 bg-white rounded-md drop-shadow-2xl over">
+        <div class="my-3">
+          <div class="flex items-center py-3 text-center">
+            <p class="pr-4 text-xl font-bold ">標題：</p>
+            <%= @card.title %>
+          </div>
+          <div class="p-2 ">
+            <p class="pr-4 font-bold">描述：</p>
+            <%= @card.intro %>
+          </div>
         </div>
-        <div class="mt-4">難易度：<%= @card.level %></div>
-        <div class="mt-4"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
-      </div>
-      <div class="flex flex-col items-start w-3/12 -mr-4">
-        <%= link_to  board_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
-          <i class="fa-solid fa-xmark"></i>
-        <% end %>
-        <% if @card.assigned_to != "尚未指派" %>
-          <div class="my-2">成員：<%= format_email(@card.assigned_to) %></div>
-        <% end %>
-        <div class="my-2 mb-3">
-          開始時間
-          <% if @card.daybegin.present? %>
-            <div><%= format_timestamps(@card.daybegin) %></div>
+        <div class="p-3 shadow-3xl bg-white-3 rounded-xl">
+          <% if @card.assigned_to != "尚未指派" %>
+            <div class="flex items-center p-2 ">
+            <p class="pr-4 font-bold">負責人：</p>
+            <%= format_email(@card.assigned_to) %></div>
           <% end %>
-        </div>
-        <div class="my-2 mb-3">
-          截止時間
-          <% if @card.deadline.present? %>
-            <div><%= format_timestamps(@card.deadline) %></div>
+          <div class="flex items-center p-2 ">
+            <p class="pr-4 font-bold">難易度：</p>
+            <%= @card.level %>
+          </div>
+          <div class="p-2"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
+          <div class="flex items-center p-2 ">
+            <p class="pr-4 font-bold">開始時間</p>
+            <% if @card.daybegin.present? %>
+              <div><%= format_timestamps(@card.daybegin) %></div>
+            <% end %>
+          </div>
+          <div class="flex items-center p-2 ">
+            <p class="pr-4 font-bold">截止時間<p>
+            <% if @card.deadline.present? %>
+              <div><%= format_timestamps(@card.deadline) %></div>
+            <% end %>
+          </div>
+          <%= turbo_frame_tag "comment" do %>
+          <div class="flex m-auto" >
+            <%= link_to '新增評論' ,  new_card_comment_path(@card) ,class: 'btn-primary inline-block relative text-center active:-bottom-[2px] hover:bottom-[1px] mt-5  py-1' %>
+          </div>
           <% end %>
+          <%= render @comments %>
         </div>
       </div>
-    </div>
-    
-    <%= turbo_frame_tag "comment" do %>
-    <div class="flex m-auto w-[928px]" >
-      <%= link_to '新增評論' ,  new_card_comment_path(@card) ,class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5  py-1' %>
-    </div>
-    <% end %>
-
-    <%= render @comments %>
-    
+      
   </div>
-  
-</div>
+<% end %>
 
 
