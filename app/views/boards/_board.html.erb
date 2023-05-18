@@ -1,15 +1,11 @@
-<div class="flex flex-col items-end m-3 mt-20 bg-white border shadow-md rounded-xl">
-  <section class="relative flex items-center px-3 mb-3 after:content-[''] after:w-80 after:h-0.5 after:bg-gray-300 after:absolute after:top-[100%] after:left-[10%]">
-    <header>
-      <div>
-        <!-- 放專案照片 -->
-        <%= link_to board_path(board.id) do %>
-          <img src="https://fakeimg.pl/150x150/414e92,128/000,255" class="p-3 rounded-full" >
-        <% end %>
-      </div>
-    </header>
-
-    <div class="flex flex-col gap-3 mx-3 my-3">
+<div class="shadow-3xl card card-side bg-base-100 ">
+  <figure>
+    <%= link_to board_path(board.id) do %>
+      <img src="https://picsum.photos/500/400?random=4" class="w-full" >
+    <% end %>
+  </figure>
+  <div class="card-body">
+    <div class="">
       <h2 class="text-2xl font-bold"><%= link_to board.name, board_path(board.id) %></h2>
       <time >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
       <time >截止時間：</time>

@@ -4,7 +4,7 @@
       <div class="relative pb-3 underscore user">
         <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
-            <i class="fa-solid fa-user-tie"></i>
+            <i class="fa-solid fa-user-tie text-orange-2"></i>
           <% end %>
         <% else %>
           <%= link_to boards_path, class:"sidebar-icon touch-icon" do %>
@@ -17,10 +17,10 @@
           <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showBoard">
             <% if board == b %>
               <div class=" sidebar-icon linkto-icon">
-                <i class="fa-solid fa-user-group"></i>
+                <i class="fa-solid fa-user-group text-orange-2 "></i>
               </div>
             <% else %>
-              <i class="fa-solid fa-user-group"></i>
+              <i class="fa-solid fa-user-group "></i>
             <% end %>
             <div class="absolute z-50 flex invisible group-hover:visible left-[82%] w-64 p-5" >
               <p class="relative p-3 text-xl bg-black rounded">
@@ -33,7 +33,7 @@
       <% end %>
       <%= link_to new_board_path, class: 'sidebar-icon py-5 static addboard' do %>
         <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showTip">
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-plus "></i>
             <div class="absolute z-50 flex invisible group-hover:visible left-[82%] w-64 p-5" >
               <p class="p-3 text-xl bg-black rounded">
                 新增專案

@@ -1,31 +1,45 @@
-<div class="mx-auto mt-16">
-  <%=  form_with(model: @card, url: container_card_path, data: { controller: "flatpickr" }) do |f| %>
-    <div class="flex  w-[480px] md:w-[700px] lg:w-[900px] flex-col p-3 mx-auto rounded-md  bg-white-2 drop-shadow-2xl">
-      <div class="flex flex-row">
-        <div class="flex-col w-9/12">
-          <%= render 'shared/error', params: @card %>
-          <div class="flex items-center my-3">
-            <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-            <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
-            <span>(必填)</span>
-          </div>
-          <div class="flex flex-col items-start pr-20 my-3 overflow-x-scroll">
-            <%= f.label :intro, '描述', class: "text-lg mr-4" %>
+<%= turbo_frame_tag :card_edit do%>
+<div class="absolute top-0 w-[90%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll" data-controller="modal" data-modal-target="cardEdit">
+  <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
+  <span class="pl-3 text-2xl font-bold">更新任務</span>
+  <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr" }) do |f| %>
+    <div class="p-5 bg-white rounded-md drop-shadow-2xl over">
+      <div class="my-3 text-center">
+        <%= f.label :title, '任務名稱', class: "pr-4 font-bold" %>
+        <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入標題名稱' %>
+        <div class="w-full p-2 rounded-lg ">
             <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
-          </div>
-          <div class="flex items-center my-3">
-            <%= f.label :level, '優先順序', class: "text-lg mr-4" %>
-            <%= f.select :level, Card.level_list %>
-          </div>
         </div>
-        <div class="w-3/12">
-          <div>
-            <%= link_to  board_path(@card.board_id) ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
-              <i class="fa-solid fa-xmark"></i>
+        <% if @card.errors.any? %>
+          <% @card.errors.full_messages.each do |msg| %>
+            <ul class="flex-col">
+              <li class="text-red-500"><%= msg %></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="p-3 shadow-3xl bg-white-3 rounded-xl">
+        <div>
+          <div class="flex items-center px-2 py-5">
+            <%= f.label :assigned_to, '負責人', class: "pr-5 font-bold" %>
+            <% if @card.errors.any? == false %>
+              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), {}, class: 'box-input w-32 text-md px-1 rounded-xl appearance-none daisy-select' %>
             <% end %>
           </div>
-          <div class="my-2 overflow-hidden">
-            <%= f.label :assigned_to, '成員', class: "mr-4" %>
+          <div class="flex items-center p-2">
+            <%= f.label :level, '難易度', class: "pr-5 block font-bold" %>
+            <%= f.select :level, Card.level_list, {}, class: "rounded-xl appearance-none daisy-select"  %>
+          </div>
+          <div class="p-2">
+            <%= f.label :daybegin, '開始日期', class: "font-bold pr-4" %>
+            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
+          </div>
+          <div class="p-2">
+            <%= f.label :deadline, '結束日期', class: "font-bold pr-4" %>
+            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
+          </div>
+          <div class="p-2">
+            <%= f.label :container_id, '狀態', class: "pr-5 font-bold" %>
             <% if @card.errors.any? == false %>
               <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'box-input w-32 text-md px-1' %>
             <% end %>
@@ -53,3 +67,5 @@
     </div>
   <% end %>
 </div>
+
+<% end %>

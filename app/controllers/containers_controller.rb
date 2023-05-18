@@ -4,6 +4,7 @@ class ContainersController < ApplicationController
 
   def index
     @containers = @board.containers.order(created_at: :asc).includes(:cards)
+    @card = Card.new
   end
 
   def new
