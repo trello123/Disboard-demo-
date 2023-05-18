@@ -4,7 +4,7 @@
       <%= form_for(@comment, data:{turbo:false}, url:card_comments_path ) do|f| %>
         <%= f.text_area :intro, class: 'w-full bg-white'%> <br>
         <div class="flex gap-3">
-          <%= f.submit class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 " %>
+          <%= f.submit'新增', class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 " %>
           <%= link_to "取消評論", :back , class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 " %>
       </div>
       <% end %>
