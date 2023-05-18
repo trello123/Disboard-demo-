@@ -1,14 +1,22 @@
 <section class="container w-screen py-36 ">
-  <section>
-    <%= image_tag "disboardlogo.png", class:"mx-auto w-[800px] h-[400px]" %>
-    <section class="text-center py-14">
-      <% if user_signed_in? %>
-      <%= link_to "前往看板", boards_path, class:" btn-logn mx-4" %>
-      <% else %>
-        <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
-        <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
-      <% end %>
-    </section>
+  <section class="flex flex-col md:flex-row justify-center items-center mx-auto mt-20 max-w-500 md:max-w-[700px] lg:md:max-w-[900px] xl:max-w-full gap-16 lg:gap-32 p-5">
+    <div class="relative self-center md:flex logo-background">
+      <%= image_tag "homepage_logo.svg", class: "w-[300px] md:w-[350px] lg:w-[900px] z-10 relative bg-white p-5 border border-[#E25B34]" %>
+    </div>
+    <div class="md:max-w-[500px]  lg:w-full flex flex-col justify-center">
+      <div class="max-w-[300px]"><%= image_tag "logo.png", class: "scale-115 lg:scale-150" %></div>
+      <div class="flex flex-col pt-6 w-fit xl:items-start">
+        <% if user_signed_in? %>
+          <%= link_to "前往看板", boards_path, class:"btn-logn md:mx-4 text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]" %>
+        <% else %>
+          <div>
+            <p class="pb-10 text-xl font-semibold">最輕鬆省力的專案管理平台！</p>
+            <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
+            <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </section>
  
   <section class="container pt-40 ">
