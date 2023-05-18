@@ -25,7 +25,6 @@ document.addEventListener('turbo:load', ()=> {
     },
   
     received(data) {
-      console.log(data);
       const user_element = document.getElementById('user-id')
       const user_id = Number(user_element.getAttribute('data-user-id'))
       let html

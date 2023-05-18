@@ -27,6 +27,3 @@ class MessageNotification < Noticed::Base
   end
 
 end
-
-
-end
