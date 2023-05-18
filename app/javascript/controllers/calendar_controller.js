@@ -51,10 +51,12 @@ export default class extends Controller {
       eventClick: (info) => {
         const { boardId } = this.element.dataset;
         const cardId = info.event.extendedProps.publicId;
+        const { level } = info.event.extendedProps;
         const title = info.event.title;
+
         calendarModal(boardId, cardId, info.event, (daybegin, deadline) => {
           if (deadline >= daybegin) {
-            this.updateEvent(cardId, title, daybegin, deadline);
+            this.updateEvent(cardId, title, daybegin, deadline, level);
             successNotify("成功更新");
           } else {
             successNotify("結束時間不得小於開始時間", "error");
@@ -93,8 +95,8 @@ export default class extends Controller {
         backgroundColor = "#FF0000";
         borderColor = "#FF0000";
       } else if (level == "重要") {
-        backgroundColor = "#FFBB00";
-        borderColor = "#FFBB00";
+        backgroundColor = "#AA7700";
+        borderColor = "#AA7700";
       } else if (level == "一般") {
         backgroundColor = "#55AA00";
         borderColor = "#55AA00";
@@ -110,6 +112,7 @@ export default class extends Controller {
         end: this.fixedTime(deadline, "end"),
         backgroundColor,
         borderColor,
+        level,
       };
 
       this.calendar.addEvent(newEvent);
@@ -126,9 +129,9 @@ export default class extends Controller {
     }
   }
 
-  updateEvent(id, title, daybegin, deadline) {
+  updateEvent(id, title, daybegin, deadline, level) {
     this.removeEvent(id);
-    this.addEvent({ id, title, daybegin, deadline });
+    this.addEvent({ id, title, daybegin, deadline, level });
   }
 
   // 修正同一時間可能顯示錯誤問題
