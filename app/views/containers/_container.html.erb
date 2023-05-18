@@ -1,7 +1,8 @@
-<div class="min-w-[300px] m-3 px-3 ">
-  <div class="relative w-full p-5 mt-8 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group" data-controller="remove" data-container-id="<%= container.id %>">
+<%= turbo_frame_tag(container) do %>
+<div class="min-w-[300px] m-3 px-3">
+  <div class="relative w-full p-5 mt-8 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group">
     <div class="flex items-center justify-between max-w-[272px] gap-3 mb-1 group/container">
-      <%= turbo_frame_tag(container) do %>
+      <%= turbo_frame_tag "edit_container_#{container.id}" do %>
         <div class="flex">
           <div class="max-w-[150px] truncate ... inline-block"><%= link_to container.title, edit_container_path(container.id), class: "text-lg font-bold before:content-['|'] before:mr-2 before:font-normal" %></div>
           <%= link_to edit_container_path(container.id), class: "text-lg pl-5 hidden group-hover/container:inline-block" do %>
@@ -11,7 +12,7 @@
       <% end %>
     </div>
     <div>
-      <%= link_to "#", data: { action: 'click->remove#wipeOut' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
+      <%= link_to container_path(container.id), method: :delete, data: { confirm: '確定要刪除嗎?' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
         <i class="fa-solid fa-xmark"></i>
       <% end %>
     </div>
@@ -22,7 +23,7 @@
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing overflow-hidden">
               <div class="flex flex-col ">
                 <div class="flex flex-row justify-start gap-3 mb-0.5 ">
-                  <div class="min-w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'inline-block w-[100px] pr-2 ' %></div>
+                  <div class="min-w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id), data: { turbo: false }, class:'inline-block w-[100px] pr-2 ' %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>
@@ -46,7 +47,7 @@
                 </div>
               </div>
               <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
-                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded" do %>
+                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded", data: { turbo: false } do %>
                   <i class="m-1 fa-solid fa-pencil"></i>
                 <% end %>
               </div>
@@ -55,7 +56,7 @@
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
               <div class="flex flex-col">
                 <div class="flex flex-row justify-start gap-3 mb-0.5">
-                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'inline-block w-[100px] pr-2' %></div>
+                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id), data: { turbo: false }, class:'inline-block w-[100px] pr-2' %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>
@@ -79,7 +80,7 @@
                 </div>
               </div>
               <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
-                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded" do %>
+                <%= link_to edit_container_card_path(container, card.id), data: { turbo: false }, class: "hover:bg-slate-200 hover:rounded" do %>
                   <i class="m-1 fa-solid fa-pencil"></i>
                 <% end %>
               </div>
@@ -99,3 +100,4 @@
     </div>
   </div>
 </div>
+<% end %>

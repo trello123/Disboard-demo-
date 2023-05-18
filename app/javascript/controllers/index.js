@@ -34,8 +34,5 @@ application.register("modal", ModalController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import RemoveController from "./remove_controller"
-application.register("remove", RemoveController)
-
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
