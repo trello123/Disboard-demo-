@@ -1,4 +1,4 @@
-<%= turbo_frame_tag(@container) do %>
+<%= turbo_frame_tag "edit_container_#{@container.id}" do %>
   <div class="p-2 bg-slate-200">
     <%= form_for(@container, data: {turbo: false}) do |f| %>
       <div class="relative flex">

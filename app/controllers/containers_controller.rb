@@ -39,6 +39,7 @@ class ContainersController < ApplicationController
 
   def destroy
     authorize @container.board
+    @container.destroy
   end
 
   private
