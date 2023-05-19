@@ -46,7 +46,7 @@ export default class extends Controller {
         {
           title: '步驟五: 快捷鍵教學',
           intro: 
-          '最後還有網站的快捷鍵：<p>Option(或 Alt鍵)<code>⌥ + s</code></br>-> 新增狀態</p><p>Option(或 Alt鍵) <code>⌥ + c </code></br>-> 新增卡片</p><p>Option(或 Alt鍵)<code> ⌥ + d </code></br>-> 切換到日曆頁面</p><p>Option(或 Alt鍵)<code> ⌥ + m </code></br>-> 切換到聊天室</p><p>Option(或 Alt鍵) <code>⌥ + w </code></br>-> 切換到任務列表</p><p>Option(或 Alt鍵)<code> ⌥ + f</code></br>-> 切換到成員</p><p>Option(或 Alt鍵)<code>⌥ + q</code></br>-> 切換到儀表</p>',
+          '最後還有網站的快捷鍵：<p>Option(或 Alt鍵)<code>⌥ + s</code></br>-> 新增狀態</p><p>Option(或 Alt鍵) <code>⌥ + c </code></br>-> 新增卡片</p><p>Option(或 Alt鍵)<code> ⌥ + w </code></br>-> 切換到日曆頁面</p><p>Option(或 Alt鍵)<code> ⌥ + e </code></br>-> 切換到聊天室</p><p>Option(或 Alt鍵) <code>⌥ + q </code></br>-> 切換到任務列表</p><p>Option(或 Alt鍵)<code> ⌥ + r</code></br>-> 切換到成員</p><p>Option(或 Alt鍵)<code>⌥ + t</code></br>-> 切換到儀表</p>',
         },
       ],
     });
