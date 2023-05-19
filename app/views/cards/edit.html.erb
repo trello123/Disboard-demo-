@@ -32,20 +32,6 @@
             <%= f.label :level, '難易度', class: "pr-5 block font-bold" %>
             <%= f.select :level, Card.level_list, {}, class: "rounded-xl appearance-none daisy-select"  %>
           </div>
-          <div class="p-2">
-            <%= f.label :daybegin, '開始日期', class: "font-bold pr-4" %>
-            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
-          </div>
-          <div class="p-2">
-            <%= f.label :deadline, '結束日期', class: "font-bold pr-4" %>
-            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
-          </div>
-          <div class="p-2">
-            <%= f.label :container_id, '狀態', class: "pr-5 font-bold" %>
-            <% if @card.errors.any? == false %>
-              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), class: 'box-input w-32 text-md px-1' %>
-            <% end %>
-          </div>
           <div class="my-2 overflow-hidden">
             <%= f.label :daybegin, '開始日期', class: "mr-4" %>
             <%= f.datetime_field :daybegin, class: 'daybegin ' %>
