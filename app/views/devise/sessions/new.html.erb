@@ -23,19 +23,19 @@
 
     </section>
   <% end %>
-      <div class="flex justify-center w-48 gap-2 pt-2 m-auto text-center border-t-2 border-black">
-        <% if devise_mapping.omniauthable? %>
-          <% resource_class.omniauth_providers.each do |provider| %>
-            <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
-              <% if provider == :google_oauth2 %>
-                <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] shadow-2xl bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
-              <% elsif provider == :github %>
-                <img src="/assets/github-mark.png" alt="Github" class="w-[50px] h-[50px] shadow-2xl rounded-full relative hover:top-[2px] active:top-[4px]">
-              <% end %>
-            <% end %>
+  <div class="flex justify-center w-48 gap-2 pt-2 m-auto text-center border-t-2 border-black">
+    <% if devise_mapping.omniauthable? %>
+      <% resource_class.omniauth_providers.each do |provider| %>
+        <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
+          <% if provider == :google_oauth2 %>
+            <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] shadow-2xl bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
+          <% elsif provider == :github %>
+            <img src="/assets/github-mark.png" alt="Github" class="w-[50px] h-[50px] shadow-2xl rounded-full relative hover:top-[2px] active:top-[4px]">
           <% end %>
         <% end %>
-      </div>
+      <% end %>
+    <% end %>
+  </div>
 </section>
 
 
