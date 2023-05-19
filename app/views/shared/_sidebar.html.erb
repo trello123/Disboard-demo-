@@ -4,7 +4,7 @@
       <div class="relative pb-3 underscore user">
         <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
-            <i class="fa-solid fa-user-tie text-orange-2"></i>
+            <i class="fa-solid fa-user-tie text-Azure-blue-3"></i>
           <% end %>
         <% else %>
           <%= link_to boards_path, class:"sidebar-icon touch-icon" do %>
@@ -17,7 +17,7 @@
           <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showBoard">
             <% if board == b %>
               <div class=" sidebar-icon linkto-icon">
-                <i class="fa-solid fa-user-group text-orange-2 "></i>
+                <i class="fa-solid fa-user-group "></i>
               </div>
             <% else %>
               <i class="fa-solid fa-user-group "></i>

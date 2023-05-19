@@ -1,42 +1,47 @@
-<div class="mx-auto mt-16">
-  <%=  form_with(model: @card, url: container_cards_path, data: { controller: "flatpickr" } ) do |f| %>
-    <div class="flex w-[480px] md:w-[700px] lg:w-[900px] p-3 m-auto rounded-md  bg-white-2 drop-shadow-2xl">
-      <div class="flex-col w-9/12">
-        <%= render 'shared/error', params: @card %>
-        <div class="flex items-center my-3">
-          <%= f.label :title, '標題', class: "text-lg mr-4"  %>
-          <%= f.text_field :title, class: 'box-input', placeholder: '請輸入標題名稱' %>
-          <span>(必填)</span>
-        </div>
-        <div class="flex flex-col items-start pr-20 my-3 overflow-x-scroll">
-          <%= f.label :intro, '描述', class: "text-lg mr-4" %>
-          <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
-        </div>
-        <div class="flex items-center my-3">
-          <%= f.label :level, '優先順序', class: "text-lg mr-4" %>
-          <%= f.select :level, Card.level_list %>
-        </div>
-  
-        <div class="flex justify-center gap-12 ml-64"><%= f.submit '新增', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
-  
-      </div>
-      <div class="w-3/12">
-        <div>
-          <%= link_to :back ,class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none' do %>
-            <i class="fa-solid fa-xmark"></i>
+<%= turbo_frame_tag :card_new do%>
+  <div class="h-screen p-10 bg-white-3 rounded-l-xl absolute top-0 w-[90%] right-0 z-10 animate-sidein" 
+  data-controller="modal" 
+  data-modal-target="cardEdit">
+    <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
+    <span class="pl-3 text-2xl font-bold">新增任務</span>
+    <%=  form_with(model: @card, url: container_cards_path(@container), data: { turbo: false }) do |f| %>
+      <div class="p-5 bg-white border shadow-3xl rounded-xl">
+        <div class="my-3 text-center">
+          <%= f.label :title, '任務名稱:', class: "pr-4 font-bold" %>
+          <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入任務名稱', data:{modal_target:'title'}%>
+          <div class="w-full p-2 rounded-lg ">
+            <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
+          </div>
+          <% if @card.errors.any? %>
+            <% @card.errors.full_messages.each do |msg| %>
+              <ul class="flex-col">
+                <li class="text-red-500"><%= msg %></li>
+              </ul>
+            <% end %>
           <% end %>
         </div>
-        <div class="my-2">成員： <%= @card.assigned_to %></div>
-        <div class="my-2 overflow-hidden">
-          <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-          <%= f.datetime_field :daybegin, class: 'daybegin' %>
-        </div>
-        <div class="my-2 overflow-hidden ">
-          <%= f.label :deadline, '結束日期', class: "mr-4" %>
-          <%= f.datetime_field :deadline, class: 'deadline' %>
+        <div class="p-3 shadow-3xl bg-white-3 rounded-xl">
+          <div class="flex items-center px-2 py-5">
+            <p class="pr-5 font-bold">負責人:</p> 
+            <span class="px-5 py-2 bg-white border border-black rounded-xl"><%= @card.assigned_to %></span>
+          </div>
+          <div class="flex items-center p-2">
+            <%= f.label :level, '難易度:', class:"pr-5 block font-bold" %>
+            <%= f.select :level, Card.level_list, {}, class: "rounded-xl appearance-none daisy-select" %>
+          </div>
+          <div class="p-2">
+            <%= f.label :daybegin, '開始日期:', class: "font-bold pr-4" %>
+            <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
+          </div>
+          <div class="p-2">
+            <%= f.label :deadline, '結束日期:', class: "font-bold pr-4" %>
+            <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
+          </div>
         </div>
       </div>
-    </div>
-
-  <% end %>
-</div>
+      <div class="pt-10 text-center">
+        <%= f.submit '新增', class: 'bg-Azure-blue-1 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer' %>
+      </div>
+    <% end %>
+  </div> 
+<% end %>

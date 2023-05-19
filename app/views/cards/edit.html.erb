@@ -1,5 +1,7 @@
 <%= turbo_frame_tag :card_edit do%>
-<div class="absolute top-0 w-[90%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll" data-controller="modal" data-modal-target="cardEdit">
+<div class="absolute top-0 w-[90%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll animate-sidein" 
+    data-controller="modal" 
+    data-modal-target="cardEdit">
   <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
   <span class="pl-3 text-2xl font-bold">更新任務</span>
   <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr" }) do |f| %>

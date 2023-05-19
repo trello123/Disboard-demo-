@@ -129,53 +129,13 @@
       <% end %>
     </section>
     <div class="flex items-center justify-end" data-controller="modal">
-      <%= link_to '#', data: { turbo: false, action:"click->modal#open" },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group addcard' do %>
+      <%= link_to new_container_card_path(container.id), data: { turbo_frame:"card_new", action:'click->modal#open' },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group addcard' do %>
         <i class="p-2 fa-solid fa-plus"></i>
         <span>新增任務</span>
       <% end %>
-    <div class="absolute top-0 w-[90%] right-0 z-10 hidden h-screen bg-white-3 rounded-l-xl p-10" data-modal-target="modal" >
-      <button data-action="click->modal#close" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
-      <span class="pl-3 text-2xl font-bold">新增任務</span>
-      <%=  form_with(model: @card, url: container_cards_path(container)) do |f| %>
-      <div class="p-5 bg-white border shadow-3xl rounded-xl">
-        <div class="my-3 text-center">
-          <%= f.label :title, '任務名稱:', class: "pr-4 font-bold" %>
-          <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入任務名稱', data:{modal_target:'title'}%>
-          <div class="w-full p-2 rounded-lg ">
-            <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
-          </div>
-          <% if @card.errors.any? %>
-            <% @card.errors.full_messages.each do |msg| %>
-              <ul class="flex-col">
-                <li class="text-red-500"><%= msg %></li>
-              </ul>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="p-3 shadow-3xl bg-white-3 rounded-xl">
-          <div class="flex items-center px-2 py-5">
-            <p class="pr-5 font-bold">負責人:</p> 
-            <span class="px-5 py-2 bg-white border border-black rounded-xl"><%= @card.assigned_to %></span>
-          </div>
-          <div class="flex items-center p-2">
-            <%= f.label :level, '難易度:', class:"pr-5 block font-bold" %>
-            <%= f.select :level, Card.level_list, {}, class: "rounded-xl appearance-none daisy-select" %>
-          </div>
-          <div class="p-2">
-            <%= f.label :daybegin, '開始日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
-          </div>
-          <div class="p-2">
-            <%= f.label :deadline, '結束日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
-          </div>
-        </div>
+      <div class="">
+        <%= turbo_frame_tag :card_new %>
       </div>
-        <div class="pt-10 text-center">
-          <%= f.submit '新增', class: 'bg-Azure-blue-1 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer' %>
-        </div>
-      <% end %>
-    </div> 
     </div>
   </div>
 </div>

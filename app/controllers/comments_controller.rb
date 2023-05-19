@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to container_card_path(@comment.card.container, @comment.card)
+      redirect_to board_path(@comment.card.board.id)
     else
       render :new
     end
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to container_card_path(@comment.card.container, @comment.card)
+      redirect_to board_path(@comment.card.board.id)
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to container_card_path(@comment.card.container, @comment.card)
+    redirect_to board_path(@comment.card.board.id)
   end
 
   private

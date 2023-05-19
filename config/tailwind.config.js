@@ -12,6 +12,20 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        sidein: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        sideout: {
+          '100%': { transform: 'translateX(100%)' },
+          '0%': { transform: 'translateX(0%)' },
+        }
+      },
+      animation: {
+        sidein: 'sidein .6s ease-in-out',
+        sideout: 'sideout .6s ease-in-out',
+      },
       colors: {
           'Azure-blue-6': '#34406D',
           'Azure-blue': '#414E92',
@@ -25,7 +39,7 @@ module.exports = {
           'white-2':'#CCCCCC',
           'white-3':'#F7F7F7',
           'orange-1':'#FFA500',
-          'orange-2':'#F44E21',
+          'orange-2':'#E25B34',
           'text-1':'#C7462D'
       },
       boxShadow: {
