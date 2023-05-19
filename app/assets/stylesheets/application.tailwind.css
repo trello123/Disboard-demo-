@@ -23,7 +23,7 @@
     @apply bg-gradient-to-t from-white to-Azure-blue
   }
   .sidebar-icon{
-    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-orange-2 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear hover:text-orange-2
+    @apply relative flex items-center justify-center h-12 text-2xl w-12 my-2 mx-auto shadow-lg bg-Azure-blue-3 text-orange-2 rounded-3xl focus:rounded-xl transition-all duration-300 ease-linear hover:text-Azure-blue-3
   }
   .logn-modal{
     @apply w-4/5 sm:w-1/2 absolute flex flex-col items-center justify-center py-10 bg-white-1 top-60 rounded-md shadow-2xl
@@ -52,10 +52,10 @@
     transform: translate(-50%, -50%);
   }
   .touch-icon{
-    @apply hover:bg-Azure-blue-3 hover:rounded-xl
+    @apply hover:bg-orange-2 hover:rounded-xl
   }
   .linkto-icon{
-    @apply bg-Azure-blue-3 rounded-xl
+    @apply bg-orange-2 rounded-xl text-Azure-blue-3
   } 
   .newcontainer{
     @apply flex items-center justify-center shadow-3xl w-10 h-10 bg-white fixed right-10 bottom-10 p-5 rounded-2xl transition-all duration-1000 transform hover:w-44
@@ -230,7 +230,6 @@
     @apply rounded-xl
   }
 }
-
 
 
 
