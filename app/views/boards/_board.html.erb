@@ -1,9 +1,7 @@
 <div class="shadow-3xl card card-side bg-base-100 ">
-  <figure>
-    <%= link_to board_path(board.id) do %>
-      <img src="https://picsum.photos/500/400?random=4" class="w-full" >
-    <% end %>
-  </figure>
+  <%= link_to board_path(board.id) do %>
+    <img src="https://picsum.photos/500/400?random=4" class="w-full h-full rounded-l-xl" >
+  <% end %>
   <div class="card-body">
     <div class="">
       <h2 class="text-2xl font-bold"><%= link_to board.name, board_path(board.id) %></h2>
