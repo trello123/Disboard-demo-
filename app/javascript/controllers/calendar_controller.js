@@ -13,6 +13,10 @@ export default class extends Controller {
       contentHeight: 570,
       dayMaxEvents: true,
       locale: "zh-tw",
+      moreLinkContent: (arg) => {
+        return `還有 ${arg.num} 個任務`;
+      },
+
       headerToolbar: {
         left: "dayGridMonth dayGridWeek dayGridDay",
         center: "title",
