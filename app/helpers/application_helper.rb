@@ -12,7 +12,7 @@ module ApplicationHelper
     end
   end
 
-  def format_email(email)
+  def user_email(email)
     email.split("@").first
   end
 
@@ -22,9 +22,5 @@ module ApplicationHelper
 
   def assign_user(board)
     board.users.pluck(:email, :email).unshift(["尚未指派","尚未指派"])
-  end
-
-  def find_user_email(card)
-    User.find(card).email
   end
 end

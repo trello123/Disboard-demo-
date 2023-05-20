@@ -19,7 +19,7 @@
         <% end %>
       <% else %>
         <div class="mr-12 text-lg font-bold text-white md:mr-0 md:text-xl xl:text-2xl">
-          <%= format_email(current_user.email) if current_user.present? %>
+          <%= user_email(current_user.email) if current_user.present? %>
         </div>
       <% end %>
     </div>
