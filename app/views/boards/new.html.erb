@@ -1,15 +1,18 @@
-
-<div class="flex p-3 m-4 rounded-md w-max bg-slate-200 drop-shadow-2xl">
-  <%= form_with(model: @board) do |f| %>
-    <div class="flex items-center my-2">
-      <%= f.text_field :name, class: 'box-input', placeholder: '請輸入專案名稱' %>
-    </div>
-    <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1" %>
-  <% end %>
-  <div>
-    <%= link_to :back, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 border-none' do %>
-      <i class="fa-solid fa-xmark"></i>
+<%= turbo_frame_tag :board_new do %>
+  <div class="absolute z-30 flex p-3 m-4 rounded-md w-[350px] bg-slate-200 drop-shadow-2xl">
+    <%= form_with(model: @board) do |f| %>
+      <div class="flex items-center my-2">
+        <%= f.text_field :name, class: 'box-input', placeholder: '請輸入專案名稱' %>
+      </div>
+      <div class="flex items-center my-2 text-black">
+        <%= f.file_field :avatar %>
+      </div>
+      <%= f.submit '新增', class: "btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1" %>
     <% end %>
+    <div>
+      <%= link_to :back, data: { turbo: false }, class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full flex justify-center items-center hover:bg-rose-500 border-none' do %>
+        <i class="text-black fa-solid fa-xmark"></i>
+      <% end %>
+    </div>
   </div>
-</div>
-
+<% end %>

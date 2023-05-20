@@ -15,6 +15,7 @@ class Board < ApplicationRecord
   has_many :containers, -> { order(:position) }, dependent: :destroy
   has_one :room, dependent: :destroy
   has_many :cards, dependent: :destroy
+  has_one_attached :avatar
 
 
   #套件給的

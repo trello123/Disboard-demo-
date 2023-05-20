@@ -40,7 +40,7 @@ class BoardsController < ApplicationController
   def update
     authorize @board
     if @board.update(board_params)
-      redirect_to @board
+      redirect_to boards_path
     else
       render :record_not_found
     end
@@ -61,7 +61,7 @@ class BoardsController < ApplicationController
 
   private
   def board_params
-    params.require(:board).permit(:name)
+    params.require(:board).permit(:name, :avatar)
   end
 
   def find_board
