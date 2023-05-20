@@ -10,9 +10,6 @@ application.register("aos", AosController)
 import CalendarController from "./calendar_controller"
 application.register("calendar", CalendarController)
 
-import CardFormController from "./card_form_controller"
-application.register("card-form", CardFormController)
-
 import ChatsubmitController from "./chatsubmit_controller"
 application.register("chatsubmit", ChatsubmitController)
 
