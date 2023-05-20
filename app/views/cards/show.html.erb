@@ -20,7 +20,7 @@
             <%= format_email(@card.assigned_to) %></div>
           <% end %>
           <div class="flex items-center p-2 ">
-            <p class="pr-4 font-bold">難易度：</p>
+            <p class="pr-4 font-bold">優先順序：</p>
             <%= @card.level %>
           </div>
           <div class="p-2"><%= image_tag(@card.avatar_url) if @card.avatar.present? %></div>
