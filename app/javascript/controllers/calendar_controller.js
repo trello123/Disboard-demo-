@@ -33,7 +33,7 @@ export default class extends Controller {
       // 啟動拖曳調整日期
       editable: true,
       // 點擊非排程(新增)
-      dateClick: function (info) {},
+      // dateClick: function(info) {},
       // 移動event更新
       eventDrop: (info) => {
         const { boardId } = this.element.dataset;

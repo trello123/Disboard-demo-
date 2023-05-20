@@ -5,16 +5,16 @@ class SendMessageJob < ApplicationJob
     # Do something later
     mine = ApplicationController.render(
       partial: 'messages/mine',
-      locals:{ message: message }
+      locals: { message: }
     )
 
     theirs = ApplicationController.render(
       partial: 'messages/theirs',
-      locals:{ message: message }
+      locals: { message: }
     )
-    # redirect_to request.referrer
+
     ActionCable.server.broadcast(
-    "room_channel_#{ message.room_id }",  { mine: mine, theirs: theirs, message: message})
+    "room_channel_#{ message.room_id }",  { mine:, theirs:, message: })
   end
 end
 

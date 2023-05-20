@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
   before_action :load_boards
   before_action :load_board
 
-  def current_user
-    current_user ||= super
-  end
-
   def after_sign_in_path_for(resource)
     if ( current_user.boards.empty? )
       @sample_board = current_user.boards.create(name: '專案範例')

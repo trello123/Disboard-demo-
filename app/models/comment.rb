@@ -1,10 +1,7 @@
 class Comment < ApplicationRecord
+  acts_as_paranoid
+
   # relationships
   belongs_to :user
   belongs_to :card
-
-  #軟刪除功能套件給的
-  acts_as_paranoid
-
-
 end

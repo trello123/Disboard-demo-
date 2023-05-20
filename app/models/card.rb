@@ -18,6 +18,10 @@
 #  assigned_to  :string           default("尚未指派")
 #
 class Card < ApplicationRecord
+  acts_as_list scope: :container
+  acts_as_paranoid
+  mount_uploader :avatar, AvatarUploader
+
   validates :title, presence: true
   validate :daybegin_cannot_greater_than_deadline
 
@@ -32,15 +36,10 @@ class Card < ApplicationRecord
   has_one_attached :avatar
 
   # relationships
-  belongs_to :container , optional: true
+  belongs_to :container
   belongs_to :board
   has_one :message
   has_many :comments, dependent: :destroy
-
-  #套件給的
-  acts_as_list scope: :container
-  acts_as_paranoid
-  mount_uploader :avatar, AvatarUploader
 
   enum level: { '待確認': 0, '緊急': 1, '重要': 2, '一般': 3 }
 

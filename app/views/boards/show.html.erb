@@ -6,9 +6,9 @@
         <i class="fa fa-plus"></i>
       </a>
       <menu class="items-wrapper">
-        <%= link_to '', board_rooms_path(@board.id), id:'keyfour', class:'menu-item fa-solid fa-solid fa-comments' %>
+        <%= link_to '', board_rooms_path(@board.id), id: 'keyfour', class:'menu-item fa-solid fa-solid fa-comments' %>
         <%= turbo_frame_tag(@board.id, class:"menu-item") do %>
-        <%= link_to '', new_board_container_path(@board.id), id:'keytwo', class:'fa-solid fa-clipboard' %> 
+        <%= link_to '', new_board_container_path(@board.id), id: 'keytwo', class: 'fa-solid fa-clipboard' %>
         <% end %>
       </menu>
     </div>

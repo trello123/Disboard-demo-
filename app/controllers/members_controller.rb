@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_search
-  
+
   def index
     @users = @board.users
   end

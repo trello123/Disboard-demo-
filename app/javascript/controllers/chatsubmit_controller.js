@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="chatsubmit"
 export default class extends Controller {
-  static targets = [ "submit" , "input" ]
+  static targets = ["submit", "input"]
 
   connect() {
     this.inputTarget.focus()
@@ -17,7 +17,7 @@ export default class extends Controller {
       this.submitTarget.setAttribute("disabled", "")
     }
   }
-  submit(){
+  submit() {
     setTimeout(() => {
       this.inputTarget.value = ""
       this.submitTarget.setAttribute("disabled", "")

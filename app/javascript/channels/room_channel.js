@@ -1,8 +1,7 @@
 import consumer from "./consumer"
 import Swal from "sweetalert2"
 
-
-document.addEventListener('turbo:load', ()=> {
+document.addEventListener('turbo:load', () => {
   const room_element = document.getElementById('room-id')
   if (!room_element) {
     return
@@ -15,23 +14,22 @@ document.addEventListener('turbo:load', ()=> {
       consumer.subscriptions.remove(subscription)
   })
 
-  consumer.subscriptions.create({channel:"RoomChannel", room_id},{
+  consumer.subscriptions.create({channel: "RoomChannel", room_id}, {
     connected() {
       const chatWindow = document.getElementById('chat-window')
       chatWindow.scrollTop = chatWindow.scrollHeight
     },
   
-    disconnected() {
-    },
+    disconnected() {},
   
     received(data) {
       const user_element = document.getElementById('user-id')
       const user_id = Number(user_element.getAttribute('data-user-id'))
       let html
       
-      if(user_id === data.message.user_id){
+      if (user_id === data.message.user_id) {
         html = data.mine 
-      }else{
+      } else {
         html = data.theirs
         successNotify()
       }
@@ -64,6 +62,3 @@ function successNotify(position = "top-end", timer = 2000) {
     title: '您有新訊息',
   })
 }
-
-
-

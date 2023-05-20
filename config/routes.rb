@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root 'homepages#index'
+
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  # resources :cards
   
   resources :boards do
     member do
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     resources :members
     resources :rooms
   end
-  
+
   resources :containers, only: [] do
     resources :cards
   end
@@ -34,23 +35,19 @@ Rails.application.routes.draw do
     end
   end
 
-  #homepage
-  root 'homepages#index'
-  # api(url) = /api/v1/cards/:id/sort
   namespace :api do
     namespace :v1 do
       resources :cards, only: [] do
         member do
           patch :sort
-          delete :remove 
+          delete :remove
         end
       end
       resources :containers, only: [] do
         member do
-          delete :remove 
+          delete :remove
         end
       end
-      # 目前不需要id 所以單數
       resource :calendars
     end
   end

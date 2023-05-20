@@ -26,7 +26,7 @@ class ContainersController < ApplicationController
 
   def edit
     authorize @container.board
-  end 
+  end
 
   def update
     authorize @container.board

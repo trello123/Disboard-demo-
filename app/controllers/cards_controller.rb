@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :find_card, except: [:index, :new, :create]
-  before_action :load_container
+  before_action :find_container
 
   def index
     @cards = @container.cards.order(:position)
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
 
   def edit
     @board = @container.board
-  end 
+  end
 
   def update
     if @card.update(card_params)
@@ -54,8 +54,9 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
   end
 
-  def load_container
+  def find_container
     @container = Container.find(params[:container_id])
+
     authorize @container.board
   end
 end
