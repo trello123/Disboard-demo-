@@ -18,6 +18,13 @@ class Board < ApplicationRecord
   has_one :room, dependent: :destroy
   has_many :cards, dependent: :destroy
 
+  after_create do
+    containers.create(title: '待處理')
+    containers.create(title: '進行中')
+    containers.create(title: '已完成')
+    create_room(name: 'room')
+  end
+
   def container_status
     containers.pluck(:title, :id)
   end

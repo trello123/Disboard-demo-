@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def load_board
     if params[:board_id].present?
-      @board = Board.find(params[:board_id])
+      @board = current_user.boards.find(params[:board_id])
       authorize @board
     end
   end

@@ -1,7 +1,8 @@
+Computer Science and Information Engineering
 class BoardsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_board, except: [:index, :new, :create]
-  before_action :load_containers, only: [:show, :edit]
+  before_action :find_containers, only: [:show, :edit]
 
   def index
     @boards = @boards.page(params[:page]).per(3)
@@ -13,17 +14,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.create(board_params)
-
-    if @board.save
-      @board.containers.create(title: '待處理')
-      @board.containers.create(title: '進行中')
-      @board.containers.create(title: '已完成')
-      @board.create_room(name: 'room')
-
-      redirect_to board_path(@board.id) 
-    else
-      render :record_not_found
-    end
+    redirect_to board_path(@board.id) 
   end
 
   def show
@@ -32,12 +23,13 @@ class BoardsController < ApplicationController
 
   def edit
     authorize @board
-  end 
+  end
 
   def update
     authorize @board
+
     if @board.update(board_params)
-      redirect_to @board
+      redirect_to @board, notice: '更新成功'
     else
       render :record_not_found
     end
@@ -45,8 +37,9 @@ class BoardsController < ApplicationController
 
   def destroy
     authorize @board
+
     @board.destroy
-    redirect_to boards_path 
+    redirect_to boards_path, notice: '刪除成功'
   end
 
   def chart
@@ -62,9 +55,11 @@ class BoardsController < ApplicationController
   end
 
   def find_board
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find(params[:id])
   end
-  def load_containers
-    @containers = Board.find(params[:id]).containers.order(created_at: :asc)
+
+  def find_containers
+    @containers = current_user.boards.find(params[:id]).containers.order(created_at: :asc)
   end
 end
+

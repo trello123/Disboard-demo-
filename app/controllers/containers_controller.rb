@@ -13,7 +13,7 @@ class ContainersController < ApplicationController
   def create
     @container = @board.containers.new(container_params)
     if @container.save
-      redirect_to @board
+      redirect_to @board, notice: '建立成功'
     else
       render :record_not_found
     end

@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_many :board_users, dependent: :destroy
   has_many :boards, through: :board_users, dependent: :destroy
   has_many :comments
+  has_many :messages
 
   class << self
     def from_omniauth(auth)

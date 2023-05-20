@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_comment, only: [:edit, :update, :destroy]
 
   def new
@@ -6,7 +7,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
     if @comment.save
       redirect_to container_card_path(@comment.card.container, @comment.card)
@@ -33,7 +34,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-    params.require(:comment).permit(:intro).merge(user: current_user, card_id: params[:card_id])
+    params.require(:comment).permit(:intro).merge(card_id: params[:card_id])
     end
 
     def find_comment
