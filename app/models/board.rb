@@ -17,4 +17,8 @@ class Board < ApplicationRecord
   has_many :containers, -> { order(:position) }, dependent: :destroy
   has_one :room, dependent: :destroy
   has_many :cards, dependent: :destroy
+
+  def container_status
+    containers.pluck(:title, :id)
+  end
 end

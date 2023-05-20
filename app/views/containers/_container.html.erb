@@ -18,7 +18,7 @@
     <section id="card-list" data-controller="sortable" data-container-id="<%= container.id %>" data-board-id="<%= board.id %>" class="w-full" data-message-target="marking">
       <% container.cards.each do |card| %>
         <div class="w-full group/edit" data-card-id="<%= card.id %>">
-          <% if @light.present? && @locate_card == card.id %>
+          <% if light.present? && locate_card == card.id %>
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing overflow-hidden">
               <div class="flex flex-col ">
                 <div class="flex flex-row justify-start gap-3 mb-0.5 ">

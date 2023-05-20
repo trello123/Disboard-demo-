@@ -41,7 +41,7 @@
           <div class="my-2 overflow-hidden">
             <%= f.label :container_id, '狀態', class: "mr-4" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :container_id, options_for_select(select_container(@card.board), @card.container_id), class: 'box-input w-32 text-md px-1' %>
+              <%= f.select :container_id, options_for_select(@card.board.container_status, @card.container_id), class: 'box-input w-32 text-md px-1' %>
             <% end %>
           </div>
         </div>

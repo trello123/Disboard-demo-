@@ -1,5 +1,5 @@
 <div class="flex h-screen pt-5 overflow-x-scroll lg:pr-20">
-  <%= render partial: "containers/container", collection: @containers, locals: { board: @board } %>
+  <%= render partial: "containers/container", collection: @containers, locals: { board: @board, light: params[:light], locate_card: params[:locate_card].to_i } %>
 
     <div id="circularMenu" class="circular-menu">
       <a class="floating-btn boardlist" onclick="document.getElementById('circularMenu').classList.toggle('active');">

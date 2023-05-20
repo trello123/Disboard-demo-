@@ -16,10 +16,6 @@ module ApplicationHelper
     email.split("@").first
   end
 
-  def select_container(board)
-    board.containers.pluck(:title, :id)
-  end 
-
   def assign_user(board)
     board.users.pluck(:email, :email).unshift(["尚未指派","尚未指派"])
   end

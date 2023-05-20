@@ -28,8 +28,6 @@ class BoardsController < ApplicationController
 
   def show
     authorize @board
-    @light = params[:light]
-    @locate_card = params[:locate_card].to_i
   end
 
   def edit
