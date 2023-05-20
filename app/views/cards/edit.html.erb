@@ -29,16 +29,16 @@
             <% end %>
           </div>
           <div class="flex items-center p-2">
-            <%= f.label :level, '難易度', class: "pr-5 block font-bold" %>
+            <%= f.label :level, '優先順序', class: "pr-5 block font-bold" %>
             <%= f.select :level, Card.level_list, {}, class: "rounded-xl appearance-none daisy-select"  %>
           </div>
           <div class="my-2 overflow-hidden">
-            <%= f.label :daybegin, '開始日期', class: "mr-4" %>
-            <%= f.datetime_field :daybegin, class: 'daybegin ' %>
+            <%= f.label :daybegin, '開始日期', class: "pr-5 block font-bold" %>
+            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
           </div>
           <div class="my-2 overflow-hidden">
-            <%= f.label :deadline, '結束日期', class: "mr-4" %>
-            <%= f.datetime_field :deadline, class: 'deadline' %>
+            <%= f.label :deadline, '結束日期', class: "pr-5 block font-bold" %>
+            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
           </div>
           <div class="my-2 overflow-hidden">
             <%= f.label :container_id, '狀態', class: "mr-4" %>
