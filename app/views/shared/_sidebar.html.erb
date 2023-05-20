@@ -15,22 +15,31 @@
       <% boards.each do |b| %>
         <%= link_to board_path(b.id) do %>
           <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showBoard">
-            <% if board == b %>
+            <% if board == b && b.avatar.attached? %>
+              <%= image_tag board.avatar, class: 'sidebar-icon linkto-icon object-cover' %>
+            <% elsif board == b %>
               <div class=" sidebar-icon linkto-icon">
                 <i class="fa-solid fa-user-group "></i>
               </div>
-            <% else %>
-              <i class="fa-solid fa-user-group "></i>
+            <% elsif b.avatar.attached? %>
+              <%= image_tag b.avatar, class: 'sidebar-icon hover:rounded-xl object-cover' %>
+            <% else %>  
+              <i class="fa-solid fa-user-group"></i>
             <% end %>
             <div class="absolute z-50 flex invisible group-hover:visible left-[82%] w-64 p-5" >
               <p class="relative p-3 text-xl bg-black rounded">
-                <%= b.name %>
+                <% if b.name.present? %>
+                  <%= b.name %>
+                <% else %>
+                  請命名專案
+                <% end %>
                 <div class="absolute w-0 h-0 top-8 left-2 border-t-[15px] border-t-transparent border-r-[15px] border-r-black border-b-[15px] border-b-transparent"></div>
               </p>
             </div>
           </div>
         <% end %>
       <% end %>
+      <%= turbo_frame_tag :board_new do %>
       <%= link_to new_board_path, class: 'sidebar-icon py-5 static addboard' do %>
         <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showTip">
             <i class="fa-solid fa-plus "></i>
@@ -41,6 +50,7 @@
               </p>
             </div>
           </div>
+      <% end %>
       <% end %>
     </div>
     <div data-action="click->navbar#appear" class="lg:hidden">
