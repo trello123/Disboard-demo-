@@ -12,10 +12,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem "tailwindcss-rails", "~> 2.0"
 gem "pg", "~> 1.4"
-gem "annotate", "~> 3.2"
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.6'
-gem "requestjs-rails", "~> 0.0.10"
 gem "acts_as_list", "~> 1.1"
 gem 'omniauth-google-oauth2', '~> 1.1', '>= 1.1.1'
 gem 'omniauth-github', '~> 2.0', '>= 2.0.1'
@@ -34,6 +32,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
   gem "factory_bot_rails", "~> 6.2"
+  gem "annotate", "~> 3.2"
 end
 
 group :development do
