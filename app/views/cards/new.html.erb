@@ -4,7 +4,7 @@
   data-modal-target="cardEdit">
     <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
     <span class="pl-3 text-2xl font-bold">新增任務</span>
-    <%=  form_with(model: @card, url: container_cards_path(@container), data: { turbo: false }) do |f| %>
+    <%=  form_with(model: @card, url: container_cards_path(@container), data: { turbo: false, controller: "flatpickr" }) do |f| %>
       <div class="p-5 bg-white border shadow-3xl rounded-xl">
         <div class="my-3 text-center">
           <%= f.label :title, '任務名稱:', class: "pr-4 font-bold" %>
@@ -31,11 +31,11 @@
           </div>
           <div class="p-2">
             <%= f.label :daybegin, '開始日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :daybegin, class: 'box-input w-32 text-md px-1' %>
+            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
           </div>
           <div class="p-2">
             <%= f.label :deadline, '結束日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :deadline, class: 'box-input w-32 text-md px-1' %>
+            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
           </div>
         </div>
       </div>
