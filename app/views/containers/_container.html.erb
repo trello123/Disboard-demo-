@@ -1,6 +1,6 @@
 <%= turbo_frame_tag(container) do %>
 <div class="min-w-[300px] m-3 px-3">
-  <div class="relative w-full p-5 mt-8 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group">
+  <div class="w-full p-5 mt-8 rounded-md shadow-3xl bg-white-2 first-letter:drop-shadow-2xl group">
     <div class="flex items-center justify-between max-w-[272px] gap-3 mb-1 group/container">
       <%= turbo_frame_tag "edit_container_#{container.id}" do %>
         <div class="flex">
@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <div class="relative">
-      <%= link_to container_path(container.id), method: :delete, data: { confirm: '確定要刪除嗎?' },class: 'absolute -top-3 -right-3 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
+      <%= link_to container_path(container.id), method: :delete, data: { confirm: '確定要刪除嗎?' },class: 'absolute -top-16 -right-10 bg-gray-200 drop-shadow-2xl border border-gray-200  px-2 py-2  w-10 h-10 rounded-full justify-center items-center hover:bg-rose-500 active:-bottom-[2px] hover:bottom-[1px] border-none opacity-90 hidden group-hover:flex' do %>
         <i class="fa-solid fa-xmark"></i>
       <% end %>
     </div>
@@ -23,7 +23,7 @@
             <div class="relative flex justify-between w-full p-3 my-3 bg-white border-orange-1  border-4 rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing overflow-hidden">
               <div class="flex flex-col ">
                 <div class="flex flex-row justify-start gap-3 mb-0.5 ">
-                  <div class="min-w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id), data: { turbo: false }, class:'inline-block w-[100px] pr-2 ' %></div>
+                  <div class="min-w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id), data: { turbo_frame: 'card_show' }, class:'inline-block w-[100px] pr-2 ' %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>
@@ -50,7 +50,7 @@
                 </div>
               </div>
               <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
-                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded", data: {turbo_frame: "card_edit", turbo: false } do %>
+                <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded", data: {turbo_frame: "card_edit"} do %>
                   <i class="m-1 fa-solid fa-pencil"></i>
                 <% end %>
               </div>
@@ -62,7 +62,7 @@
             <div class=" flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
               <div class="flex flex-col">
                 <div class="flex flex-row justify-start gap-3 mb-0.5">
-                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32', data: {turbo_frame: "card_show"} %></div>
+                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id) ,class:'text-ellipsis overflow-hidden pr-2 w-32', data: {turbo_frame: "card_show" } %></div>
                   <div>
                     <%= card_level_badge(card.level) %>
                   </div>
@@ -93,41 +93,9 @@
                   <i class="fa-solid fa-pencil"></i>
                 <% end %>
               </div>
-            </div>
-          <% else %>
-            <div class="relative flex justify-between w-full p-3 my-3 bg-white border rounded-md active:-bottom-[4px] hover:bottom-[2px] shadow-5xl cursor-grabbing">
-              <div class="flex flex-col">
-                <div class="flex flex-row justify-start gap-3 mb-0.5">
-                  <div class="w-[100px] truncate ..."><%= link_to card.title, container_card_path(container, card.id), data: { turbo: false }, class:'inline-block w-[100px] pr-2' %></div>
-                  <div>
-                    <%= card_level_badge(card.level) %>
-                  </div>
-                </div>
-                <div class="flex items-end justify-between gap-1.5">
-                  <% if card.assigned_to != "尚未指派" && current_user.email == card.assigned_to %>
-                    <i class="fa-solid fa-user-tag"></i>
-                  <% elsif card.assigned_to != "尚未指派"%>
-                    <i class="mt-1 fa-solid fa-user"></i>
-                  <% end %>
-                  <span class="flex items-center gap-1 pr-3">
-                  <% if card.deadline.present? && card.daybegin.present?%>
-                    <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_timestamps(card.daybegin, :month_and_day) %> -</p>
-                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
-                  <% elsif card.deadline.present? %>
-                    <i class="fa-regular fa-clock fa-xs"></i>
-                    <p class="text-xs"><%= format_timestamps(card.deadline, :month_and_day) %></p>
-                  <% end %>
-                  </span>          
-                </div>
+              <div>
+                <%= turbo_frame_tag :card_edit %>
               </div>
-              <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
-                <%= link_to edit_container_card_path(container, card.id), data: { turbo: false }, class: "hover:bg-slate-200 hover:rounded" do %>
-                  <i class="m-1 fa-solid fa-pencil"></i>
-                <% end %>
-              </div>
-            <div>
-              <%= turbo_frame_tag :card_edit %>
             </div>
           <% end %>
         </div>
