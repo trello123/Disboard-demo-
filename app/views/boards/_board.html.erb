@@ -1,17 +1,12 @@
-<div class="shadow-3xl card card-side bg-base-100 ">
+<div class="shadow-xl card card-side bg-base-100">
   <%= link_to board_path(board.id) do %>
-    <img src="https://picsum.photos/500/400?random=4" class="w-full h-full rounded-l-xl" >
+    <figure><img src="https://picsum.photos/200/300?image=0" alt="Movie" class=" rounded-l-xl"/></figure>
   <% end %>
   <div class="card-body">
-    <div>
-      <h2 class="text-2xl font-bold"><%= link_to board.name, board_path(board.id) %></h2>
-      <time >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
-      <time >截止時間：</time>
-    </div>
-  </section>
-  <footer>
-      <div class="pb-3 mt-3"><%= link_to '刪除', board_path(board.id), method: 'delete', data: { confirm: '確定要刪除嗎?' }, class: 'btn-danger mx-5' %></div>
-    </footer>
+    <h2 class="card-title"><%= link_to board.name, board_path(board.id) %></h2>
+    <time >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
+    <time >截止時間：</time>
+    <div class="pb-3 mt-3"><%= link_to '刪除', board_path(board.id), method: 'delete', data: { confirm: '確定要刪除嗎?' }, class: 'btn-danger mx-5' %></div>
+  </div>
 </div>
-
     
