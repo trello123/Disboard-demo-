@@ -25,7 +25,7 @@
           <div class="flex items-center px-2 py-5">
             <%= f.label :assigned_to, '負責人', class: "pr-5 font-bold" %>
             <% if @card.errors.any? == false %>
-              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), {}, class: 'box-input w-32 text-md px-1 rounded-xl appearance-none daisy-select' %>
+              <%= f.select :assigned_to, options_for_select(assign_user(@card.board), @card.assigned_to), {}, class: 'box-input w-60 min-w-fit text-md px-3 rounded-xl appearance-none daisy-select' %>
             <% end %>
           </div>
           <div class="flex items-center p-2">

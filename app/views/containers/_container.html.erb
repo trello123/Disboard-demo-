@@ -92,7 +92,7 @@
                   <%= turbo_frame_tag :card_show %>
                 </div>
               </div>
-              <div class="flex items-center justify-center invisible gap-1 group-hover/edit:visible">
+              <div class="flex items-center justify-end invisible w-10 gap-1 group-hover/edit:visible">
                 <%= link_to edit_container_card_path(container, card.id), class: "hover:bg-slate-200 hover:rounded", data: {turbo_frame: "card_edit"} do %>
                   <i class="fa-solid fa-pencil"></i>
                 <% end %>
