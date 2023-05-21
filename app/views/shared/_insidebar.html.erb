@@ -7,14 +7,11 @@
         <% end %>
       </h1>
       <% if container.present? %>
-       
-            <div class="flex items-center justify-start">
-              <h2 class="w-20 text-lg md:w-40 md:text-2xl font-bold text-white truncate ..."><%= board.name %></h2>
-              <div class="flex items-center invisible group-hover:flex group-hover:visible">
-                
-              </div>
-            </div>
-         
+        <div class="flex items-center justify-start">
+          <h2 class="w-20 text-lg md:w-40 md:text-2xl font-bold text-white truncate ..."><%= board.name %></h2>
+          <div class="flex items-center invisible group-hover:flex group-hover:visible">
+          </div>
+        </div>
       <% else %>
         <div class="mr-12 text-lg font-bold text-white md:mr-0 md:text-xl xl:text-2xl">
           <%= format_email(current_user.email) if current_user.present? %>

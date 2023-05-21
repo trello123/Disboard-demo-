@@ -9,7 +9,7 @@ module BoardsHelper
 
   def calculate_done_cards(card, container, column)
     if group_cards_status(container, column)["已完成"].present?
-      "#{(group_cards_status(container, column)["已完成"] / (card.count * 1.0) * 100).round}#{"%"}"
+      "#{(group_cards_status(container, column)["已完成"] / (card.count * 1.0) * 100).round(1)}#{"%"}"
     else
       "-"
     end
