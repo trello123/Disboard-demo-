@@ -12,4 +12,6 @@ class BoardUser < ApplicationRecord
   # relationships
   belongs_to :board
   belongs_to :user
+
+  enum role: { '邀請中': 0, '成員': 1 }
 end

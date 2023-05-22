@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_search
   
   def index
-    @users = @board.users
+    @users = @board.users.where.not(board_users: { role: '邀請中' })
   end
 
   def new

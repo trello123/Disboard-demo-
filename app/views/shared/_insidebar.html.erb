@@ -33,6 +33,7 @@
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
       <% else %>
         <li class="border-b-2 border-white lg:border-none"><%= link_to '專案總表', boards_path, class:'insidebar' %></li>
+        <li class="border-b-2 border-white lg:border-none"><%= link_to '邀請列表', invitations_path, class:'insidebar' %></li>
         <% if current_user.status == "Premium" %>
           <li class="border-b-2 border-white lg:border-none"><%= link_to '會員狀態', payments_path, class:'insidebar' %></li>
         <% else %>
