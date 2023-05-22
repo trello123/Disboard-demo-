@@ -1,43 +1,31 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="h-screen ">
+  <h2 class="p-10 text-2xl font-bold text-center text-white">個人資訊</h2>
+  <div class="px-20">
+    <div class="flex flex-col items-center w-3/4 p-10 m-auto bg-Azure-blue-3 rounded-xl ">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="flex items-center py-5">
+          <%= f.label :username, '暱稱', class:'pr-12' %><br />
+          <%= f.text_field :username, autofocus: true, class:" rounded-xl"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="flex items-center py-5 ">
+          <%= f.label :email, class:'pr-5' %><br />
+          <%= f.email_field :email, autocomplete: "email", class:" rounded-xl" %>
+        </div>
+
+        <div class="flex items-center py-5">
+          <%= f.label :current_password, '確認密碼', class:'pr-5' %><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class:" rounded-xl" %>
+        </div>
+
+        <div class="flex items-center justify-center gap-12 py-3">
+          <%= f.submit "更新", class:"btn-primary hover:bg-Azure-blue-1  inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] w-20 py-3" %>
+          <%= link_to "回上一頁", :back, class:"btn-primary hover:bg-Azure-blue-1  inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] py-3" %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>

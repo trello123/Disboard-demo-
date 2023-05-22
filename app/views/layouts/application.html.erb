@@ -15,12 +15,12 @@
   <body class="overflow-y-scroll lg:overflow-hidden" data-controller='hotkey'>
     <div class="relative flex h-100vh lg:h-screen" >
       <%= render 'shared/sidebar', boards: @boards, board: @board %>
-      <% if  devise_controller? && (controller_name == 'sessions' || controller_name == 'registrations')%>
-        <main class="flex flex-col w-full h-100vh lg:h-screen bg-white-1">  
+      <% if  user_signed_in? == false && (controller_name == 'sessions' || controller_name == 'registrations')%>
+        <main class="flex flex-col w-full h-screen lg:h-screen bg-Azure-blue-1">  
           <%= yield %>
         </main>
       <% else %>
-        <main class="flex flex-col w-full h-100vh lg:h-screen bg-white-1" data-controller="intro">  
+        <main class="flex flex-col w-full h-100vh lg:h-screen bg-Azure-blue-1" data-controller="intro">  
           <%= render 'shared/insidebar', container: @containers, board: @board %>
           <%= yield %>
         </main>

@@ -23,7 +23,7 @@
       <span class="block w-8 h-0.5 bg-white"></span>
       <span class="block w-8 h-0.5 bg-white"></span>
     </div>
-    <ul class="absolute flex-col right-[0%] top-[100%] items-center hidden pr-16 bg-Azure-blue-2 lg:-ml-12 xl:pr-[90px] lg:flex lg:flex-row lg:static lg:pr-20" data-navbar-target="submenu">
+    <ul class="absolute flex-col right-[0%] top-[100%] items-center hidden pr-16 bg-Azure-blue-2 lg:-ml-12 xl:pr-[90px] lg:menurwd" data-navbar-target="submenu">
       <% if board&.id.present? %>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>
@@ -38,6 +38,7 @@
         <% else %>
           <li class="border-b-2 border-white lg:border-none"><%= link_to '前往升級', payments_path, class:'insidebar' %></li>
         <% end %>
+        <li class="border-b-2 border-white lg:border-none lg:text-white"><%= link_to '編輯個人資訊', edit_user_registration_path %></li>
         <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
       <% end %>
     </ul>

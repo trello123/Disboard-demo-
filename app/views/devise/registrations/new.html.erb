@@ -1,46 +1,48 @@
-<section class="w-2/5 p-5 m-auto rounded-lg shadow-2xl bg-white-2">
-  <h2 class="py-5 text-2xl text-center">歡迎加入!</h2>
+<section class=" relative w-[500px] m-auto bg-white-3 rounded-lg shadow-2xl logn z-50">
+  <%= link_to root_path do%>
+    <%= image_tag "logo.png", class:"w-3/5 m-auto pt-10 pb-5" %>
+  <% end %>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <section class="flex flex-col items-center">
       <div class="py-3 form-control">
-        <label class="input-group">
+        <label class="border-2 input-group rounded-xl ">
           <span><%= f.label :username ,'暱稱'%></span>
             <%= f.text_field :username, autofocus: true, class:"input input-bordered" %>
         </label>
       </div>
       <div class="py-3 form-control">
-        <label class="input-group">
+        <label class="border-2 input-group rounded-xl ">
           <span><%= f.label :email ,'信箱'%></span>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input input-bordered" %>
         </label>
       </div>
-      <div class="pt-3 form-control ">
-        <label class="input-group">
+      <div class="p-3 form-control">
+        <label class="border-2 input-group rounded-xl ">
           <span><%= f.label :password ,'密碼'%></span>
           <%= f.password_field :password, autocomplete: "current-password" , class:"input input-bordered"%>
         </label>
       </div>
-      <div class="pt-3 form-control ">
-        <label class="input-group">
+      <div class="pt-3 form-control">
+        <label class="border-2 input-group rounded-xl">
           <span><%= f.label :password_confirmation , '確認密碼' %></span>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input input-bordered" %>
         </label>
       </div>
 
-      <div class="flex flex-col items-center p-3 ">
-        <%= f.submit "註冊" , class:"btn btn-wide"%>
-        <p class="text-sm"> 已經有帳號了嗎？ <%= link_to "登入", new_session_path(resource_name), class:"text-Azure-blue-3" %></p>
+      <div class="flex flex-col items-center p-3">
+        <%= f.submit "註冊" , class:"bg-Azure-blue-1 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer"%>
+        <p class="text-sm"> 已經有帳號了嗎？ <%= link_to "登入", new_session_path(resource_name), class:"text-black" %></p>
       </div>
     
-      <div class="flex justify-center w-48 gap-2 pt-3 border-t-2 border-black">
+      <div class="flex justify-center w-48 gap-2 p-3 border-t-2">
         <% if devise_mapping.omniauthable? %>
           <% resource_class.omniauth_providers.each do |provider| %>
             <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, method: :post, class: 'pt-3' do %>
               <% if provider == :google_oauth2 %>
-                <img src="/assets/google_icon.png" alt="Google" class="w-[50px] h-[50px] bg-white rounded-full relative  hover:top-[2px] active:top-[4px]">
+                <img src="/assets/google_icon.png" alt="Google" class="hover:border hover:border-orange-2 w-[50px] h-[50px] bg-white rounded-full relative  hover:top-[2px] active:top-[4px]">
               <% elsif provider == :github %>
-                <img src="/assets/github-mark.png" alt="Github" class="w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
+                <img src="/assets/github-mark.png" alt="Github" class=" hover:border hover:border-orange-2 w-[50px] h-[50px] bg-white rounded-full relative hover:top-[2px] active:top-[4px]">
               <% end %>
             <% end %>
           <% end %>
