@@ -1,6 +1,6 @@
 <%= turbo_frame_tag :board_new do %>
   <div class="absolute z-30 flex p-3 m-4 rounded-md w-[350px] bg-slate-200 drop-shadow-2xl">
-    <%= form_with(model: @board) do |f| %>
+    <%= form_with(model: @board, data: { turbo: false }) do |f| %>
       <div class="flex items-center my-2">
         <%= f.text_field :name, class: 'box-input', placeholder: '請輸入專案名稱' %>
       </div>
