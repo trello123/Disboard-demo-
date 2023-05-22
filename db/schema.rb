@@ -125,6 +125,18 @@ ActiveRecord::Schema.define(version: 2023_05_21_131506) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -144,6 +156,7 @@ ActiveRecord::Schema.define(version: 2023_05_21_131506) do
     t.string "provider"
     t.string "uid"
     t.string "username"
+    t.datetime "last_seen_at"
     t.string "status", default: "normal"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
