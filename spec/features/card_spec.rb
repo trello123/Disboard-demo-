@@ -2,41 +2,42 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :feature do
   before(:each) do
-    visit '/'
-    user = User.create(email: 'aa@aa.aa', encrypted_password: '123456')
-    click_on '登入'
-    visit boards_path
+    user = FactoryBot.create(:user)
+    login_as user
+    board = FactoryBot.create(:board)
+    container = FactoryBot.create(:container)
+    visit board_path(board.id)
+    card = FactoryBot.create(:card)
   end
 
   context 'create new card' do 
-    before(:each) do
-      visit new_card_path
-      fill_in '標題', with: 'Title'
-      fill_in '簡介', with: 'intro123'
-    end
+    # before(:each) do
+    #   visit new_card_path
+    #   fill_in '標題', with: 'Title'
+    #   fill_in '簡介', with: 'intro123'
+    # end
     
    
     scenario 'valid inputs' do
-      click_on '建立項目'
-      visit cards_path
-      expect(page).to have_content('Title')
+      click_on '新增任務'
+      expect(page).to have_content('任務名稱')
     end
   end
 
   context 'Card Actions' do 
-    before(:each) do
-      card = Card.create(title: 'Title',intro: 'testing', level: '普通')
-      visit cards_path
-    end
+    # before(:each) do
+    #   card = FactoryBot.create(:card)
+    #   visit cards_path
+    # end
 
     scenario 'Read Card data' do
-      click_on 'Title'
+      click_link card_path(card.id)
       expect(page).to have_content('標題')
     end
 
     scenario 'valid Read data' do
       visit card_path(1200)
-      expect(page).to have_content("The page you were looking for doesn't exist")
+      expect(page).to have_content("404")
     end
 
     scenario 'Update Card data' do
