@@ -255,6 +255,14 @@
   .menurwd{
     @apply flex flex-row static pr-20
   }
+  .trash:hover:after{
+    content: '刪除卡片';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 80px;
+    font-size: 15px;
+  }
 }
 
 

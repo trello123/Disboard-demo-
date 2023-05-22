@@ -1,7 +1,7 @@
 <div class="w-full py-5 mt-16 ml-40">
   <%= turbo_frame_tag @comment.id do %>
     <div class="w-full m-auto mt-4">
-      <%= form_for(@comment, url:card_comment_path ) do|f| %>
+      <%= form_for(@comment, url:card_comment_path, data:{turbo: false} ) do|f| %>
         <%= f.text_area :intro%> <br>
         <div>
           <%= f.submit'修改', class: "p-2 mt-4 text-gray-800 border-2 rounded-xl hover:bg-gray-200 "%>

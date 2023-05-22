@@ -1,11 +1,16 @@
 <%= turbo_frame_tag :card_edit do%>
-<div class="absolute top-0 w-[90%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll animate-sidein" 
+<div class="absolute top-0 w-[100%] right-0 z-10 h-screen bg-white-3 rounded-l-xl p-10 overflow-y-scroll animate-sidein lg:w-[90%]" 
     data-controller="modal" 
     data-modal-target="cardEdit">
   <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
-  <span class="pl-3 text-2xl font-bold">更新任務</span>
-  <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr" }) do |f| %>
-    <div class="p-5 bg-white rounded-md drop-shadow-2xl over">
+  <span class="text-2xl font-bold ">更新任務</span>
+  <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr" }, class:"py-6") do |f| %>
+    <div class="p-5 bg-white rounded-md drop-shadow-2xl">
+      <div class="text-2xl text-right">
+      <%= link_to container_card_path(@container.id, @card.id), method: 'delete', data: { confirm: '確定要刪除嗎?' } do %>
+        <i class="relative fa-solid fa-trash-can hover:text-orange-2 trash"></i>
+      <% end %>
+      </div>
       <div class="my-3 text-center">
         <%= f.label :title, '任務名稱', class: "pr-4 font-bold" %>
         <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入標題名稱' %>
@@ -48,9 +53,8 @@
           </div>
         </div>
       </div>
-      <div class="relative flex items-center justify-center gap-12 pb-3">
-        <div><%= f.submit '更新', class: 'btn-primary inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1' %></div>
-         <div class="absolute right-12"><%= link_to '刪除',container_card_path(@container.id, @card.id), method: 'delete', data: { confirm: '確定要刪除嗎?' }, class: 'btn-danger inline-block relative text-center btn-primary active:-bottom-[2px] hover:bottom-[1px] mt-5 w-20 py-1 rounded-lg' %></div>
+      <div class="relative flex items-center justify-center gap-12 py-3">
+        <div><%= f.submit '更新', class: 'bg-Azure-blue-1 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer' %></div>
       </div>
     </div>
   <% end %>
