@@ -18,6 +18,10 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include Warden::Test::Helpers, type: :feature
+  config.include FactoryBot::Syntax::Methods
 end
 
-Capybara.default_driver = :selenium_chrome
+Capybara.default_driver = :selenium_chrome_headless
+Capybara.default_max_wait_time = 5
+Capybara.app_host = 'http://127.0.0.1:3001'
+Capybara.server_port = 3001
