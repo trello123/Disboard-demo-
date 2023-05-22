@@ -48,7 +48,9 @@ class BoardsController < ApplicationController
 
   def destroy
     authorize @board
-    @board.destroy
+
+    board_user = current_user.board_users.find_by!(board_id: @board.id)
+    board_user.destroy
     redirect_to boards_path 
   end
 
