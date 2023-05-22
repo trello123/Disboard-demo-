@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_boards
-    @boards = current_user.boards.order(created_at: :desc) if current_user
+    @boards = current_user.boards.where.not(board_users: { role: '邀請中' }).order(created_at: :desc) if current_user
   end
 
   def load_board

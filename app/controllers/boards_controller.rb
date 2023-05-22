@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
     @board = current_user.boards.create(board_params)
 
     if @board.save
+      current_user.board_users.find_by!(board_id: @board.id).update(role: '成員')
       @board.containers.create(title: '待處理')
       @board.containers.create(title: '進行中')
       @board.containers.create(title: '已完成')

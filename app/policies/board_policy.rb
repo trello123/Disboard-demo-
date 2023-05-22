@@ -2,7 +2,7 @@ class BoardPolicy < ApplicationPolicy
   def index?
     return false if @user.nil?
 
-    @user.boards.exists?(@record.id)
+    @user.boards.exists?(@record.id) && @user.board_users.find_by!(board_id: @record.id).role != '邀請中'
   end
 
   def new?
