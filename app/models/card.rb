@@ -29,7 +29,6 @@ class Card < ApplicationRecord
 
   # 文字編輯器
   has_rich_text :intro
-  has_one_attached :avatar 
 
   # relationships
   belongs_to :container , optional: true
