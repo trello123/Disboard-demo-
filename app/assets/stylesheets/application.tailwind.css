@@ -258,8 +258,8 @@
   .trash:hover:after{
     content: '刪除卡片';
     position: absolute;
-    top: -50%;
-    right: -50%;
+    top: -100%;
+    right: -100%;
     width: 80px;
     font-size: 15px;
   }

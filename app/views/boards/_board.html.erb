@@ -1,9 +1,9 @@
 <div class="shadow-xl card card-side bg-base-100 aspect-video">
   <%= link_to board_path(board.id) do %>
     <% if board.avatar.attached? %>
-      <%= image_tag board.avatar, class: 'w-[300px] h-[245px] rounded-l-xl ' %>
+      <%= image_tag board.avatar, class: 'h-full  object-cover w-[300px] rounded-l-xl ' %>
     <% else %>
-      <figure><img src="https://picsum.photos/300/245?image=0" alt="Movie" class=" rounded-l-xl"/></figure>
+      <figure><img src="https://picsum.photos/300/200?image=0" alt="Movie" class="h-full rounded-l-xl"/></figure>
     <% end %>
   <% end %>  
   <div class="card-body">
@@ -17,7 +17,7 @@
         <% end %>
       </button>
       <button>
-        <%= link_to '離開', board_path(board.id), method: 'delete', data: { confirm: '確定要離開嗎?' }, class: 'btn-danger' %>
+        <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'btn-danger' %>
       </button>
     </div>
   </div>
