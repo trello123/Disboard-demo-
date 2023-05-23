@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   before_action :load_containers, only: [:show, :edit]
 
   def index
-    @boards = @boards.page(params[:page]).per(3)
+    @boards = @boards.page(params[:page]).per(4)
   end
 
   def new
