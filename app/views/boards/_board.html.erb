@@ -1,9 +1,9 @@
 <div class="shadow-xl card card-side bg-base-100 aspect-video">
   <%= link_to board_path(board.id) do %>
     <% if board.avatar.attached? %>
-      <%= image_tag board.avatar, class: 'h-full  object-cover w-[300px] rounded-l-xl ' %>
+      <%= image_tag board.avatar, class: 'w-[300px] h-[250px] rounded-l-xl' %>
     <% else %>
-      <figure><img src="https://picsum.photos/300/200?image=0" alt="Movie" class="h-full rounded-l-xl"/></figure>
+      <figure><img src="https://picsum.photos/300/200?image=0" alt="Movie" class="object-cover rounded-l-xl"/></figure>
     <% end %>
   <% end %>  
   <div class="card-body">

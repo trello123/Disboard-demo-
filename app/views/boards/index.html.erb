@@ -1,12 +1,13 @@
 <section class="relative flex flex-col items-center w-full h-full lg:overflow-y-scroll bg-Azure-blue-1">
-  <span class="mt-16 mb-20 ml-5 text-3xl font-bold text-white">
+  <span class="mt-16 mb-20 text-3xl font-bold text-white">
     <% if current_user.username.present? %>
       <%= current_user.username%>
+    <% else %>
+      <%= format_email(current_user.email) %>
     <% end %>
-    <%= format_email(current_user.email) %>
     的專案列表
   </span>
-  <div class="flex flex-col justify-center gap-10 p-5 xl:flex-row xl:flex-wrap">
+  <div class="flex flex-col gap-5 px-20 py-5 mx-14 xl:flex-row xl:flex-wrap">
     <%= render @boards %>
   </div>
   <div class="text-xl text-white bottom-5">
