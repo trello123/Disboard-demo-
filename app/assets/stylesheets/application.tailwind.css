@@ -10,6 +10,12 @@
   .btn-danger {
     @apply px-3 py-1 rounded bg-rose-600 text-rose-50 hover:bg-rose-700
   }
+  .card-btn{
+    @apply bg-Azure-blue-1 hover:bg-Azure-blue-2 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer
+  }
+  .card-close{
+    @apply bg-gray-400 text-white rounded-xl  py-2 px-20 
+  }
   .long-page{
     @apply 
   }
