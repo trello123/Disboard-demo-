@@ -1,6 +1,6 @@
-<%= search_form_for q, url: new_board_member_path, data: { controller: "searchbar"} , class: "flex gap-2" do |f| %>
-  <%= f.search_field :email_not_cont, class: "rounded-md w-[400px]", placeholder: "請輸入email或名稱" %>
-  <%= button_tag '', type: 'submit', data: { action: "click->search" }  do %>
+<%= search_form_for q, url: new_board_member_path, class: "flex gap-2" do |f| %>
+  <%= f.search_field :email_or_username_cont, class: "rounded-md w-[400px]", placeholder: "請輸入email或名稱" %>
+  <%= button_tag '', type: 'submit' do %>
     <i class="text-Azure-blue-2 fa-solid fa-magnifying-glass"></i>
   <% end %>
 <% end %>
