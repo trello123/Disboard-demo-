@@ -53,7 +53,10 @@ export default class extends Controller {
     intro.oncomplete(function() {
       // Set introCompleted flag in localStorage
       localStorage.setItem('introCompleted', 'true');
-    });
+    })  
+    intro.onbeforeexit(function() {
+      localStorage.setItem('introCompleted', 'true');
+    })
 
     intro.start();
   }
