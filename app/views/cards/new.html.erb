@@ -9,7 +9,7 @@
         <div class="my-3 text-center">
           <%= f.label :title, '任務名稱:', class: "pr-4 font-bold" %>
           <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入任務名稱', data:{modal_target:'title'}%>
-          <div class="w-full p-2 rounded-lg ">
+          <div class="w-full p-2 text-left rounded-lg">
             <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
           </div>
           <% if @card.errors.any? %>
