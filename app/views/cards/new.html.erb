@@ -1,11 +1,11 @@
 <%= turbo_frame_tag :card_new do%>
-  <div class="h-screen p-10 bg-white-3 rounded-l-xl absolute top-0 w-[90%] right-0 z-10 animate-sidein" 
+  <div class="h-[100%] mx-auto py-10 px-5 bg-white-3 rounded-l-xl absolute top-0 w-[100%] right-0 z-10 animate-sidein lg:w-[90%] lg:p-10" 
   data-controller="modal" 
   data-modal-target="cardEdit">
     <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
     <span class="pl-3 text-2xl font-bold">新增任務</span>
     <%=  form_with(model: @card, url: container_cards_path(@container), data: { turbo: false, controller: "flatpickr" }, class:"py-5") do |f| %>
-      <div class="p-5 bg-white border shadow-3xl rounded-xl">
+      <div class="p-5 mx-auto bg-white border shadow-3xl rounded-xl">
         <div class="my-3 text-center">
           <%= f.label :title, '任務名稱:', class: "pr-4 font-bold" %>
           <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入任務名稱', data:{modal_target:'title'}%>

@@ -38,7 +38,7 @@
         <% else %>
           <li class="border-b-2 border-white lg:border-none"><%= link_to '前往升級', payments_path, class:'insidebar' %></li>
         <% end %>
-        <li class="border-b-2 border-white lg:border-none lg:text-white"><%= link_to '編輯個人資訊', edit_user_registration_path %></li>
+        <li class="border-b-2 border-white lg:border-none lg:text-white"><%= link_to '編輯個人資訊', edit_user_registration_path, class:'insidebar'  %></li>
         <li><%= link_to '登出', destroy_user_session_path, method:"delete", class:'insidebar' %></li>
       <% end %>
     </ul>
