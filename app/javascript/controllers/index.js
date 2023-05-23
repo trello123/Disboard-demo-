@@ -34,5 +34,8 @@ application.register("modal", ModalController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import NewcardController from "./newcard_controller"
+application.register("newcard", NewcardController)
+
 import SortableController from "./sortable_controller"
 application.register("sortable", SortableController)
