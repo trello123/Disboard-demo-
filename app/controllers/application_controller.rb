@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if ( current_user.boards.empty? )
       @sample_board = current_user.boards.create(name: '專案範例')
+      current_user.board_users.find_by!(board_id: @sample_board.id).update(role: '成員')
       3.times do
         @sample_board.containers.create(title: "狀態範例")
       end
