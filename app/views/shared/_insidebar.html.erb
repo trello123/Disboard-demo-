@@ -1,9 +1,9 @@
 <section class="relative z-10 w-full shadow-lg bg-Azure-blue-2 h-[60px]" data-controller="navbar">
-  <div class="relative flex items-center justify-center py-3 ml-8 lg:justify-between group">
+  <div class="relative flex items-center justify-center py-3 -ml-20 lg:justify-between group">
     <div class="flex items-center gap-6 md:gap-10 lg:gap-12 xl:gap-32">
       <h1>
         <%= link_to root_path do %>
-          <%= image_tag image_url("logo"), class:"w-[120px] md:w-[140px] lg:w-[170px] invert" %>
+          <%= image_tag image_url("logo"), class:" w-[120px] md:w-[140px] lg:w-[170px] invert" %>
         <% end %>
       </h1>
       <% if container.present? %>
@@ -18,7 +18,7 @@
         </div>
       <% end %>
     </div>
-    <div class="hover:cursor-pointer absolute left-[90%] space-y-2 lg:hidden"  data-action="click->navbar#show">
+    <div class="hover:cursor-pointer absolute left-[85%] space-y-2 lg:hidden"  data-action="click->navbar#show">
       <span class="block w-8 h-0.5 bg-white"></span>
       <span class="block w-8 h-0.5 bg-white"></span>
       <span class="block w-8 h-0.5 bg-white"></span>
