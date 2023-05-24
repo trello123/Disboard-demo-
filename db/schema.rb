@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_21_131506) do
+ActiveRecord::Schema.define(version: 2023_05_24_092915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 2023_05_21_131506) do
     t.datetime "daybegin"
     t.datetime "deadline"
     t.datetime "deleted_at"
-    t.string "avatar"
     t.bigint "board_id"
     t.string "assigned_to", default: "尚未指派"
+    t.string "avatar"
     t.index ["board_id"], name: "index_cards_on_board_id"
     t.index ["container_id"], name: "index_cards_on_container_id"
     t.index ["deleted_at"], name: "index_cards_on_deleted_at"

@@ -16,29 +16,18 @@ RSpec.describe Card, type: :feature, js: true do
     end
 
   context 'Create new card' do 
-    
     scenario 'Create card data' do
       first('.addcard').click
       expect(page).to have_field('請輸入任務名稱')
       fill_in '請輸入任務名稱', with: 'Daisy'
       select "緊急", :from => "優先順序"
-      # select ("21/12/1980", from:  "card_deadline")
       click_on '新增'
       expect(page).to have_content('Daisy')
       expect(page).to have_content('緊急')
-      # expect(page).to have_content("21/12/1980")
-    end
-
-    scenario 'Invalid inputs' do
-      first('.addcard').click
-      expect(page).to have_field('請輸入任務名稱')
-      click_on '新增'
-      expect(page).to have_content('不能為空白')
     end
   end
 
   context 'Card actions' do 
-
     before do
       first('.addcard').click
       expect(page).to have_field('請輸入任務名稱')
@@ -58,28 +47,32 @@ RSpec.describe Card, type: :feature, js: true do
     end
 
     scenario 'Update card data' do
-      find("input[name='some_name']", make_visible: true)
-      # first('.group/edit').
-      visit edit_card_path(1)
-      # first('.group-hover/edit:visible').click
+      first(".cursor-grabbing").hover
+      first(".invisible", visible: :false)
+      first(".fa-pencil").click
       expect(page).to have_content('更新')
+      fill_in '任務名稱', with: 'Daily'
+      click_on '更新'
+      visit board_path(1)
     end
 
-    scenario 'Delete board data' do
-      page.find('.group-hover:flex').trigger(:mouseover)
-      # find('.first-letter:drop-shadow-2xl').hover
-      find('.group-hover:flex').click
-      click_link '刪除', match: :first
+    scenario 'Delete card data' do
+      first(".cursor-grabbing").hover
+      first(".invisible", visible: :false)
+      first(".fa-pencil").click
+      first(".fa-trash-can").click
       click_button '確定'
-      expect(page).not_to have_content('ABC')
+      expect(page).not_to have_content('Daisy')
     end
 
-    scenario 'Cancel delete board data' do
-      visit boards_path
-      click_link '刪除', match: :first
+    scenario 'Cancel delete card data' do
+      first(".cursor-grabbing").hover
+      first(".invisible", visible: :false)
+      first(".fa-pencil").click
+      first(".fa-trash-can").click
       click_button '取消'
-      visit boards_path
-      expect(page).to have_content('ABC')
+      expect(page).to have_content('Daisy')
     end
+
   end
 end

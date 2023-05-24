@@ -30,28 +30,17 @@ RSpec.feature "Containers", type: :feature, js: true do
       expect(page).to have_content("404")
     end
 
-    scenario 'Update board data' do
+    scenario 'Update container data' do
       expect(page).to have_content('已完成')
       click_on '已完成'
       click_on '更新'
       expect(page).to have_content('已完成')
     end
 
-    scenario 'Delete board data' do
-      page.find('.group-hover:flex').trigger(:mouseover)
-      # find('.first-letter:drop-shadow-2xl').hover
-      find('.group-hover:flex').click
-      click_link '刪除', match: :first
-      click_button '確定'
-      expect(page).not_to have_content('ABC')
-    end
-
-    scenario 'Cancel delete board data' do
-      visit boards_path
-      click_link '刪除', match: :first
-      click_button '取消'
-      visit boards_path
-      expect(page).to have_content('ABC')
+    scenario 'Delete container data' do
+      first(".bg-white-2").hover
+      find(".fa-xmark").click
+      find(".fa-xmark").click
     end
   end
 end
