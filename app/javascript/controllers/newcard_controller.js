@@ -8,13 +8,11 @@ export default class extends Controller {
 
     if (content != "") {
       // 開
-      this.buttonTarget.classList.remove("card-close")
-      this.buttonTarget.classList.add("card-btn")
+      this.buttonTarget.classList.replace("card-close", "card-btn")
       this.buttonTarget.removeAttribute("disabled")
     } else {
       // 關
-      this.buttonTarget.classList.remove("card-btn")
-      this.buttonTarget.classList.add("card-close")
+      this.buttonTarget.classList.replace("card-btn", "card-close")
       this.buttonTarget.setAttribute("disabled", "")
     }
   }
