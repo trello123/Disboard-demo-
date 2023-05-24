@@ -261,6 +261,11 @@
   .menurwd{
     @apply flex flex-row static pr-20
   }
+  .menu-list{
+    width: 300px;
+    padding: 10px 10px;
+    z-index: 999;
+  }
   .trash:hover:after{
     content: '刪除卡片';
     position: absolute;
