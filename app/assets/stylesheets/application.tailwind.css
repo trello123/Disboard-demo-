@@ -51,7 +51,7 @@
     @apply w-4/5 sm:w-1/2 absolute flex flex-col items-center justify-center py-10 bg-white-1 top-60 rounded-md shadow-2xl
   }
   .box-input{
-    @apply rounded-xl  text-black w-48
+    @apply rounded-xl  text-black w-3/4
   }
   .insidebar{
     @apply px-5 py-2 text-white font-bold items-center hover:text-text-1 rounded-xl inline-block

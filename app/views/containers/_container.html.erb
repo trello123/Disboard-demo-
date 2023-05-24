@@ -106,7 +106,7 @@
       <% end %>
     </section>
     <div class="flex items-center justify-end " data-controller="modal">
-      <%= link_to new_container_card_path(container.id), data: { turbo_frame:"card_new", action:'click->modal#open' },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group addcard text-orange-2 font-bold' do %>
+      <%= link_to new_container_card_path(container.id), data: { turbo_frame:"card_new" },id:"keyone", class: 'pr-5 py-2 text-sm rounded-xl text-gray-800 hover:bg-gray-200 relative group addcard text-orange-2 font-bold' do %>
         <i class="p-2 fa-solid fa-plus "></i>
         <span>新增任務</span>
       <% end %>
