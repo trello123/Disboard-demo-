@@ -6,7 +6,11 @@ class MembersController < ApplicationController
   end
 
   def new
-    @users = @q.result.find_users_not_in_board(params[:board_id]).select(:id, :email, :username)
+    if params[:q].present? && params[:q][:email_or_username_cont].present? && params[:q][:email_or_username_cont].length >= 2
+      @users = @q.result.find_users_not_in_board(params[:board_id]).select(:id, :email, :username).limit(5)
+    else
+      @users = []
+    end
   end
 
   def create

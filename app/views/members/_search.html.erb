@@ -1,5 +1,5 @@
 <%= search_form_for q, url: new_board_member_path, class: "flex gap-2" do |f| %>
-  <%= f.search_field :email_or_username_cont, class: "rounded-md w-[400px]", placeholder: "請輸入email或名稱" %>
+  <%= f.search_field :email_or_username_cont, class: "rounded-md w-[400px]", placeholder: "請輸入email或名稱", minlength: "2", required: true %>
   <%= button_tag '', type: 'submit' do %>
     <i class="text-Azure-blue-2 fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
   <% end %>
