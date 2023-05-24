@@ -1,9 +1,9 @@
-<section class="container w-screen py-36 ">
-  <section class="flex flex-col md:flex-row justify-center items-center mx-auto xl:pl-36 max-w-500 md:max-w-[700px] lg:md:max-w-[900px] xl:max-w-full gap-16 lg:gap-32 p-5">
+<section class="container w-full py-36 ">
+  <section class="flex flex-col md:flex-row justify-center items-center mx-auto  md:max-w-[700px] lg:max-w-[900px] xl:max-w-full gap-16 lg:gap-32 p-5">
     <div class="relative self-center md:flex logo-background">
       <%= image_tag "homepage_logo.svg", class: "w-[300px] md:w-[350px] lg:w-[900px] z-10 relative bg-white p-5 border border-[#E25B34]" %>
     </div>
-    <div class="md:max-w-[500px]  lg:w-full flex flex-col justify-center">
+    <div class="md:max-w-[500px]  lg:w-full flex flex-col items-center">
       <div class="max-w-[300px]"><%= image_tag "logo.png", class: "scale-115 lg:scale-150" %></div>
       <div class="flex flex-col pt-6 w-fit xl:items-start">
         <% if user_signed_in? %>
@@ -11,51 +11,54 @@
         <% else %>
           <div>
             <p class="pb-10 text-xl font-semibold">最輕鬆省力的專案管理平台！</p>
-            <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
-            <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
+            <div class ="flex w-max">
+              <%= link_to '登入' , new_user_session_path  , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigin" , action: "click->modal#open"} %>
+              <%= link_to '註冊' , new_user_registration_path , class:" btn-logn mx-4 py-[12px] px-[32px] text-[#E25B34] hover:text-white bg-white border border-[#E25B34] hover:bg-[#E25B34]", data: {turbo_frame: "sigup" , action: "click->modal#open"}%>
+            </div>
+            
           </div>
         <% end %>
       </div>
     </div>
   </section>
  
-  <section class="container pt-40 ">
+  <section class="container px-8 pt-40 overflow-hidden">
     <h2 class="py-5 text-3xl font-bold text-black">功能介紹</h2>
-    <div class="flex flex-col-reverse grid-cols-2 mt-10 lg:grid">
-      <div class="flex flex-col justify-center text-gray-600">
-        <h3 class="py-5 ml-auto text-3xl font-bold text-black">任務列表</h3>
+    <div class="flex flex-col-reverse grid-cols-2 px-8 my-5 lg:grid">
+      <div class="flex flex-col justify-center mb-5 text-gray-600">
+        <h3 class="py-5 pr-1 ml-auto text-3xl font-bold text-black">任務列表</h3>
         <p>專注於效率，我的工作管理網站提供一個強大的任務列表功能。無論您是個人使用還是團隊合作，這個功能都能讓您輕鬆組織和追蹤您的工作。不再遺漏重要任務！透過清晰的界面和易於使用的工具，您可以快速添加、編輯和排定任務。</p>
       </div>
       <div class="w-4/5 mx-auto">
         <%= image_tag "7.png", class:"w-full" %>
       </div>
     </div>
-  </div>
-  <div class="grid grid-cols-1 px-8 pb-5 my-5 rounded-lg bg-white-2 lg:grid-cols-2" data-controller="aos" data-aos="fade-left" data-aos-duration="1000">
-    <div class="w-4/5 mx-auto">
-      <%= image_tag "6.png", class:"w-full" %>
+    <div class="grid grid-cols-1 px-8 pb-5 my-5 rounded-lg bg-white-2 lg:grid-cols-2" data-controller="aos" data-aos="fade-left" data-aos-duration="1000">
+      <div class="w-4/5 mx-auto">
+        <%= image_tag "6.png", class:"w-full" %>
+      </div>
+      <div class="flex flex-col justify-center mb-5 text-gray-600">
+        <h3 class="py-5 text-3xl font-bold text-black">群組功能</h3>
+        <p>透過的群組功能，您可以輕鬆組織和管理專案成員，促進即時協作、無縫溝通，實現高效專案管理，共同攜手達成優秀成果。</p>
+      </div>
     </div>
-    <div class="flex flex-col justify-center text-gray-600">
-      <h3 class="py-5 text-3xl font-bold text-black">群組功能</h3>
-      <p>透過的群組功能，您可以輕鬆組織和管理專案成員，促進即時協作、無縫溝通，實現高效專案管理，共同攜手達成優秀成果。</p>
+    <div class="flex flex-col-reverse grid-cols-2 px-8 my-5 lg:grid">
+      <div class="flex flex-col justify-center mb-5 text-gray-600">
+        <h3 class="py-5 pr-1 ml-auto text-3xl font-bold text-black">即時聊天</h3>
+        <p>聊天室功能提供即時交流與討論，方便團隊成員快速分享想法、共享資源，透過檔案分享，輕鬆促進團隊合作與創意共享，提升專案溝通效率，共同打造卓越成果。</p>
+      </div>
+      <div class="w-4/5 mx-auto">
+        <%= image_tag "9.png", class:"w-full" %>
+      </div>
     </div>
-  </div>
-  <div class="flex flex-col-reverse grid-cols-2 px-8 my-5 lg:grid">
-    <div class="flex flex-col justify-center text-gray-600">
-      <h3 class="py-5 pr-1 ml-auto text-3xl font-bold text-black">即時聊天</h3>
-      <p>聊天室功能提供即時交流與討論，方便團隊成員快速分享想法、共享資源，透過檔案分享，輕鬆促進團隊合作與創意共享，提升專案溝通效率，共同打造卓越成果。</p>
+    <div class="grid grid-cols-1 px-8 pb-5 my-5 rounded-lg bg-white-2 lg:grid-cols-2" data-controller="aos" data-aos="fade-right" data-aos-duration="1500">
+      <div class="w-4/5 mx-auto">
+        <%= image_tag "8.png", class:"w-full" %>
+      </div>
+      <div class="flex flex-col justify-center mb-5 text-gray-600">
+        <h3 class="py-5 text-3xl font-bold text-black">日曆功能</h3>
+        <p>完善的日曆功能助您輕鬆統整專案時間表、任務和重要事件，方便團隊成員共享和查看，提醒與追蹤待辦事項，確保專案進度掌握無遺，讓您有效管理時間、協調安排，實現順利的專案執行與時程掌控。</p>
+      </div>
     </div>
-    <div class="w-4/5 mx-auto">
-      <%= image_tag "9.png", class:"w-full" %>
-    </div>
-  </div>
-  <div class="grid grid-cols-1 px-8 pb-5 my-5 rounded-lg bg-white-2 lg:grid-cols-2" data-controller="aos" data-aos="fade-right" data-aos-duration="1500">
-    <div class="w-4/5 mx-auto">
-      <%= image_tag "8.png", class:"w-full" %>
-    </div>
-    <div class="flex flex-col justify-center text-gray-600">
-      <h3 class="py-5 text-3xl font-bold text-black">日曆功能</h3>
-      <p>完善的日曆功能助您輕鬆統整專案時間表、任務和重要事件，方便團隊成員共享和查看，提醒與追蹤待辦事項，確保專案進度掌握無遺，讓您有效管理時間、協調安排，實現順利的專案執行與時程掌控。</p>
-    </div>
-  </div>
+  </section>  
 </section>
