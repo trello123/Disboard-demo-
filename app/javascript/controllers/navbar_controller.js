@@ -12,5 +12,6 @@ export default class extends Controller {
 
   show() {
     this.submenuTarget.classList.toggle("hidden")
+    this.submenuTarget.classList.toggle("menu-list")
   }
 }
