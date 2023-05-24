@@ -9,22 +9,20 @@
     <% end %>  
   </div>
   <div class="px-4 py-3 w-72">
-    <div class="">
-      <div>
-        <h2 class="font-bold "><%= link_to board.name, board_path(board.id) %></h2>
-        <time class="block py-3" >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
-        <time >截止時間：</time>
-      </div>
-      <div class="py-3">
-        <button>
-          <%= turbo_frame_tag(board.id) do %>
-            <%= link_to '編輯', edit_board_path(board.id), class: 'px-5 py-2 bg-Azure-blue-2 text-white rounded-lg hover:bg-Azure-blue-1' %>
-          <% end %>
-        </button>
-        <button>
-          <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'px-5 py-2 bg-orange-2 text-white rounded-lg hover:bg-orange-500' %>
-        </button>
-      </div>
+    <div>
+      <h2 class="font-bold "><%= link_to board.name, board_path(board.id) %></h2>
+      <time class="block py-3" >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
+      <time >截止時間：</time>
+    </div>
+    <div class="py-3">
+      <button>
+        <%= turbo_frame_tag(board.id) do %>
+          <%= link_to '編輯', edit_board_path(board.id), class: 'px-5 py-2 bg-Azure-blue-2 text-white rounded-lg hover:bg-Azure-blue-1' %>
+        <% end %>
+      </button>
+      <button>
+        <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'px-5 py-2 bg-orange-2 text-white rounded-lg hover:bg-orange-500' %>
+      </button>
     </div>
   </div>
 </div>
