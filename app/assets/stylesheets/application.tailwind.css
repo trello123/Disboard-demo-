@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-px-5 py-2 bg-Azure-blue-2 text-white rounded-lg hover:bg-Azure-blue-1
-px-5 py-2 bg-orange-2 text-white rounded-lg hover:bg-orange-500
 [type=text]:focus, 
 [type=search]:focus,
 [type=email]:focus, 
@@ -289,6 +287,15 @@ select:focus{
     right: -100%;
     width: 80px;
     font-size: 15px;
+  }
+  .navbar-in{
+    transform: translateX(-100%);
+    transition: all .3s ease;
+  }
+
+  .navbar-out{
+    transform: translateX(0%);
+    transition: all .3s ease;
   }
 }
 

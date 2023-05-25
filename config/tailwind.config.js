@@ -20,7 +20,7 @@ module.exports = {
         sideout: {
           '100%': { transform: 'translateX(100%)',  opacity:'0.3' },
           '0%': { transform: 'translateX(0%)'  },
-        }
+        },
       },
       animation: {
         sidein: 'sidein .6s ease-in-out',
