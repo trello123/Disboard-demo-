@@ -16,10 +16,10 @@
     </div>
     <div class="py-3">
       <button>
-          <%= link_to '編輯', edit_board_path(board.id), data: {turbo_frame: "board_edit"}, class: 'btn-primary px-3 py-1 rounded-md' %>
+          <%= link_to '編輯', edit_board_path(board.id), data: {turbo_frame: "board_edit"}, class: 'px-5 py-2 bg-Azure-blue-2 text-white rounded-lg hover:bg-Azure-blue-1' %>
       </button>
       <button>
-        <%= link_to '刪除', board_path(board.id), method: 'delete', data: {confirm: '確定要刪除嗎?' }, class: 'px-5 py-2 bg-orange-2 text-white rounded-lg hover:bg-orange-500' %>
+        <%= link_to '離開', board_path(board.id), method: 'delete', data: {confirm: '確定要離開嗎?' }, class: 'px-5 py-2 bg-orange-2 text-white rounded-lg hover:bg-orange-500' %>
       </button>
     </div>
   </div>

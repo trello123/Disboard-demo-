@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
-  <div class="relative bg-Azure-blue-2" data-controller="navbar">  
-    <div class="z-10 hidden w-20 m-0 overflow-x-hidden overflow-y-auto text-white shadow-lg lg:flex lg:flex-col lg:h-screen bg-Azure-blue-2" data-navbar-target="menu">
+  <div class="relative h-screen bg-Azure-blue-2" data-controller="navbar">  
+    <div class="z-10 hidden w-20 h-screen m-0 overflow-x-hidden overflow-y-scroll text-white shadow-lg lg:flex lg:flex-col lg:h-screen bg-Azure-blue-2" data-navbar-target="menu">
       <div class="relative pb-3 underscore user">
         <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
@@ -39,7 +39,7 @@
           </div>
         <% end %>
       <% end %>
-      <%= turbo_frame_tag :board_new do %>
+      <%= turbo_frame_tag :board_new  do %>
         <%= link_to new_board_path, class: 'sidebar-icon py-5 static addboard' do %>
           <div class="static sidebar-icon touch-icon group" data-controller="menu" data-action="mouseover->menu#showTip">  
             <i class="fa-solid fa-plus"></i>
