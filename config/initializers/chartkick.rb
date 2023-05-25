@@ -1,6 +1,5 @@
 Chartkick.options = {
-  width: "500px",
-  height: "300px",
+  height: "270px",
   empty: "沒有資料",
   adapter: "highcharts",
   library: {
