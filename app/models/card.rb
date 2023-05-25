@@ -51,7 +51,7 @@ class Card < ApplicationRecord
     end
 
     def calendar
-      where.not(daybegin: nil)
+      select(:id, :title, :daybegin, :deadline, :level).where.not(daybegin: nil)
     end
   end
 end
