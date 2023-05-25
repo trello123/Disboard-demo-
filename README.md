@@ -3,8 +3,7 @@
 網站: https://www.disboard.online/
 <img width="960" alt="disboard" src="https://i.imgur.com/OllZTBh.png">
 
-當你覺得事情好多好雜，私人通訊軟體不時跳出公事訊息，或總是忘記事情優先順序時，
-交給 Disboard 幫你處理就對了！
+當你覺得事情好多好雜，私人通訊軟體不時跳出公事訊息，或總是忘記事情優先順序時，交給 Disboard 幫你處理就對了！<br>
 讓項目管理，變得更簡單；讓團隊協作，無往而不利。
 
 ## Disboard 是向專案管理網站 Trello 跟通訊軟體 Discord 致敬的專案管理網站。
@@ -68,29 +67,29 @@
 ### 林品翰
 
 - 聯絡方式：
-  - GitHub：https://github.com/eric0047
-  - Email：eric00471@gmail.com
+  - [GitHub](https://github.com/eric0047)
+  - [Email](eric00471@gmail.com)
 
 ### 黃聖洋
 
 - 聯絡方式：
-  - GitHub：https://github.com/karokwbh
-  - Email：karokwbh2000@gmail.com
+  - [GitHub](https://github.com/karokwbh)
+  - [Email](karokwbh2000@gmail.com)
 
 ### 徐漢勝
 
 - 聯絡方式：
-  - GitHub：https://github.com/gh20000528
-  - Email：gh890528@gmail.com
+  - [GitHub](https://github.com/gh20000528)
+  - [Email](gh890528@gmail.com)
 
 ### 陳威廷
 
 - 聯絡方式：
-  - GitHub：https://github.com/Eazychen
-  - Email： easy_chen@icloud.com
+  - [GitHub](https://github.com/Eazychen)
+  - [Email](easy_chen@icloud.com)
 
 ### 施怡如
 
 - 聯絡方式：
-  - GitHub：https://github.com/sdaru18
-  - Email：sdaru18@gmail.com
+  - [GitHub](https://github.com/sdaru18)
+  - [Email](sdaru18@gmail.com)
