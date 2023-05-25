@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
     if ( current_user.boards.empty? )
       @sample_board = current_user.boards.create(name: '專案範例')
       current_user.board_users.find_by!(board_id: @sample_board.id).update(role: '成員')
-      3.times do
-        @sample_board.containers.create(title: "狀態範例")
+      3.times do |i|
+        i = i + 1
+        @sample_board.containers.create(title: "狀態範例#{i}")
       end
       @sample_board.create_room
       board_path(@sample_board.id)  
