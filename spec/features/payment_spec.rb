@@ -17,6 +17,7 @@ RSpec.feature "Payments", type: :feature, js: true do
       visit payments_path
       expect(page).to have_content('尊榮會員')
       click_on '立刻升級'
+      expect(page).to have_content('藍新金流')
     end
   end
 end
