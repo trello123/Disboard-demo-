@@ -31,11 +31,11 @@
           </div>
           <div class="p-2">
             <%= f.label :daybegin, '開始日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
+            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select', data: { newcard_target: 'daybegin', action:'input->newcard#input' } %>
           </div>
           <div class="p-2">
             <%= f.label :deadline, '結束日期:', class: "font-bold pr-4" %>
-            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
+            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select', data: { newcard_target: 'deadline', action:'input->newcard#input' } %>
           </div>
         </div>
       </div>

@@ -19,7 +19,6 @@ class CardsController < ApplicationController
       SendMessageJob.perform_later(@card.message)
       redirect_to board_path(@board.id)
     else
-      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,7 +35,6 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to @card.board
     else
-      render :edit, status: :unprocessable_entity
     end
   end
 

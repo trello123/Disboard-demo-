@@ -10,7 +10,7 @@
   </div>
   <div class="px-4 py-3 w-72">
     <div>
-      <h2 class="font-bold "><%= link_to board.name, board_path(board.id) %></h2>
+      <h2 class="font-bold w-[200px] truncate"><%= link_to board.name, board_path(board.id) %></h2>
       <time class="block py-3" >建立時間：<%= format_timestamps(board.created_at, :date) %></time> 
       <time >截止時間：</time>
     </div>

@@ -4,7 +4,7 @@
     data-modal-target="cardEdit">
   <button data-action="click->modal#closeCard" class="absolute top-5 left-5"><i class="fa-solid fa-xmark"></i></button>
   <span class="text-2xl font-bold ">更新任務</span>
-  <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr" }, class:"py-6") do |f| %>
+  <%=  form_with(model: @card, url: container_card_path, data: { turbo: false, controller: "flatpickr newcard" }, class:"py-6") do |f| %>
     <div class="p-5 bg-white rounded-md drop-shadow-2xl">
       <div class="text-2xl text-right">
       <%= link_to container_card_path(@container.id, @card.id), method: 'delete', data: { confirm: '確定要刪除嗎?' } do %>
@@ -13,7 +13,7 @@
       </div>
       <div class="my-3 text-center">
         <%= f.label :title, '任務名稱', class: "pr-4 font-bold" %>
-        <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入標題名稱' %>
+        <%= f.text_field :title, class: 'box-input w-1/2', placeholder: '請輸入任務名稱', data:{modal_target:'title', newcard_target: 'name', action:'input->newcard#input'} %>
         <div class="w-full p-2 text-left rounded-lg">
             <%= f.rich_text_area :intro , class: 'w-full bg-white'%>
         </div>
@@ -39,16 +39,16 @@
           </div>
           <div class="my-2 overflow-hidden">
             <%= f.label :daybegin, '開始日期', class: "pr-5 block font-bold" %>
-            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select' %>
+            <%= f.datetime_field :daybegin, class: 'daybegin rounded-xl appearance-none daisy-select', data: { newcard_target: 'daybegin', action:'input->newcard#input' } %>
           </div>
           <div class="my-2 overflow-hidden">
             <%= f.label :deadline, '結束日期', class: "pr-5 block font-bold" %>
-            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select' %>
+            <%= f.datetime_field :deadline, class: 'deadline rounded-xl appearance-none daisy-select', data: { newcard_target: 'deadline', action:'input->newcard#input' } %>
           </div>
         </div>
       </div>
       <div class="relative flex items-center justify-center gap-12 py-3">
-        <div><%= f.submit '更新', class: 'bg-Azure-blue-1 text-white rounded-xl relative active:-bottom-[2px] hover:bottom-[1px] py-2 px-20 cursor-pointer' %></div>
+        <div><%= f.submit '更新', class: 'card-btn', data: {newcard_target: 'button'}  %></div>
       </div>
     </div>
   <% end %>
