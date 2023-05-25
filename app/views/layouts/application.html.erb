@@ -16,11 +16,11 @@
     <div class="relative flex h-screen overflow-hidden" >
       <%= render 'shared/sidebar', boards: @boards, board: @board %>
       <% if  user_signed_in? == false && (controller_name == 'sessions' || controller_name == 'registrations')%>
-        <main class="flex flex-col w-full h-screen lg:h-screen bg-Azure-blue-1">  
+        <main class="flex flex-col h-screen lg:h-screen bg-Azure-blue-1">  
           <%= yield %>
         </main>
       <% else %>
-        <main class="flex flex-col w-full h-screen lg:h-screen bg-Azure-blue-1" data-controller="intro">  
+        <main class="flex flex-col w-full h-screen overflow-x-auto lg:h-screen bg-Azure-blue-1" data-controller="intro">  
           <%= render 'shared/insidebar', container: @containers, board: @board %>
           <%= yield %>
         </main>
