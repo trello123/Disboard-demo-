@@ -8,13 +8,13 @@ class InvitationsController < ApplicationController
   def update
     current_user.board_users.find_by!(board_id: params[:id]).update(role: '成員')
 
-    redirect_to invitations_path
+    redirect_to invitations_path, notice: "成功加入專案"
   end
 
   def destroy
     board_user = current_user.board_users.find_by!(board_id: params[:id])
     board_user.destroy
 
-    redirect_to invitations_path
+    redirect_to invitations_path, notice: "取消加入專案"
   end
 end

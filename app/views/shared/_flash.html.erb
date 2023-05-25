@@ -1,0 +1,10 @@
+<% [:notice, :alert].each do |t| %>
+  <% if flash[t] %>
+    <%= tag.div data: {
+                  controller: 'flash',
+                  message: flash[t],
+                  type: t
+                } do %>
+    <% end %>
+  <% end %>
+<% end %>

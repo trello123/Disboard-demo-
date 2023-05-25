@@ -13,6 +13,7 @@
   </head>
 
   <body class="relative w-full bg-white" >
+    <%= render 'shared/flash' if flash.any? %>
     <%= render 'shared/navbar'%>  
     <main class="container px-4 pt-20 pb-10 mx-auto">
       <%= yield %>
