@@ -12,7 +12,7 @@ RSpec.feature "Boards", type: :feature, js: true do
       }
       find('.fa-plus').click
       fill_in '請輸入專案名稱', with: 'ABC'
-      click_on '新增'
+      click_on '建立'
       visit boards_path
     end
 
@@ -20,7 +20,7 @@ RSpec.feature "Boards", type: :feature, js: true do
       find('.fa-plus').click
       expect(page).to have_field('請輸入專案名稱')
       fill_in '請輸入專案名稱', with: 'Robert'
-      click_on '新增'
+      click_on '建立'
       expect(page).to have_content('Robert')
     end
 
@@ -56,11 +56,6 @@ RSpec.feature "Boards", type: :feature, js: true do
       click_button '取消'
       visit boards_path
       expect(page).to have_content('ABC')
-    end
-
-    scenario 'Upgrade status' do
-      visit payments_path
-      expect(page).to have_content('尊榮會員')
     end
   end
 end

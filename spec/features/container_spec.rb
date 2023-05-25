@@ -12,7 +12,7 @@ RSpec.feature "Containers", type: :feature, js: true do
       }
       find('.fa-plus').click
       fill_in '請輸入專案名稱', with: 'ABC'
-      click_on '新增'
+      click_on '建立'
       click_on 'ABC'
     end
 
