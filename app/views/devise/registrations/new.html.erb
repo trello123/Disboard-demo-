@@ -1,4 +1,4 @@
-<section class=" relative w-[500px] m-auto bg-white-3 rounded-lg shadow-2xl logn z-50">
+<section class="relative w-[300px] lg:w-[500px] m-auto bg-white-3 rounded-lg shadow-2xl logn z-50">
   <%= link_to root_path do%>
     <%= image_tag "logo.png", class:"w-3/5 m-auto pt-10 pb-5" %>
   <% end %>
@@ -17,15 +17,15 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input input-bordered" %>
         </label>
       </div>
-      <div class="p-3 form-control">
+      <div class="py-3 form-control">
         <label class="border-2 input-group rounded-xl ">
           <span><%= f.label :password ,'密碼'%></span>
           <%= f.password_field :password, autocomplete: "current-password" , class:"input input-bordered"%>
         </label>
       </div>
-      <div class="pt-3 form-control">
+      <div class="py-3 lg:-ml-8 form-control">
         <label class="border-2 input-group rounded-xl">
-          <span><%= f.label :password_confirmation , '確認密碼' %></span>
+          <span class="w-[64px] lg:w-auto"><%= f.label :password_confirmation , '確認密碼' %></span>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input input-bordered" %>
         </label>
       </div>
