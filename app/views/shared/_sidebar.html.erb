@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="absolute z-50 h-screen bg-Azure-blue-2 navbar-in lg:translate-x-0 lg:relative" data-controller="navbar">  
-    <div class="z-10 invisible w-20 h-screen m-0 overflow-x-hidden overflow-y-scroll text-white shadow-lg lg:flex lg:flex-col lg:h-screen bg-Azure-blue-2" data-navbar-target="menu">
+    <div class="z-10 w-20 h-screen m-0 overflow-x-hidden overflow-y-scroll text-white shadow-lg lg:flex lg:flex-col lg:h-screen bg-Azure-blue-2" data-navbar-target="menu">
       <div class="relative pb-3 underscore user">
         <%if board.nil? %>
           <%= link_to boards_path, class:"sidebar-icon linkto-icon" do %>
