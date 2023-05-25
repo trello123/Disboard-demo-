@@ -19,9 +19,9 @@ class PaymentsController < ApplicationController
       if @price == 49
         User.find(@member_id).update(status: "Premium")
       end
-      redirect_to boards_path, notice: "付款成功"
+      redirect_to boards_path
     else
-      redirect_to payments_path, alert: "付款失敗"
+      redirect_to payments_path
     end
   end
 end
