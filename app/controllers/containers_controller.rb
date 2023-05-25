@@ -14,7 +14,7 @@ class ContainersController < ApplicationController
   def create
     @container = @board.containers.new(container_params)
     if @container.save
-      redirect_to @board
+      redirect_to @board, notice: "新增狀態成功"
     else
       render :record_not_found
     end
@@ -32,7 +32,7 @@ class ContainersController < ApplicationController
   def update
     authorize @container.board
     if @container.update(container_params)
-      redirect_to @container.board
+      redirect_to @container.board, notice: "更新狀態成功"
     else
       render :record_not_found
     end

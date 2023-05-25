@@ -16,6 +16,9 @@ application.register("card-form", CardFormController)
 import ChatsubmitController from "./chatsubmit_controller"
 application.register("chatsubmit", ChatsubmitController)
 
+import FlashController from "./flash_controller"
+application.register("flash", FlashController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 

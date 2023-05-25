@@ -21,7 +21,7 @@ class BoardsController < ApplicationController
       @board.containers.create(title: '已完成')
       @board.create_room(name: 'room')
 
-      redirect_to board_path(@board.id) 
+      redirect_to board_path(@board.id), notice: "新增專案成功"
     else
       render :record_not_found
     end
@@ -41,7 +41,7 @@ class BoardsController < ApplicationController
   def update
     authorize @board
     if @board.update(board_params)
-      redirect_to boards_path
+      redirect_to boards_path, notice: "更新專案成功"
     else
       render :record_not_found
     end
@@ -52,7 +52,7 @@ class BoardsController < ApplicationController
 
     board_user = current_user.board_users.find_by!(board_id: @board.id)
     board_user.destroy
-    redirect_to boards_path 
+    redirect_to boards_path, notice: "刪除專案成功"
   end
 
   def chart

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to board_path(@comment.card.board.id)
+      redirect_to board_path(@comment.card.board.id), notice: "新增評論成功"
     else
       render :new
     end
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to board_path(@comment.card.board.id)
+      redirect_to board_path(@comment.card.board.id), notice: "更新評論成功"
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to board_path(@comment.card.board.id)
+    redirect_to board_path(@comment.card.board.id), notice: "刪除評論成功"
   end
 
   private

@@ -19,7 +19,7 @@ class MembersController < ApplicationController
       @user.boards << @board
     end
 
-    redirect_to board_members_path
+    redirect_to board_members_path, notice: "邀請成功"
   end
 
   private

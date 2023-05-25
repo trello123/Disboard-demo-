@@ -17,7 +17,7 @@ class CardsController < ApplicationController
     if @card.save
       @card.create_message(content: @card.title, room_id: @board.room.id , user_id: current_user.id)
       SendMessageJob.perform_later(@card.message)
-      redirect_to board_path(@board.id)
+      redirect_to board_path(@board.id), notice: "新增任務成功"
     else
     end
   end
@@ -33,14 +33,14 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to @card.board
+      redirect_to @card.board, notice: "更新任務成功"
     else
     end
   end
 
   def destroy
     @card.destroy
-    redirect_to @card.board
+    redirect_to @card.board, notice: "刪除任務成功"
   end
 
   private
