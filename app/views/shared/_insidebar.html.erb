@@ -21,7 +21,7 @@
       <span class="block w-8 h-0.5 bg-white"></span>
       <span class="block w-8 h-0.5 bg-white"></span>
     </div>
-    <ul class="absolute flex-col right-2 top-20 items-center hidden rounded-lg bg-Azure-blue-2 lg:-ml-12 xl:pr-[90px] lg:menurwd" data-navbar-target="submenu">
+    <ul class="absolute z-[2] flex-col right-2 top-20 items-center hidden rounded-lg bg-Azure-blue-2 lg:-ml-12 xl:pr-[90px] lg:menurwd" data-navbar-target="submenu">
       <% if board&.id.present? %>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '任務', board_path(board.id),id:'keysix', class:'insidebar' %></li>
         <li class="py-2 border-b-2 border-white lg:border-none lg:py-0"><%= link_to '日曆', board_calendars_path(board.id), id:'keythree', class:'insidebar' %></li>

@@ -1,6 +1,6 @@
 <%= turbo_frame_tag :member_search do %>
   <%= render "search", q: @q %>
-  <div class="absolute overflow-x-auto overflow-y-scroll max-h-80 w-[300px] md:w-[400px]">
+  <div class="absolute z-[1] overflow-x-auto overflow-y-scroll max-h-80 w-[300px] md:w-[400px]">
     <% if @users && @users.length > 0 %>
       <table class="table">
         <thead>
