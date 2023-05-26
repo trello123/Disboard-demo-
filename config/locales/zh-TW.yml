@@ -103,6 +103,7 @@ zh-TW:
         we_need_your_current_password_to_confirm_your_changes: 我們需要您的目前的密碼以確認您的更改
       user:
         signed_up: 註冊成功，歡迎！
+        updated: 更新個人資訊成功
       new:
         sign_up: 註冊
         signed_up: 註冊成功，歡迎！
