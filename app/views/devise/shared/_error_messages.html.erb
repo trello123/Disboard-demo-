@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false">
+  <div id="error_explanation" data-turbo-cache="false" class="text-center  text-orange-2">
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
