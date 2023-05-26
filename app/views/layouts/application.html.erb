@@ -13,6 +13,7 @@
     <%= favicon_link_tag 'icon.png' %>
   </head>
   <body class="lg:overflow-hidden" data-controller='hotkey'>
+    <%= render 'shared/flash' if flash.any? %>
     <div class="relative flex h-screen overflow-hidden" >
       <%= render 'shared/sidebar', boards: @boards, board: @board %>
       <% if  user_signed_in? == false && (controller_name == 'sessions' || controller_name == 'registrations')%>
