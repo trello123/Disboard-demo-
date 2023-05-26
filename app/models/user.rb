@@ -18,6 +18,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2, :github]
+  
+         
+  validates :username, presence: true
+  validates :email,
+           presence: true,
+           uniqueness: true,
+           format: {
+             with: /\A[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\z/,
+           }
 
   # relationships
   has_many :board_users, dependent: :destroy
