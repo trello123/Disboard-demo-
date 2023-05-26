@@ -1,12 +1,12 @@
 <%= turbo_frame_tag :member_search do %>
   <%= render "search", q: @q %>
-  <div class="absolute overflow-x-auto overflow-y-scroll max-h-80 w-[400px]">
+  <div class="absolute overflow-x-auto overflow-y-scroll max-h-80 w-[300px] md:w-[400px]">
     <% if @users && @users.length > 0 %>
-      <table class="table w-full">
+      <table class="table">
         <thead>
           <tr>
-            <th class="text-lg bg-gray-300 rounded-none">email</th>
-            <th class="text-lg bg-gray-300 rounded-none">邀請</th>
+            <td class="text-lg bg-gray-300 rounded-none">email</td>
+            <td class="text-lg bg-gray-300 rounded-none">邀請</td>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                     </div>
                   </div>
                   <div>
-                    <div class="font-bold">
+                    <div class="font-bold truncate w-[140px] md:w-[240px]">
                       <%= user.email %>
                     </div>
                     <div class="text-sm opacity-50">
