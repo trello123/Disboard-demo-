@@ -1,6 +1,9 @@
 # Disboard
 
 網站: https://www.disboard.online/
+
+## 目前線上版已廢除，僅能以本地端使用 bin/dev 指令開啟，並輸入網址 localhost:3000
+
 <img width="960" alt="disboard" src="https://i.imgur.com/OllZTBh.png">
 
 當你覺得事情好多好雜，私人通訊軟體不時跳出公事訊息，或總是忘記事情優先順序時，交給 Disboard 幫你處理就對了！<br>
