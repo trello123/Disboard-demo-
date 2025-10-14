@@ -2,7 +2,7 @@
 
 網站: https://www.disboard.online/
 
-## 目前線上版已廢除，僅能以本地端使用 bin/dev 指令開啟，並輸入網址 localhost:3000
+## 目前線上版已廢除，僅能以本地端使用 1.yarn install 2.bin/dev 指令開啟 3.並輸入網址 localhost:3000
 
 <img width="960" alt="disboard" src="https://i.imgur.com/OllZTBh.png">
 
